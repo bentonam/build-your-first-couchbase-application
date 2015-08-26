@@ -68,12 +68,10 @@ component output="false"{
 		doc['availability_date'] = generateAvailabilityDate();
 		doc['price'] = generatePrice();
 		doc['sale_price'] = generateSalePrice(doc.price);
-		doc['sale_start_date'] = generateSaleStartDate(doc.availability_date);
-		doc['sale_end_date'] = generateSaleEndDate(doc.sale_start_date);
 		doc['image'] = generateImage();
 		doc['alternate_images'] = generateAlternateImages();
 		doc['related'] = generateRelated();
-		doc['created_on'] = generateDate();
+		doc['created_on'] = generateDate(end_date=doc.availability_date);
 		doc['active'] = generateActive();
 		return doc;
 	}
@@ -147,26 +145,14 @@ component output="false"{
 	* Generates a price
 	*/
 	private numeric function generatePrice(){
-		return randRange(9, 999) & "." & randRange(0, 9) & randRange(0, 9);
+		return (randRange(9, 999) & "." & randRange(0, 9) & randRange(0, 9)) + 0;
 	}
 	/*
 	* Generates a sale price
 	*/
 	private numeric function generateSalePrice(required numeric price){
-		return generateBoolean(15) ? randRange(1, arguments.price - 1) & "." & randRange(0, 9) & randRange(0, 9) : 0;
+		return generateBoolean(15) ? (randRange(1, arguments.price - 1) & "." & randRange(0, 9) & randRange(0, 9)) + 0 : 0;
 
-	}
-	/*
-	* Generates a sale start date
-	*/
-	private numeric function generateSaleStartDate(required numeric after){
-		return generateDate();
-	}
-	/*
-	* Generates a sale end date
-	*/
-	private numeric function generateSaleEndDate(required numeric after){
-		return generateDate();
 	}
 	/*
 	* Generates a product image
@@ -222,22 +208,16 @@ component output="false"{
 	/*
 	* Generates a random epoch date date
 	*/
-	private numeric function generateDate(){
-		try{
-			var date = createDateTime(
-			randRange(2012, 2015), // year
-			randRange(1, 12), // month
-			randRange(1, 25), // day
-			randRange(0, 23), // hour
-			randRange(0, 59), // minute
-			randRange(0, 59) // second
-			);
-			var epoch = date.getTime();
-		}
-		catch(any e){
-			epoch = 0;
-		}
-		return epoch;
+	private numeric function generateDate(required date start_date="1/1/2014", required date end_date="1/1/2017"){
+		var date = var generated = dateTimeFormat(arguments.start_date + createTimeSpan(0, 0, 0, randRange(0, dateDiff("s", arguments.start_date, arguments.end_date))), "mm/dd/yyyy HH:mm:ss");
+		return createDateTime(
+				year(generated), // year
+				month(generated), // month
+				day(generated), // day
+				hour(generated), // hour
+				minute(generated), // minute
+				second(generated) // second
+			).getTime();
 	}
 	/*
 	* Builds Product Reviews
@@ -258,7 +238,7 @@ component output="false"{
 			doc['reviewer_email'] = generateEmail(doc.reviewer_name);
 			doc['rating'] = generateRating();
 			doc['review'] = generateLongDescription();
-			doc['review_date'] = generateDate();
+			doc['review_date'] = generateDate(end_date=now());
 			// write the review document
 			cb.set(arguments.product_id & "_review_" & review_id, doc);
 		}
