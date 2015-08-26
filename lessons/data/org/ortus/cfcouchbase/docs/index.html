@@ -1,0 +1,811 @@
+<!DOCTYPE html><html lang="en"><head>	<meta charset="utf-8">	<title>CFCouchbase SDK - Documentation</title>	<meta http-equiv="X-UA-Compatible" content="IE=edge"> <meta name="viewport" content="width=device-width, initial-scale=1">	<meta name="description" content="CFCouchbase SDK Documentation for running with Couchbase NoSQL Server"> <meta name="author" content="Ortus Solutions, Corp"> <meta name="keywords" content="couchbase,nosql,coldfusion,cfml,coldfusion nosql,cfml nosql,nosql databases,couchdb,membase,memcached for coldfusion.">	<link rel="shortcut icon" href="favicon.ico">	<link href='https://fonts.googleapis.com/css?family=Ubuntu:400,300,300italic,400italic,700,700italic|Ubuntu+Mono' rel='stylesheet' type='text/css' />	<link href="includes/styles/bootstrap.min.css" rel="stylesheet">	<link href="includes/styles/custom.css" rel="stylesheet">	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries --> <!-- WARNING: Respond.js doesn't work if you view the page via file:// --> <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->	<script src="includes/javascript/jquery.js"></script>	<script src="includes/javascript/bootstrap.min.js"></script>	<script>	$(document).ready(function() {	$( '[title]' ).tooltip( { animation: 'slide', delay: { show: 250, hide: 250 } } );	$("table.toc").wrap( '<div class="toc-container" />');	$("table.toc h2").html( "Table of Contents" );	});	</script></head><body data-spy="scroll">	<nav id="main-navbar" class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">	<div class="container-fluid">	<div class="navbar-header">	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar-collapse">	<span class="sr-only">Toggle navigation</span>	<span class="icon-bar"></span>	<span class="icon-bar"></span>	<span class="icon-bar"></span>	</button>	<a class="navbar-brand" href="./"><strong>CFCouchbase Docs</strong></a>	</div>	<div class="collapse navbar-collapse" id="main-navbar-collapse">	<ul class="nav navbar-nav">	<li><a href="//www.ortussolutions.com/products/cfcouchbase" title="CFCouchbase SDK Product Home"><i class="glyphicon glyphicon-home"></i> Home</a></li>	<li><a href="https://github.com/Ortus-Solutions/cfcouchbase-sdk" title="Github Source Repository" target="_blank"><i class="glyphicon glyphicon-cloud"></i> Source</a></li>	<li><a href="http://apidocs.ortussolutions.com/CFCouchbase_APIDocs_1.1.0/index.html?cfcouchbase/CouchbaseClient.html" title="SDK API Docs" target="_blank"><i class="glyphicon glyphicon-hdd"></i> API</a></li>	<li><a href="//www.couchbase.com" target="_blank" title="Couchbase NoSQL Server"><i class="glyphicon glyphicon-hdd"></i> Couchbase</a></li>	<li class="dropdown">	<a href="#" class="dropdown-toggle" data-toggle="dropdown">	<i class="glyphicon glyphicon-heart"></i> Social <i class="caret"></i>	</a>	<ul class="dropdown-menu">	<li><a href="//www.youtube.com/user/CouchbaseVideo">YouTube</a></li>	<li><a href="//www.facebook.com/ortussolutions">FaceBook</a></li>	<li><a href="//plus.google.com/+OrtusSolutions">Google+</a></li>	<li><a href="//www.twitter.com/ortussolutions">Twitter</a></li>	</ul>	</li>	</ul>	<ul class="nav navbar-nav navbar-right">	<li class="dropdown">	<a href="#" class="dropdown-toggle" data-toggle="dropdown">	<i class="glyphicon glyphicon-info-sign"></i> About <i class="caret"></i>	</a>	<ul id="actions-submenu" class="dropdown-menu">	<li><a href="//groups.google.com/a/ortussolutions.com/forum/#!forum/cfcouchbase"><i class="glyphicon glyphicon-question-sign"></i> Help</a></li>	<li><a href="mailto:help@ortussolutions.com?subject=CFCouchbase Bug Report"><i class="glyphicon glyphicon-fire"></i> Report a Bug</a></li>	<li><a href="mailto:help@ortussolutions.com?subject=CFCouchbase Feedback"><i class="glyphicon glyphicon-bullhorn"></i> Send Us Feedback</a></li>	<li><a href="http://www.ortussolutions.com/services/support"><i class="glyphicon glyphicon-thumbs-up"></i> Professional Support</a></li>	</ul>	</li>	</ul>	</div>	</div> </nav> <div class="container-fluid" id="main-container">
+<div class="jumbotron text-center" id="header">
+<img class="margin10 img-circle" src="includes/images/couchbase_logo.jpg" alt="logo" height="150" title="Powered by Couchbase Server"/>
+<h1>CFCouchbase SDK</h1>
+<p><a class="btn btn-warning btn-lg" role="button"><i class="glyphicon glyphicon-book"></i> Version 1.1.0</a></p>
+</div>
+<div class="row">
+<p />
+<div class="header">
+</div><table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#CFCouchbase_SDK">CFCouchbase SDK</a>
+</li>
+<ul>
+<li class="toclevel-2"><a href="#Requirements">Requirements</a>
+</li>
+<ul>
+<li class="toclevel-3"><a href="#Couchbase_SDK_Version">Couchbase SDK Version</a>
+</li>
+</ul>
+<li class="toclevel-2"><a href="#Features_In_A_Nutshell">Features In A Nutshell</a>
+</li>
+<li class="toclevel-2"><a href="#Installation">Installation</a>
+</li>
+<li class="toclevel-2"><a href="#Configuration">Configuration</a>
+</li>
+<ul>
+<li class="toclevel-3"><a href="#Common_Config_Settings">Common Config Settings</a>
+</li>
+<li class="toclevel-3"><a href="#Config_Struct">Config Struct</a>
+</li>
+<li class="toclevel-3"><a href="#Config_CFC">Config CFC</a>
+</li>
+</ul>
+<li class="toclevel-2"><a href="#Usage">Usage</a>
+</li>
+<ul>
+<li class="toclevel-3"><a href="#Storing_Documents">Storing Documents</a>
+</li>
+<li class="toclevel-3"><a href="#Storage_Durability">Storage Durability</a>
+</li>
+<li class="toclevel-3"><a href="#Retrieving_Documents">Retrieving Documents</a>
+</li>
+<li class="toclevel-3"><a href="#Data_Serialization">Data Serialization</a>
+</li>
+<ul>
+<li class="toclevel-4"><a href="#Simple_Values">Simple Values</a>
+</li>
+<li class="toclevel-4"><a href="#Complex_Data">Complex Data</a>
+</li>
+<li class="toclevel-4"><a href="#Components_(CFCs)">Components (CFCs)</a>
+</li>
+<ul>
+<li class="toclevel-5"><a href="#Auto_Inflation">Auto Inflation</a>
+</li>
+<li class="toclevel-5"><a href="#Manual_Inflation">Manual Inflation</a>
+</li>
+<li class="toclevel-5"><a href="#Custom">Custom</a>
+</li>
+<li class="toclevel-5"><a href="#Binary">Binary</a>
+</li>
+</ul>
+<li class="toclevel-4"><a href="#Custom_Transformers">Custom Transformers</a>
+</li>
+</ul>
+<li class="toclevel-3"><a href="#Executing_Queries">Executing Queries</a>
+</li>
+<ul>
+<li class="toclevel-4"><a href="#Results">Results</a>
+</li>
+<li class="toclevel-4"><a href="#Query_Options">Query Options</a>
+</li>
+<li class="toclevel-4"><a href="#Filter_Closure">Filter Closure</a>
+</li>
+<li class="toclevel-4"><a href="#Transform_Closure">Transform Closure</a>
+</li>
+<li class="toclevel-4"><a href="#Return_Type">Return Type</a>
+</li>
+</ul>
+<li class="toclevel-3"><a href="#Managing_Views">Managing Views</a>
+</li>
+<li class="toclevel-3"><a href="#Working_with_Futures">Working with Futures</a>
+</li>
+</ul>
+<li class="toclevel-2"><a href="#Help_%26_Support">Help & Support</a>
+</li>
+</ul>
+</ul></td></tr></table>
+<a id="CFCouchbase_SDK" name="CFCouchbase_SDK"></a><h1>CFCouchbase SDK</h1>
+<p />
+<p>CFCouchbase is a client library designed to make it easy for applications written in CFML (ColdFusion) to integrate with <a class="externallink" href="http://www.couchbase.com" rel="nofollow" title="http://www.couchbase.com">Couchbase Server</a> for NoSQL and caching purposes. Here is a quick sample showing how easy it is to work with the Couchbase SDK.</p>
+<p /><pre class="code">
+<font color="#3F7F5F">// Create the client
+</font>cbClient = <b><font color="#7F0055">new</font></b> cfcouchbase.CouchbaseClient();
+
+<font color="#3F7F5F">// Create a document in the cluster
+</font>cbClient.set( id=<font color="#2A00FF">&#39;brad&#39;</font>, value={ name: <font color="#2A00FF">&#39;Brad&#39;</font>, age: 33, hair: <font color="#2A00FF">&#39;red&#39;</font> } );
+
+<font color="#3F7F5F">// Retrieve that doc
+</font>person = cbClient.get( id=<font color="#2A00FF">&#39;brad&#39;</font> );
+
+<font color="#3F7F5F">// Use the document
+</font>writeOutput( <font color="#2A00FF">&#39;#person.name# is #person.age# years old and has #person.hair# hair.&#39;</font> );
+	
+<font color="#3F7F5F">// Shutdown the client
+</font>cbClient.shutdown();
+</pre>
+<p />
+<div class="alert alert-info">
+<p><strong>Note:</strong>
+In our docs for the SDK we do not review the intricacies of <a class="externallink" href="http://www.couchbase.com" rel="nofollow" title="http://www.couchbase.com">Couchbase Server</a>, for that please visit the official Couchbase server documentation site.
+</p></div>
+<p />
+<p>&#160;</p>
+<p /><blockquote>
+<p>Interactive applications have changed dramatically over the last 15 years, and so have the data management needs of those apps. Today, three interrelated megatrends - Big Data, Big Users, and Cloud Computing - are driving the adoption of NoSQL technology. NoSQL is increasingly considered a viable alternative to relational databases...
+<small><a class="externallink" href="http://www.couchbase.com" rel="nofollow" title="http://www.couchbase.com">Couchbase</a></small>
+</p></blockquote>
+<p />
+<p>&#160;</p>
+<p />
+<div class="well well-small text-center">
+<p>&#60;img src=&#34;includes/images/monitor_graph.png&#34; class=&#34;img-responsive img-thumbnail&#34;/&#62;
+</p>
+<p>The web console of a Couchbase cluster</p>
+<p /></div>
+<a id="Requirements" name="Requirements"></a><h2>Requirements</h2>
+<ul>
+<li>Couchbase Server 1.8+</li>
+<li>Adobe ColdFusion 9.01+</li>
+<li>Railo 3.1+</li></ul>
+<a id="Couchbase_SDK_Version" name="Couchbase_SDK_Version"></a><h3>Couchbase SDK Version</h3>
+<p>The Couchbase SDK Version used is <b>1.3.1</b></p>
+<a id="Features_In_A_Nutshell" name="Features_In_A_Nutshell"></a><h2>Features In A Nutshell</h2>
+<ul>
+<li>Lightweight, standalone library can be used with any CFML application or CFML framework</li>
+<li>High performance</li>
+<li>Asynchronous calls </li>
+<li>Auto-sharding of documents evenly across cluster</li>
+<li>24/7 uptime via on-the-fly node removal and rebalance operations </li>
+<li>Easily configurable</li>
+<li>Fully-featured API includes view management and execution</li>
+<li>Built on the official Java SDK, but customized to take advantage of CFML</li>
+<li>Optimistic concurrency control (Documents are not locked by default for maximum throughput)</li>
+<li>Conflict managment via Compare And Swap (CAS) mechanism</li>
+<li>Full cluster and document stats available</li>
+<li>Provides direct access to underlying Java SDK for advanced usage </li>
+<li>Ability to create as many Couchbase clients as necessary</li></ul>
+<a id="Installation" name="Installation"></a><h2>Installation</h2>
+<p>Download the SDK from our <a class="externallink" href="http://www.ortussolutions.com/products/cfcouchbase" rel="nofollow" title="http://www.ortussolutions.com/products/cfcouchbase">download page</a> or visit our latest concoctions in <a class="externallink" href="https://github.com/Ortus-Solutions/cfcouchbase-sdk" rel="nofollow" title="https://github.com/Ortus-Solutions/cfcouchbase-sdk">Github</a>, then unzip the file. </p>
+<ul>
+<li><b>/cfcouchbase</b> - This is the actual SDK code</li>
+<li><b>/documentation</b> - This is a standalone version of the documentation you are reading right now</li>
+<li><b>/apidocs</b> - The API docs that show you the FULL list of SDK methods and their arguments (even ones not covered here). There is also an <a class="externallink" href="http://apidocs.ortussolutions.com/CFCouchbase_APIDocs_1.1.0/index.html?cfcouchbase/CouchbaseClient.html" rel="nofollow" title="http://apidocs.ortussolutions.com/CFCouchbase_APIDocs_1.1.0/index.html?cfcouchbase/CouchbaseClient.html">Online Version</a> as well.</li>
+<li><b>/samples</b> - A collection of sample apps that use the &#34;beer-sample&#34; bucket. 
+<ul>
+<li><b>/beer-brewery-manager</b> - Showcases view creation, and basic CRUD operations utilizing native CF data structures</li>
+<li><b>/beer-brewery-manager-oo</b> - Same as above but with OO design patterns. Showcases Couchbase CFC inflation</li>
+<li><b>/beer-brewery-manager-mvc</b> - Same as above but as an MVC application. Requires a <span class="label label-default">/coldbox</span> mapping on your server.</li>
+<li><b>/coldbox-module-loader</b> - A sample ColdBox application that shows loading CFCouchbase via a module. Requires a <span class="label label-default">/coldbox</span> mapping. </li></ul></li></ul>
+<p />
+<p>&#160;</p>
+<p />
+<div class="alert alert-info">
+<p><b>Note</b> : The <a class="externallink" href="http://apidocs.ortussolutions.com/CFCouchbase_APIDocs_1.1.0/index.html?cfcouchbase/CouchbaseClient.html" rel="nofollow" title="http://apidocs.ortussolutions.com/CFCouchbase_APIDocs_1.1.0/index.html?cfcouchbase/CouchbaseClient.html">API Docs</a> also have descriptions and code samples for every method. They are a must read as well! 
+</p></div>
+<p>The CFCouchase SDK is contained in a single folder. The easiest way to install it is to copy <b>cfcouchbase</b> in the web root. For a more secure installation, place it outside the web root and create a mapping called <b>cfcouchbase</b>. </p>
+<p /><pre class="code">
+<b><font color="#7F0055">this</font></b>.mappings[ <font color="#2A00FF">&#39;/cfcouchbase&#39;</font> ] = <font color="#2A00FF">&#39;C:\path\to\cfcouchbase&#39;</font>;
+</pre>
+<p>Now that the code is in place, all you need to do is create an instance of <span class="label label-default">cfcouchbase.CouchbaseClient</span> for each bucket you want to connect to. 
+The CouchbaseClient class is thread safe and you only need one instance per bucket for your entire application. It is recommended that you store the instantiated client 
+in a persistent scope such as <b>application</b> when your app starts up so you can access it easily.</p>
+<p /><pre class="code">
+<b><font color="#7F0055">public</font></b> <b><font color="#7F0055">boolean</font></b> <b><font color="#7F0055">function</font></b> onApplicationStart(){
+	application.couchbase = <b><font color="#7F0055">new</font></b> cfcouchbase.CouchbaseClient();
+	<b><font color="#7F0055">return</font></b> <b><font color="#7F0055">true</font></b>;
+}
+</pre>
+<p>However, we would recommend you use a dependency injection framework like <a class="externallink" href="http://wiki.coldbox.org/wiki/WireBox.cfm" rel="nofollow" title="http://wiki.coldbox.org/wiki/WireBox.cfm">WireBox</a> to create and manage your Couchbase Client:</p>
+<p /><pre class="code">
+<font color="#3F7F5F">// Map our Couchbase Client via WireBox Binder
+</font>map( <font color="#2A00FF">&#34;CouchbaseClient&#34;</font> )
+	.to( <font color="#2A00FF">&#34;cfcouchbase.CouchbaseClient&#34;</font> )
+	.initArg( name=<font color="#2A00FF">&#34;config&#34;</font>, value={} )
+	.asSingleton();
+</pre>
+<p>When you are finished with the client, you need to call its <b>shutdown()</b> method to close open connections to the Couchbase server. The following code sample will wait up to 10 seconds for connections to be closed. </p>
+<p /><pre class="code">
+<b><font color="#7F0055">public</font></b> <b><font color="#7F0055">boolean</font></b> <b><font color="#7F0055">function</font></b> onApplicationEnd(){		
+	application.couchbase.shutdown( 10 );
+	<b><font color="#7F0055">return</font></b> <b><font color="#7F0055">true</font></b>;
+}
+</pre>
+<p />
+<div class="alert alert-danger">
+<p><strong>Important</strong>: Each Couchbase bucket operates independantly and uses its own authentication mechanisms. You need an instance of <b>CouchbaseClient</b> for each bucket you want to interact with. It is also extremely important that you shutdown the clients whenever your application goes down in order to gracefully shutdown connections, else your server might degrade.
+</p></div>
+<a id="Configuration" name="Configuration"></a><h2>Configuration</h2>
+<p>The default configuration for CFCouchbase is located in <span class="label label-primary">/cfcouchbase/config/CouchbaseConfig.cfc</span>. You can create the <i>CouchbaseClient</i> with no configuration and it will connect to the <i>default</i> bucket on <i>localhost:8091</i>. However, there are more ways to configure the Couchbase client via the <i>config</i> argument of the constructor so it can connect to your server and options of choice:</p>
+<ol>
+<li>Pass a config structure</li>
+<li>Pass a config CFC</li></ol>
+<p />
+<div class="alert alert-info">
+<p><b>Note</b> : The config CFC is the most contained and portable way to store your configuration.
+</p></div>
+<p>There are a number of configuration otions you can set for the client, but most of them can be left at their default value. To see a full list of options, look in the <span class="label label-primary">/cfcouchbase/config/CouchbaseConfig.cfc</span> or the user friendly <a class="externallink" href="http://apidocs.ortussolutions.com/CFCouchbase_APIDocs_1.1.0/index.html?cfcouchbase/CouchbaseClient.html" rel="nofollow" title="http://apidocs.ortussolutions.com/CFCouchbase_APIDocs_1.1.0/index.html?cfcouchbase/CouchbaseClient.html">API Docs</a>.
+Here are some of the most common setting you will need to use:</p> 
+<a id="Common_Config_Settings" name="Common_Config_Settings"></a><h3>Common Config Settings</h3>
+<p />
+<div class="table-responsive">
+<div style="page-break-inside:	avoid;">
+<table cellpadding="”5”," class="table table-hover table-striped table-condensed">
+<tr>
+<th><b>Setting</b> </th>
+<th><b>Type</b> </th>
+<th><b>Default</b> </th>
+<th><b>Description</b> </th></tr>
+<tr>
+<td><b>servers</b> </td>
+<td>any </td>
+<td><code><a class="externallink" href="http://127.0.0.1:8091" rel="nofollow" title="http://127.0.0.1:8091">http://127.0.0.1:8091</a></code> </td>
+<td>The list of servers to connect to. Can be comma-delimited list or an array. If you have more than one server in your cluster, you only need to specify one, but adding more than one will help in the event a node is down when the client connnect. </td></tr>
+<tr>
+<td><b>bucketName</b> </td>
+<td>string </td>
+<td><code>default</code> </td>
+<td>The bucketname to connect to on the cluster. This is case-sensitive</td></tr>
+<tr>
+<td><b>password</b> </td>
+<td>string </td>
+<td>--- </td>
+<td>The optional password of the bucket.</td></tr>
+<tr>
+<td><b>dataMarshaller</b> </td>
+<td>any </td>
+<td>--- </td>
+<td>The data marshaller to use for serializations and deserializations, please put the class path or the instance of the marshaller to use. Remember that it must implement our interface: cfcouchbase.data.IDataMarshaller </td></tr></table></div>
+<p /></div>
+<a id="Config_Struct" name="Config_Struct"></a><h3>Config Struct</h3>
+<p>The simplest way to get started using the SDK is to simply pass a struct of config settings into the constructor when you create the client.</p>
+<p /><pre class="code">
+couchbase = <b><font color="#7F0055">new</font></b> cfcouchbase.CouchbaseClient(
+	{
+		servers = [<font color="#2A00FF">&#39;http://cache1:8091&#39;</font>,<font color="#2A00FF">&#39;http://cache2:8091&#39;</font>],
+		bucketName  = <font color="#2A00FF">&#39;myBucket&#39;</font>,
+		viewTimeout = 1000
+	} 
+);
+</pre>
+<a id="Config_CFC" name="Config_CFC"></a><h3>Config CFC</h3>
+<p>The most portable method for configuring the client is to use a CFC to place your config settings in much like our other libraries such as <a class="externallink" href="http://wiki.coldbox.org/wiki/WireBox.cfm" rel="nofollow" title="http://wiki.coldbox.org/wiki/WireBox.cfm">WireBox</a> and <a class="externallink" href="http://wiki.coldbox.org/wiki/CacheBox.cfm" rel="nofollow" title="http://wiki.coldbox.org/wiki/CacheBox.cfm">CacheBox</a> allow.
+To do this simply create a plain CFC with a public method called <b>configure()</b>. Inside of that method, put your config settings into the variables scope of the component. The <b>configure()</b> method does not need to return any value. It will be automatically invoked by the SDK prior to the config settings being extracted from the CFC. </p>
+<p><span class="label label-success">myConfig.cfc</span>
+</p><pre class="code">
+component {
+	
+	<b><font color="#7F0055">function</font></b> configure() {
+		servers = [<font color="#2A00FF">&#39;http://cache1:8091&#39;</font>,<font color="#2A00FF">&#39;http://cache2:8091&#39;</font>];
+		bucketName = <font color="#2A00FF">&#39;myBucket&#39;</font>;
+		bucketName = <font color="#2A00FF">&#39;myPass&#39;</font>;
+	}
+
+}
+</pre>
+<p>To use the config CFC, simply pass it into the CouchbaseClient&#39;s constructor.</p>
+<p /><pre class="code">
+<font color="#3F7F5F">// You can pass an instance
+</font>couchbase = <b><font color="#7F0055">new</font></b> cfcouchbase.CouchbaseClient( <b><font color="#7F0055">new</font></b> path.to.config() );
+
+<font color="#3F7F5F">// You can also pass a path to the CFC
+</font>couchbase = <b><font color="#7F0055">new</font></b> cfcouchbase.CouchbaseClient( <font color="#2A00FF">&#39;path.to.config&#39;</font> );
+</pre>
+<a id="Usage" name="Usage"></a><h2>Usage</h2>
+<p>Whether you are using Couchbase for simple caching or as the NoSQL database for an application, your most common operations are going to be getting and setting data. 
+Data is most commonly a JSON document, but can really be any string you want including binary representations of serialized objects.</p>
+<p>For the comprehensive list of SDK methods, parameters, descriptions, and code samples, please look in the <a class="externallink" href="http://apidocs.ortussolutions.com/CFCouchbase_APIDocs_1.1.0/index.html?cfcouchbase/CouchbaseClient.html" rel="nofollow" title="http://apidocs.ortussolutions.com/CFCouchbase_APIDocs_1.1.0/index.html?cfcouchbase/CouchbaseClient.html">API Docs</a> (in the download). Click on the <span class="label label-default">cfcouchbase</span> package and then the <span class="label label-default">CouchbaseClient</span> class. </p> 
+<a id="Storing_Documents" name="Storing_Documents"></a><h3>Storing Documents</h3>
+<p>The easiest way to store a document in your Couchbase cluster is by calling the <b>set()</b> method. In this example we are passing a struct directly in as the value to be stored. The SDK will automatically serialize the struct into a JSON document for storage in the cluster.</p>
+<p /><pre class="code">
+client.set(
+	ID = <font color="#2A00FF">&#39;brad&#39;</font>,
+	value = { name: <font color="#2A00FF">&#39;Brad&#39;</font>, age: 33, hair: <font color="#2A00FF">&#39;red&#39;</font>, weird: <b><font color="#7F0055">true</font></b> } 
+);
+</pre>
+<p>The <b>ID</b> of the document is <b>brad</b> and it will live in the cluster forever until it is deleted. If I want my document to expire and be automatically removed from the cluster after a certain amount of time, I can specify the <b>timeout</b> argument.
+This document will be cached for 20 minutes before expiring. Couchbase will automatically remove it for you once it has expired.</p>
+<p /><pre class="code">
+client.set(
+	ID = <font color="#2A00FF">&#39;cached-site-menus&#39;</font>,
+	value = menuHTML,
+	timeout = 20
+);
+</pre>
+<p />
+<div class="alert alert-info">
+<p><b>Note:</b> The CFCouchbase SDK will try to be smart enough to translate any native CFML construct into JSON for you. You can also pass binary data or JSON as well. The SDK can also deal with CFC&#39;s to provide seamless CFC deserialization and inflation, please see the Data Serialization section.
+</p></div>
+<a id="Storage_Durability" name="Storage_Durability"></a><h3>Storage Durability</h3>
+<p>Couchbase autos-shards <i>master</i> and <i>replica</i> documents across your cluster out-of-the-box. Documents are stored both in RAM for fast access and persisted to disk for long term storage. By default, all storage operations are <b>asynchronous</b> which means the <b>set()</b> call returns potentially before the document is fully stored and replicated. So always remember that the majority of Couchbase operations on the SDK are asynchronous and return Java Future objects. This is a break from the consistency offered by a typical RDBMS, but it is key to the high-performance and scalable architecture. See the <a class="externallink" href="http://en.wikipedia.org/wiki/CAP_theorem" rel="nofollow" title="http://en.wikipedia.org/wiki/CAP_theorem">CAP Theorem</a></p>
+<ul>
+<li>If your application requires you to confirm that a document has been persisted to disk, use the <b>persistTo</b> argument. </li>
+<li>If you need to confirm that the document has been copied to a given number replica nodes, use the <b>replicateTo</b> argument.</li></ul>
+<p>The call is still async but returns a Java future object. Calling the <b>get()</b> method on the future will wait until the operation is completed, so you can be guaranteed then about the results.</p>
+<p /><pre class="code">
+<font color="#3F7F5F">// This document will be persisted to disk on at least two nodes
+</font>future = client.set(
+	ID = <font color="#2A00FF">&#39;brad&#39;</font>,
+	value = { name: <font color="#2A00FF">&#39;Brad&#39;</font>, age: 33, hair: <font color="#2A00FF">&#39;red&#39;</font> },
+	persistTo = <font color="#2A00FF">&#34;TWO&#34;</font>, 
+	replicateTo = <font color="#2A00FF">&#34;TWO&#34;</font>
+);
+		 
+<font color="#3F7F5F">// IMPORTANT: Wait for the operation to actually complete
+</font>future.get();
+</pre>
+<p />
+<div class="alert alert-info">
+<p><b>Note</b> : All documents will eventually replicate and persist by themselves. You only need these options if the application cannot continue without it.
+</p></div>
+<p />
+<p>&#160;</p>
+<p>There are many other methods for storing data. Please check the <a class="externallink" href="http://apidocs.ortussolutions.com/CFCouchbase_APIDocs_1.1.0/index.html?cfcouchbase/CouchbaseClient.html" rel="nofollow" title="http://apidocs.ortussolutions.com/CFCouchbase_APIDocs_1.1.0/index.html?cfcouchbase/CouchbaseClient.html">API docs</a> to see full descriptions and code samples for all of them. Here are a few to wet your appetite:</p>
+<ul>
+<li><b>setMulti()</b> - Set multiple documents in the cache with a single operation.</li>
+<li><b>setWithCAS()</b> - Update a document only if no one else has changed it since you last retreived it using Compare And Swap (CAS).</li>
+<li><b>touch()</b> - <b>Touch</b> a document to reset its expiration time.</li>
+<li><b>incr()</b> / <b>decr()</b> - Increment or Decrement a numeric value</li>
+<li><b>prepend()</b> / <b>append()</b> - add content to the beginning or end of an existing document</li></ul>
+<a id="Retrieving_Documents" name="Retrieving_Documents"></a><h3>Retrieving Documents</h3>
+<p>The easiest way to retrieve a specific document by ID from your Couchbase cluster is by calling the <b>get()</b> method. </p>
+<p /><pre class="code">
+person = client.get( ID = <font color="#2A00FF">&#39;brad&#39;</font> );
+</pre>
+<p>There are many other methods for getting data. Please check the <a class="externallink" href="http://apidocs.ortussolutions.com/CFCouchbase_APIDocs_1.1.0/index.html?cfcouchbase/CouchbaseClient.html" rel="nofollow" title="http://apidocs.ortussolutions.com/CFCouchbase_APIDocs_1.1.0/index.html?cfcouchbase/CouchbaseClient.html">API Docs</a> (in the download) to see full descriptions and code samples for all of them.</p>
+<ul>
+<li><b>asyncGet()</b> - Get an object from couchbase asynchronously.</li>
+<li><b>getMulti()</b> - Get multiple objects from couchbase with a single call.</li>
+<li><b>getWithCAS()</b> - Get an object from couchbase with a special Compare And Swap (CAS) version (for use wit <b>setWithCAS()</b>)</li>
+<li><b>getStats()</b> - Get all of the stats from all of the servers in the cluster.</li>
+<li><b>getDocStats()</b> - Get stats for a specific document ID.</li></ul>
+<a id="Data_Serialization" name="Data_Serialization"></a><h3>Data Serialization</h3>
+<p>Couchbase can literally store anything in a bucket as long as it&#39;s represented as a string and no larger than 20MB. 
+The CFCouchbase SDK will automatically serialize complex data for you when storing it and deserialize it when you ask for it again. </p>
+<a id="Simple_Values" name="Simple_Values"></a><h4>Simple Values</h4>
+<p>Before we tell how CFCouchbase serializes your data, we&#39;ll tell you how to <i>avoid</i> this behavior if you don&#39;t want it. 
+Simple values (strings) won&#39;t be touched, so if you want to control how an array is serialized, just turn it to a <b>string</b> first and then pass it into <i>set()</i> operations. These strings can be JSON or anything of your choosing. When you retrieve these documents back, CFCouchbase will try to deserialize them for you automatically according to our rules you will see soon. However, if you want the raw data back from Couchbase as a string (regardless of how it was stored), pass <b>deserialize=false</b> into your <i>get()</i> or <i>query()</i> methods and CFCouchbase will not automatically deserialize it but just pass it back to you.</p>
+<p /><pre class="code">
+<font color="#3F7F5F">// Set my own JSON string
+</font>client.set( <font color="#2A00FF">&#39;IDidItMyWay&#39;</font>, <font color="#2A00FF">&#39;{ &#34;title&#34;: &#34;My Way&#34;, &#34;artist&#34;: &#34;Frank Sinatra&#34;, &#34;year&#34;: &#34;1969&#34; }&#39;</font> );
+
+<font color="#3F7F5F">// And get it back out as a string
+</font>song = client.get( id=<font color="#2A00FF">&#39;IDidItMyWay&#39;</font>, deserilize=<b><font color="#7F0055">false</font></b> );
+</pre>
+<a id="Complex_Data" name="Complex_Data"></a><h4>Complex Data</h4>
+<p>Complex data (structs, queries, arrays) will be automatically serialized for you with no extra work on your part. Just pass them into <i>set()</i> and you&#39;ll get the same data structure back from <i>get()</i> operation.</p>
+<ul>
+<li><b>Structs</b> and <b>Arrays</b> will be converted via <i>serializeJSON()</i> and stored as JSON so you can query them with views.</li>
+<li><b>Queries</b> - Will be converted to binary with <i>objectSave()</i> and wrapped in a struct of metadata containing the <i>recordcount</i> and <i>columnlist</i>. They are converted to binary so they can be re-inflated back to CFML queries.</li></ul>
+<p /><pre class="code">
+client.set( <font color="#2A00FF">&#39;weekDays&#39;</font>, [<font color="#2A00FF">&#39;Sunday&#39;</font>,<font color="#2A00FF">&#39;Monday&#39;</font>,<font color="#2A00FF">&#39;Tuesday&#39;</font>,<font color="#2A00FF">&#39;Wednesay&#39;</font>,<font color="#2A00FF">&#39;Thursday&#39;</font>,<font color="#2A00FF">&#39;Friday&#39;</font>,<font color="#2A00FF">&#39;Saturday&#39;</font>] );
+days = client.get( <font color="#2A00FF">&#39;weekDays&#39;</font> );
+writeOutput( arrayLen( days ) );
+</pre>
+<p><span class="label label-success">query representation</span>
+</p><pre class="code">
+{
+  <font color="#2A00FF">&#34;recordcount&#34;</font>: 3,
+  <font color="#2A00FF">&#34;type&#34;</font>: <font color="#2A00FF">&#34;cfcouchbase-query&#34;</font>,
+  <font color="#2A00FF">&#34;binary&#34;</font>: <font color="#2A00FF">&#34;....&#34;</font>,
+  <font color="#2A00FF">&#34;columnlist&#34;</font>: <font color="#2A00FF">&#34;ID,NAME&#34;</font>
+}
+</pre>
+<a id="Components_(CFCs)" name="Components_(CFCs)"></a><h4>Components (CFCs)</h4>
+<p>There are a lot of different ways to handle <b>CFC</b>s and we allow for several different methods of handling them that come with varying degrees of control and convenience.</p>
+<a id="Auto_Inflation" name="Auto_Inflation"></a><h5>Auto Inflation</h5>
+<p>You can annotate a CFC with <span class="label label-info">autoInflate</span> and CFCouchbase will be smart enough to detect the CFC&#39;s path and defined properties so it can store them in Couchbase. When storing the component, the data will be stored as a JSON struct along with some metadata about the component. When retreiving that document from Couchbase, a <b>new</b> component will be created with the inflated data. This is the easiest approach as it is completely seamless and pretty fast I might say!</p>
+<p><span class="label label-success">Song.cfc</span>
+</p><pre class="code">
+component accessors=<font color="#2A00FF">&#34;true&#34;</font> autoInflate=<font color="#2A00FF">&#34;true&#34;</font>{
+	property name=<font color="#2A00FF">&#34;title&#34;</font>  <b><font color="#7F0055">default</font></b>=<font color="#2A00FF">&#34;&#34;</font>;
+	property name=<font color="#2A00FF">&#34;artist&#34;</font> <b><font color="#7F0055">default</font></b>=<font color="#2A00FF">&#34;&#34;</font>;
+}
+</pre>
+<p><span class="label label-success">Usage</span>
+</p><pre class="code">
+funkyChicken = <b><font color="#7F0055">new</font></b> path.to.song();
+funkyChicken.setTitle( <font color="#2A00FF">&#34;Chicken Dance&#34;</font> );
+funkyChicken.setArtist( <font color="#2A00FF">&#34;Werner Thomas&#34;</font> );
+
+<font color="#3F7F5F">// Pass the CFC in
+</font>couchbase.set( <font color="#2A00FF">&#39;funkyChicken&#39;</font>, funkyChicken );
+
+<font color="#3F7F5F">// And get a CFC out!
+</font>birdieSong = couchbase.get( <font color="#2A00FF">&#39;funkyChicken&#39;</font> );
+
+writeOutput( birdieSong.gettitle() );
+writeOutput( birdieSong.getArtist() );
+</pre>
+<p><span class="label label-success">cfc data in couchbase</span>
+</p><pre class="code">
+{
+  <font color="#2A00FF">&#34;data&#34;</font>: {
+    <font color="#2A00FF">&#34;title&#34;</font>: <font color="#2A00FF">&#34;Chicken Dance&#34;</font>,
+    <font color="#2A00FF">&#34;artist&#34;</font>: <font color="#2A00FF">&#34;Majano&#34;</font>,
+  },
+  <font color="#2A00FF">&#34;classpath&#34;</font>: <font color="#2A00FF">&#34;model.funky.Song&#34;</font>,
+  <font color="#2A00FF">&#34;type&#34;</font>: <font color="#2A00FF">&#34;cfcouchbase-cfcdata&#34;</font>
+}
+</pre>
+<p>As you can see, this approach will allow you to still create views about your data in Couchbase if necessary and also provide a nice way to do CFC to Couchbase to CFC translations.</p>
+<a id="Manual_Inflation" name="Manual_Inflation"></a><h5>Manual Inflation</h5>
+<p>If you pass a CFC with properties but it does not have the <span class="label label-info">autoInflate</span> attribute like above, the data will still be stored as a JSON struct, but without the extra metadata about the CFC. When retrieving this document, you will just get a struct back by default. You can build a CFC yourself, or specify an <b>inflateTo</b> argument to instruct CFCouchbase on how to reinflate your data back to an object. You can pass in a component path (or component instance) and the SDK will instantiate that component and call its property setters to repopulate it with the data from Couchbase.</p> 
+<p /><pre class="code">
+<font color="#3F7F5F">// path
+</font>person = client.get(
+	ID = <font color="#2A00FF">&#39;funkyChicken&#39;</font>,
+	inflateTo = <font color="#2A00FF">&#39;path.to.song&#39;</font>
+);
+
+<font color="#3F7F5F">// instance
+</font>person = client.get(
+	ID = <font color="#2A00FF">&#39;funkyChicken&#39;</font>,
+	inflateTo = <b><font color="#7F0055">new</font></b> path.to.Song()
+);
+</pre>
+<p>If you need even more control such as performing dependency injection, passing construtor args to the CFC, or dynamically choosing the component to create, you can supply a closure that acts as a provider and produces an empty object ready to be populated.</p>
+<p /><pre class="code">
+person = client.get(
+	ID = <font color="#2A00FF">&#39;funkyChicken&#39;</font>,
+	inflateTo = <b><font color="#7F0055">function</font></b>( document ){
+		<font color="#3F7F5F">// Let WireBox create and autowire an instance for us
+</font>		<b><font color="#7F0055">return</font></b> wirebox.getInstance( <font color="#2A00FF">&#39;path.to.song&#39;</font> );
+	}
+);
+</pre>
+<p>If you are getting multiple documents back from Couchbase, your <b>inflateTo</b> closure will be called once per document.</p>
+<p />
+<p>&#160;</p>
+<p />
+<div class="alert alert-info">
+<p><b>Note</b> : You can even use <b>inflate</b> to when retrieving result sets, or querying Couchbase views and you&#39;ll get an array of populated CFCs!
+</p></div>
+<a id="Custom" name="Custom"></a><h5>Custom</h5>
+<p>If you really want to get extra funky and control how your components are serialized, you can fall back on our conventions. If the CFC has a public method called <b>$serialize()</b>, it will be called and its output (must be a <i>string</i>) will be saved in Couchbase. The CFC can also have a public method called <b>$deserialize( ID, data )</b>, that if declared will be called and given the data so it can populate itself.</p>
+<p><span class="label label-success">CustomUser.cfc</span>
+</p><pre class="code">
+<font color="#3F7F5F">// CustomUser is an object that implements its own serialization scheme
+</font><font color="#3F7F5F">// using pipe-delimited lists to store the data instead of JSON.  It has both
+</font><font color="#3F7F5F">// a $serialize() and $deserialize() method to facilitate that.
+</font>component accessors=<font color="#2A00FF">&#34;true&#34;</font>{
+
+	property name=<font color="#2A00FF">&#34;firstName&#34;</font>;
+	property name=<font color="#2A00FF">&#34;lastName&#34;</font>;
+	property name=<font color="#2A00FF">&#34;age&#34;</font>;
+
+	<b><font color="#7F0055">function</font></b> $serialize(){
+		<font color="#3F7F5F">// Serialize as pipe-delimited list
+</font>		<b><font color="#7F0055">return</font></b> <font color="#2A00FF">&#39;#getFirstName()#|#getLastName()#|#getAge()#&#39;</font>;
+	}
+	
+	<b><font color="#7F0055">function</font></b> $deserialize( ID, data ){
+		<font color="#3F7F5F">// Deserialize the pipe-delimited list
+</font>		setFirstName( listGetAt( data, 1, <font color="#2A00FF">&#39;|&#39;</font> ) );
+		setLastName( listGetAt( data, 2, <font color="#2A00FF">&#39;|&#39;</font> ) );
+		setAge( listGetAt( data, 3, <font color="#2A00FF">&#39;|&#39;</font> ) );		
+	}
+}
+</pre>
+<p><span class="label label-success">Usage</span>
+</p><pre class="code">
+user = <b><font color="#7F0055">new</font></b> CustomUser();
+user.setFirstName( <font color="#2A00FF">&#34;Brad&#34;</font> );
+user.setLastName( <font color="#2A00FF">&#34;Wood&#34;</font> );
+user.setAge( 45 );
+
+couchbase.set( <font color="#2A00FF">&#39;half-pipe&#39;</font>, user );
+
+reinflatedUser = couchbase.get( id=<font color="#2A00FF">&#34;half-pipe&#34;</font>, inflateTo=<font color="#2A00FF">&#39;CustomUser&#39;</font> );
+
+writeOutput( reinflatedUser.getFirstName() );
+writeOutput( reinflatedUser.getLastName() );
+writeOutput( reinflatedUser.getAge() );
+</pre>
+<a id="Binary" name="Binary"></a><h5>Binary</h5>
+<p>If you pass a CFC instance in that has no properties and no <i>$serialize()</i> method, CFCouchbase will use ColdFusion&#39;s <b>objectSave()</b> to turn the component into binary and it will be saved as a base64-encoded string.</p>
+<a id="Custom_Transformers" name="Custom_Transformers"></a><h4>Custom Transformers</h4>
+<p>If you don&#39;t like how we set up data serialization or just have super-custom requirements, you can provide your own data marshaller to have full control.
+Create a CFC that implements the <span class="label label-primary">cfcouchbase.data.IDataMarshaller</span> interface. It only needs to have three methods:</p>
+<ul>
+<li><b>serializeData()</b> - Returns the data in a string form so it can be persisted in Couchbase</li>
+<li><b>deserializeData()</b> - Received the raw string data from Couchbase and inflates it as neccessary to the original state</li>
+<li><b>setCouchbaseClient()</b> - Gives the marshaller a chance to store a local reference to the client in case it needs to talk back.</li></ul>
+<p /><pre class="code">
+<b><font color="#7F0055">interface</font></b>{
+	any <b><font color="#7F0055">function</font></b> setCouchbaseClient( required couchcbaseClient );
+	any <b><font color="#7F0055">function</font></b> deserializeData( required string ID, required string data, any inflateTo=<font color="#2A00FF">&#34;&#34;</font>, struct deserializeOptions={} );
+	string <b><font color="#7F0055">function</font></b> serializeData( required any data );
+}
+</pre>
+<p><span class="label label-info">myDataMarshaller.cfc</span>
+</p><pre class="code">
+component <b><font color="#7F0055">implements</font></b>=<font color="#2A00FF">&#39;cfcouchbase.data.IDataMarshaller&#39;</font> {
+
+	any <b><font color="#7F0055">function</font></b> setCouchbaseClient( required couchcbaseClient ){
+		variables.couchbaseClient = arguments.couchcbaseClient;
+		<b><font color="#7F0055">return</font></b> <b><font color="#7F0055">this</font></b>;
+	}
+
+	string <b><font color="#7F0055">function</font></b> serializeData( required any data ){
+		<b><font color="#7F0055">if</font></b>( !isSimpleValue( data ) ) {
+			<b><font color="#7F0055">return</font></b> serializeJSON( data );
+		}
+		<b><font color="#7F0055">return</font></b> data;
+	}
+
+	any <b><font color="#7F0055">function</font></b> deserializeData( required string data, any inflateTo=<font color="#2A00FF">&#34;&#34;</font>, struct deserializeOptions={} ){
+		<b><font color="#7F0055">if</font></b>( isJSON( data ) &#38;&#38; deserialize ) {
+			<b><font color="#7F0055">return</font></b> deserializeJSON( data );
+		}
+		<b><font color="#7F0055">return</font></b> data;
+	}
+	
+}
+</pre>
+<p>After you have created your custom marshaller, simply pass in an instance of it or the full component path as a config setting:</p>
+<p /><pre class="code">
+<font color="#3F7F5F">// path
+</font>couchbase = <b><font color="#7F0055">new</font></b> cfcouchbase.CouchbaseClient(
+	{
+		bucketName = <font color="#2A00FF">&#39;myBucket&#39;</font>,
+		dataMarshaller = <font color="#2A00FF">&#39;path.to.myDataMarshaller&#39;</font>
+	} 
+);
+<font color="#3F7F5F">// instance
+</font>couchbase = <b><font color="#7F0055">new</font></b> cfcouchbase.CouchbaseClient(
+	{
+		bucketName = <font color="#2A00FF">&#39;myBucket&#39;</font>,
+		dataMarshaller = <b><font color="#7F0055">new</font></b> path.to.myDataMarshaller()
+	} 
+);
+</pre>
+<p />
+<div class="alert alert-info">
+<p><b>Note</b> : Once you specify a custom data marshaller, you are overriding all <b>Data Serialization</b> functionality above. So you are on your own now buddy! Like good &#39;ol spidey says: With Much Power Comes Much Responsibility!
+</p></div>
+<a id="Executing_Queries" name="Executing_Queries"></a><h3>Executing Queries</h3>
+<p>One of the most powerful parts of Couchbase Server is the ability to define <a class="externallink" href="http://docs.couchbase.com/couchbase-manual-2.0/#views-and-indexes" rel="nofollow" title="http://docs.couchbase.com/couchbase-manual-2.0/#views-and-indexes">views (or indexes)</a> on your data and execute queries against your buckets of data. We do not cover all the basics and intricacies of views and indexes, for that please visit the official <a class="externallink" href="http://docs.couchbase.com/couchbase-manual-2.0/#views-and-indexes" rel="nofollow" title="http://docs.couchbase.com/couchbase-manual-2.0/#views-and-indexes">Couchbase Docs</a>. We focus on how to leverage them from CFCouchbase. The minimum information you need to execute a query is the name of the <b>design document</b> and the <b>view</b> you wish you use.</p>
+<p /><pre class="code">
+results = client.query( designDocumentName=<font color="#2A00FF">&#39;beer&#39;</font>, viewName=<font color="#2A00FF">&#39;brewery_beers&#39;</font> );
+
+<b><font color="#7F0055">for</font></b>( <b><font color="#7F0055">var</font></b> result <b><font color="#7F0055">in</font></b> results ) {
+	writeOutput( result.document.name );
+	writeOutput( <font color="#2A00FF">&#39;&#60;br&#62;&#39;</font> );
+}
+</pre>
+<p>Here are the arguments you can pass into the <b>query()</b> method. For the latest and more in-depth information please visit our <a class="externallink" href="http://apidocs.ortussolutions.com/CFCouchbase_APIDocs_1.1.0/index.html?cfcouchbase/CouchbaseClient.html" rel="nofollow" title="http://apidocs.ortussolutions.com/CFCouchbase_APIDocs_1.1.0/index.html?cfcouchbase/CouchbaseClient.html">API Docs</a>.</p>
+<p />
+<p>&#160;</p>
+<p />
+<div class="table-responsive">
+<div style="page-break-inside:	avoid;">
+<table cellpadding="”5”," class="table table-hover table-striped table-condensed">
+<tr>
+<th><b>Argument</b> </th>
+<th><b>Type</b> </th>
+<th><b>Default</b> </th>
+<th><b>Description</b> </th></tr>
+<tr>
+<td><b>designDocumentName</b> </td>
+<td><code>string</code> </td>
+<td>--- </td>
+<td>The name of the design document in your Couchbase server</td></tr>
+<tr>
+<td><b>viewName</b> </td>
+<td><code>string</code> </td>
+<td>--- </td>
+<td>The name of the view to query from</td></tr>
+<tr>
+<td><b>options</b> </td>
+<td><code>any</code> </td>
+<td>{} </td>
+<td>The query options to use for this query. This can be a structure of name-value pairs or an actual Couchbase query options object usually using the <i>newQuery()</i> method.</td></tr>
+<tr>
+<td><b>deserialize</b> </td>
+<td><code>boolean</code> </td>
+<td>true </td>
+<td>If true, it will deserialize the documents if they are valid JSON, else they are ignored.</td></tr>
+<tr>
+<td><b>deserializeOptions</b> </td>
+<td><code>struct</code> </td>
+<td>--- </td>
+<td>A struct of options to help control how the data is deserialized when populating an object. See ObjectPopulator.cfc for more info.</td></tr>
+<tr>
+<td><b>inflateTo</b> </td>
+<td><code>any</code> </td>
+<td>--- </td>
+<td>A path to a CFC or closure that produces an object to try to inflate the document results on NON-Reduced views only!</td></tr>
+<tr>
+<td><b>filter</b> </td>
+<td><code>function</code> </td>
+<td>--- </td>
+<td>A closure or UDF that must return boolean to use to filter out results from the returning array of records, the closure receives a struct that has id, document, key, and value: function( row ). A true will add the row to the final results.</td></tr>
+<tr>
+<td><b>transform</b> </td>
+<td><code>function</code> </td>
+<td>--- </td>
+<td>A closure or UDF to use to transform records from the returning array of records, the closure receives a struct that has id, document, key, and value: function( row ). Since the struct is by reference, you do not need to return anything.</td></tr>
+<tr>
+<td><b>returnType</b> </td>
+<td><code>any</code> </td>
+<td><b>Array</b> </td>
+<td>The type of return for us to return to you. Available options:
+<ul>
+<li><b>array</b> <span class="label label-success">default</span> - Returns results as a CFML array of structs after applying deserialization, fitler and tranform functions.</li>
+<li><b>native</b> - Returns the underlying Java response object containing the results.</li>
+<li><b>iterator</b> - Returns a Java Iterator object containing the results.</li></ul></td></tr></table></div>
+<p /></div>
+<a id="Results" name="Results"></a><h4>Results</h4>
+<p>CFCouchbase will natively transform the data into an array of structs with a specific format. These keys are included in the struct that represents a row. This is the same struct that is returned in the result array and passed into the transform and filter closures. 
+</p>
+<ul>
+<li><b>id</b> - The unique document id. Only avaialble on non-reduced queries</li>
+<li><b>document</b> - The JSON document reinflated back to its original form. Only available on non-reduced views</li>
+<li><b>key</b> - For non-reduced queries, the key emitted from the map function. For reduced views, null.</li>
+<li><b>value</b> - For non-reduced queries, the value emitted from the map function. For reduced views, the output of the reduce function.</li></ul>
+<p />
+<p>&#160;</p>
+<a id="Query_Options" name="Query_Options"></a><h4>Query Options</h4>
+<p>Here are some of the most common keys you can pass in the struct of <b>options</b> to control how the query is executed. Please check the <a class="externallink" href="http://apidocs.ortussolutions.com/CFCouchbase_APIDocs_1.1.0/index.html?cfcouchbase/CouchbaseClient.html" rel="nofollow" title="http://apidocs.ortussolutions.com/CFCouchbase_APIDocs_1.1.0/index.html?cfcouchbase/CouchbaseClient.html">API Docs</a> for the full list. </p>
+<p />
+<p>&#160;</p>
+<p />
+<div class="table-responsive">
+<div style="page-break-inside:	avoid;">
+<table cellpadding="”5”," class="table table-hover table-striped table-condensed">
+<tr>
+<th><b>Option</b> </th>
+<th><b>Description</b> </th></tr>
+<tr>
+<td><b>sortOrder</b> </td>
+<td>Specifies the direction to sort the results based on the map function&#39;s &#34;key&#34; value. Valid values are ASC and DESC.</td></tr>
+<tr>
+<td><b>limit</b> </td>
+<td>Number of records to return</td></tr>
+<tr>
+<td><b>offset</b> </td>
+<td>Number of records to skip when returning</td></tr>
+<tr>
+<td><b>reduce</b> </td>
+<td>Flag to control whether the reduce portion of the view is run. If false, only the results of the map function are returned.</td></tr>
+<tr>
+<td><b>includeDocs</b> </td>
+<td>Specifies whether or not to include the entire document in the results or just the key names. Default is false.</td></tr>
+<tr>
+<td><b>startkey</b> </td>
+<td>Specify the start of a range of keys to return.</td></tr>
+<tr>
+<td><b>endkey</b> </td>
+<td>Specify the end of a range of keys to return.</td></tr>
+<tr>
+<td><b>group</b> </td>
+<td>Flag to control whether the results of the reduce function are grouped.</td></tr>
+<tr>
+<td><b>keys</b> </td>
+<td>An array of keys to return. For complex keys, pass each key as an array.</td></tr>
+<tr>
+<td><b>stale</b> </td>
+<td>Specifies if stale data can be returned with the view. Possible values are:
+<ul>
+<li><b>OK</b> - (default) - stale data is ok</li>
+<li><b>FALSE</b> - force index of view</li>
+<li><b>UPDATE_AFTER</b> - potentially returns stale data, but starts an asynch re-index.</li></ul></td></tr></table></div>
+<p /></div>
+<p /><pre class="code">
+<font color="#3F7F5F">// Return 10 records, skipping the first 20.  Force fresh data
+</font>results = client.query( designDocumentName=<font color="#2A00FF">&#39;beer&#39;</font>, viewName=<font color="#2A00FF">&#39;brewery_beers&#39;</font>, options={ limit = 10, offset = 20, stale = <font color="#2A00FF">&#39;FALSE&#39;</font> } );
+
+<font color="#3F7F5F">// Only return 20 records and skip the reduce function in the view
+</font>results = client.query( designDocumentName=<font color="#2A00FF">&#39;beer&#39;</font>, viewName=<font color="#2A00FF">&#39;by_location&#39;</font>, options={ limit = 20, reduce = <b><font color="#7F0055">false</font></b> } );
+
+<font color="#3F7F5F">// Group results (Will return a single record with the count as the value)
+</font>results = client.query( designDocumentName=<font color="#2A00FF">&#39;beer&#39;</font>, viewName=<font color="#2A00FF">&#39;brewery_beers&#39;</font>, options={ group = <b><font color="#7F0055">true</font></b> } );
+
+<font color="#3F7F5F">// Start at the specified key and sort descending 
+</font>results = client.query( designDocumentName=<font color="#2A00FF">&#39;beer&#39;</font>, viewName=<font color="#2A00FF">&#39;brewery_beers&#39;</font>, options={ sortOrder = <font color="#2A00FF">&#39;DESC&#39;</font>, startKey = [<font color="#2A00FF">&#34;aldaris&#34;</font>,<font color="#2A00FF">&#34;aldaris-zelta&#34;</font>] } );
+</pre>
+<a id="Filter_Closure" name="Filter_Closure"></a><h4>Filter Closure</h4>
+<p>You can specify a closure as the <b>filter</b> argument that returns true for records that should be included in the final output. This is a great way to filter out any unecessary documents you do not want in the end result array.</p>
+<p /><pre class="code">
+<font color="#3F7F5F">// Only return breweries
+</font>results = client.query(
+	designDocumentName = <font color="#2A00FF">&#39;beer&#39;</font>, 
+	viewName = <font color="#2A00FF">&#39;brewery_beers&#39;</font>, 
+	filter = <b><font color="#7F0055">function</font></b>( row ){
+		<b><font color="#7F0055">if</font></b>( row.document.type == <font color="#2A00FF">&#39;brewery&#39;</font> ) {
+			<b><font color="#7F0055">return</font></b> <b><font color="#7F0055">true</font></b>;
+		}
+		<b><font color="#7F0055">return</font></b> <b><font color="#7F0055">false</font></b>;
+	}
+);
+</pre>
+<a id="Transform_Closure" name="Transform_Closure"></a><h4>Transform Closure</h4>
+<p>The <b>transform</b> closure will be called in each iteration as we build the native CF array of results. This can be used to normalize data, add or remove data, you name it.</p>
+<p /><pre class="code">
+results = couchbase.query(
+	designDocumentName = <font color="#2A00FF">&#39;beer&#39;</font>, 
+	viewName = <font color="#2A00FF">&#39;brewery_beers&#39;</font>, 
+	deserialize = <b><font color="#7F0055">false</font></b>,
+	transform = <b><font color="#7F0055">function</font></b>( row ){
+		row.document = deserializeJSON( row.document );
+	}
+);
+</pre>
+<a id="Return_Type" name="Return_Type"></a><h4>Return Type</h4>
+<p>You can ask the <b>query()</b> method to return an array <span class="label label-success">default</span>, a Java <i>ViewReponse</i> object, or a Java iterator. By default we use the native CFML array type which uses transformations, automatic deserializations and inflations.</p>
+<p /><pre class="code">
+<font color="#3F7F5F">// Get an iterator of Java objects
+</font>iterator = couchbase.query(
+	designDocumentName = <font color="#2A00FF">&#39;beer&#39;</font>, 
+	viewName = <font color="#2A00FF">&#39;brewery_beers&#39;</font>, 
+	returnType = <font color="#2A00FF">&#39;Iterator&#39;</font> 
+);
+
+<b><font color="#7F0055">while</font></b>( iterator.hasNex() ) {
+	writeOutput( iterator.getNext().getKey() );
+}
+</pre>
+<a id="Managing_Views" name="Managing_Views"></a><h3>Managing Views</h3>
+<p>Views defined via JavaScript a <b>map</b> function that populates keys from the data in your bucket. 
+Views can also define an additional <b>reduce</b> function that is used to aggregate data down, much like in SQL. Finally, one or more views live inside of a design document, which you can query and construct. </p>
+<p />
+<div class="alert alert-info">
+<p>Please read more about views in the <a class="externallink" href="http://docs.couchbase.com/couchbase-manual-2.0/#views-and-indexes" rel="nofollow" title="http://docs.couchbase.com/couchbase-manual-2.0/#views-and-indexes">Couchbase Docs</a>.
+</p></div>
+<p>You can manage views and design documents from the Couchbase web console and you can also manage them programatically via CFCouchbase as well. Here&#39;s a list of some useful methods for view operations:</p>
+<ul>
+<li><b>designDocumentExists()</b> - Check for the existance of a design document.</li>
+<li><b>getDesignDocument()</b> - Retreive a design document and all its views</li>
+<li><b>deleteDesignDocument()</b> - Delete a design document and all its views from the cluster</li>
+<li><b>viewExists()</b> - Check for the existance of a single view</li>
+<li><b>saveView()</b> - Save/update a view and wait for it to index</li>
+<li><b>asyncSaveView()</b> - Save/update a view but don&#39;t wait for it to become usable</li>
+<li><b>deleteView()</b> - Delete a single view from its design document</li></ul>
+<p>The really nice thing about <b>saveView()</b> and <b>asyncSaveView()</b> is they either insert or udpate an existing view based on whether it already exists.
+They also only save to the cluster if the view doesn&#39;t exist or is different. This means you can repeatedly call saveView() and nothing will happen on any call but the first. This allows you to specify the views that you need in your application when it starts up and they will only save if neccessary:</p>
+<p /><pre class="code">
+<font color="#3F7F5F">// application start
+</font><b><font color="#7F0055">public</font></b> <b><font color="#7F0055">boolean</font></b> <b><font color="#7F0055">function</font></b> onApplicationStart(){
+	application.couchbase = <b><font color="#7F0055">new</font></b> cfcouchbase.CouchbaseClient( { bucketName=<font color="#2A00FF">&#34;beer-sample&#34;</font> } );
+	
+	<font color="#3F7F5F">// Specify the views the applications needs here.  They will be created/updated
+</font>	<font color="#3F7F5F">// when the client is initialized if they don&#39;t already exist or are out of date.
+</font>	
+	application.couchbase.saveView(
+		<font color="#2A00FF">&#39;manager&#39;</font>,
+		<font color="#2A00FF">&#39;listBreweries&#39;</font>,
+		<font color="#2A00FF">&#39;function (doc, meta) {
+		  if ( doc.type == &#39;</font><font color="#2A00FF">&#39;brewery&#39;</font><font color="#2A00FF">&#39; ) {
+		    emit(doc.name, null);
+		  }
+		}&#39;</font>,
+		<font color="#2A00FF">&#39;_count&#39;</font>
+	);
+			
+	application.couchbase.saveView(
+		<font color="#2A00FF">&#39;manager&#39;</font>,
+		<font color="#2A00FF">&#39;listBeersByBrewery&#39;</font>,
+		<font color="#2A00FF">&#39;function (doc, meta) {
+		  if ( doc.type == &#39;</font><font color="#2A00FF">&#39;beer&#39;</font><font color="#2A00FF">&#39; ) {
+		    emit(doc.brewery_id, null);
+		  }
+		}&#39;</font>,
+		<font color="#2A00FF">&#39;_count&#39;</font>
+	);
+			
+	<b><font color="#7F0055">return</font></b> <b><font color="#7F0055">true</font></b>;
+}
+</pre>
+<a id="Working_with_Futures" name="Working_with_Futures"></a><h3>Working with Futures</h3>
+<p>You have probably noticed that all the asyncronous operations in the SDK return a Java <a class="externallink" href="http://www.couchbase.com/autodocs/couchbase-java-client-1.0.3/net/spy/memcached/internal/OperationFuture.html" rel="nofollow" title="http://www.couchbase.com/autodocs/couchbase-java-client-1.0.3/net/spy/memcached/internal/OperationFuture.html">OperationFuture</a> object.
+This allows control of your application to return immediately to your code without waiting for the remote calls to complete. The <b>future</b> object gives you a window into whats going on and you can elect to monitor the progress on your terms-- deciding how long you&#39;re willing to wait-- or ignore it entirely in order to complete the request as quickly as possible.</p>
+<p>The most common method is <b>get()</b>. Calling this will instruct your code to wait until th eoperation is complete before continuing. Calling future.get() essentially makes an <i>ansynchronou</i> call <i>syncronous</i>. </p>
+<p /><pre class="code">
+future = client.asyncGet( ID = <font color="#2A00FF">&#39;brad&#39;</font> );
+person = future.get();
+</pre>
+<p>OperationFutures are parameterized which means they can each return a different data type from their get(). Check the <a class="externallink" href="http://apidocs.ortussolutions.com/CFCouchbase_APIDocs_1.1.0/index.html?cfcouchbase/CouchbaseClient.html" rel="nofollow" title="http://apidocs.ortussolutions.com/CFCouchbase_APIDocs_1.1.0/index.html?cfcouchbase/CouchbaseClient.html">API Docs</a> to see what each asynchronous future returns.</p>
+<p />
+<div class="alert alert-info">
+<p><b>Note</b> : Operations are always subject to the timeouts configured for the client regardless of how you interact with the future.
+</p></div>
+<p>Here are some other methods you can call on a future to handle the response on your terms:</p>
+<ul>
+<li><b>cancel()</b> - Cancel this operation, if possible.</li>
+<li><b>getStatus()</b> - Get the current status of this operation.</li>
+<li><b>isDone()</b> - Whether or not the Operation is done and result can be retrieved with get().</li>
+<li><b>get(duration, units)</b> - Get the results of the given operation, but specify how long you&#39;re willing to wait.</li></ul>
+<p>More information on Futures is available here in the Java Docs: <a class="externallink" href="http://www.couchbase.com/autodocs/couchbase-java-client-1.0.3/net/spy/memcached/internal/OperationFuture.html" rel="nofollow" title="http://www.couchbase.com/autodocs/couchbase-java-client-1.0.3/net/spy/memcached/internal/OperationFuture.html">OperationFuture</a></p>
+<a id="Help_%26_Support" name="Help_%26_Support"></a><h2>Help &#38; Support</h2>
+<p>If you need any community help related to our CFCouchbase SDK, you can use our online help group at <a class="externallink" href="http://groups.google.com/a/ortussolutions.com/forum/#!forum/cfcouchbase" rel="nofollow" title="http://groups.google.com/a/ortussolutions.com/forum/#!forum/cfcouchbase">http://groups.google.com/a/ortussolutions.com/forum/#!forum/cfcouchbase</a> . If you need any type of professional services around our CFCouchbase SDK like training, consulting or professional support then please contact us at <a class="external free" href="mailto:consulting@ortussolutions.com" rel="nofollow" title="mailto:consulting@ortussolutions.com">consulting@ortussolutions.com</a> or visit
+us at <a class="externallink" href="http://www.ortussolutions.com/services/support" rel="nofollow" title="http://www.ortussolutions.com/services/support">www.ortussolutions.com</a>.
+</p>
+</div>
+</div>	<footer class="footer">	<div class="row">	<div class="col-sm-10">	<div class="visible-xs">	<a href="//www.ortussolutions.com"><img class="margin10" src="includes/images/ortus-top-logo-email.png" alt="logo" width="200"/></a><br>	</div>	<small>	<a href="#" class="btn btn-small"><i class="glyphicon glyphicon-chevron-up"></i> To Top</a><br>	<strong>CFCouchbase SDK</strong> copyright-trademark by	<a href="//www.ortussolutions.com">Ortus Solutions, Corp</a><br>	<strong>Couchbase Server</strong> copyright-trademark by	<a href="//www.couchbase.com">Couchbase Inc</a>	</small>	</div>	<div class="col-sm-2">	<div class="pull-right hidden-xs">	<a href="//www.ortussolutions.com"><img class="margin10" src="includes/images/ortus-top-logo-email.png" alt="logo" width="200"/></a>	</div>	</div>	</div>	</footer></body></html>

@@ -1,0 +1,41 @@
+{
+    "doc_type": "config",
+    "categories": [
+        {
+            "slug": "books-and-audible",
+            "name": "Books & Audible"
+        },
+        {
+            "slug": "",
+            "name": "movies-music-and-games"
+        },
+        {
+            "slug": "electronics-and-computers",
+            "name": "Electronics & Computers"
+        },
+        {
+            "slug": "home-garden-and-tools",
+            "name": "Home, Garden & Tools"
+        },
+        {
+            "slug": "beauty-health-and-grocery",
+            "name": "Beauty, Health & Grocery"
+        },
+        {
+            "slug": "toys-kids-and-baby",
+            "name": "Toys, Kids & Baby"
+        },
+        {
+            "slug": "clothing-shoes-and-jewelry",
+            "name": "Clothing, Shoes & Jewelry"
+        },
+        {
+            "slug": "sports-and-outdoors",
+            "name": "Sports & Outdoors"
+        },
+        {
+            "slug": "automotive-and-industrial",
+            "name": "Automotive & Industrial"
+        }
+    ]
+}

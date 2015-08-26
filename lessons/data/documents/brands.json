@@ -1,0 +1,137 @@
+{
+	"doc_type": "config",
+	"brands": [
+		{
+			"slug": "philips",
+			"name": "Philips"
+		},
+		{
+			"slug": "apple",
+			"name": "Apple"
+		},
+		{
+			"slug": "rei",
+			"name": "REI"
+		},
+		{
+			"slug": "pioneer",
+			"name": "Pioneer"
+		},
+		{
+			"slug": "oakley",
+			"name": "Oakley"
+		},
+		{
+			"slug": "rawlings",
+			"name": "Rawlings"
+		},
+		{
+			"slug": "worth",
+			"name": "Worth"
+		},
+		{
+			"slug": "nike",
+			"name": "Nike"
+		},
+		{
+			"slug": "under-armour",
+			"name": "Under Armour"
+		},
+		{
+			"slug": "adidas",
+			"name": "Adidas"
+		},
+		{
+			"slug": "reebok",
+			"name": "Reebok"
+		},
+		{
+			"slug": "louisville-slugger",
+			"name": "Louisville-Slugger"
+		},
+		{
+			"slug": "columbia",
+			"name": "Columbia"
+		},
+		{
+			"slug": "amd",
+			"name": "AMD"
+		},
+		{
+			"slug": "dell",
+			"name": "Dell"
+		},
+		{
+			"slug": "IBM",
+			"name": "ibm"
+		},
+		{
+			"slug": "microsoft",
+			"name": "Microsoft"
+		},
+		{
+			"slug": "samsung",
+			"name": "Samsung"
+		},
+		{
+			"slug": "lg",
+			"name": "LG"
+		},
+		{
+			"slug": "vizio",
+			"name": "Vizio"
+		},
+		{
+			"slug": "western-digital",
+			"name": "Western Digital"
+		},
+		{
+			"slug": "bose",
+			"name": "Bose"
+		},
+		{
+			"slug": "shure",
+			"name": "Shure"
+		},
+		{
+			"slug": "nvidia",
+			"name": "NVidia"
+		},
+		{
+			"slug": "koss",
+			"name": "Koss"
+		},
+		{
+			"slug": "cisco",
+			"name": "Cisco"
+		},
+		{
+			"slug": "aeropostale",
+			"name": "Aeropostale"
+		},
+		{
+			"slug": "american-eagle",
+			"name": "American Eagle"
+		},
+		{
+			"slug": "vans",
+			"name": "Vans"
+		},
+		{
+			"slug": "converse",
+			"name": "Converse"
+		},
+		{
+			"slug": "ralph-lauren",
+			"name": "Ralph Lauren"
+		},
+		{
+			"slug": "fox",
+			"name": "Fox"
+		},
+		{
+			"slug": "jordan",
+			"name": "Jordan"
+		}
+	]
+}
