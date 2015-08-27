@@ -92,3 +92,73 @@ Click "Setup"
 ### Done
 
 ![main](screenshots/couchbase-10.png)
+
+### Reset Password
+
+If you need to reset the server password read this [http://docs.couchbase.com/admin/admin/CLI/cbreset_password_tool.html](http://docs.couchbase.com/admin/admin/CLI/cbreset_password_tool.html)
+
+## Elastic Search Installation and Setup
+
+If you have homebrew, run: 
+
+`brew install elasticsearch`
+
+Run
+
+`elasticsearch --config=/usr/local/opt/elasticsearch/config/elasticsearch.yml`
+
+Change to the elasticsearch directory
+
+`cd /usr/local/opt/elasticsearch/`
+
+Install the Couchbase Elastic Search plugin
+
+```
+bin/plugin -install transport-couchbase -url \
+http://packages.couchbase.com.s3.amazonaws.com/releases/elastic-search-adapter/2.0.0/elasticsearch-transport-couchbase-2.0.0.zip
+```
+
+Set the username and password for the plugin
+
+```
+echo "couchbase.password: password" >> config/elasticsearch.yml ; echo "couchbase.username: Administrator" >> config/elasticsearch.yml```
+
+Install the Elastic Search Head Plugin to provide a web interface 
+
+`bin/plugin -install mobz/elasticsearch-head`
+
+Start the elastic search server
+
+`bin/elasticsearch`
+
+Verify the install by opening up the web interface [http://localhost:9200/_plugin/head/](http://localhost:9200/_plugin/head/)
+
+Create a new Index / Bucket in Elastic by clicking "Indicies"
+
+Click "New Index"
+
+Give the index a name i.e. "demo-site"
+
+# Connect Couchbase to Elastic
+
+##Couchbase Cluster Reference Setup
+
+1. Go to the [XDCR](http://127.0.0.1:8091/index.html#sec=replications) tab
+2. Click "Create Cluster Reference"
+3. Enter a name for the cluster reference i.e. "ElasticSearch"
+4. Enter "127.0.0.1:9091" for the IP/hostname
+5. Enter the **value** for `couchbase.username` (i.e. Administrator) that provided earlier when setting up the plugin as the Username
+6. Enter the **value** for `couchbase.password` (i.e. password) that provided earlier when setting up the plugin as the Password
+7. Click "Save"
+
+##Data Transfer Setup
+
+1. From the [XDCR](http://127.0.0.1:8091/index.html#sec=replications) tab click "Create Replication"
+2. Select the bucket from your setup i.e. "default"
+3. Choose the cluster from the previous steps i.e. "ElasticSEarch"
+4. Choose advanced and change the protocol to XDCR Protocol to "Version 1"
+
+
+
+
+
