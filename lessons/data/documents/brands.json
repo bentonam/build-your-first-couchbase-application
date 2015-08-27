@@ -40,12 +40,7 @@
 		{
 			"slug": "adidas",
 			"name": "Adidas"
-		},
-		{
-			"slug": "reebok",
-			"name": "Reebok"
-		},
-		{
+		},		{
 			"slug": "louisville-slugger",
 			"name": "Louisville-Slugger"
 		},
@@ -78,10 +73,6 @@
 			"name": "LG"
 		},
 		{
-			"slug": "vizio",
-			"name": "Vizio"
-		},
-		{
 			"slug": "western-digital",
 			"name": "Western Digital"
 		},
@@ -94,20 +85,8 @@
 			"name": "Shure"
 		},
 		{
-			"slug": "nvidia",
-			"name": "NVidia"
-		},
-		{
-			"slug": "koss",
-			"name": "Koss"
-		},
-		{
 			"slug": "cisco",
 			"name": "Cisco"
-		},
-		{
-			"slug": "aeropostale",
-			"name": "Aeropostale"
 		},
 		{
 			"slug": "american-eagle",
