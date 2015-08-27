@@ -1,0 +1,1222 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>CoreMarshaller</title>
+	<meta name="keywords" content="cfcouchbase.data.concurrent.Callable interface">
+	<!-- common assets -->
+	
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel ="stylesheet" type="text/css" href="../../bootstrap/css/bootstrap.min.css">
+<link rel ="stylesheet" type="text/css" href="../../stylesheet.css">
+	
+<link href='https://fonts.googleapis.com/css?family=Ubuntu:400,300,300italic,400italic,700,700italic|Ubuntu+Mono' rel='stylesheet' type='text/css' />
+	
+<script src="../../bootstrap/js/jquery-2.1.0.min.js" type="text/javascript"></script>
+<script src="../../bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+
+<script>
+$(document).ready(function() {
+	// Global Tool Tip Settings
+	$( '[title]' ).tooltip({
+		 animation: 'slide',
+		 delay: { show: 250, hide: 250 }
+	});
+});
+</script>
+	<!-- syntax highlighter -->
+	<link type="text/css" rel="stylesheet" href="../../highlighter/styles/shCoreDefault.css">
+	<script src="../../highlighter/scripts/shCore.js"></script>
+	<script src="../../highlighter/scripts/shBrushColdFusion.js"></script>
+	<script src="../../highlighter/scripts/shBrushXml.js"></script>
+	<script src="../../highlighter/scripts/shBrushSql.js"></script>
+	<script src="../../highlighter/scripts/shBrushJScript.js"></script>
+	<script src="../../highlighter/scripts/shBrushJava.js"></script>
+	<script src="../../highlighter/scripts/shBrushCss.js"></script>
+	<script type="text/javascript">SyntaxHighlighter.all();</script>
+</head>
+
+<body class="withNavbar">
+
+
+
+
+
+
+<!-- ========= START OF NAVBAR ======= -->
+<a name="navbar_top"></a>
+<a href="#skip-navbar_top" title="skip navigation links"></a>	
+
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container-fluid">
+    
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#class-navigation">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#"><strong>CFCouchbase v1.1.0</strong></a>
+		</div>
+
+	    <div class="collapse navbar-collapse" id="class-navigation">
+	    	<ul class="nav navbar-nav">
+				
+					
+					<li><a href="../../overview-summary.html"><i class="glyphicon glyphicon-plane"></i> overview</a></li>
+					
+				
+
+				
+					<li><a href="package-summary.html"><i class="glyphicon glyphicon-folder-open"></i> &nbsp;package</a></li>
+				
+
+			  	
+					<li class="dropdown active">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-file"></i> class <b class="caret"></b></a>
+
+						<ul class="dropdown-menu">
+							<li><a href="#class">Class Definition</a></li>
+							<li><a href="#constructor_summary">Constructor Summary</a></li>
+							<li><a href="#constructor_detail">Constructor Detail</a></li>
+							<li><a href="#inherited_methods">Inherited Methods</a></li>
+							<li><a href="#method_summary">Method Summary</a></li>
+							<li><a href="#method_detail">Method Detail</a></li>
+							<li><a href="#property_summary">Property Summary</a></li>
+							<li><a href="#property_detail">Property Detail</a></li>
+							
+						</ul>
+					</li>
+				
+	      	</ul>
+
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="../../index.html?cfcouchbase/data/CoreMarshaller.html" target="_top">
+					<i class="glyphicon glyphicon-fullscreen"></i> Frames
+					</a>
+				</li>
+			</ul>
+	    </div>
+
+	</div>
+</nav>	
+
+<a name="skip-navbar_top"></a>
+<!-- ========= END OF NAVBAR ========= -->
+
+<!-- ======== start of class data ======== -->
+<a name="class"><!-- --></a>
+
+<!-- Package -->
+<div class="pull-right">
+	<a href="package-summary.html" title="Package: cfcouchbase.data"><span class="label label-success">cfcouchbase.data</span></a>
+</div>
+
+<h2>
+
+Class
+
+ CoreMarshaller</h2>
+
+
+
+
+
+
+
+
+	
+		
+	
+	
+
+	
+		
+		
+			
+		
+	
+	
+
+
+<!-- Inheritance Tree-->
+<pre>railo-context.Component
+        <img src="../../resources/inherit.gif" alt="extended by ">cfcouchbase.data.CoreMarshaller
+</pre>
+
+<div class="panel panel-default">
+	<div class="panel-heading"><strong>Class Attributes:</strong></div>
+		<div class="panel-body">
+		
+		
+			
+		
+			
+		
+			
+		
+			
+			
+			<li class="label label-danger label-annotations">
+				synchronized 
+				
+				: false		
+				
+			</li>
+			&nbsp;
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+			
+			<li class="label label-danger label-annotations">
+				accessors 
+				
+				: true		
+				
+			</li>
+			&nbsp;
+			
+		
+			
+		
+			
+			
+			<li class="label label-danger label-annotations">
+				persistent 
+				
+				: false		
+				
+			</li>
+			&nbsp;
+			
+		
+			
+			
+			<li class="label label-danger label-annotations">
+				author 
+				
+				: Luis Majano, Brad Wood		
+				
+			</li>
+			&nbsp;
+			
+		
+			
+		
+			
+		
+		
+	</div>
+</div>
+
+
+	
+	
+		<div class="panel panel-default">
+			<div class="panel-heading"><strong>All Implemented Interfaces:</strong></div>
+  			<div class="panel-body">
+			
+			
+				
+				
+				<a href="../../cfcouchbase/data/IDataMarshaller.html" title="interface in cfcouchbase.data">IDataMarshaller</a>
+			
+			</div>
+		</div>
+	
+
+
+
+
+
+
+
+<div id="class-hint">
+	<p><strong>Copyright Since 2005 Ortus Solutions, Corp</strong><br>
+<a href="http://www.ortussolutions.com">www.ortussolutions.com</a>
+<p>Our core marshaller is in charge of serializing/deserializing between CFML and Couchbase according to our rules. Please see
+the documentation for further information.</p></p>
+</div>
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+
+<a name="property_summary"><!-- --></a>
+<table class="table table-bordered table-hover">
+	<tr class="info">
+		<th align="left" colspan="5">
+			<strong>Property Summary</strong>
+		</th>
+	</tr>
+	<tr class="info">
+		<th align="left">
+			<strong>type</strong>
+		</th>
+		<th align="left">
+			<strong>property</strong>
+		</th>
+		<th align="left">
+			<strong>default</strong>
+		</th>
+		<th align="left">
+			<strong>serializable</strong>
+		</th>
+		<th align="left">
+			<strong>required</strong>
+		</th>
+	</tr>
+
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="CoreMarshaller.html#couchbaseClient()">couchbaseClient</A></strong> 
+			<br>
+			
+			<!-- only grab the first sentence of the hint -->
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The link back to the couchbase client.
+			
+			<br><br>
+			<ul>
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+			</ul>
+
+		</td>
+		<td align="right" valign="top" width="1%">
+			
+		</td>
+		<td align="right" valign="top" width="1%">
+			<code>
+				true
+			</code>
+		</td>
+		<td align="right" valign="top" width="1%">
+			<code>
+				false
+			</code>
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>struct</code>
+		</td>
+		<td>
+			<strong><a href="CoreMarshaller.html#objectMDCache()">objectMDCache</A></strong> 
+			<br>
+			
+			<!-- only grab the first sentence of the hint -->
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A struct holding metadata cache for objects.
+			
+			<br><br>
+			<ul>
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+			</ul>
+
+		</td>
+		<td align="right" valign="top" width="1%">
+			
+		</td>
+		<td align="right" valign="top" width="1%">
+			<code>
+				true
+			</code>
+		</td>
+		<td align="right" valign="top" width="1%">
+			<code>
+				false
+			</code>
+		</td>
+	</tr>
+	
+	</tr>
+</table>
+
+
+
+	
+	
+	<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+
+	<a name="constructor_summary"><!-- --></a>
+	<table class="table table-bordered table-hover">
+		<tr class="info">
+			<th align="left" colspan="2">
+				<strong>Constructor Summary</strong>
+			</th>
+		</tr>
+		<tr>
+			
+			<td>
+				<strong><a href="CoreMarshaller.html#init()">init</A></strong>()
+				<br>
+				
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Constructor.
+				
+			</td>
+		</tr>
+	</table>
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+
+<a name="method_summary"><!-- --></a>
+<table class="table table-bordered table-hover">
+	<tr class="info">
+		<th align="left" colspan="2">
+			<strong>Method Summary</strong>
+		</th>
+	</tr>
+
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>private&nbsp;boolean</code>
+		</td>
+		<td>
+			<strong><a href="CoreMarshaller.html#$isClosure()">$isClosure</A></strong>(any target)
+			<br>
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>private&nbsp;any</code>
+		</td>
+		<td>
+			<strong><a href="CoreMarshaller.html#buildMemento()">buildMemento</A></strong>(any target, any metaData)
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;build CFC memento.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="CoreMarshaller.html#deserializeData()">deserializeData</A></strong>(string ID, string data, [any inflateTo=''], [struct deserializeOptions='[runtime expression]'])
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This method deserializes an incoming data string via JSON and according to our rules.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>private&nbsp;any</code>
+		</td>
+		<td>
+			<strong><a href="CoreMarshaller.html#deserializeObjects()">deserializeObjects</A></strong>(string ID, any data, any inflateTo, [any deserializeOptions='[runtime expression]'])
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Does object inflation.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>private&nbsp;string</code>
+		</td>
+		<td>
+			<strong><a href="CoreMarshaller.html#determineIDPropertyName()">determineIDPropertyName</A></strong>(any target, struct deserializeOptions)
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Determine which property of the CFC is the primary ID.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>private&nbsp;any</code>
+		</td>
+		<td>
+			<strong><a href="CoreMarshaller.html#generateInflatable()">generateInflatable</A></strong>(any inflateTo, any data)
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Generates inflatable CFC from a class path, object or closure provider.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>string</code>
+		</td>
+		<td>
+			<strong><a href="CoreMarshaller.html#getCouchbaseClient()">getCouchbaseClient</A></strong>()
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;get: The link back to the couchbase client.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>string</code>
+		</td>
+		<td>
+			<strong><a href="CoreMarshaller.html#getObjectMDCache()">getObjectMDCache</A></strong>()
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;get: A struct holding metadata cache for objects.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>string</code>
+		</td>
+		<td>
+			<strong><a href="CoreMarshaller.html#serializeData()">serializeData</A></strong>(any data)
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This method serializes incoming data according to our rules and it returns a string representation usually JSON.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>private&nbsp;any</code>
+		</td>
+		<td>
+			<strong><a href="CoreMarshaller.html#serializeObjects()">serializeObjects</A></strong>(any data)
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Does object data serializations.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="CoreMarshaller.html#setCouchbaseClient()">setCouchbaseClient</A></strong>(any couchcbaseClient)
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A method that is called by the couchbase client upon creation so if the marshaller implemnts this function, it can talk back to the client.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="CoreMarshaller.html#setObjectMDCache()">setObjectMDCache</A></strong>(struct objectMDCache)
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set: A struct holding metadata cache for objects.
+			
+		</td>
+	</tr>
+	
+</table>
+
+
+
+<a name="inherited_methods"><!-- --></a>
+
+
+	
+
+	
+
+	&nbsp;
+	<a name="methods_inherited_from_class_railo-context.Component"><!-- --></a>
+	<table class="table table-hover table-bordered">
+		<tr class="info">
+			<th align="left">
+				<strong>Methods inherited from class <kbd>railo-context.Component</kbd></strong>
+			</th>
+		</tr>
+		<tr>
+			<td>
+				
+				
+				
+				
+				
+					<span class="label label-warning"><em>None</em></span>
+				
+			</td>
+		</tr>
+	</table>
+
+
+<hr>
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+
+	<a name="constructor_detail"><!-- --></a>
+	<table class="table table-bordered">
+		<tr class="info">
+			<th colspan="1" align="left">
+				<strong>Constructor Detail</strong>
+			</th>
+		</tr>
+	</table>
+
+	<a name="init()"><!-- --></a><h3>
+	init</h3>
+	<kbd>public <strong>init</strong>()</kbd>
+
+	<br><br>
+
+	
+	<p>Constructor</p>
+	
+
+	
+	<hr>
+
+
+<!-- ============ PROPERTY DETAIL ========== -->
+
+	<a name="property_detail"><!-- --></a>
+	<table class="table table-bordered">
+		<tr class="info">
+			<th colspan="1" align="left">
+				<strong>Property Detail</strong>
+			</th>
+		</tr>
+	</table>
+
+	
+		
+		<a name="couchbaseClient()"><!-- --></a>
+		<h3>couchbaseClient</h3>
+
+		<kbd>
+			property any 
+			<strong>couchbaseClient</strong>
+			
+		</kbd>
+
+		<br><br>
+		
+			<p>The link back to the couchbase client.</p>
+		
+
+		<dl>
+		<dt><strong>Attributes:</strong></dt>
+		
+			
+		
+			
+			<dd><code>required</code> - false</dd>
+			
+		
+			
+		
+			
+		
+			
+		
+			
+			<dd><code>serializable</code> - true</dd>
+			
+		
+		</dl>
+
+		<hr>
+	
+		
+		<a name="objectMDCache()"><!-- --></a>
+		<h3>objectMDCache</h3>
+
+		<kbd>
+			property struct 
+			<strong>objectMDCache</strong>
+			
+		</kbd>
+
+		<br><br>
+		
+			<p>A struct holding metadata cache for objects</p>
+		
+
+		<dl>
+		<dt><strong>Attributes:</strong></dt>
+		
+			
+		
+			
+			<dd><code>required</code> - false</dd>
+			
+		
+			
+		
+			
+		
+			
+		
+			
+			<dd><code>serializable</code> - true</dd>
+			
+		
+		</dl>
+
+		<hr>
+	
+
+
+
+
+
+
+
+
+
+<!-- ============ METHOD DETAIL ========== -->
+
+<a name="method_detail"><!-- --></a>
+<table class="table table-bordered">
+	<tr class="info">
+		<th colspan="1" align="left">
+			<strong>Method Detail</strong>
+		</th>
+	</tr>
+</table>
+
+
+	
+	<a name="$isClosure()"><!-- --></a>
+	<h3>$isClosure</h3>
+	
+	<kbd>private boolean <strong>$isClosure</strong>(any target)</kbd>
+	
+	<br><br>
+
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>target</code></dd>
+		
+		</dl>
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="buildMemento()"><!-- --></a>
+	<h3>buildMemento</h3>
+	
+	<kbd>private any <strong>buildMemento</strong>(any target, any metaData)</kbd>
+	
+	<br><br>
+
+	
+		<p>build CFC memento</p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>target</code></dd>
+		
+		<dd><code>metaData</code></dd>
+		
+		</dl>
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="deserializeData()"><!-- --></a>
+	<h3>deserializeData</h3>
+	
+	<kbd>public any <strong>deserializeData</strong>(string ID, string data, [any inflateTo=''], [struct deserializeOptions='[runtime expression]'])</kbd>
+	
+	<br><br>
+
+	
+		<p>This method deserializes an incoming data string via JSON and according to our rules. It can also accept an optional 
+inflateTo parameter wich can be an object we should inflate our data to.</p>
+	
+
+	
+		
+		
+			<dl>
+				<dt><strong>Specified by:</strong></dt>
+				<dd>
+				<code>
+				<a href="../..//cfcouchbase/data/IDataMarshaller.html#deserializeData()">deserializeData</a></code>
+				in interface
+				<code>
+					<a href="../../cfcouchbase/data/IDataMarshaller.html" title="interface in cfcouchbase.data">IDataMarshaller</a>
+				</code>
+				</dd>
+			</dl>
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>ID</code> - The ID of the document being deserialized</dd>
+		
+		<dd><code>data</code> - A JSON document to deserialize according to our rules</dd>
+		
+		<dd><code>inflateTo</code> - The object that will be used to inflate the data with according to our conventions</dd>
+		
+		<dd><code>deserializeOptions</code> - A struct of options to help control how the data is deserialized when populating an object</dd>
+		
+		</dl>
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="deserializeObjects()"><!-- --></a>
+	<h3>deserializeObjects</h3>
+	
+	<kbd>private any <strong>deserializeObjects</strong>(string ID, any data, any inflateTo, [any deserializeOptions='[runtime expression]'])</kbd>
+	
+	<br><br>
+
+	
+		<p>Does object inflation</p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>ID</code></dd>
+		
+		<dd><code>data</code></dd>
+		
+		<dd><code>inflateTo</code></dd>
+		
+		<dd><code>deserializeOptions</code></dd>
+		
+		</dl>
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="determineIDPropertyName()"><!-- --></a>
+	<h3>determineIDPropertyName</h3>
+	
+	<kbd>private string <strong>determineIDPropertyName</strong>(any target, struct deserializeOptions)</kbd>
+	
+	<br><br>
+
+	
+		<p>Determine which property of the CFC is the primary ID.  Returns empty string if none found.</p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>target</code></dd>
+		
+		<dd><code>deserializeOptions</code></dd>
+		
+		</dl>
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="generateInflatable()"><!-- --></a>
+	<h3>generateInflatable</h3>
+	
+	<kbd>private any <strong>generateInflatable</strong>(any inflateTo, any data)</kbd>
+	
+	<br><br>
+
+	
+		<p>Generates inflatable CFC from a class path, object or closure provider</p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>inflateTo</code></dd>
+		
+		<dd><code>data</code></dd>
+		
+		</dl>
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="getCouchbaseClient()"><!-- --></a>
+	<h3>getCouchbaseClient</h3>
+	
+	<kbd>public string <strong>getCouchbaseClient</strong>()</kbd>
+	
+	<br><br>
+
+	
+		<p>get: The link back to the couchbase client.</p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="getObjectMDCache()"><!-- --></a>
+	<h3>getObjectMDCache</h3>
+	
+	<kbd>public string <strong>getObjectMDCache</strong>()</kbd>
+	
+	<br><br>
+
+	
+		<p>get: A struct holding metadata cache for objects</p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="serializeData()"><!-- --></a>
+	<h3>serializeData</h3>
+	
+	<kbd>public string <strong>serializeData</strong>(any data)</kbd>
+	
+	<br><br>
+
+	
+		<p>This method serializes incoming data according to our rules and it returns a string representation usually JSON</p>
+	
+
+	
+		
+		
+			<dl>
+				<dt><strong>Specified by:</strong></dt>
+				<dd>
+				<code>
+				<a href="../..//cfcouchbase/data/IDataMarshaller.html#serializeData()">serializeData</a></code>
+				in interface
+				<code>
+					<a href="../../cfcouchbase/data/IDataMarshaller.html" title="interface in cfcouchbase.data">IDataMarshaller</a>
+				</code>
+				</dd>
+			</dl>
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>data</code> - The data to serialize</dd>
+		
+		</dl>
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="serializeObjects()"><!-- --></a>
+	<h3>serializeObjects</h3>
+	
+	<kbd>private any <strong>serializeObjects</strong>(any data)</kbd>
+	
+	<br><br>
+
+	
+		<p>Does object data serializations</p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>data</code></dd>
+		
+		</dl>
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="setCouchbaseClient()"><!-- --></a>
+	<h3>setCouchbaseClient</h3>
+	
+	<kbd>public any <strong>setCouchbaseClient</strong>(any couchcbaseClient)</kbd>
+	
+	<br><br>
+
+	
+		<p>A method that is called by the couchbase client upon creation so if the marshaller implemnts this function, it can talk back to the client.</p>
+	
+
+	
+		
+		
+			<dl>
+				<dt><strong>Specified by:</strong></dt>
+				<dd>
+				<code>
+				<a href="../..//cfcouchbase/data/IDataMarshaller.html#setCouchbaseClient()">setCouchbaseClient</a></code>
+				in interface
+				<code>
+					<a href="../../cfcouchbase/data/IDataMarshaller.html" title="interface in cfcouchbase.data">IDataMarshaller</a>
+				</code>
+				</dd>
+			</dl>
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>couchcbaseClient</code></dd>
+		
+		</dl>
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="setObjectMDCache()"><!-- --></a>
+	<h3>setObjectMDCache</h3>
+	
+	<kbd>public any <strong>setObjectMDCache</strong>(struct objectMDCache)</kbd>
+	
+	<br><br>
+
+	
+		<p>set: A struct holding metadata cache for objects</p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>objectMDCache</code></dd>
+		
+		</dl>
+	
+
+	
+
+	</dl>
+	<hr>
+
+
+
+
+</body>
+</html>
+

@@ -1,0 +1,44 @@
+.product-listing .headline {
+  margin-bottom: 15px; }
+  .product-listing .headline h2 {
+    margin: 0; }
+
+.product-listing .caption h3 {
+  font-size: 1em;
+  height: 32px;
+  margin-top: 0;
+  overflow: hidden; }
+
+.product-listing .caption h4 {
+  height: 40px;
+  line-height: 40px;
+  margin: 0; }
+  .product-listing .caption h4.sale {
+    line-height: 18px; }
+    .product-listing .caption h4.sale strike {
+      color: #a94442;
+      display: block;
+      font-size: .6em; }
+
+.product-listing .caption p {
+  font-size: .8em;
+  height: 30px;
+  overflow: hidden; }
+
+.product-listing .ratings {
+  color: #d17581;
+  font-size: .8em;
+  margin-top: 5px; }
+
+footer {
+  margin: 50px 0; }
+
+.slide-image {
+  width: 100%; }
+
+.carousel-holder {
+  margin-bottom: 30px; }
+
+.carousel-control,
+.item {
+  border-radius: 4px; }

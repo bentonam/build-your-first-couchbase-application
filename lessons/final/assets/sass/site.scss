@@ -1,0 +1,56 @@
+.product-listing{
+	.headline{
+		margin-bottom: 15px;
+		h2{
+			margin: 0;
+		}
+	}
+	.caption{
+		h3{
+			font-size: 1em;
+			height: 32px;
+			margin-top: 0;
+			overflow: hidden;
+		}
+		h4{
+			height: 40px;
+			line-height: 40px;
+			margin: 0;
+			&.sale{
+				line-height: 18px;
+				strike{
+					color: #a94442;
+					display: block;
+					font-size: .6em;
+				}
+			}
+		}
+		p{
+			font-size: .8em;
+			height: 30px;
+			overflow: hidden;
+		}
+	}
+	.ratings {
+		color: #d17581;
+		font-size: .8em;
+		margin-top: 5px;
+	}
+}
+footer{
+	margin: 50px 0;
+}
+
+
+
+
+.slide-image {
+	width: 100%;
+}
+.carousel-holder {
+	margin-bottom: 30px;
+}
+.carousel-control,
+.item {
+	border-radius: 4px;
+}

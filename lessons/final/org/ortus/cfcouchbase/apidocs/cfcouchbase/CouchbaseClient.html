@@ -1,0 +1,5030 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>CouchbaseClient</title>
+	<meta name="keywords" content="cfcouchbase.concurrent.Callable interface">
+	<!-- common assets -->
+	
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel ="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css">
+<link rel ="stylesheet" type="text/css" href="../stylesheet.css">
+	
+<link href='https://fonts.googleapis.com/css?family=Ubuntu:400,300,300italic,400italic,700,700italic|Ubuntu+Mono' rel='stylesheet' type='text/css' />
+	
+<script src="../bootstrap/js/jquery-2.1.0.min.js" type="text/javascript"></script>
+<script src="../bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+
+<script>
+$(document).ready(function() {
+	// Global Tool Tip Settings
+	$( '[title]' ).tooltip({
+		 animation: 'slide',
+		 delay: { show: 250, hide: 250 }
+	});
+});
+</script>
+	<!-- syntax highlighter -->
+	<link type="text/css" rel="stylesheet" href="../highlighter/styles/shCoreDefault.css">
+	<script src="../highlighter/scripts/shCore.js"></script>
+	<script src="../highlighter/scripts/shBrushColdFusion.js"></script>
+	<script src="../highlighter/scripts/shBrushXml.js"></script>
+	<script src="../highlighter/scripts/shBrushSql.js"></script>
+	<script src="../highlighter/scripts/shBrushJScript.js"></script>
+	<script src="../highlighter/scripts/shBrushJava.js"></script>
+	<script src="../highlighter/scripts/shBrushCss.js"></script>
+	<script type="text/javascript">SyntaxHighlighter.all();</script>
+</head>
+
+<body class="withNavbar">
+
+
+
+
+
+
+<!-- ========= START OF NAVBAR ======= -->
+<a name="navbar_top"></a>
+<a href="#skip-navbar_top" title="skip navigation links"></a>	
+
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container-fluid">
+    
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#class-navigation">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#"><strong>CFCouchbase v1.1.0</strong></a>
+		</div>
+
+	    <div class="collapse navbar-collapse" id="class-navigation">
+	    	<ul class="nav navbar-nav">
+				
+					
+					<li><a href="../overview-summary.html"><i class="glyphicon glyphicon-plane"></i> overview</a></li>
+					
+				
+
+				
+					<li><a href="package-summary.html"><i class="glyphicon glyphicon-folder-open"></i> &nbsp;package</a></li>
+				
+
+			  	
+					<li class="dropdown active">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-file"></i> class <b class="caret"></b></a>
+
+						<ul class="dropdown-menu">
+							<li><a href="#class">Class Definition</a></li>
+							<li><a href="#constructor_summary">Constructor Summary</a></li>
+							<li><a href="#constructor_detail">Constructor Detail</a></li>
+							<li><a href="#inherited_methods">Inherited Methods</a></li>
+							<li><a href="#method_summary">Method Summary</a></li>
+							<li><a href="#method_detail">Method Detail</a></li>
+							<li><a href="#property_summary">Property Summary</a></li>
+							<li><a href="#property_detail">Property Detail</a></li>
+							
+						</ul>
+					</li>
+				
+	      	</ul>
+
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="../index.html?cfcouchbase/CouchbaseClient.html" target="_top">
+					<i class="glyphicon glyphicon-fullscreen"></i> Frames
+					</a>
+				</li>
+			</ul>
+	    </div>
+
+	</div>
+</nav>	
+
+<a name="skip-navbar_top"></a>
+<!-- ========= END OF NAVBAR ========= -->
+
+<!-- ======== start of class data ======== -->
+<a name="class"><!-- --></a>
+
+<!-- Package -->
+<div class="pull-right">
+	<a href="package-summary.html" title="Package: cfcouchbase"><span class="label label-success">cfcouchbase</span></a>
+</div>
+
+<h2>
+
+Class
+
+ CouchbaseClient</h2>
+
+
+
+
+
+
+
+
+	
+		
+	
+	
+
+	
+		
+		
+			
+		
+	
+	
+
+
+<!-- Inheritance Tree-->
+<pre>railo-context.Component
+        <img src="../resources/inherit.gif" alt="extended by ">cfcouchbase.CouchbaseClient
+</pre>
+
+<div class="panel panel-default">
+	<div class="panel-heading"><strong>Class Attributes:</strong></div>
+		<div class="panel-body">
+		
+		
+			
+		
+			
+		
+			
+		
+			
+			
+			<li class="label label-danger label-annotations">
+				synchronized 
+				
+				: false		
+				
+			</li>
+			&nbsp;
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+			
+			<li class="label label-danger label-annotations">
+				accessors 
+				
+				: true		
+				
+			</li>
+			&nbsp;
+			
+		
+			
+		
+			
+			
+			<li class="label label-danger label-annotations">
+				persistent 
+				
+				: false		
+				
+			</li>
+			&nbsp;
+			
+		
+			
+			
+			<li class="label label-danger label-annotations">
+				serializable 
+				
+				: false		
+				
+			</li>
+			&nbsp;
+			
+		
+			
+			
+			<li class="label label-danger label-annotations">
+				author 
+				
+				: Luis Majano, Brad Wood		
+				
+			</li>
+			&nbsp;
+			
+		
+			
+		
+			
+		
+		
+	</div>
+</div>
+
+
+	
+	
+
+
+
+
+
+
+
+<div id="class-hint">
+	<p><strong>Copyright Since 2005 Ortus Solutions, Corp</strong><br>
+<a href="http://www.ortussolutions.com">www.ortussolutions.com</a>
+<p>This is the main class used to connect and interact with Couchbase</p></p>
+</div>
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+
+<a name="property_summary"><!-- --></a>
+<table class="table table-bordered table-hover">
+	<tr class="info">
+		<th align="left" colspan="5">
+			<strong>Property Summary</strong>
+		</th>
+	</tr>
+	<tr class="info">
+		<th align="left">
+			<strong>type</strong>
+		</th>
+		<th align="left">
+			<strong>property</strong>
+		</th>
+		<th align="left">
+			<strong>default</strong>
+		</th>
+		<th align="left">
+			<strong>serializable</strong>
+		</th>
+		<th align="left">
+			<strong>required</strong>
+		</th>
+	</tr>
+
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#couchbaseClient()">couchbaseClient</A></strong> 
+			<br>
+			
+			<!-- only grab the first sentence of the hint -->
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The java CouchbaseClient object.
+			
+			<br><br>
+			<ul>
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+			</ul>
+
+		</td>
+		<td align="right" valign="top" width="1%">
+			
+		</td>
+		<td align="right" valign="top" width="1%">
+			<code>
+				true
+			</code>
+		</td>
+		<td align="right" valign="top" width="1%">
+			<code>
+				false
+			</code>
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#couchbaseConfig()">couchbaseConfig</A></strong> 
+			<br>
+			
+			<!-- only grab the first sentence of the hint -->
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The couchbase configuration object.
+			
+			<br><br>
+			<ul>
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+			</ul>
+
+		</td>
+		<td align="right" valign="top" width="1%">
+			
+		</td>
+		<td align="right" valign="top" width="1%">
+			<code>
+				true
+			</code>
+		</td>
+		<td align="right" valign="top" width="1%">
+			<code>
+				false
+			</code>
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code><a href="../cfcouchbase/data/IDataMarshaller.html" title="interface in cfcouchbase.data">IDataMarshaller</a></code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#dataMarshaller()">dataMarshaller</A></strong> 
+			<br>
+			
+			<!-- only grab the first sentence of the hint -->
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The data marshaller to use for serializations and deserializations.
+			
+			<br><br>
+			<ul>
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+			</ul>
+
+		</td>
+		<td align="right" valign="top" width="1%">
+			
+		</td>
+		<td align="right" valign="top" width="1%">
+			<code>
+				true
+			</code>
+		</td>
+		<td align="right" valign="top" width="1%">
+			<code>
+				false
+			</code>
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#libID()">libID</A></strong> 
+			<br>
+			
+			<!-- only grab the first sentence of the hint -->
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The unique ID of this SDK.
+			
+			<br><br>
+			<ul>
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+			</ul>
+
+		</td>
+		<td align="right" valign="top" width="1%">
+			
+		</td>
+		<td align="right" valign="top" width="1%">
+			<code>
+				true
+			</code>
+		</td>
+		<td align="right" valign="top" width="1%">
+			<code>
+				false
+			</code>
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#SDKVersion()">SDKVersion</A></strong> 
+			<br>
+			
+			<!-- only grab the first sentence of the hint -->
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The version of the Couchbase SDK.
+			
+			<br><br>
+			<ul>
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+			</ul>
+
+		</td>
+		<td align="right" valign="top" width="1%">
+			
+		</td>
+		<td align="right" valign="top" width="1%">
+			<code>
+				true
+			</code>
+		</td>
+		<td align="right" valign="top" width="1%">
+			<code>
+				false
+			</code>
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#util()">util</A></strong> 
+			<br>
+			
+			<!-- only grab the first sentence of the hint -->
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The SDK utility class.
+			
+			<br><br>
+			<ul>
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+			</ul>
+
+		</td>
+		<td align="right" valign="top" width="1%">
+			
+		</td>
+		<td align="right" valign="top" width="1%">
+			<code>
+				true
+			</code>
+		</td>
+		<td align="right" valign="top" width="1%">
+			<code>
+				false
+			</code>
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#uuidHelper()">uuidHelper</A></strong> 
+			<br>
+			
+			<!-- only grab the first sentence of the hint -->
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The UUID Helper.
+			
+			<br><br>
+			<ul>
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+			</ul>
+
+		</td>
+		<td align="right" valign="top" width="1%">
+			
+		</td>
+		<td align="right" valign="top" width="1%">
+			<code>
+				true
+			</code>
+		</td>
+		<td align="right" valign="top" width="1%">
+			<code>
+				false
+			</code>
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#version()">version</A></strong> 
+			<br>
+			
+			<!-- only grab the first sentence of the hint -->
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The version of this library.
+			
+			<br><br>
+			<ul>
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+			</ul>
+
+		</td>
+		<td align="right" valign="top" width="1%">
+			
+		</td>
+		<td align="right" valign="top" width="1%">
+			<code>
+				true
+			</code>
+		</td>
+		<td align="right" valign="top" width="1%">
+			<code>
+				false
+			</code>
+		</td>
+	</tr>
+	
+	</tr>
+</table>
+
+
+
+	
+	
+	<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+
+	<a name="constructor_summary"><!-- --></a>
+	<table class="table table-bordered table-hover">
+		<tr class="info">
+			<th align="left" colspan="2">
+				<strong>Constructor Summary</strong>
+			</th>
+		</tr>
+		<tr>
+			
+			<td>
+				<strong><a href="CouchbaseClient.html#init()">init</A></strong>([any config='[runtime expression]'])
+				<br>
+				
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Constructor.
+				
+			</td>
+		</tr>
+	</table>
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+
+<a name="method_summary"><!-- --></a>
+<table class="table table-bordered table-hover">
+	<tr class="info">
+		<th align="left" colspan="2">
+			<strong>Method Summary</strong>
+		</th>
+	</tr>
+
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#add()">add</A></strong>(string ID, any value, [numeric timeout], [string persistTo], [string replicateTo])
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This method is the same as set(), except the future that is returned will return true if the ID being set doesn't already exist.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#append()">append</A></strong>(string ID, any value, [numeric CAS])
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Append to an existing value in the cache.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#asyncDecr()">asyncDecr</A></strong>(string ID, numeric value)
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Decrement the given counter asynchronously.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#asyncGet()">asyncGet</A></strong>(string ID)
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get an object from couchbase asynchronously.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#asyncGetAndTouch()">asyncGetAndTouch</A></strong>(string ID, numeric timeout)
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Obtain a value for a given ID and update the expiry time for the document at the same time.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#asyncGetMulti()">asyncGetMulti</A></strong>(array ID)
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get multiple objects from couchbase asynchronously.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#asyncGetWithCAS()">asyncGetWithCAS</A></strong>(string ID)
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gets (with CAS support) the given key asynchronously.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#asyncIncr()">asyncIncr</A></strong>(string ID, numeric value)
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Increment the given counter asynchronously.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>boolean</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#asyncSaveView()">asyncSaveView</A></strong>(string designDocumentName, string viewName, string mapFunction, [string reduceFunction=''])
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Asynchronously Saves a View.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>private&nbsp;any</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#buildCouchbaseClient()">buildCouchbaseClient</A></strong>(any config)
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Build a couchbase connection client according to config and returns the raw java connection client object.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>private&nbsp;any</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#buildDataMarshaller()">buildDataMarshaller</A></strong>(any config)
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Build the data marshaller.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#decr()">decr</A></strong>(string ID, numeric value, [numeric defaultValue='0'], [numeric timeout])
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Decrement the given counter, returning the new value.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>private&nbsp;any</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#defaultPersistReplicate()">defaultPersistReplicate</A></strong>(any args)
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Default persist and replicate from arguments.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>private&nbsp;any</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#defaultTimeout()">defaultTimeout</A></strong>(any args)
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Default timeout in arguments.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#delete()">delete</A></strong>(any ID, [string persistTo], [string replicateTo])
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Delete a value with durability options.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#deleteDesignDocument()">deleteDesignDocument</A></strong>(string designDocumentName)
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Deletes a design document from the server.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>void</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#deleteView()">deleteView</A></strong>(string designDocumentName, string viewName)
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Deletes a View.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#deserializeData()">deserializeData</A></strong>(string ID, string data, [any inflateTo=''], [boolean deserialize='true'], [struct deserializeOptions='[runtime expression]'])
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Deserializes an incoming data string via JSON and according to our rules.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>boolean</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#designDocumentExists()">designDocumentExists</A></strong>(string designDocumentName)
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Checks to see if a design document exists.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#flush()">flush</A></strong>([numeric delay='0'])
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Flush all caches from all servers with a delay of application.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#get()">get</A></strong>(string ID, [boolean deserialize='true'], [struct deserializeOptions='[runtime expression]'], [any inflateTo=''])
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get an object from couchbase by the ID.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#getAggregateStat()">getAggregateStat</A></strong>(string stat)
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get an aggregate of a single stat aggregated across all servers in the cluster.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#getAndTouch()">getAndTouch</A></strong>(string ID, numeric timeout, [boolean deserialize='true'], [struct deserializeOptions='[runtime expression]'], [any inflateTo=''])
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Obtain a value for a given ID and update the expiry time for the document at the same time.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>array</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#getAvailableServers()">getAvailableServers</A></strong>()
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the addresses of available servers.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>string</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#getCouchbaseClient()">getCouchbaseClient</A></strong>()
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;get: The java CouchbaseClient object.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>string</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#getCouchbaseConfig()">getCouchbaseConfig</A></strong>()
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;get: The couchbase configuration object.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>string</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#getDataMarshaller()">getDataMarshaller</A></strong>()
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;get: The data marshaller to use for serializations and deserializations.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#getDesignDocument()">getDesignDocument</A></strong>(string designDocumentName)
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gets a design document.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#getDocStats()">getDocStats</A></strong>(any ID)
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get stats for a specific document ID.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#getJavaLoader()">getJavaLoader</A></strong>()
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the java loader instance.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>string</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#getLibID()">getLibID</A></strong>()
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;get: The unique ID of this SDK.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>private&nbsp;array</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#getLibJars()">getLibJars</A></strong>()
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get a list of all the jars in the lib directory.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#getMulti()">getMulti</A></strong>(array ID, [boolean deserialize='true'], [struct deserializeOptions='[runtime expression]'], [any inflateTo=''])
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get multiple objects from couchbase.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>string</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#getSDKVersion()">getSDKVersion</A></strong>()
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;get: The version of the Couchbase SDK.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#getSpatialView()">getSpatialView</A></strong>(string designDocumentName, string viewName)
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gets access to a spatial view contained in a design document from the cluster.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#getStats()">getStats</A></strong>()
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get all of the stats from all of the servers in the cluster.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>array</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#getUnAvailableServers()">getUnAvailableServers</A></strong>()
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the addresses of unavailable servers.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>string</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#getUtil()">getUtil</A></strong>()
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;get: The SDK utility class.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>string</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#getUuidHelper()">getUuidHelper</A></strong>()
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;get: The UUID Helper.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>string</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#getVersion()">getVersion</A></strong>()
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;get: The version of this library.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#getView()">getView</A></strong>(string designDocumentName, string viewName)
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gets access to a view contained in a design document from the cluster .
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#getWithCAS()">getWithCAS</A></strong>(string ID, [boolean deserialize='true'], [struct deserializeOptions='[runtime expression]'], [any inflateTo=''])
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get an object from couchbase with its CAS value, returns null if not found.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#incr()">incr</A></strong>(string ID, numeric value, [numeric defaultValue='0'], [numeric timeout])
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Increment the given counter.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>private&nbsp;void</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#loadSDK()">loadSDK</A></strong>()
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Load JavaLoader with the SDK.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#newDesignDocument()">newDesignDocument</A></strong>(string designDocumentName)
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Initializes a new design document Java object.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#newJava()">newJava</A></strong>(any className)
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get a java class using either the JavaLoader or createOject() based on the "useClassloader" config value.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#newQuery()">newQuery</A></strong>([struct options='[runtime expression]'])
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creates a new Java query object (com.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#newViewDesign()">newViewDesign</A></strong>(string viewName, string mapFunction, [string reduceFunction=''])
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creates a new instance of a viewDesign Java object (com.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#prepend()">prepend</A></strong>(string ID, any value, [numeric CAS])
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Prepend to an existing value in the cache.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#query()">query</A></strong>(string designDocumentName, string viewName, [any options='[runtime expression]'], [boolean deserialize='true'], [struct deserializeOptions='[runtime expression]'], [any inflateTo=''], [any filter], [any transform], [string returnType='array'])
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Queries a Couchbase view using the options supplied.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#rawQuery()">rawQuery</A></strong>(any view, any query)
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Queries a Couchbase view.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#replace()">replace</A></strong>(string ID, any value, [numeric timeout], [string persistTo], [string replicateTo])
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This method will set a value only if that ID already exists in Couchbase.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>boolean</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#saveView()">saveView</A></strong>(string designDocumentName, string viewName, string mapFunction, [string reduceFunction=''], [any waitFor='20'])
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Saves a View.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>string</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#serializeData()">serializeData</A></strong>(any data)
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Serializes incoming data according to our rules.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#set()">set</A></strong>(string ID, any value, [numeric timeout], [string persistTo], [string replicateTo])
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set a value with durability options.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#setCouchbaseClient()">setCouchbaseClient</A></strong>(any couchbaseClient)
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set: The java CouchbaseClient object.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#setCouchbaseConfig()">setCouchbaseConfig</A></strong>(any couchbaseConfig)
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set: The couchbase configuration object.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#setDataMarshaller()">setDataMarshaller</A></strong>(<a href="../cfcouchbase/data/IDataMarshaller.html" title="interface in cfcouchbase.data">IDataMarshaller</a> dataMarshaller)
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set: The data marshaller to use for serializations and deserializations.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#setLibID()">setLibID</A></strong>(any libID)
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set: The unique ID of this SDK.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#setMulti()">setMulti</A></strong>(struct data, [numeric timeout], [string persistTo], [string replicateTo])
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set multiple documents in the cache with a single operation.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#setSDKVersion()">setSDKVersion</A></strong>(any SDKVersion)
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set: The version of the Couchbase SDK.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#setUtil()">setUtil</A></strong>(any util)
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set: The SDK utility class.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#setUuidHelper()">setUuidHelper</A></strong>(any uuidHelper)
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set: The UUID Helper.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#setVersion()">setVersion</A></strong>(any version)
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set: The version of this library.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#setWithCAS()">setWithCAS</A></strong>(string ID, any value, string CAS, [numeric timeout], [string persistTo], [string replicateTo])
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Update the value of an existing document with a CAS value.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code><a href="../cfcouchbase/CouchbaseClient.html" title="class in cfcouchbase">CouchbaseClient</a></code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#shutdown()">shutdown</A></strong>([numeric timeout='10'])
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Shutdown the native client connection.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#touch()">touch</A></strong>(string ID, numeric timeout)
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Touch the given ID to reset its expiration time.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>private&nbsp;any</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#validateConfig()">validateConfig</A></strong>(any config)
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Standardize and validate configuration object.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="CouchbaseClient.html#viewExists()">viewExists</A></strong>(string designDocumentName, string viewName, [string mapFunction], [string reduceFunction])
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Checks to see if a view exists.
+			
+		</td>
+	</tr>
+	
+</table>
+
+
+
+<a name="inherited_methods"><!-- --></a>
+
+
+	
+
+	
+
+	&nbsp;
+	<a name="methods_inherited_from_class_railo-context.Component"><!-- --></a>
+	<table class="table table-hover table-bordered">
+		<tr class="info">
+			<th align="left">
+				<strong>Methods inherited from class <kbd>railo-context.Component</kbd></strong>
+			</th>
+		</tr>
+		<tr>
+			<td>
+				
+				
+				
+				
+				
+					<span class="label label-warning"><em>None</em></span>
+				
+			</td>
+		</tr>
+	</table>
+
+
+<hr>
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+
+	<a name="constructor_detail"><!-- --></a>
+	<table class="table table-bordered">
+		<tr class="info">
+			<th colspan="1" align="left">
+				<strong>Constructor Detail</strong>
+			</th>
+		</tr>
+	</table>
+
+	<a name="init()"><!-- --></a><h3>
+	init</h3>
+	<kbd>public <strong>init</strong>([any config='[runtime expression]'])</kbd>
+
+	<br><br>
+
+	
+	<p>Constructor
+This creates a connection to a Couchbase server using the passed in config argument, which can be a struct literal of options, a path to a config object
+or an instance of a cfcouchbase.config.CouchbaseConfig object.  For all the possible config settings, look at the CouchbaseConfig object.</p>
+	
+
+	
+	<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+			<dd><code>config</code> - The configuration structure, config object or path to a config object.</dd>
+		
+	</dl>
+	
+	<hr>
+
+
+<!-- ============ PROPERTY DETAIL ========== -->
+
+	<a name="property_detail"><!-- --></a>
+	<table class="table table-bordered">
+		<tr class="info">
+			<th colspan="1" align="left">
+				<strong>Property Detail</strong>
+			</th>
+		</tr>
+	</table>
+
+	
+		
+		<a name="couchbaseClient()"><!-- --></a>
+		<h3>couchbaseClient</h3>
+
+		<kbd>
+			property any 
+			<strong>couchbaseClient</strong>
+			
+		</kbd>
+
+		<br><br>
+		
+			<p>The java CouchbaseClient object</p>
+		
+
+		<dl>
+		<dt><strong>Attributes:</strong></dt>
+		
+			
+		
+			
+			<dd><code>required</code> - false</dd>
+			
+		
+			
+		
+			
+		
+			
+		
+			
+			<dd><code>serializable</code> - true</dd>
+			
+		
+		</dl>
+
+		<hr>
+	
+		
+		<a name="couchbaseConfig()"><!-- --></a>
+		<h3>couchbaseConfig</h3>
+
+		<kbd>
+			property any 
+			<strong>couchbaseConfig</strong>
+			
+		</kbd>
+
+		<br><br>
+		
+			<p>The couchbase configuration object</p>
+		
+
+		<dl>
+		<dt><strong>Attributes:</strong></dt>
+		
+			
+		
+			
+			<dd><code>required</code> - false</dd>
+			
+		
+			
+		
+			
+		
+			
+		
+			
+			<dd><code>serializable</code> - true</dd>
+			
+		
+		</dl>
+
+		<hr>
+	
+		
+		<a name="dataMarshaller()"><!-- --></a>
+		<h3>dataMarshaller</h3>
+
+		<kbd>
+			property <a href="../cfcouchbase/data/IDataMarshaller.html" title="interface in cfcouchbase.data">IDataMarshaller</a> 
+			<strong>dataMarshaller</strong>
+			
+		</kbd>
+
+		<br><br>
+		
+			<p>The data marshaller to use for serializations and deserializations</p>
+		
+
+		<dl>
+		<dt><strong>Attributes:</strong></dt>
+		
+			
+		
+			
+			<dd><code>required</code> - false</dd>
+			
+		
+			
+		
+			
+		
+			
+		
+			
+			<dd><code>serializable</code> - true</dd>
+			
+		
+		</dl>
+
+		<hr>
+	
+		
+		<a name="libID()"><!-- --></a>
+		<h3>libID</h3>
+
+		<kbd>
+			property any 
+			<strong>libID</strong>
+			
+		</kbd>
+
+		<br><br>
+		
+			<p>The unique ID of this SDK</p>
+		
+
+		<dl>
+		<dt><strong>Attributes:</strong></dt>
+		
+			
+		
+			
+			<dd><code>required</code> - false</dd>
+			
+		
+			
+		
+			
+		
+			
+		
+			
+			<dd><code>serializable</code> - true</dd>
+			
+		
+		</dl>
+
+		<hr>
+	
+		
+		<a name="SDKVersion()"><!-- --></a>
+		<h3>SDKVersion</h3>
+
+		<kbd>
+			property any 
+			<strong>SDKVersion</strong>
+			
+		</kbd>
+
+		<br><br>
+		
+			<p>The version of the Couchbase SDK</p>
+		
+
+		<dl>
+		<dt><strong>Attributes:</strong></dt>
+		
+			
+		
+			
+			<dd><code>required</code> - false</dd>
+			
+		
+			
+		
+			
+		
+			
+		
+			
+			<dd><code>serializable</code> - true</dd>
+			
+		
+		</dl>
+
+		<hr>
+	
+		
+		<a name="util()"><!-- --></a>
+		<h3>util</h3>
+
+		<kbd>
+			property any 
+			<strong>util</strong>
+			
+		</kbd>
+
+		<br><br>
+		
+			<p>The SDK utility class</p>
+		
+
+		<dl>
+		<dt><strong>Attributes:</strong></dt>
+		
+			
+		
+			
+			<dd><code>required</code> - false</dd>
+			
+		
+			
+		
+			
+		
+			
+		
+			
+			<dd><code>serializable</code> - true</dd>
+			
+		
+		</dl>
+
+		<hr>
+	
+		
+		<a name="uuidHelper()"><!-- --></a>
+		<h3>uuidHelper</h3>
+
+		<kbd>
+			property any 
+			<strong>uuidHelper</strong>
+			
+		</kbd>
+
+		<br><br>
+		
+			<p>The UUID Helper</p>
+		
+
+		<dl>
+		<dt><strong>Attributes:</strong></dt>
+		
+			
+		
+			
+			<dd><code>required</code> - false</dd>
+			
+		
+			
+		
+			
+		
+			
+		
+			
+			<dd><code>serializable</code> - true</dd>
+			
+		
+		</dl>
+
+		<hr>
+	
+		
+		<a name="version()"><!-- --></a>
+		<h3>version</h3>
+
+		<kbd>
+			property any 
+			<strong>version</strong>
+			
+		</kbd>
+
+		<br><br>
+		
+			<p>The version of this library</p>
+		
+
+		<dl>
+		<dt><strong>Attributes:</strong></dt>
+		
+			
+		
+			
+			<dd><code>required</code> - false</dd>
+			
+		
+			
+		
+			
+		
+			
+		
+			
+			<dd><code>serializable</code> - true</dd>
+			
+		
+		</dl>
+
+		<hr>
+	
+
+
+
+
+
+
+
+
+
+<!-- ============ METHOD DETAIL ========== -->
+
+<a name="method_detail"><!-- --></a>
+<table class="table table-bordered">
+	<tr class="info">
+		<th colspan="1" align="left">
+			<strong>Method Detail</strong>
+		</th>
+	</tr>
+</table>
+
+
+	
+	<a name="add()"><!-- --></a>
+	<h3>add</h3>
+	
+	<kbd>public any <strong>add</strong>(string ID, any value, [numeric timeout], [string persistTo], [string replicateTo])</kbd>
+	
+	<br><br>
+
+	
+		<p>This method is the same as set(), except the future that is returned will return true if the ID being set doesn't already exist.  
+The future will return false if the item being set does already exist.  It will not throw an error if the ID already exists, you must check the future.
+<pre class='brush: cf'>
+person = { name: "Brad", age: 33, hair: "red" };
+future = client.add( 'brad', person );
+</pre></p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>ID</code> - true</dd>
+		
+		<dd><code>value</code> - true</dd>
+		
+		<dd><code>timeout</code> - The expiration of the document in minutes, by default it is 0, so it lives forever</dd>
+		
+		<dd><code>persistTo</code> - The number of nodes that need to store the document to disk before this call returns.  Valid options are [ ZERO, MASTER, ONE, TWO, THREE, FOUR ]</dd>
+		
+		<dd><code>replicateTo</code> - The number of nodes to replicate the document to before this call returns.  Valid options are [ ZERO, ONE, TWO, THREE ]</dd>
+		
+		</dl>
+	
+
+	
+		<dl>
+			<dt><strong>Returns:</strong></dt>
+			<dd>A Java OperationFuture object (net.spy.memcached.internal.OperationFuture<Boolean>) or void (null) if a timeout exception occurs.</dd>
+		</dl>
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="append()"><!-- --></a>
+	<h3>append</h3>
+	
+	<kbd>public any <strong>append</strong>(string ID, any value, [numeric CAS])</kbd>
+	
+	<br><br>
+
+	
+		<p>Append to an existing value in the cache. If 0 is passed in as the CAS identifier (default), it will override the value on the server without performing the CAS check.
+This method is considered a 'binary' method since it operates on binary data such as string or integers, not JSON documents
+<pre class='brush: cf'>
+future = client.append( 'operationLog', 'This is a new log message#chr(13)##chr(10)#' );
+</pre></p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>ID</code> - The unique id of the document whose value will be appended</dd>
+		
+		<dd><code>value</code> - The value to append</dd>
+		
+		<dd><code>CAS</code> - CAS identifier (ignored in the ascii protocol)</dd>
+		
+		</dl>
+	
+
+	
+		<dl>
+			<dt><strong>Returns:</strong></dt>
+			<dd>A Java OperationFuture object (net.spy.memcached.internal.OperationFuture<Boolean>) Note that the return will be false any time a mutation has not occurred.</dd>
+		</dl>
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="asyncDecr()"><!-- --></a>
+	<h3>asyncDecr</h3>
+	
+	<kbd>public any <strong>asyncDecr</strong>(string ID, numeric value)</kbd>
+	
+	<br><br>
+
+	
+		<p>Decrement the given counter asynchronously.  This method is thread safe as it decrements and retrives the value in a single operation as opposed to 
+getting it, and then setting it again with subsequent calls.  
+<pre class='brush: cf'>
+future = client.asyncDecr( 'passesLeft', 1 );
+</pre></p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>ID</code> - The id of the document to decrement</dd>
+		
+		<dd><code>value</code> - The amount to decrement</dd>
+		
+		</dl>
+	
+
+	
+		<dl>
+			<dt><strong>Returns:</strong></dt>
+			<dd>A future with the decremented value, or -1 if the decrement failed.</dd>
+		</dl>
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="asyncGet()"><!-- --></a>
+	<h3>asyncGet</h3>
+	
+	<kbd>public any <strong>asyncGet</strong>(string ID)</kbd>
+	
+	<br><br>
+
+	
+		<p>Get an object from couchbase asynchronously.
+<pre class='brush: cf'>
+future = client.asyncGet( 'brad' );
+future.get();
+</pre></p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>ID</code> - The ID of the document to retrieve.</dd>
+		
+		</dl>
+	
+
+	
+		<dl>
+			<dt><strong>Returns:</strong></dt>
+			<dd>A Java Future object. (net.spy.memcached.internal.GetFuture)</dd>
+		</dl>
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="asyncGetAndTouch()"><!-- --></a>
+	<h3>asyncGetAndTouch</h3>
+	
+	<kbd>public any <strong>asyncGetAndTouch</strong>(string ID, numeric timeout)</kbd>
+	
+	<br><br>
+
+	
+		<p>Obtain a value for a given ID and update the expiry time for the document at the same time.  This is useful for a sort of "last access timeout" 
+functionality where you don't want a document to timeout while it is still being accessed.
+<pre class='brush: cf'>
+future = client.asyncGetAndTouch( 'brad' );
+</pre></p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>ID</code> - The ID of the document to retrieve.</dd>
+		
+		<dd><code>timeout</code> - The expiration of the document in minutes</dd>
+		
+		</dl>
+	
+
+	
+		<dl>
+			<dt><strong>Returns:</strong></dt>
+			<dd>A Future object (net.spy.memcached.internal.OperationFuture) that retrieves a CASValue class that you can use to get the value and cas of the object.</dd>
+		</dl>
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="asyncGetMulti()"><!-- --></a>
+	<h3>asyncGetMulti</h3>
+	
+	<kbd>public any <strong>asyncGetMulti</strong>(array ID)</kbd>
+	
+	<br><br>
+
+	
+		<p>Get multiple objects from couchbase asynchronously.  
+<pre class='brush: cf'>
+buldFuture = client.asyncGetMulti( ['brad', 'luis', 'bill'] );
+</pre></p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>ID</code> - An array of document IDs to retrieve.</dd>
+		
+		</dl>
+	
+
+	
+		<dl>
+			<dt><strong>Returns:</strong></dt>
+			<dd>A bulk Java Future. (net.spy.memcached.internal.BulkFuture)  Any document IDs not found will not exist in the future object.</dd>
+		</dl>
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="asyncGetWithCAS()"><!-- --></a>
+	<h3>asyncGetWithCAS</h3>
+	
+	<kbd>public any <strong>asyncGetWithCAS</strong>(string ID)</kbd>
+	
+	<br><br>
+
+	
+		<p>Gets (with CAS support) the given key asynchronously.  This method is meant to be used in conjunction with setWithCAS to be able to 
+update a document while making sure another process hasn't modified it in the meantime.  The CAS value changes every time the document is updated.
+<pre class='brush: cf'>
+future = client.asyncGetWithCAS( 'brad' );
+</pre></p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>ID</code> - The ID of the document to retrieve.</dd>
+		
+		</dl>
+	
+
+	
+		<dl>
+			<dt><strong>Returns:</strong></dt>
+			<dd>A Java Future. (net.spy.memcached.internal.OperationFuture) The future has methods that will return the "CAS" and "value" keys.</dd>
+		</dl>
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="asyncIncr()"><!-- --></a>
+	<h3>asyncIncr</h3>
+	
+	<kbd>public any <strong>asyncIncr</strong>(string ID, numeric value)</kbd>
+	
+	<br><br>
+
+	
+		<p>Increment the given counter asynchronously.  This method is thread safe as it increments and retrives the value in a single operation as opposed to 
+getting it, and then setting it again with subsequent calls.  	 
+<pre class='brush: cf'>
+future = client.asyncIncr( 'numErrors', 1 );
+</pre></p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>ID</code> - The id of the document to increment</dd>
+		
+		<dd><code>value</code> - The amount to imcrement</dd>
+		
+		</dl>
+	
+
+	
+		<dl>
+			<dt><strong>Returns:</strong></dt>
+			<dd>A future with the incremented value, or -1 if the increment failed.</dd>
+		</dl>
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="asyncSaveView()"><!-- --></a>
+	<h3>asyncSaveView</h3>
+	
+	<kbd>public boolean <strong>asyncSaveView</strong>(string designDocumentName, string viewName, string mapFunction, [string reduceFunction=''])</kbd>
+	
+	<br><br>
+
+	
+		<p>Asynchronously Saves a View.  Will save the view and or designDocument if they don't exist.  Will update if they already exist.  This method
+will return immediatley, but the view probalby won't be available to query for a few seconds. 
+<pre class='brush: cf'>
+client.asyncSaveView(
+&nbsp;&nbsp;'manager',
+&nbsp;&nbsp;'listBreweries',
+&nbsp;&nbsp;'function (doc, meta) {
+&nbsp;&nbsp;if ( doc.type == ''brewery'' ) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;emit(doc.name, null);
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;}',
+&nbsp;&nbsp;'_count'
+);
+</pre></p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>designDocumentName</code> - The name of the design document for the view to be saved under.  The design document will be created if neccessary</dd>
+		
+		<dd><code>viewName</code> - The name of the view to be saved</dd>
+		
+		<dd><code>mapFunction</code> - The map function for the view represented as a string</dd>
+		
+		<dd><code>reduceFunction</code> - The reduce function for the view represented as a string</dd>
+		
+		</dl>
+	
+
+	
+		<dl>
+			<dt><strong>Returns:</strong></dt>
+			<dd>True if the view was saved, false if no save occurred due to the view already existing.</dd>
+		</dl>
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="buildCouchbaseClient()"><!-- --></a>
+	<h3>buildCouchbaseClient</h3>
+	
+	<kbd>private any <strong>buildCouchbaseClient</strong>(any config)</kbd>
+	
+	<br><br>
+
+	
+		<p>Build a couchbase connection client according to config and returns the raw java connection client object</p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>config</code> - The CFCouchbase config object</dd>
+		
+		</dl>
+	
+
+	
+		<dl>
+			<dt><strong>Returns:</strong></dt>
+			<dd>The java CouchbaseClient class (com.couchbase.client.CouchbaseClient).</dd>
+		</dl>
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="buildDataMarshaller()"><!-- --></a>
+	<h3>buildDataMarshaller</h3>
+	
+	<kbd>private any <strong>buildDataMarshaller</strong>(any config)</kbd>
+	
+	<br><br>
+
+	
+		<p>Build the data marshaller</p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>config</code> - The CFCouchbase config object</dd>
+		
+		</dl>
+	
+
+	
+		<dl>
+			<dt><strong>Returns:</strong></dt>
+			<dd>The data marshaller</dd>
+		</dl>
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="decr()"><!-- --></a>
+	<h3>decr</h3>
+	
+	<kbd>public any <strong>decr</strong>(string ID, numeric value, [numeric defaultValue='0'], [numeric timeout])</kbd>
+	
+	<br><br>
+
+	
+		<p>Decrement the given counter, returning the new value.  This method is thread safe as it decrements and retrives the value in a single operation as opposed to 
+getting it, and then setting it again with subsequent calls.  
+<pre class='brush: cf'>
+newValue = client.decr( 'passesLeft', 1 );
+</pre></p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>ID</code> - The id of the document to decrement</dd>
+		
+		<dd><code>value</code> - The amount to decrement</dd>
+		
+		<dd><code>defaultValue</code> - The default value ( if the counter does not exist, this defaults to 0 );</dd>
+		
+		<dd><code>timeout</code> - The expiration of the document in minutes, by default it is 0, so it lives forever</dd>
+		
+		</dl>
+	
+
+	
+		<dl>
+			<dt><strong>Returns:</strong></dt>
+			<dd>The new value, or -1 if we were unable to decrement or add</dd>
+		</dl>
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="defaultPersistReplicate()"><!-- --></a>
+	<h3>defaultPersistReplicate</h3>
+	
+	<kbd>private any <strong>defaultPersistReplicate</strong>(any args)</kbd>
+	
+	<br><br>
+
+	
+		<p>Default persist and replicate from arguments.  Will create "persistTo" with a default value of ZERO and "replicateTo" with a 
+default value of ZERO if they don't exist.  Also translates from string inputs to the Java enum value</p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>args</code> - The argument collection to process</dd>
+		
+		</dl>
+	
+
+	
+		<dl>
+			<dt><strong>Returns:</strong></dt>
+			<dd>The argument collection with the defaulted values.</dd>
+		</dl>
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="defaultTimeout()"><!-- --></a>
+	<h3>defaultTimeout</h3>
+	
+	<kbd>private any <strong>defaultTimeout</strong>(any args)</kbd>
+	
+	<br><br>
+
+	
+		<p>Default timeout in arguments.  Will create "timeout" with a default value specified in settings
+Also accounts for timeouts over 30 days which must be represented as epoch date.</p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>args</code> - The argument collection to process</dd>
+		
+		</dl>
+	
+
+	
+		<dl>
+			<dt><strong>Returns:</strong></dt>
+			<dd>The argument collection with the defaulted values.</dd>
+		</dl>
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="delete()"><!-- --></a>
+	<h3>delete</h3>
+	
+	<kbd>public any <strong>delete</strong>(any ID, [string persistTo], [string replicateTo])</kbd>
+	
+	<br><br>
+
+	
+		<p>Delete a value with durability options. The durability options here operate similarly to those documented in the set method.
+<pre class='brush: cf'>
+future = client.delete( 'brad' );
+</pre></p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>ID</code> - The ID of the document to delete, or an array of ID's to delete</dd>
+		
+		<dd><code>persistTo</code> - The number of nodes that need to store the document to disk before this call returns.  Valid options are [ ZERO, MASTER, ONE, TWO, THREE, FOUR ]</dd>
+		
+		<dd><code>replicateTo</code> - The number of nodes to replicate the document to before this call returns.  Valid options are [ ZERO, ONE, TWO, THREE ]</dd>
+		
+		</dl>
+	
+
+	
+		<dl>
+			<dt><strong>Returns:</strong></dt>
+			<dd>A Java OperationFuture object (net.spy.memcached.internal.OperationFuture<Boolean>) or a struct of futures depending on whether a single ID or an array of IDs are passed,</dd>
+		</dl>
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="deleteDesignDocument()"><!-- --></a>
+	<h3>deleteDesignDocument</h3>
+	
+	<kbd>public any <strong>deleteDesignDocument</strong>(string designDocumentName)</kbd>
+	
+	<br><br>
+
+	
+		<p>Deletes a design document from the server
+<pre class='brush: cf'>
+client.deleteDesignDocument( 'beer' );
+</pre></p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>designDocumentName</code> - The name of the design document</dd>
+		
+		</dl>
+	
+
+	
+		<dl>
+			<dt><strong>Returns:</strong></dt>
+			<dd>True if successsful, false if unsuccessful</dd>
+		</dl>
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="deleteView()"><!-- --></a>
+	<h3>deleteView</h3>
+	
+	<kbd>public void <strong>deleteView</strong>(string designDocumentName, string viewName)</kbd>
+	
+	<br><br>
+
+	
+		<p>Deletes a View.  Will delete the view from the designDocument if it exists.  
+<pre class='brush: cf'>
+client.deleteView( 'myDoc', 'myView' );
+</pre></p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>designDocumentName</code> - The name of the design document for the view to be deleted from</dd>
+		
+		<dd><code>viewName</code> - The name of the view to be created</dd>
+		
+		</dl>
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="deserializeData()"><!-- --></a>
+	<h3>deserializeData</h3>
+	
+	<kbd>public any <strong>deserializeData</strong>(string ID, string data, [any inflateTo=''], [boolean deserialize='true'], [struct deserializeOptions='[runtime expression]'])</kbd>
+	
+	<br><br>
+
+	
+		<p>Deserializes an incoming data string via JSON and according to our rules. It can also accept an optional 
+inflateTo parameter wich can be an object we should inflate our data to.</p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>ID</code> - The ID of the document being deserialized</dd>
+		
+		<dd><code>data</code> - A JSON document to deserialize according to our rules</dd>
+		
+		<dd><code>inflateTo</code> - The object that will be used to inflate the data with according to our conventions</dd>
+		
+		<dd><code>deserialize</code> - The boolean value that marks if we should deserialize or not. Default is true</dd>
+		
+		<dd><code>deserializeOptions</code> - A struct of options to help control how the data is deserialized when populating an object</dd>
+		
+		</dl>
+	
+
+	
+		<dl>
+			<dt><strong>Returns:</strong></dt>
+			<dd>The deserialized data</dd>
+		</dl>
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="designDocumentExists()"><!-- --></a>
+	<h3>designDocumentExists</h3>
+	
+	<kbd>public boolean <strong>designDocumentExists</strong>(string designDocumentName)</kbd>
+	
+	<br><br>
+
+	
+		<p>Checks to see if a design document exists.
+<pre class='brush: cf'>
+result = client.designDocumentExists( 'beer' );
+</pre></p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>designDocumentName</code> - The name of the design document to check for</dd>
+		
+		</dl>
+	
+
+	
+		<dl>
+			<dt><strong>Returns:</strong></dt>
+			<dd>True if the design document is found and false if it is not found.</dd>
+		</dl>
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="flush()"><!-- --></a>
+	<h3>flush</h3>
+	
+	<kbd>public any <strong>flush</strong>([numeric delay='0'])</kbd>
+	
+	<br><br>
+
+	
+		<p>Flush all caches from all servers with a delay of application.
+<pre class='brush: cf'>
+client.flush( 5 );
+</pre></p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>delay</code> - The period of time to delay, in seconds</dd>
+		
+		</dl>
+	
+
+	
+		<dl>
+			<dt><strong>Returns:</strong></dt>
+			<dd>A Java future object. (net.spy.memcached.internal.OperationFuture)</dd>
+		</dl>
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="get()"><!-- --></a>
+	<h3>get</h3>
+	
+	<kbd>public any <strong>get</strong>(string ID, [boolean deserialize='true'], [struct deserializeOptions='[runtime expression]'], [any inflateTo=''])</kbd>
+	
+	<br><br>
+
+	
+		<p>Get an object from couchbase by the ID.  This method will deserialize object automatically and optionally inflate the data into a CFC.
+<pre class='brush: cf'>
+person = client.get( 'brad' );
+</pre></p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>ID</code> - The ID of the document to retrieve.</dd>
+		
+		<dd><code>deserialize</code> - Deserialize the JSON automatically for you and return the representation</dd>
+		
+		<dd><code>deserializeOptions</code> - A struct of options to help control how the data is deserialized when populating an object</dd>
+		
+		<dd><code>inflateTo</code> - The object that will be used to inflate the data with according to our conventions</dd>
+		
+		</dl>
+	
+
+	
+		<dl>
+			<dt><strong>Returns:</strong></dt>
+			<dd>The object if found, null otherwise.</dd>
+		</dl>
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="getAggregateStat()"><!-- --></a>
+	<h3>getAggregateStat</h3>
+	
+	<kbd>public any <strong>getAggregateStat</strong>(string stat)</kbd>
+	
+	<br><br>
+
+	
+		<p>Get an aggregate of a single stat aggregated across all servers in the cluster.  This method saves you the trouble of calling getStats() and manually 
+looping over each server to add up the totals.  val() is called on each value, so stats which are not numeric will simply return 0.
+This only works for numeric stats that are additive across the cluster such as "get_misses" or "curr_items".  A stat such as "time" would
+not make sense even though it is numeric, since adding epoch dates serves no purpose.  
+<p>
+Information on stats available here: http://www.couchbase.com/docs/couchbase-manual-1.8/cbstats-all-bucket-info.html
+<pre class='brush: cf'>
+stats = client.getAggregateStat( 'curr_items' );
+</pre></p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>stat</code> - The key of an individual stat to return</dd>
+		
+		</dl>
+	
+
+	
+		<dl>
+			<dt><strong>Returns:</strong></dt>
+			<dd>An integer representing the aggregation of the stat specified acrossed the cluster.</dd>
+		</dl>
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="getAndTouch()"><!-- --></a>
+	<h3>getAndTouch</h3>
+	
+	<kbd>public any <strong>getAndTouch</strong>(string ID, numeric timeout, [boolean deserialize='true'], [struct deserializeOptions='[runtime expression]'], [any inflateTo=''])</kbd>
+	
+	<br><br>
+
+	
+		<p>Obtain a value for a given ID and update the expiry time for the document at the same time.  This is useful for a sort of "last access timeout" 
+functionality where you don't want a document to timeout while it is still being accessed.
+<pre class='brush: cf'>
+result = client.getAndTouch( 'brad' );
+writeOutput(result.cas);
+writeOutput(result.value);
+</pre></p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>ID</code> - The ID of the document to retrieve.</dd>
+		
+		<dd><code>timeout</code> - The expiration of the document in minutes</dd>
+		
+		<dd><code>deserialize</code> - Deserialize the JSON automatically for you and return the representation</dd>
+		
+		<dd><code>deserializeOptions</code> - A struct of options to help control how the data is deserialized when populating an object</dd>
+		
+		<dd><code>inflateTo</code> - The object that will be used to inflate the data with according to our conventions</dd>
+		
+		</dl>
+	
+
+	
+		<dl>
+			<dt><strong>Returns:</strong></dt>
+			<dd>A struct with "CAS" and "value" keys.  If the ID doesn't exist, this method will return null.</dd>
+		</dl>
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="getAvailableServers()"><!-- --></a>
+	<h3>getAvailableServers</h3>
+	
+	<kbd>public array <strong>getAvailableServers</strong>()</kbd>
+	
+	<br><br>
+
+	
+		<p>Get the addresses of available servers.
+<pre class='brush: cf'>
+serverArray = client.getAvailableServers();
+</pre></p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+
+	
+		<dl>
+			<dt><strong>Returns:</strong></dt>
+			<dd>An array containing an item for each server in the cluster.  Servers are represented as a string containing their address produced via java.net.InetSocketAddress.toString()</dd>
+		</dl>
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="getCouchbaseClient()"><!-- --></a>
+	<h3>getCouchbaseClient</h3>
+	
+	<kbd>public string <strong>getCouchbaseClient</strong>()</kbd>
+	
+	<br><br>
+
+	
+		<p>get: The java CouchbaseClient object</p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="getCouchbaseConfig()"><!-- --></a>
+	<h3>getCouchbaseConfig</h3>
+	
+	<kbd>public string <strong>getCouchbaseConfig</strong>()</kbd>
+	
+	<br><br>
+
+	
+		<p>get: The couchbase configuration object</p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="getDataMarshaller()"><!-- --></a>
+	<h3>getDataMarshaller</h3>
+	
+	<kbd>public string <strong>getDataMarshaller</strong>()</kbd>
+	
+	<br><br>
+
+	
+		<p>get: The data marshaller to use for serializations and deserializations</p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="getDesignDocument()"><!-- --></a>
+	<h3>getDesignDocument</h3>
+	
+	<kbd>public any <strong>getDesignDocument</strong>(string designDocumentName)</kbd>
+	
+	<br><br>
+
+	
+		<p>Gets a design document.
+This method will throw an error if the design document name doesn't exist.  Names are case-sensitive.
+<pre class='brush: cf'>
+designDocument = client.getDesignDocument( 'beer' );
+</pre></p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>designDocumentName</code> - The name of the design document</dd>
+		
+		</dl>
+	
+
+	
+		<dl>
+			<dt><strong>Returns:</strong></dt>
+			<dd>A DesignDocument Java object (com.couchbase.client.protocol.views.DesignDocument).</dd>
+		</dl>
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="getDocStats()"><!-- --></a>
+	<h3>getDocStats</h3>
+	
+	<kbd>public any <strong>getDocStats</strong>(any ID)</kbd>
+	
+	<br><br>
+
+	
+		<p>Get stats for a specific document ID.
+<pre class='brush: cf'>
+docStats = client.getDocStats( 'brad' );
+docStatArray = client.getDocStats( ['brad', 'luis', 'bill'] );
+</pre></p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>ID</code> - The id of the document to get the stats for or a list or an array</dd>
+		
+		</dl>
+	
+
+	
+		<dl>
+			<dt><strong>Returns:</strong></dt>
+			<dd>A future or a struct of futures depending on whether a single ID or an array of IDs are passed,</dd>
+		</dl>
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="getJavaLoader()"><!-- --></a>
+	<h3>getJavaLoader</h3>
+	
+	<kbd>public any <strong>getJavaLoader</strong>()</kbd>
+	
+	<br><br>
+
+	
+		<p>Get the java loader instance</p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+
+	
+		<dl>
+			<dt><strong>Returns:</strong></dt>
+			<dd>The javaLoader CFC.</dd>
+		</dl>
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="getLibID()"><!-- --></a>
+	<h3>getLibID</h3>
+	
+	<kbd>public string <strong>getLibID</strong>()</kbd>
+	
+	<br><br>
+
+	
+		<p>get: The unique ID of this SDK</p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="getLibJars()"><!-- --></a>
+	<h3>getLibJars</h3>
+	
+	<kbd>private array <strong>getLibJars</strong>()</kbd>
+	
+	<br><br>
+
+	
+		<p>Get a list of all the jars in the lib directory</p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+
+	
+		<dl>
+			<dt><strong>Returns:</strong></dt>
+			<dd>An array of jar file names</dd>
+		</dl>
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="getMulti()"><!-- --></a>
+	<h3>getMulti</h3>
+	
+	<kbd>public any <strong>getMulti</strong>(array ID, [boolean deserialize='true'], [struct deserializeOptions='[runtime expression]'], [any inflateTo=''])</kbd>
+	
+	<br><br>
+
+	
+		<p>Get multiple objects from couchbase.
+<pre class='brush: cf'>
+results = client.getMulti( ['brad', 'luis', 'bill'] );
+</pre></p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>ID</code> - An array of document IDs to retrieve.</dd>
+		
+		<dd><code>deserialize</code> - Deserialize the JSON automatically for you and return the representation</dd>
+		
+		<dd><code>deserializeOptions</code> - A struct of options to help control how the data is deserialized when populating an object</dd>
+		
+		<dd><code>inflateTo</code> - The object that will be used to inflate the data with according to our conventions</dd>
+		
+		</dl>
+	
+
+	
+		<dl>
+			<dt><strong>Returns:</strong></dt>
+			<dd>A struct of values.  Any document IDs not found will not exist in the struct.</dd>
+		</dl>
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="getSDKVersion()"><!-- --></a>
+	<h3>getSDKVersion</h3>
+	
+	<kbd>public string <strong>getSDKVersion</strong>()</kbd>
+	
+	<br><br>
+
+	
+		<p>get: The version of the Couchbase SDK</p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="getSpatialView()"><!-- --></a>
+	<h3>getSpatialView</h3>
+	
+	<kbd>public any <strong>getSpatialView</strong>(string designDocumentName, string viewName)</kbd>
+	
+	<br><br>
+
+	
+		<p>Gets access to a spatial view contained in a design document from the cluster. 
+You would usually use this method if you need the raw Java object to do manual queries or updates on a view.
+<pre class='brush: cf'>
+spatialView = client.getSpatialView( 'myDoc', 'mySpatialView' );
+</pre></p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>designDocumentName</code> - The name of the design document</dd>
+		
+		<dd><code>viewName</code> - The name of the view to get</dd>
+		
+		</dl>
+	
+
+	
+		<dl>
+			<dt><strong>Returns:</strong></dt>
+			<dd>A View Java object (com.couchbase.client.protocol.views.SpatialView).</dd>
+		</dl>
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="getStats()"><!-- --></a>
+	<h3>getStats</h3>
+	
+	<kbd>public any <strong>getStats</strong>()</kbd>
+	
+	<br><br>
+
+	
+		<p>Get all of the stats from all of the servers in the cluster.
+Information on stats available here: http://www.couchbase.com/docs/couchbase-manual-1.8/cbstats-all-bucket-info.html
+<pre class='brush: cf'>
+clusterStats = client.getStats();
+</pre></p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+
+	
+		<dl>
+			<dt><strong>Returns:</strong></dt>
+			<dd>A struct containing a key for each server in the cluster.  The value for each server is a Java Map of stats.</dd>
+		</dl>
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="getUnAvailableServers()"><!-- --></a>
+	<h3>getUnAvailableServers</h3>
+	
+	<kbd>public array <strong>getUnAvailableServers</strong>()</kbd>
+	
+	<br><br>
+
+	
+		<p>Get the addresses of unavailable servers
+<pre class='brush: cf'>
+serverArray = client.getUnAvailableServers();
+</pre></p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+
+	
+		<dl>
+			<dt><strong>Returns:</strong></dt>
+			<dd>An array containing an item for each unavilable server in the cluster.  Servers are represented as a string containing their address produced via java.net.InetSocketAddress.toString() <br>If all servers are online, the array with be empty.</dd>
+		</dl>
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="getUtil()"><!-- --></a>
+	<h3>getUtil</h3>
+	
+	<kbd>public string <strong>getUtil</strong>()</kbd>
+	
+	<br><br>
+
+	
+		<p>get: The SDK utility class</p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="getUuidHelper()"><!-- --></a>
+	<h3>getUuidHelper</h3>
+	
+	<kbd>public string <strong>getUuidHelper</strong>()</kbd>
+	
+	<br><br>
+
+	
+		<p>get: The UUID Helper</p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="getVersion()"><!-- --></a>
+	<h3>getVersion</h3>
+	
+	<kbd>public string <strong>getVersion</strong>()</kbd>
+	
+	<br><br>
+
+	
+		<p>get: The version of this library</p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="getView()"><!-- --></a>
+	<h3>getView</h3>
+	
+	<kbd>public any <strong>getView</strong>(string designDocumentName, string viewName)</kbd>
+	
+	<br><br>
+
+	
+		<p>Gets access to a view contained in a design document from the cluster 
+You would usually use this method if you need the raw Java object to do manual queries or updates on a view.
+<pre class='brush: cf'>
+view = client.getView( 'beer', 'brewery_beers' );
+</pre></p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>designDocumentName</code> - The name of the design document</dd>
+		
+		<dd><code>viewName</code> - The name of the view to get</dd>
+		
+		</dl>
+	
+
+	
+		<dl>
+			<dt><strong>Returns:</strong></dt>
+			<dd>A View Java object (com.couchbase.client.protocol.views.View).</dd>
+		</dl>
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="getWithCAS()"><!-- --></a>
+	<h3>getWithCAS</h3>
+	
+	<kbd>public any <strong>getWithCAS</strong>(string ID, [boolean deserialize='true'], [struct deserializeOptions='[runtime expression]'], [any inflateTo=''])</kbd>
+	
+	<br><br>
+
+	
+		<p>Get an object from couchbase with its CAS value, returns null if not found.  This method is meant to be used in conjunction with setWithCAS to be able to 
+update a document while making sure another process hasn't modified it in the meantime.  The CAS value changes every time the document is updated. 
+<pre class='brush: cf'>
+result = client.getWithCAS( 'brad' );
+writeOutput(result.cas);
+writeOutput(result.value);
+</pre></p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>ID</code> - The ID of the document to retrieve.</dd>
+		
+		<dd><code>deserialize</code> - Deserialize the JSON automatically for you and return the representation</dd>
+		
+		<dd><code>deserializeOptions</code> - A struct of options to help control how the data is deserialized when populating an object</dd>
+		
+		<dd><code>inflateTo</code> - The object that will be used to inflate the data with according to our conventions</dd>
+		
+		</dl>
+	
+
+	
+		<dl>
+			<dt><strong>Returns:</strong></dt>
+			<dd>A struct with "CAS" and "value" keys.  If the ID doesn't exist, this method will return null.</dd>
+		</dl>
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="incr()"><!-- --></a>
+	<h3>incr</h3>
+	
+	<kbd>public any <strong>incr</strong>(string ID, numeric value, [numeric defaultValue='0'], [numeric timeout])</kbd>
+	
+	<br><br>
+
+	
+		<p>Increment the given counter.  This method is thread safe as it increments and retrives the value in a single operation as opposed to 
+getting it, and then setting it again with subsequent calls.  
+<pre class='brush: cf'>
+newValue = client.incr( 'numErrors', 1 );
+</pre></p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>ID</code> - The id of the document to increment</dd>
+		
+		<dd><code>value</code> - The amount to increment</dd>
+		
+		<dd><code>defaultValue</code> - The default value ( if the counter does not exist, this defaults to 0 );</dd>
+		
+		<dd><code>timeout</code> - The expiration of the document in minutes, by default it is 0, so it lives forever</dd>
+		
+		</dl>
+	
+
+	
+		<dl>
+			<dt><strong>Returns:</strong></dt>
+			<dd>The new value, or -1 if we were unable to increment</dd>
+		</dl>
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="loadSDK()"><!-- --></a>
+	<h3>loadSDK</h3>
+	
+	<kbd>private void <strong>loadSDK</strong>()</kbd>
+	
+	<br><br>
+
+	
+		<p>Load JavaLoader with the SDK</p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="newDesignDocument()"><!-- --></a>
+	<h3>newDesignDocument</h3>
+	
+	<kbd>public any <strong>newDesignDocument</strong>(string designDocumentName)</kbd>
+	
+	<br><br>
+
+	
+		<p>Initializes a new design document Java object.  The design doc will have no views and will not be saved yet. 
+<pre class='brush: cf'>
+designDocument = client.newDesignDocument( 'mynewDoc' );
+</pre></p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>designDocumentName</code> - The name of the design document to initialize</dd>
+		
+		</dl>
+	
+
+	
+		<dl>
+			<dt><strong>Returns:</strong></dt>
+			<dd>An instance of com.couchbase.client.protocol.views.DesignDocument.</dd>
+		</dl>
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="newJava()"><!-- --></a>
+	<h3>newJava</h3>
+	
+	<kbd>public any <strong>newJava</strong>(any className)</kbd>
+	
+	<br><br>
+
+	
+		<p>Get a java class using either the JavaLoader or createOject() based on the "useClassloader" config value.
+You will need to call init() if you want to run the class constructor and get an instance of it.</p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>className</code> - The class to get</dd>
+		
+		</dl>
+	
+
+	
+		<dl>
+			<dt><strong>Returns:</strong></dt>
+			<dd>The java class specified.</dd>
+		</dl>
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="newQuery()"><!-- --></a>
+	<h3>newQuery</h3>
+	
+	<kbd>public any <strong>newQuery</strong>([struct options='[runtime expression]'])</kbd>
+	
+	<br><br>
+
+	
+		<p>Creates a new Java query object (com.couchbase.client.protocol.views.Query) that can be used to execute raw view queries. 
+You can pass an optional options struct with name-value pairs of simple query options.
+<p>
+http://www.couchbase.com/autodocs/couchbase-java-client-1.2.0/com/couchbase/client/protocol/views/Query.html
+<pre class='brush: cf'>
+oQuery = client.newQuery( { offset:10, limit:20, group:true, groupLevel:2 } );
+</pre></p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>options</code> - A struct of query options, see http://www.couchbase.com/autodocs/couchbase-java-client-1.2.0/com/couchbase/client/protocol/views/Query.html for more information. This only does the simple 1 value options</dd>
+		
+		</dl>
+	
+
+	
+		<dl>
+			<dt><strong>Returns:</strong></dt>
+			<dd>A Java query object (com.couchbase.client.protocol.views.Query)</dd>
+		</dl>
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="newViewDesign()"><!-- --></a>
+	<h3>newViewDesign</h3>
+	
+	<kbd>public any <strong>newViewDesign</strong>(string viewName, string mapFunction, [string reduceFunction=''])</kbd>
+	
+	<br><br>
+
+	
+		<p>Creates a new instance of a viewDesign Java object (com.couchbase.client.protocol.views.ViewDesign)
+<pre class='brush: cf'>
+viewDesign = client.newViewDesign( viewName, mapFunction, reduceFunction );
+</pre></p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>viewName</code> - The name of the view to be created</dd>
+		
+		<dd><code>mapFunction</code> - The map function for the view represented as a string</dd>
+		
+		<dd><code>reduceFunction</code> - The reduce function for the view represented as a string</dd>
+		
+		</dl>
+	
+
+	
+		<dl>
+			<dt><strong>Returns:</strong></dt>
+			<dd>An instance of the Java class com.couchbase.client.protocol.views.ViewDesign</dd>
+		</dl>
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="prepend()"><!-- --></a>
+	<h3>prepend</h3>
+	
+	<kbd>public any <strong>prepend</strong>(string ID, any value, [numeric CAS])</kbd>
+	
+	<br><br>
+
+	
+		<p>Prepend to an existing value in the cache. If 0 is passed in as the CAS identifier (default), it will override the value on the server without performing the CAS check.
+This method is considered a 'binary' method since they operate on binary data such as string or integers, not JSON documents
+<pre class='brush: cf'>
+future = client.prepend( 'hierachyList', parent );
+</pre></p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>ID</code> - The unique id of the document whose value will be prepended</dd>
+		
+		<dd><code>value</code> - The value to prepend</dd>
+		
+		<dd><code>CAS</code> - CAS identifier (ignored in the ascii protocol)</dd>
+		
+		</dl>
+	
+
+	
+		<dl>
+			<dt><strong>Returns:</strong></dt>
+			<dd>A Java OperationFuture object (net.spy.memcached.internal.OperationFuture<Boolean>) Note that the return will be false any time a mutation has not occurred.</dd>
+		</dl>
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="query()"><!-- --></a>
+	<h3>query</h3>
+	
+	<kbd>public any <strong>query</strong>(string designDocumentName, string viewName, [any options='[runtime expression]'], [boolean deserialize='true'], [struct deserializeOptions='[runtime expression]'], [any inflateTo=''], [any filter], [any transform], [string returnType='array'])</kbd>
+	
+	<br><br>
+
+	
+		<p>Queries a Couchbase view using the options supplied.  
+<p>
+Valid options are:
+<p>
+<ul>
+<li><b>sortOrder</b> - Specifies the direction to sort the results based on the map function's "key" value.  Valid values are ASC and DESC.</li>
+<li><b>limit</b> - Number of records to return</li>
+<li><b>offset</b> - Number of records to skip when returning</li>
+<li><b>reduce</b> - Flag to control whether the reduce portion of the view is run. If false, only the results of the map function are returned.</li>
+<li><b>includeDocs</b> - Specifies whether or not to include the entire document in the results or just the key names. Default is false.</li>
+<li><b>startkey</b> - Specify the start of a range of keys to return.  This value needs to be the same data type as the key in your view's map function.  If your view has a string for the key, pass in a string here.  If your key is an array of values, pass in an array of values.</li>
+<li><b>endkey</b> - Specify the end of a range of keys to return.  This value needs to be the same data type as the key in your view's map function.  If your view has a string for the key, pass in a string here.  If your key is an array of values, pass in an array of values.</li>
+<li><b>inclusiveEnd</b> - Use this when specifying an endKey parameter. Flag to control whether the endKey is inclusive or not.</li>
+<li><b>startkeyDocID</b> - If you have specified a startKey AND there is more than one record in the view results that share that key, this will specify what ID to start at when returning records.  This input is ignored when not using startKey.</li>
+<li><b>endKeyDocID</b> - If you have specified an endKey AND there is more than one record in the view results that share that key, this will specify what ID to end at when returning records.  This input is ignored when not using endKey.</li>
+<li><b>group</b> - Flag to control whether the results of the reduce function are grouped.  If no groupLevel is specified, only one row will be returned.</li>
+<li><b>groupLevel</b> - Number representing what level of the map key to group at (Keys can be complex).  If the key is simple, this parameter does nothing.</li>
+<li><b>key</b> - The key of a single record to return.  For complex keys, pass the key as an array.</li>
+<li><b>keys</b> - An array of keys to return.  For complex keys, pass each key as an array.</li>
+<li><b>stale</b> - Specifies if stale data can be returned with the view.  Possible values are:
+<ul>
+<li><b>"OK"</b> (default) - stale data is ok
+<li><b>"FALSE"</b> - force index of view
+<li><b>"UPDATE_AFTER"</b> - potentially returns stale data, but starts an asynch re-index.</li>
+</ul>
+</li>
+<li><b>debug</b> - Java SDK will log debugging information about the query</li>
+</ul> 
+<p>
+The options struct maps to the set of options found
+in the native Couchbase query object (com.couchbase.client.protocol.views.Query) 
+See http://www.couchbase.com/autodocs/couchbase-java-client-1.2.0/com/couchbase/client/protocol/views/Query.html
+<pre class='brush: cf'>
+results = client.query( designDocumentName='beer', viewName='brewery_beers', options={ limit: 20, stale: 'OK' } );
+</pre></p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>designDocumentName</code> - The name of the design document</dd>
+		
+		<dd><code>viewName</code> - The name of the view to get</dd>
+		
+		<dd><code>options</code> - The query options to use for this query. This can be a structure of name-value pairs or an actual Couchbase query options object usually using the 'newQuery()' method.</dd>
+		
+		<dd><code>deserialize</code> - If true, it will deserialize the documents if they are valid JSON, else they are ignored.</dd>
+		
+		<dd><code>deserializeOptions</code> - A struct of options to help control how the data is deserialized when populating an object</dd>
+		
+		<dd><code>inflateTo</code> - A path to a CFC or closure that produces an object to try to inflate the document results on NON-Reduced views only!</dd>
+		
+		<dd><code>filter</code> - A closure or UDF that must return boolean to use to filter out results from the returning array of records, the closure receives a struct that has id, document, key, and value: function( row ). A true will add the row to the final results.</dd>
+		
+		<dd><code>transform</code> - A closure or UDF to use to transform records from the returning array of records, the closure receives a struct that has id, document, key, and value: function( row ). Since the struct is by reference, you do not need to return anything.</dd>
+		
+		<dd><code>returnType</code> - The type of return for us to return to you. Available options: native, iterator, array. By default we use the cf type which uses transformations, automatic deserializations and inflations.</dd>
+		
+		</dl>
+	
+
+	
+		<dl>
+			<dt><strong>Returns:</strong></dt>
+			<dd>If returnType is "array", will return an array of structs where each struct represents a record of output from the view.	<br>Each struct contains the following items: id, document, key, value	<br>If returnType is native, a Java ViewResponse object will be returned (com.couchbase.client.protocol.views.ViewResponse)	<br>If returnType is iterator, a Java iterator object will be returned</dd>
+		</dl>
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="rawQuery()"><!-- --></a>
+	<h3>rawQuery</h3>
+	
+	<kbd>public any <strong>rawQuery</strong>(any view, any query)</kbd>
+	
+	<br><br>
+
+	
+		<p>Queries a Couchbase view. 
+See: http://www.couchbase.com/autodocs/couchbase-java-client-1.2.0/com/couchbase/client/protocol/views/ViewResponse.html
+<pre class='brush: cf'>
+query = client.newQuery( { limit: 20, stale: 'OK' } );
+view = client.getView( 'beer', 'brewery_beers' );
+results = client.rawQuery( view, query );
+</pre></p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>view</code></dd>
+		
+		<dd><code>query</code> - A couchbase query object (com.couchbase.client.protocol.views.Query)</dd>
+		
+		</dl>
+	
+
+	
+		<dl>
+			<dt><strong>Returns:</strong></dt>
+			<dd>A raw Java View result object. The result can be accessed row-wise via an iterator class (com.couchbase.client.protocol.views.ViewResponse).</dd>
+		</dl>
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="replace()"><!-- --></a>
+	<h3>replace</h3>
+	
+	<kbd>public any <strong>replace</strong>(string ID, any value, [numeric timeout], [string persistTo], [string replicateTo])</kbd>
+	
+	<br><br>
+
+	
+		<p>This method will set a value only if that ID already exists in Couchbase.  If the document ID doesn't exist, it will do nothing.
+<pre class='brush: cf'>
+person = { name: "Brad", age: 33, hair: "red" };
+future = client.replace( 'brad', person );
+future.get();
+</pre></p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>ID</code> - The ID of the document to replace.</dd>
+		
+		<dd><code>value</code> - The value of the document to replace</dd>
+		
+		<dd><code>timeout</code> - The expiration of the document in minutes, by default it is 0, so it lives forever</dd>
+		
+		<dd><code>persistTo</code> - The number of nodes that need to store the document to disk before this call returns.  Valid options are [ ZERO, MASTER, ONE, TWO, THREE, FOUR ]</dd>
+		
+		<dd><code>replicateTo</code> - The number of nodes to replicate the document to before this call returns.  Valid options are [ ZERO, ONE, TWO, THREE ]</dd>
+		
+		</dl>
+	
+
+	
+		<dl>
+			<dt><strong>Returns:</strong></dt>
+			<dd>A Java OperationFuture object (net.spy.memcached.internal.OperationFuture<Boolean>) or void (null) if a timeout exception occurs. future.get() will return true if the replace was successfull, and will return false if the ID didn't already exist to replace.</dd>
+		</dl>
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="saveView()"><!-- --></a>
+	<h3>saveView</h3>
+	
+	<kbd>public boolean <strong>saveView</strong>(string designDocumentName, string viewName, string mapFunction, [string reduceFunction=''], [any waitFor='20'])</kbd>
+	
+	<br><br>
+
+	
+		<p>Saves a View.  Will save the view and or designDocument if they don't exist.  Will update if they already exist.  
+<pre class='brush: cf'>
+client.saveView(
+&nbsp;&nbsp;'manager',
+&nbsp;&nbsp;'listBreweries',
+&nbsp;&nbsp;'function (doc, meta) {
+&nbsp;&nbsp;if ( doc.type == ''brewery'' ) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;emit(doc.name, null);
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;}',
+&nbsp;&nbsp;'_count'
+&nbsp;&nbsp;20
+);
+</pre></p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>designDocumentName</code> - The name of the design document for the view to be saved under.  The design document will be created if neccessary</dd>
+		
+		<dd><code>viewName</code> - The name of the view to be saved</dd>
+		
+		<dd><code>mapFunction</code> - The map function for the view represented as a string</dd>
+		
+		<dd><code>reduceFunction</code> - The reduce function for the view represented as a string</dd>
+		
+		<dd><code>waitFor</code> - How many seconds to wait for the view to save before giving up.  Defaults to 20, but may need to be higher for larger buckets.</dd>
+		
+		</dl>
+	
+
+	
+		<dl>
+			<dt><strong>Returns:</strong></dt>
+			<dd>True when the view is ready.  If the view is still not accessable after the number of seconds specified in the "waitFor" parameter, the method will return false.</dd>
+		</dl>
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="serializeData()"><!-- --></a>
+	<h3>serializeData</h3>
+	
+	<kbd>public string <strong>serializeData</strong>(any data)</kbd>
+	
+	<br><br>
+
+	
+		<p>Serializes incoming data according to our rules.</p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>data</code> - The data to serialize</dd>
+		
+		</dl>
+	
+
+	
+		<dl>
+			<dt><strong>Returns:</strong></dt>
+			<dd>A string representation, usually JSON.</dd>
+		</dl>
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="set()"><!-- --></a>
+	<h3>set</h3>
+	
+	<kbd>public any <strong>set</strong>(string ID, any value, [numeric timeout], [string persistTo], [string replicateTo])</kbd>
+	
+	<br><br>
+
+	
+		<p>Set a value with durability options. It is asyncronouse by default so it returns immediatley without waiting for the actual set to complete.  Call future.set()
+if you need to confirm the document has been set.  Even then, the document is only guarunteed to be in memory on a single node.  To force the document to be replicated 
+to additional nodes, pass the replicateTo argument.  A value of ReplicateTo.TWO ensures the document is copied to at least two replica nodes, etc.  (This assumes you have replicas enabled)   
+To force the document to be perisited to disk, passing in PersistTo.ONE ensures it is stored on disk in a single node.  PersistTo.TWO ensures 2 nodes, etc. 
+A PersistTo.TWO durability setting implies a replication to at least one node.
+<pre class='brush: cf'>
+person = { name: "Brad", age: 33, hair: "red" };
+future = client.set( 'brad', person );
+</pre></p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>ID</code> - The unique id of the document to store</dd>
+		
+		<dd><code>value</code> - The value to store</dd>
+		
+		<dd><code>timeout</code> - The expiration of the document in minutes, by default it is 0, so it lives forever</dd>
+		
+		<dd><code>persistTo</code> - The number of nodes that need to store the document to disk before this call returns.  Valid options are [ ZERO, MASTER, ONE, TWO, THREE, FOUR ]</dd>
+		
+		<dd><code>replicateTo</code> - The number of nodes to replicate the document to before this call returns.  Valid options are [ ZERO, ONE, TWO, THREE ]</dd>
+		
+		</dl>
+	
+
+	
+		<dl>
+			<dt><strong>Returns:</strong></dt>
+			<dd>A Java OperationFuture object (net.spy.memcached.internal.OperationFuture<T>) or void (null) if a timeout exception occurs.</dd>
+		</dl>
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="setCouchbaseClient()"><!-- --></a>
+	<h3>setCouchbaseClient</h3>
+	
+	<kbd>public any <strong>setCouchbaseClient</strong>(any couchbaseClient)</kbd>
+	
+	<br><br>
+
+	
+		<p>set: The java CouchbaseClient object</p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>couchbaseClient</code></dd>
+		
+		</dl>
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="setCouchbaseConfig()"><!-- --></a>
+	<h3>setCouchbaseConfig</h3>
+	
+	<kbd>public any <strong>setCouchbaseConfig</strong>(any couchbaseConfig)</kbd>
+	
+	<br><br>
+
+	
+		<p>set: The couchbase configuration object</p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>couchbaseConfig</code></dd>
+		
+		</dl>
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="setDataMarshaller()"><!-- --></a>
+	<h3>setDataMarshaller</h3>
+	
+	<kbd>public any <strong>setDataMarshaller</strong>(<a href="../cfcouchbase/data/IDataMarshaller.html" title="interface in cfcouchbase.data">IDataMarshaller</a> dataMarshaller)</kbd>
+	
+	<br><br>
+
+	
+		<p>set: The data marshaller to use for serializations and deserializations</p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>dataMarshaller</code></dd>
+		
+		</dl>
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="setLibID()"><!-- --></a>
+	<h3>setLibID</h3>
+	
+	<kbd>public any <strong>setLibID</strong>(any libID)</kbd>
+	
+	<br><br>
+
+	
+		<p>set: The unique ID of this SDK</p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>libID</code></dd>
+		
+		</dl>
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="setMulti()"><!-- --></a>
+	<h3>setMulti</h3>
+	
+	<kbd>public any <strong>setMulti</strong>(struct data, [numeric timeout], [string persistTo], [string replicateTo])</kbd>
+	
+	<br><br>
+
+	
+		<p>Set multiple documents in the cache with a single operation.  Pass in a struct of documents to set where the IDs of the struct are the document IDs.
+The values in the struct are the values being set.  All documents share the same timout, persistTo, and replicateTo settings.
+<pre class='brush: cf'>
+data = {
+&nbsp;&nbsp;brad = { name: "Brad", age: 33, hair: "red" },
+&nbsp;&nbsp;luis = { name: "Luis", age: 35, hair: "black" },
+&nbsp;&nbsp;bill = { name: "Bill", age: 21, hair: "blond" }
+};
+future = client.setMulti( data );
+</pre></p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>data</code> - A struct (key/value pair) of documents to set into Couchbase.</dd>
+		
+		<dd><code>timeout</code> - The expiration of the documents in minutes.</dd>
+		
+		<dd><code>persistTo</code> - The number of nodes that need to store the document to disk before this call returns.  Valid options are [ ZERO, MASTER, ONE, TWO, THREE, FOUR ]</dd>
+		
+		<dd><code>replicateTo</code> - The number of nodes to replicate the document to before this call returns.  Valid options are [ ZERO, ONE, TWO, THREE ]</dd>
+		
+		</dl>
+	
+
+	
+		<dl>
+			<dt><strong>Returns:</strong></dt>
+			<dd>A struct of IDs with each of the future objects from the set operations.  There will be no future object if a timeout occurs.</dd>
+		</dl>
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="setSDKVersion()"><!-- --></a>
+	<h3>setSDKVersion</h3>
+	
+	<kbd>public any <strong>setSDKVersion</strong>(any SDKVersion)</kbd>
+	
+	<br><br>
+
+	
+		<p>set: The version of the Couchbase SDK</p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>SDKVersion</code></dd>
+		
+		</dl>
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="setUtil()"><!-- --></a>
+	<h3>setUtil</h3>
+	
+	<kbd>public any <strong>setUtil</strong>(any util)</kbd>
+	
+	<br><br>
+
+	
+		<p>set: The SDK utility class</p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>util</code></dd>
+		
+		</dl>
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="setUuidHelper()"><!-- --></a>
+	<h3>setUuidHelper</h3>
+	
+	<kbd>public any <strong>setUuidHelper</strong>(any uuidHelper)</kbd>
+	
+	<br><br>
+
+	
+		<p>set: The UUID Helper</p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>uuidHelper</code></dd>
+		
+		</dl>
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="setVersion()"><!-- --></a>
+	<h3>setVersion</h3>
+	
+	<kbd>public any <strong>setVersion</strong>(any version)</kbd>
+	
+	<br><br>
+
+	
+		<p>set: The version of this library</p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>version</code></dd>
+		
+		</dl>
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="setWithCAS()"><!-- --></a>
+	<h3>setWithCAS</h3>
+	
+	<kbd>public any <strong>setWithCAS</strong>(string ID, any value, string CAS, [numeric timeout], [string persistTo], [string replicateTo])</kbd>
+	
+	<br><br>
+
+	
+		<p>Update the value of an existing document with a CAS value.  CAS is retrieved via getWithCAS().  Since the CAS value changes every time a document is modified
+you will be able to tell if another process has modified the document between the time you retrieved it and updated it.  This method will only complete
+successfully if the original document value is unchanged.  This method is not asyncronous and therefore does not return a future since your application code
+will need to check the return and handle it appropriatley.
+<pre class='brush: cf'>
+person = { name: "Brad", age: 33, hair: "red" };
+result = client.setWithCAS( 'brad', person, CAS );
+</pre></p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>ID</code> - The unique id of the document to store</dd>
+		
+		<dd><code>value</code> - The value to store</dd>
+		
+		<dd><code>CAS</code> - CAS value retrieved via getWithCAS()</dd>
+		
+		<dd><code>timeout</code> - The expiration of the document in minutes, by default it is 0, so it lives forever</dd>
+		
+		<dd><code>persistTo</code> - The number of nodes that need to store the document to disk before this call returns.  Valid options are [ ZERO, MASTER, ONE, TWO, THREE, FOUR ]</dd>
+		
+		<dd><code>replicateTo</code> - The number of nodes to replicate the document to before this call returns.  Valid options are [ ZERO, ONE, TWO, THREE ]</dd>
+		
+		</dl>
+	
+
+	
+		<dl>
+			<dt><strong>Returns:</strong></dt>
+			<dd>A struct with a status and detail key.  Status will be true if the document was succesfully updated.  If status is false, that means nothing happened on the server and you need to re-issue a command to store your document.  When status is false, check the detail.  A value of "CAS_CHANGED" indicates that anothe rprocess has updated the document and your version is out-of-date.  You will need to retrieve the document again with getWithCAS() and attempt your setWithCAS again.  If status is false and details is "NOT_FOUND", that means a document with that ID was not found.  You can then issue an add() or a regular set() commend to store the document.</dd>
+		</dl>
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="shutdown()"><!-- --></a>
+	<h3>shutdown</h3>
+	
+	<kbd>public <a href="../cfcouchbase/CouchbaseClient.html" title="class in cfcouchbase">CouchbaseClient</a> <strong>shutdown</strong>([numeric timeout='10'])</kbd>
+	
+	<br><br>
+
+	
+		<p>Shutdown the native client connection
+<pre class='brush: cf'>
+client.shutdown( 10 );
+</pre></p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>timeout</code> - The timeout in seconds, we default to 10 seconds</dd>
+		
+		</dl>
+	
+
+	
+		<dl>
+			<dt><strong>Returns:</strong></dt>
+			<dd>A refernce to "this" CFC</dd>
+		</dl>
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="touch()"><!-- --></a>
+	<h3>touch</h3>
+	
+	<kbd>public any <strong>touch</strong>(string ID, numeric timeout)</kbd>
+	
+	<br><br>
+
+	
+		<p>Touch the given ID to reset its expiration time.
+<pre class='brush: cf'>
+future = client.touch( 'sessionData', 30 );
+</pre></p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>ID</code> - The id of the document to increment</dd>
+		
+		<dd><code>timeout</code> - The expiration of the document in minutes</dd>
+		
+		</dl>
+	
+
+	
+		<dl>
+			<dt><strong>Returns:</strong></dt>
+			<dd>A future object (net.spy.memcached.internal.OperationFuture)</dd>
+		</dl>
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="validateConfig()"><!-- --></a>
+	<h3>validateConfig</h3>
+	
+	<kbd>private any <strong>validateConfig</strong>(any config)</kbd>
+	
+	<br><br>
+
+	
+		<p>Standardize and validate configuration object</p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>config</code> - The config options as a struct, path or instance.</dd>
+		
+		</dl>
+	
+
+	
+		<dl>
+			<dt><strong>Returns:</strong></dt>
+			<dd>The CFCouchbase config CFC</dd>
+		</dl>
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="viewExists()"><!-- --></a>
+	<h3>viewExists</h3>
+	
+	<kbd>public any <strong>viewExists</strong>(string designDocumentName, string viewName, [string mapFunction], [string reduceFunction])</kbd>
+	
+	<br><br>
+
+	
+		<p>Checks to see if a view exists.
+You can check for a view by name, but if you supply a map or reduce function, they will be checked as well.
+<pre class='brush: cf'>
+result = client.viewExists( 'beer', 'brewery_beers' );
+</pre></p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>designDocumentName</code> - The name of the design document to check for</dd>
+		
+		<dd><code>viewName</code> - The name of the view to check for</dd>
+		
+		<dd><code>mapFunction</code> - The map function to check for.  Must be an exact match.</dd>
+		
+		<dd><code>reduceFunction</code> - The reduce function to check for.  Must be an exact match.</dd>
+		
+		</dl>
+	
+
+	
+		<dl>
+			<dt><strong>Returns:</strong></dt>
+			<dd>0 if the design document doesn't exist as well as if the design document exists, but there is no view by that name.<br> If the view does exist, it will return the index of the view in the designDocument's view array.</dd>
+		</dl>
+	
+
+	</dl>
+	<hr>
+
+
+
+
+</body>
+</html>
+
