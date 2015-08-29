@@ -1,0 +1,45 @@
+{
+    "doc_type": "config",
+    "shipping_methods": {
+	    "usps": {
+		    "name": "United States Postal Service",
+		    "code": "usps",
+		    "cost": 5.00
+	    },
+	    "ups-standard": {
+		    "name": "UPS Standard",
+		    "code": "ups-standard",
+		    "cost": 6.00
+	    },
+	    "ups-ground": {
+		    "name": "UPS Ground",
+		    "code": "ups-ground",
+		    "cost": 8.00
+	    },
+	    "ups-two-day-air": {
+		    "name": "UPS 2nd Day Air",
+		    "code": "ups-two-day-air",
+		    "cost": 12.00
+	    },
+	    "ups-next-day-air": {
+		    "name": "UPS Next Day Air",
+		    "code": "ups-next-day-air",
+		    "cost": 20.00
+	    },
+	    "fedex-ground": {
+		    "name": "FedEx Ground",
+		    "code": "fedex-ground",
+		    "cost": 7.50
+	    },
+	    "fedex-two-day-air": {
+		    "name": "FedEx 2Day Air",
+		    "code": "fedex-two-day-air",
+		    "cost": 13.00
+	    },
+	    "fedex-standard-overnight": {
+		    "name": "FedEx Standard Overnight",
+		    "code": "fedex-standard-overnight",
+		    "cost": 22.00
+		}
+    }
+}
