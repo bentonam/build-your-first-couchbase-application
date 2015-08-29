@@ -7,6 +7,12 @@
 	width: 320px;
 	h5{
 		margin: 0;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+	.sub-total{
+		padding: 5px 10px;
 	}
 	.btn{
 		border-radius: 0 0 4px 4px;
@@ -94,7 +100,7 @@
 	&.discontinued{
 		color: #d9534f;
 	}
-	&.pre-order{
+	&.preorder{
 		color: #5bc0de;
 	}
 }
@@ -138,6 +144,9 @@ footer{
 				width: 5%;
 			}
 		}
+	}
+	h4{
+		margin-top: 0;
 	}
 	tbody > tr > td, tfoot > tr > td{
 		vertical-align: middle;
