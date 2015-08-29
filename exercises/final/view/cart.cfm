@@ -66,10 +66,10 @@
 					<td class="text-center"><strong>Total #dollarFormat(variables.cart.document.getSub_Total())#</strong></td>
 				</tr>
 				<tr>
-					<td><a href="##" class="btn btn-warning"><i class="glyphicon glyphicon-menu-left"></i> Continue Shopping</a></td>
+					<td><a href="index.cfm" class="btn btn-warning"><i class="glyphicon glyphicon-menu-left"></i> Continue Shopping</a></td>
 					<td colspan="2" class="hidden-xs"></td>
 					<td class="hidden-xs text-center"><strong>#dollarFormat(variables.cart.document.getSub_Total())#</strong></td>
-					<td><a href="##" class="btn btn-success btn-block">Checkout <i class="glyphicon glyphicon-menu-right"></i></a></td>
+					<td><a href="checkout.cfm" class="btn btn-success btn-block">Checkout <i class="glyphicon glyphicon-menu-right"></i></a></td>
 				</tr>
 			</tfoot>
 			<!--- end of totals --->

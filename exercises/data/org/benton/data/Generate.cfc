@@ -294,7 +294,8 @@ component output="false"{
 		doc['order_status'] = generateOrderStatus();
 		doc['billing_name'] = generateName();
 		doc['billing_email'] = generateEmail(doc.billing_name);
-		doc['billing_address'] = generateAddress();
+		doc['billing_address_1'] = generateAddress1();
+		doc['billing_address_2'] = generateAddress2();
 		doc['billing_city'] = generateCity();
 		doc['billing_state'] = generateState();
 		doc['billing_postal_code'] = generatePostalCode();
@@ -303,7 +304,8 @@ component output="false"{
 		if(generateBoolean(70)){ // use the same billing info for shipping
 			doc['shipping_name'] = doc.billing_name;
 			doc['shipping_email'] = doc.billing_email;
-			doc['shipping_address'] = doc.billing_address;
+			doc['shipping_address_1'] = doc.billing_address_1;
+			doc['shipping_address_2'] = doc.billing_address_2;
 			doc['shipping_city'] = doc.billing_city;
 			doc['shipping_state'] = doc.billing_state;
 			doc['shipping_postal_code'] = doc.billing_postal_code;
@@ -313,7 +315,8 @@ component output="false"{
 		else{
 			doc['shipping_name'] = generateName();
 			doc['shipping_email'] = generateEmail(doc.shipping_name);
-			doc['shipping_address'] = generateAddress();
+			doc['shipping_address_1'] = generateAddress1();
+			doc['shipping_address_2'] = generateAddress2();
 			doc['shipping_city'] = generateCity();
 			doc['shipping_state'] = generateState();
 			doc['shipping_postal_code'] = generatePostalCode();
@@ -324,7 +327,7 @@ component output="false"{
 		doc['shipping_method'] = generateShippingMethod();
 		doc['sub_total'] = calculateSubTotal(doc.line_items);
 		doc['shipping_total'] = generateShippingTotal();
-		doc['tax'] = generateTax(doc.sub_total + doc.shipping_total);
+		doc['tax'] = generateTax(doc.sub_total + doc.shipping_total) * 0.0725;
 		doc['grand_total'] = doc.sub_total + doc.shipping_total + doc.tax;
 		return doc;
 	}
@@ -336,15 +339,16 @@ component output="false"{
 		return statuses[randRange(1, arrayLen(statuses))];
 	}
 	/*
-	* Generates a address
+	* Generates a address 1
 	*/
-	private array function generateAddress(){
-		var address = [];
-		address[1] = randRange(1, 9999) & " " & variables.configs.streets.streets[randRange(1, arrayLen(variables.configs.streets.streets))];
-		if(generateBoolean(20)){
-			address[2] = chr(randRange(65, 90)) & randRange(1,99);
-		}
-		return address;
+	private string function generateAddress1(){
+		return randRange(1, 9999) & " " & variables.configs.streets.streets[randRange(1, arrayLen(variables.configs.streets.streets))];
+	}
+	/*
+	* Generates a address 2
+	*/
+	private string function generateAddress2(){
+		return chr(randRange(65, 90)) & randRange(1,99);
 	}
 	/*
 	* Generates a city
@@ -356,13 +360,13 @@ component output="false"{
 	* Generates a state
 	*/
 	private string function generateState(){
-		return variables.configs.states.states[randRange(1, arrayLen(variables.configs.states.states))];
+		return variables.configs.states.states[randRange(1, arrayLen(variables.configs.states.states))].code;
 	}
 	/*
 	* Generates a postal code
 	*/
 	private string function generatePostalCode(){
-		return randRange(10000, 99999);
+		return "" & randRange(10000, 99999);
 	}
 	/*
 	* Generates a country
@@ -374,24 +378,27 @@ component output="false"{
 	* Generates a phone
 	*/
 	private string function generatePhone(){
-		return randRange(1000000000, 9999999999);
+		return "" & randRange(1000000000, 9999999999);
 	}
 	/*
 	* Generate order line items
 	*/
-	private array function generateLineItems(){
+	private struct function generateLineItems(){
 		var cb = application.couchbase; // pointer to the default bucket handler
-		var data = [];
+		var data = {};
 		var products = randRange(1, 10);
 		var product = {};
 		for(var i = 1; i <= products; i++){
 			product = cb.get(variables.product_ids[randRange(1, arrayLen(variables.product_ids))]);
-			data[i] = {};
-			data[i]['product_id'] = product.product_id;
-			data[i]['title'] = product.title;
-			data[i]['price'] = product.sale_price ? product.sale_price : product.price;
-			data[i]['qty'] = randRange(1, 10);
-			data[i]['total'] = data[i].price * data[i].qty;
+			data[product.product_id] = {};
+			data[product.product_id]['product_id'] = product.product_id;
+			data[product.product_id]['title'] = product.title;
+			data[product.product_id]['short_description'] = product.short_description;
+			data[product.product_id]['image'] = product.image;
+			data[product.product_id]['slug'] = product.slug;
+			data[product.product_id]['price'] = product.sale_price ? product.sale_price : product.price;
+			data[product.product_id]['qty'] = randRange(1, 10);
+			data[product.product_id]['sub_total'] = data[product.product_id].price * data[product.product_id].qty;
 		}
 		return data;
 	}
@@ -399,19 +406,18 @@ component output="false"{
 	* Generates a shipping method
 	*/
 	private string function generateShippingMethod(){
-		var methods = ["USPS", "UPS Ground", "UPS Two Day", "UPS 1 Day", "FedEx Ground", "FedEx Two Day", "FedEx 1 Day"];
-		return methods[randRange(1, arrayLen(methods))];
+		var codes = listToArray(structKeyList(variables.configs.shipping_methods.shipping_methods));
+		return variables.configs.shipping_methods.shipping_methods[codes[randRange(1, arrayLen(codes))]].name;
 	}
 	/*
 	* Calculates the sub total
 	*/
-	private string function calculateSubTotal(required array line_items){
-		var count = arrayLen(arguments.line_items);
-		var total = 0;
-		for(var i = 1; i <= count; i++){
-			total += arguments.line_items[i].total;
+	private numeric function calculateSubTotal(required struct line_items){
+		var sub_total = 0;
+		for(var item in arguments.line_items){
+			sub_total += arguments.line_items[item].sub_total;
 		}
-		return total;
+		return sub_total;
 	}
 	/*
 	* Generates a shipping total

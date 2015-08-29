@@ -82,4 +82,27 @@ component{
 		}
 		return data;
 	}
+	/*
+	* Clear the cart
+	*/
+	public void function clearCart(){
+		var cb = application.couchbase;
+		var cart = {};
+		try{
+			data['found'] = false;
+			// get the cart document and update the expiration time to 30min from now
+			cart = cb.get(
+				id=session.sessionID & "_cart",
+				inflateTo="root.org.benton.model.Cart",
+				timeout=30
+			);
+			if(!isNull(cart)){ // the cart exists
+				cart.setLine_Items({});
+				cart.setSub_Total(0);
+				cart.save();
+			}
+		}
+		catch(any e){}
+		return;
+	}
 }

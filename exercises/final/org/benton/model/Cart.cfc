@@ -27,7 +27,7 @@ component accessors=true {
 	* Gets the last updated date in the specified format
 	*/
 	public date function getLastUpdatedFormatted(string format="mm/dd/yy h:mm tt"){
-		return dateTimeFormat(createObject("java", "java.util.Date").init(getLast_Updated()));
+		return dateTimeFormat(createObject("java", "java.util.Date").init(getLast_Updated()), arguments.format);
 	}
 	/*
 	* Gets the total number of line items in the cart
