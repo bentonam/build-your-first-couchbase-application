@@ -1,6 +1,6 @@
 <cfoutput>
 <!doctype html>
-<html class="no-js" lang="" ng-app="exampleApp">
+<html lang="en">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -17,18 +17,18 @@
 	<![endif]-->
 </head>
 <body>
-<cfinclude template="header.cfm"/>
+<cfinclude template="layout.header.cfm"/>
 <div class="container">
 	<div class="row">
-		<div class="col-md-3">
-			<cfinclude template="sidebar.cfm"/>
+		<div class="col-md-3 hidden-xs">
+			<cfinclude template="layout.sidebar.cfm"/>
 		</div>
-		<div class="col-md-9">
+		<div class="col-xs-12 col-md-9">
 			<cfinclude template="#view#"/>
 		</div>
 	</div>
 </div>
-<cfinclude template="footer.cfm"/>
+<cfinclude template="layout.footer.cfm"/>
 </body>
 </html>
 </cfoutput>
