@@ -1,0 +1,21 @@
+.reveal .big{
+	font-size: 1.5em;
+}
+.reveal .bigger{
+	font-size: 2em;
+}
+.reveal .small{
+	font-size: .75em;
+}
+.reveal .smaller{
+	font-size: .5em;
+}
+.reveal .no-transform{
+	text-transform: none;
+}
+.reveal .no-shadow{
+	text-shadow: none;
+}
+.reveal pre code{
+	max-height: 600px;
+}
