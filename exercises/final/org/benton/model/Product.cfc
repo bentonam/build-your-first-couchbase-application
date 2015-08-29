@@ -48,7 +48,7 @@ component accessors=true {
 	* Gets the availability date in the specified format
 	*/
 	public date function getAvailabilityDateFormatted(string format="mm/dd/yy"){
-		return dateTimeFormat(createObject("java", "java.util.Date").init(getAvailability_Date()));
+		return dateTimeFormat(createObject("java", "java.util.Date").init(getAvailability_Date()), arguments.format);
 	}
 	/*
 	* Determines whether or not the product is on sale
@@ -60,7 +60,7 @@ component accessors=true {
 	* Gets the availability date in the specified format
 	*/
 	public date function getCreatedOnFormatted(string format="mm/dd/yy"){
-		return dateTimeFormat(createObject("java", "java.util.Date").init(getCreated_On()));
+		return dateTimeFormat(createObject("java", "java.util.Date").init(getCreated_On()), arguments.format);
 	}
 	/*
 	* Gets the related product documents

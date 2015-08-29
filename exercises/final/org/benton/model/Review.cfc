@@ -20,6 +20,6 @@ component accessors=true {
 	* Gets the review date in the specified format
 	*/
 	public date function getReviewDateFormatted(string format="mm/dd/yy"){
-		return dateTimeFormat(createObject("java", "java.util.Date").init(getReview_Date()));
+		return dateTimeFormat(createObject("java", "java.util.Date").init(getReview_Date()), arguments.format);
 	}
 }

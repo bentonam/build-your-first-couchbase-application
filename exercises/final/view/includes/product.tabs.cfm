@@ -20,7 +20,7 @@
 		<a class="btn btn-primary" href="reviews.cfm?slug=#variables.product.document.getSlug()#">View More</a>
 	</div>
 	<!--- only show related if there is actually related products --->
-	<cfif variables.related.count gte variables.product.document.getReviewTotal()>
+	<cfif variables.related.count>
 		<div class="tab-pane fade" id="related">
 			<cfinclude template="product.related.cfm"/>
 		</div>
