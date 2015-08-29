@@ -7,7 +7,8 @@ component{
 	this.datasource = "";
 	this.loginStorage = "cookie";
 	this.mappings = {};
-	this.sessionManagement = false;
+	this.sessionManagement = true;
+	this.sessionTimeout = createTimeSpan(0, 0, 30, 0);
 	this.setClientCookies = false;
 	this.setDomainCookies = false;
 	this.scriptProtect = false;
@@ -36,7 +37,7 @@ component{
 	*/
 	public void function onRequest(required string page){
 		var view = reReplace(arguments.page, "^(\\|/)([^\/]+)(\\|/)", "\1\2\3view\3");
-		cfinclude(template="view/layout/main.cfm");
+		cfinclude(template="view/layout/layout.main.cfm");
 		return;
 	}
 	/**
