@@ -1,7 +1,7 @@
-<cfinclude template="home/home.carousel.cfm"/>
+<cfinclude template="includes/home.carousel.cfm"/>
 <hr />
-<cfinclude template="home/home.products.recent.cfm"/>
+<cfinclude template="includes/home.products.recent.cfm"/>
 <hr />
-<cfinclude template="home/home.products.sale.cfm"/>
+<cfinclude template="includes/home.products.sale.cfm"/>
 <hr />
-<cfinclude template="home/home.products.popular.cfm"/>
+<cfinclude template="includes/home.products.popular.cfm"/>
