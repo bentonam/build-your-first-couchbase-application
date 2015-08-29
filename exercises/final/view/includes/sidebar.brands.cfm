@@ -1,5 +1,3 @@
-<cfset brands = new root.org.benton.site.Brands()/>
-<cfset site_brands = brands.getSiteBrands()/>
 <cfoutput>
 <p class="lead">Brands</p>
 <div class="list-group">
