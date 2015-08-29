@@ -1,5 +1,6 @@
 component accessors=true {
 	property name="product_id" type="string" fieldType="id";
+	property name="doc_type" type="string";
 	property name="title" type="string";
 	property name="slug" type="string";
 	property name="short_description" type="string";
@@ -16,6 +17,12 @@ component accessors=true {
 	property name="related" type="array";
 	property name="created_on" type="numeric";
 	property name="active" type="boolean";
+	/*
+	* Init
+	*/
+	public Product function init(){
+		return this;
+	}
 	/*
 	* Inflates all of the properties based on a structure
 	* @data The struct to inflate properties with
@@ -50,33 +57,40 @@ component accessors=true {
 		return getSale_Price() && getSale_Price() < getPrice();
 	}
 	/*
-	* Gets the related product documents
-	*/
-	public date function getRelatedProducts(){
-		var cb = application.couchbase;
-		var query = [];
-		try{
-			// run the query
-			query = cb.query(
-			designDocumentName = "products",
-			viewName = "all",
-			inflateTo="root.org.benton.model.Product",
-			options = {
-				keys = getRelated(),
-				includeDocs = true
-			}
-			);
-		}
-		catch(any e){
-			query = [];
-		}
-		return query;
-	}
-	/*
 	* Gets the availability date in the specified format
 	*/
 	public date function getCreatedOnFormatted(string format="mm/dd/yy"){
 		return dateTimeFormat(createObject("java", "java.util.Date").init(getCreated_On()));
+	}
+	/*
+	* Gets the related product documents
+	*/
+	public struct function getRelatedProducts(){
+		var cb = application.couchbase;
+		var data = {};
+		var query = [];
+		try{
+			// run the query
+			query = cb.query(
+				designDocumentName = "products",
+				viewName = "all",
+				inflateTo="root.org.benton.model.Product",
+				options = {
+					reduce = false,
+					keys = getRelated(), // get the array of related product_ids
+					includeDocs = true
+				}
+			);
+			// set the results
+			data['results'] = query;
+			// set the number of results returned by the query
+			data['count'] = arrayLen(data.results);
+		}
+		catch(any e){
+			data['results'] = [];
+			data['count'] = 0;
+		}
+		return data;
 	}
 	/*
 	* Gets the number of reviews
@@ -127,5 +141,82 @@ component accessors=true {
 			rating = 0;
 		}
 		return rating;
+	}
+	/*
+	* Gets reviews for a product
+	* @limit The maximum number of results to return
+	* @offset The position to start returning results at
+	*/
+	public struct function getReviews(numeric limit=10, numeric offset=0){
+		var cb = application.couchbase;
+		var data = {};
+		var query = [];
+		var utils = new root.org.benton.Utils();
+		try{
+			// set the total number of documents matc
+			data['total'] = getReviewTotal();
+			// run the query
+			query = cb.query(
+				designDocumentName = "products",
+				viewName = "reviews",
+				inflateTo="root.org.benton.model.Review",
+				options = {
+					reduce = false,
+					sortOrder = "DESC",
+					startKey = [getProduct_ID(), utils.getDateParts(now())],
+					endKey = [getProduct_ID(), utils.getDateParts("1/1/1970")],
+					limit = arguments.limit,
+					offset = arguments.offset,
+					includeDocs = true
+				}
+			);
+			// set the results
+			data['results'] = query;
+			// set the number of results returned by the query
+			data['count'] = arrayLen(data.results);
+		}
+		catch(any e){
+			data['total'] = 0;
+			data['results'] = [];
+			data['count'] = 0;
+		}
+		return data;
+	}
+	/*
+	* Gets review aggregate totals for each rating 1 - 5
+	*/
+	public array function getReviewAggregates(){
+		var cb = application.couchbase;
+		var data = [];
+		var query = [];
+		var utils = new root.org.benton.Utils();
+		data[1] = 0;
+		data[2] = 0;
+		data[3] = 0;
+		data[4] = 0;
+		data[5] = 0;
+		try{
+			// run the query
+			query = cb.query(
+				designDocumentName = "products",
+				viewName = "reviews",
+				options = {
+					reduce = false,
+					startKey = [getProduct_ID(), utils.getDateParts("1/1/1970")],
+					endKey = [getProduct_ID(), utils.getDateParts(now())]
+				}
+			);
+			for(var item in query){
+				data[item.value] += 1;
+			}
+		}
+		catch(any e){
+			data[1] = 0;
+			data[2] = 0;
+			data[3] = 0;
+			data[4] = 0;
+			data[5] = 0;
+		}
+		return data;
 	}
 }
