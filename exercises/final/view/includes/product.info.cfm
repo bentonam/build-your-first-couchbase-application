@@ -32,15 +32,15 @@
 	<h4 class="availability out-of-stock">Out of Stock</h4>
 <cfelseif variables.availability eq "Discontinued">
 	<h4 class="availability discontinued">Discontinued</h4>
-<cfelseif variables.availability eq "Pre-order">
-	<h4 class="availability pre-order">Pre-order</h4>
+<cfelseif variables.availability eq "Preorder">
+	<h4 class="availability preorder">Pre-order</h4>
 </cfif>
 <!--- end of availability --->
 <!--- start of add to cart form --->
-<cfif variables.availability eq "In-Stock">
+<cfif variables.availability eq "In-Stock" or variables.availability eq "Preorder">
 	<hr />
-	<form class="form-inline">
-		<input type="hidden" name="product_id" value="#variables.product.document.getProduct_ID()#">
+	<form class="form-inline" action="cart.cfm" method="post">
+		<input type="hidden" name="add_product_id" value="#variables.product.document.getProduct_ID()#">
 		<div class="form-group">
 			<label for="qty">Qty</label>
 			<input type="number" step="1" min="1" class="form-control" id="qty" name="qty" value="1">

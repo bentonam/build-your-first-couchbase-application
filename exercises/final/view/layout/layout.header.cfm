@@ -56,67 +56,7 @@
 					</form>
 				</li>
 				<li class="dropdown">
-					<a href="##" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> <span class="glyphicon glyphicon-shopping-cart"></span> 7 - Items<span class="caret"></span></a>
-					<ul class="dropdown-menu dropdown-cart" role="menu">
-						<li>
-							<a href="##" class="row">
-								<div class="col-md-3">
-									<div class="thumbnail">
-										<img src="http://lorempixel.com/50/50/" class="img-responsive"/>
-									</div>
-								</div>
-								<div class="col-md-9">
-									<h5>Item name lakjsdlk sjdlkj sldkj</h5>
-									<h6 class="price">$55.99</h6>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="##" class="row">
-								<div class="col-md-3">
-									<div class="thumbnail">
-										<img src="http://lorempixel.com/50/50/" class="img-responsive"/>
-									</div>
-								</div>
-								<div class="col-md-9">
-									<h5>Item name lakjsdlk sjdlkj sldkj</h5>
-									<h6 class="price">$55.99</h6>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="##" class="row">
-								<div class="col-md-3">
-									<div class="thumbnail">
-										<img src="http://lorempixel.com/50/50/" class="img-responsive"/>
-									</div>
-								</div>
-								<div class="col-md-9">
-									<h5>Item name lakjsdlk sjdlkj sldkj</h5>
-									<h6 class="price">$55.99</h6>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="##" class="row">
-								<div class="col-md-3">
-									<div class="thumbnail">
-										<img src="http://lorempixel.com/50/50/" class="img-responsive"/>
-									</div>
-								</div>
-								<div class="col-md-9">
-									<h5>Item name lakjsdlk sjdlkj sldkj</h5>
-									<h6 class="price">$55.99</h6>
-								</div>
-							</a>
-						</li>
-						<li class="divider"></li>
-						<li>
-							<div>
-								<a class="btn btn-primary btn-block btn-lg" href="cart.cfm">View Cart</a>
-							</div>
-						</li>
-					</ul>
+					<cfinclude template="/root/view/layout/layout.header.cart.cfm"/>
 				</li>
 			</ul>
 			<!--- start of search / cart nav --->

@@ -33,6 +33,8 @@
 			</div>
 		</div>
 		<!--- end of tabs --->
+		<!--- output the cart document id for debugging purposes --->
+		<p><b>Product ID:</b> #variables.product.document.getProduct_ID()#</p>
 	</div>
 <cfelse>
 	<p class="alert alert-danger" role="alert">

@@ -6,7 +6,12 @@
   padding-bottom: 0;
   width: 320px; }
   .dropdown-cart h5 {
-    margin: 0; }
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; }
+  .dropdown-cart .sub-total {
+    padding: 5px 10px; }
   .dropdown-cart .btn {
     border-radius: 0 0 4px 4px; }
 
@@ -75,7 +80,7 @@
 .availability.discontinued {
   color: #d9534f; }
 
-.availability.pre-order {
+.availability.preorder {
   color: #5bc0de; }
 
 .tab-content {
@@ -108,6 +113,9 @@ footer {
 
 #cart thead tr th:nth-child(5) {
   width: 5%; }
+
+#cart h4 {
+  margin-top: 0; }
 
 #cart tbody > tr > td, #cart tfoot > tr > td {
   vertical-align: middle; }
