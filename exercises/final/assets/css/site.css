@@ -1,3 +1,15 @@
+.navbar-nav > li > .dropdown-menu {
+  max-height: 300px;
+  overflow-y: scroll; }
+
+.dropdown-cart {
+  padding-bottom: 0;
+  width: 320px; }
+  .dropdown-cart h5 {
+    margin: 0; }
+  .dropdown-cart .btn {
+    border-radius: 0 0 4px 4px; }
+
 .product-listing .headline {
   margin-bottom: 15px; }
   .product-listing .headline h2 {
@@ -16,7 +28,6 @@
   .product-listing .caption h4.sale {
     line-height: 18px; }
     .product-listing .caption h4.sale strike {
-      color: #a94442;
       display: block;
       font-size: .6em; }
 
@@ -25,13 +36,102 @@
   height: 30px;
   overflow: hidden; }
 
-.product-listing .ratings {
-  color: #d17581;
+.sale strike {
+  color: #a94442;
+  font-size: .7em; }
+
+.ratings {
   font-size: .8em;
   margin-top: 5px; }
 
+.stars {
+  color: #f8e368;
+  text-shadow: 0 0 0 #000; }
+
+.product-detail .form-inline input {
+  width: 50px; }
+
+.product-detail .ratings {
+  font-size: 1.1em; }
+  .product-detail .ratings .rating {
+    display: inline-block;
+    margin-left: 10px; }
+
+.product-detail .form-inline .form-group, .product-detail .form-inline input {
+  display: inline-block; }
+
+#reviews .row {
+  margin-bottom: 5px; }
+
+#reviews .rating {
+  margin: 0; }
+
+.availability.in-stock {
+  color: #5cb85c; }
+
+.availability.out-of-stock {
+  color: #f0ad4e; }
+
+.availability.discontinued {
+  color: #d9534f; }
+
+.availability.pre-order {
+  color: #5bc0de; }
+
+.tab-content {
+  padding-top: 15px; }
+
+.reviews .review {
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 20px;
+  padding-bottom: 10px; }
+  .reviews .review:last-child {
+    border-bottom: none; }
+
 footer {
   margin: 50px 0; }
+
+/*
+* Cart Page
+*/
+#cart thead tr th:nth-child(1) {
+  width: 65%; }
+
+#cart thead tr th:nth-child(2) {
+  width: 10%; }
+
+#cart thead tr th:nth-child(3) {
+  width: 8%; }
+
+#cart thead tr th:nth-child(4) {
+  width: 12%; }
+
+#cart thead tr th:nth-child(5) {
+  width: 5%; }
+
+#cart tbody > tr > td, #cart tfoot > tr > td {
+  vertical-align: middle; }
+
+@media screen and (max-width: 600px) {
+  #cart tbody td {
+    display: block;
+    min-width: 320px;
+    padding: .6rem; }
+    #cart tbody td .form-control {
+      display: inline;
+      width: 20%; }
+    #cart tbody td:before {
+      content: attr(data-th);
+      display: inline-block;
+      font-weight: bold;
+      width: 8rem; }
+  #cart tfoot td {
+    display: block; }
+    #cart tfoot td .btn {
+      display: block; }
+  #cart .actions .btn {
+    margin: 1.5em 0;
+    width: 36%; } }
 
 .slide-image {
   width: 100%; }
