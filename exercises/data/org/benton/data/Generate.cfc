@@ -60,7 +60,7 @@ component output="false"{
 		doc['title'] = generateTitle();
 		doc['slug'] = variables.slug.generate(doc.title);
 		doc['short_description'] = generateShortDescription();
-		doc['long_description'] = generateLongDescription();
+		doc['long_description'] = generateProductDescription();
 		doc['keywords'] = generateKeywords();
 		doc['category'] = generateCategory();
 		doc['brand'] = generateBrand();
@@ -94,11 +94,28 @@ component output="false"{
 		return left(description, find(".", description) - 1); // return just the first sentence
 	}
 	/*
+	*  Gets a product description
+	*/
+	private string function generateProductDescription(){
+		var description = generateLongDescription();
+		// generate a heading
+		description &= "<h3>" & generateTitle() & "</h3>";
+		// generate a list
+		description &= "<ul>";
+		for(var i = 1; i <= randRange(5, 15); i++){
+			description &= "<li>" & generateShortDescription() & "</li>";
+		}
+		description &= "<ul>";
+		// generate another long description
+		description &= generateLongDescription();
+		return description;
+	}
+	/*
 	*  Gets a long description
 	*/
 	private string function generateLongDescription(){
 		var description = [];
-		var paragraphs = randRange(1, 5); // use 1 to 5 paragraphs for the description
+		var paragraphs = randRange(1, 3); // use 1 to 5 paragraphs for the description
 		for(var i = 1; i <= paragraphs; i++){
 			arrayAppend(description, variables.configs.paragraphs.paragraphs[randRange(1, arrayLen(variables.configs.paragraphs.paragraphs))]);
 		}
@@ -173,7 +190,7 @@ component output="false"{
 	*/
 	private array function generateAlternateImages(){
 		var alternates = [];
-		var images = randRange(1, 4);
+		var images = randRange(1, 3);
 		for(var i = 1; i <= images; i++){
 			arrayAppend(alternates, generateImage());
 		}
@@ -225,7 +242,7 @@ component output="false"{
 	private void function buildReviews(required string product_id){
 		var cb = application.couchbase; // pointer to the default bucket handler
 		var doc = {};
-		var reviews = randRange(0, 10);
+		var reviews = randRange(0, 25);
 		var review_id = 0;
 		for(var i = 1; i <= reviews; i++){
 			// get the current review counter value and increment it
@@ -237,7 +254,8 @@ component output="false"{
 			doc['reviewer_name'] = generateName();
 			doc['reviewer_email'] = generateEmail(doc.reviewer_name);
 			doc['rating'] = generateRating();
-			doc['review'] = generateLongDescription();
+			doc['review_title'] = generateLongDescription();
+			doc['review_body'] = generateLongDescription();
 			doc['review_date'] = generateDate(end_date=now());
 			// write the review document
 			cb.set(arguments.product_id & "_review_" & review_id, doc);
