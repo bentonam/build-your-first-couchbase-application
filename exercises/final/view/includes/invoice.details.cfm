@@ -1,4 +1,12 @@
 <cfoutput>
+<div class="row">
+	<div class="col-md-6">
+		<h4>Order ##: #variables.order.document.getOrder_ID()#</h4>
+	</div>
+	<div class="col-md-6">
+		<h4>Order Date: #variables.order.document.getOrderDateFormatted()#</h4>
+	</div>
+</div>
 <div class="panel panel-primary">
 	<div class="panel-heading">
 		<h3 class="panel-title">Billing and Shipping Details</h3>

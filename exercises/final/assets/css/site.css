@@ -96,6 +96,11 @@
 footer {
   margin: 50px 0; }
 
+/* hide the badges between 100px and 1200px */
+@media all and (min-width: 1000px) and (max-width: 1200px) {
+  #sidebar .badge {
+    display: none; } }
+
 /*
 * Cart Page
 */

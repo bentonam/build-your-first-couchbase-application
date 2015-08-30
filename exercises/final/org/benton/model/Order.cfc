@@ -81,7 +81,7 @@ component accessors=true {
 		// set the order date
 		setOrder_Date(utils.toEpoch(now()));
 		// write the order document
-		cb.set(id=getOrder_ID(), value=this);
+		cb.set(id="order_" & getOrder_ID(), value=this);
 		return;
 	}
 }

@@ -20,7 +20,7 @@
 <cfinclude template="layout.header.cfm"/>
 <div class="container">
 	<div class="row">
-		<div class="col-md-3 hidden-xs">
+		<div id="sidebar" class="col-md-3 hidden-xs">
 			<cfinclude template="layout.sidebar.cfm"/>
 		</div>
 		<div class="col-xs-12 col-md-9">
