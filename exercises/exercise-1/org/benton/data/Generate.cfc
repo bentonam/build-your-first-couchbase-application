@@ -254,7 +254,7 @@ component output="false"{
 			doc['reviewer_name'] = generateName();
 			doc['reviewer_email'] = generateEmail(doc.reviewer_name);
 			doc['rating'] = generateRating();
-			doc['review_title'] = generateLongDescription();
+			doc['review_title'] = generateTitle();
 			doc['review_body'] = generateLongDescription();
 			doc['review_date'] = generateDate(end_date=now());
 			// write the review document

@@ -23,17 +23,17 @@
 				<li class="dropdown">
 					<a href="##" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span>
 					<ul class="dropdown-menu">
-						<cfloop from="1" to="#variables.site_categories.count#" index="i">
-							<li><a href="categories.cfm?category=#urlEncodedFormat(variables.site_categories.results[i].key)#">#variables.site_categories.results[i].key#</a></li>
+						<cfloop from="1" to="#variables.site_categories.count#" index="variables.i">
+							<li><a href="categories.cfm?category=#urlEncodedFormat(variables.site_categories.results[variables.i].key)#">#variables.site_categories.results[variables.i].key#</a></li>
 						</cfloop>
 					</ul>
 				</li>
 				<li>
 					<a href="##" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Brands <span class="caret"></span>
 					<ul class="dropdown-menu">
-						<cfloop from="1" to="#variables.site_brands.count#" index="i">
+						<cfloop from="1" to="#variables.site_brands.count#" index="variables.i">
 							<li>
-								<a href="brands.cfm?brand=#urlEncodedFormat(variables.site_brands.results[i].key)#">#variables.site_brands.results[i].key#</a>
+								<a href="brands.cfm?brand=#urlEncodedFormat(variables.site_brands.results[variables.i].key)#">#variables.site_brands.results[variables.i].key#</a>
 							</li>
 						</cfloop>
 					</ul>

@@ -42,7 +42,6 @@
 	<cfif variables.pagination.has_next>
 		<li><a href="?category=#urlEncodedFormat(url.category)#&offset=#variables.pagination.next_offset#">»</a></li>
 	</cfif>
-	<li><a href="?category=#urlEncodedFormat(url.category)#&offset=#variables.pagination.last_offset#">Last</a></li>
 </ul>
 <!--- end of pagination --->
 </cfoutput>

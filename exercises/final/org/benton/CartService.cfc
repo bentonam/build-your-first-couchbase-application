@@ -16,7 +16,7 @@ component{
 			// if the cart wasn't found create it
 			if(!cart.found){
 				cart = {
-					'document' = new root.org.benton.model.Cart()
+					'document' = new root.org.benton.documents.Cart()
 				};
 				// set the cart id
 				cart.document.setCart_ID(session.sessionID & "_cart");
@@ -64,7 +64,7 @@ component{
 			// get the cart document and update the expiration time to 30min from now
 			cart = cb.getAndTouch(
 				id=session.sessionID & "_cart",
-				inflateTo="root.org.benton.model.Cart",
+				inflateTo="root.org.benton.documents.Cart",
 				timeout=30
 			);
 			if(!isNull(cart)){ // the cart exists
@@ -93,7 +93,7 @@ component{
 			// get the cart document and update the expiration time to 30min from now
 			cart = cb.get(
 				id=session.sessionID & "_cart",
-				inflateTo="root.org.benton.model.Cart",
+				inflateTo="root.org.benton.documents.Cart",
 				timeout=30
 			);
 			if(!isNull(cart)){ // the cart exists

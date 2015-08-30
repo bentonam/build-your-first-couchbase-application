@@ -23,7 +23,7 @@ component{
 				query = cb.query(
 					designDocumentName = "orders",
 					viewName = "lookup",
-					inflateTo="root.org.benton.model.Order",
+					inflateTo="root.org.benton.documents.Order",
 					options = {
 						reduce = false,
 						key = [int(arguments.order_id), arguments.email_address, arguments.postal_code],

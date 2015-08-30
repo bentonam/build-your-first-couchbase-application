@@ -82,6 +82,6 @@
 		</p>
 	</cfif>
 	<!--- output the cart document id for debugging purposes --->
-	<p><b>Cart ID:</b> #variables.cart.document.getCart_ID()#</p>
+	<p><b>Cart Document ID:</b> #variables.cart.document.getCart_ID()#</p>
 </form>
 </cfoutput>
