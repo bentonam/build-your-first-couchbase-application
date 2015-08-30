@@ -37,7 +37,7 @@ component{
 	*/
 	public void function onRequest(required string page){
 		var view = reReplace(arguments.page, "^(\\|/)([^\/]+)(\\|/)", "\1\2\3view\3");
-		cfinclude(template="view/layout/layout.main.cfm");
+		cfinclude(template="/root/view/layout/layout.main.cfm");
 		return;
 	}
 	/**

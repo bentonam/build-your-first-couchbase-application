@@ -1,5 +1,5 @@
-<cfset product_service = new root.org.benton.ProductService()/>
-<cfset recent_products = product_service.getRecentProducts(limit=4)/>
+<cfset variables['product_service'] = new root.org.benton.ProductService()/>
+<cfset variables['recent_products'] = variables.product_service.getRecentProducts(limit=4)/>
 <cfoutput>
 <div class="product-listing">
 	<div class="row headline">
@@ -9,8 +9,8 @@
 		</div>
 	</div>
 	<div class="row">
-		<cfloop array="#recent_products.results#" index="product">
-			<cfinclude template="../includes/result.product.cfm"/>
+		<cfloop array="#variables.recent_products.results#" index="variables.product">
+			<cfinclude template="/root/view/includes/result.product.cfm"/>
 		</cfloop>
 	</div>
 </div>

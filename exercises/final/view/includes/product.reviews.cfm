@@ -5,7 +5,7 @@
 	<div class="col-md-8">
 		<cfloop array="#variables.reviews.results#" index="variables.review">
 		<div class="review">
-			<h4>Extra long fully-sleeved cables support full tower chassis</h4>
+			<h4>#variables.review.document.getReview_Title()#</h4>
 			<div class="row">
 				<div class="col-md-5">
 					<b>#variables.review.document.getReviewer_name()#</b>

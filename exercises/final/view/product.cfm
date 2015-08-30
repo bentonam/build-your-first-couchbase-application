@@ -17,24 +17,24 @@
 		<div class="row">
 			<!--- start of images --->
 			<div class="col-sm-12 col-md-5">
-				<cfinclude template="includes/product.images.cfm"/>
+				<cfinclude template="/root/view/includes/product.images.cfm"/>
 			</div>
 			<!--- end of images --->
 			<!--- start of info --->
 			<div class="col-sm-12 col-md-7">
-				<cfinclude template="includes/product.info.cfm"/>
+				<cfinclude template="/root/view/includes/product.info.cfm"/>
 			</div>
 			<!--- end of info --->
 		</div>
 		<!--- start of tabs --->
 		<div class="row">
 			<div class="col-md-12">
-				<cfinclude template="includes/product.tabs.cfm"/>
+				<cfinclude template="/root/view/includes/product.tabs.cfm"/>
 			</div>
 		</div>
 		<!--- end of tabs --->
-		<!--- output the cart document id for debugging purposes --->
-		<p><b>Product ID:</b> #variables.product.document.getProduct_ID()#</p>
+		<!--- output the product document id for debugging purposes --->
+		<p><b>Product Document ID:</b> #variables.product.document.getProduct_ID()#</p>
 	</div>
 <cfelse>
 	<p class="alert alert-danger" role="alert">

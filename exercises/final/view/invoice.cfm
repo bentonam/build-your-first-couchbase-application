@@ -27,4 +27,6 @@
 <!--- start of order totals --->
 <cfinclude template="/root/view/includes/checkout.totals.cfm"/>
 <!--- end of order totals --->
+<!--- output the cart document id for debugging purposes --->
+<p><b>Order Document ID:</b> order_#variables.order.document.getOrder_ID()#</p>
 </cfoutput>

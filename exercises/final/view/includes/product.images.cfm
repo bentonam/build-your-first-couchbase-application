@@ -2,7 +2,7 @@
 <div class="thumbnail">
 	<img src="#variables.product.document.getImage()#" class="img-responsive">
 	<hr />
-	<div class="row">
+	<div class="row hidden-xs">
 		<div class="col-xs-6 col-md-3">
 			<div class="thumbnail">
 				<img src="#variables.product.document.getImage()#" class="img-responsive">

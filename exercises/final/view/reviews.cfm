@@ -20,12 +20,12 @@
 		<div class="row">
 			<!--- start of images --->
 			<div class="col-sm-12 col-md-5">
-				<cfinclude template="includes/product.images.cfm"/>
+				<cfinclude template="/root/view/includes/product.images.cfm"/>
 			</div>
 			<!--- end of images --->
 			<!--- start of info --->
 			<div class="col-sm-12 col-md-7">
-				<cfinclude template="includes/product.info.cfm"/>
+				<cfinclude template="/root/view/includes/product.info.cfm"/>
 			</div>
 			<!--- end of info --->
 		</div>
@@ -35,26 +35,26 @@
 				<!--- get the reviews --->
 				<cfset variables['reviews'] = variables.product.document.getReviews(limit=url.limit, offset=url.offset)/>
 				<!--- get the pagination based on the results --->
-				<cfset utils = new root.org.benton.Utils()/>
-				<cfset pagination = utils.getPagination(limit=url.limit, offset=url.offset, total=reviews.total)/>
-				<cfinclude template="includes/product.reviews.cfm"/>
+				<cfset variables['utils'] = new root.org.benton.Utils()/>
+				<cfset variables['pagination'] = variables.utils.getPagination(limit=url.limit, offset=url.offset, total=variables.reviews.total)/>
+				<cfinclude template="/root/view/includes/product.reviews.cfm"/>
 			</div>
 		</div>
 		<!--- end of tabs --->
 		<!--- start of pagination --->
 		<ul class="pagination">
 			<cfif pagination.has_previous>
-				<li><a href="?slug=#variables.product.document.getSlug()#&offset=#pagination.previous_offset#">«</a></li>
+				<li><a href="?slug=#variables.product.document.getSlug()#&offset=#variables.pagination.previous_offset#">«</a></li>
 			</cfif>
-			<cfloop array="#pagination.pages#" index="page">
-				<cfif page.offset eq pagination.current_offset>
-					<li class="active"><a>#page.number# <span class="sr-only">(current)</span></a></li>
+			<cfloop array="#variables.pagination.pages#" index="variables.page">
+				<cfif variables.page.offset eq variables.pagination.current_offset>
+					<li class="active"><a>#variables.page.number# <span class="sr-only">(current)</span></a></li>
 				<cfelse>
-					<li><a href="?slug=#variables.product.document.getSlug()#&offset=#page.offset#">#page.number#</a></li>
+					<li><a href="?slug=#variables.product.document.getSlug()#&offset=#variables.page.offset#">#variables.page.number#</a></li>
 				</cfif>
 			</cfloop>
 			<cfif pagination.has_next>
-				<li><a href="?slug=#variables.product.document.getSlug()#&offset=#pagination.next_offset#">»</a></li>
+				<li><a href="?slug=#variables.product.document.getSlug()#&offset=#variables.pagination.next_offset#">»</a></li>
 			</cfif>
 		</ul>
 		<!--- end of pagination --->
