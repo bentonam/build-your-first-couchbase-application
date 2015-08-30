@@ -40,7 +40,7 @@ component accessors=true {
 	*/
 	public void function setLineItem(required string product_id, required numeric qty){
 		var cb = application.couchbase;
-		var product = cb.get(id=arguments.product_id, inflateTo="root.org.benton.model.Product");
+		var product = cb.get(id=arguments.product_id, inflateTo="root.org.benton.documents.Product");
 		var line_items = getLine_Items();
 		var item = {};
 		// if the product was found update it
@@ -68,7 +68,7 @@ component accessors=true {
 	*/
 	public void function addLineItem(required string product_id, required numeric qty){
 		var cb = application.couchbase;
-		var product = cb.get(id=arguments.product_id, inflateTo="root.org.benton.model.Product");
+		var product = cb.get(id=arguments.product_id, inflateTo="root.org.benton.documents.Product");
 		var line_items = getLine_Items();
 		var item = {};
 		// if the line_item already exists update its qty

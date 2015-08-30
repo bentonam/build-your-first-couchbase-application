@@ -17,7 +17,7 @@ component{
 			cflocation(url="cart.cfm", addtoken="false");
 			abort;
 		}
-		order['document'] = new root.org.benton.model.Order();
+		order['document'] = new root.org.benton.documents.Order();
 		// populate any data
 		order.document.inflate(data=arguments.data);
 		// set the line items

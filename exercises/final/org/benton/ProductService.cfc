@@ -21,7 +21,7 @@ component{
 			total = cb.query(
 				designDocumentName = "products",
 				viewName = "recent",
-				inflateTo="root.org.benton.model.Product",
+				inflateTo="root.org.benton.documents.Product",
 				options = {
 					reduce = true,
 					startKey = utils.getDateParts(now())
@@ -33,7 +33,7 @@ component{
 			query = cb.query(
 				designDocumentName = "products",
 				viewName = "recent",
-				inflateTo="root.org.benton.model.Product",
+				inflateTo="root.org.benton.documents.Product",
 				options = {
 					reduce = false,
 					startKey = utils.getDateParts(now()),
@@ -70,7 +70,7 @@ component{
 			total = cb.query(
 				designDocumentName = "products",
 				viewName = "on_sale",
-				inflateTo="root.org.benton.model.Product",
+				inflateTo="root.org.benton.documents.Product",
 				options = {
 					reduce = true,
 					startKey = utils.getDateParts(now())
@@ -82,7 +82,7 @@ component{
 			query = cb.query(
 				designDocumentName = "products",
 				viewName = "on_sale",
-				inflateTo="root.org.benton.model.Product",
+				inflateTo="root.org.benton.documents.Product",
 				options = {
 					reduce = false,
 					startKey = utils.getDateParts(now()),
@@ -120,7 +120,7 @@ component{
 			total = cb.query(
 				designDocumentName = "products",
 				viewName = "by_category",
-				inflateTo="root.org.benton.model.Product",
+				inflateTo="root.org.benton.documents.Product",
 				options = {
 					reduce = true,
 					key = arguments.category
@@ -132,7 +132,7 @@ component{
 			query = cb.query(
 				designDocumentName = "products",
 				viewName = "by_category",
-				inflateTo="root.org.benton.model.Product",
+				inflateTo="root.org.benton.documents.Product",
 				options = {
 					reduce = false,
 					key = arguments.category,
@@ -170,7 +170,7 @@ component{
 			total = cb.query(
 				designDocumentName = "products",
 				viewName = "by_brand",
-				inflateTo="root.org.benton.model.Product",
+				inflateTo="root.org.benton.documents.Product",
 				options = {
 					reduce = true,
 					key = arguments.brand
@@ -182,7 +182,7 @@ component{
 			query = cb.query(
 				designDocumentName = "products",
 				viewName = "by_brand",
-				inflateTo="root.org.benton.model.Product",
+				inflateTo="root.org.benton.documents.Product",
 				options = {
 					reduce = false,
 					key = arguments.brand,
@@ -240,7 +240,7 @@ component{
 						data['results'][i]['id'] = results.hits.hits[i]._id;
 						data['results'][i]['score'] = results.hits.hits[i]._score;
 						// create the product handle
-						data['results'][i]['document'] = new root.org.benton.model.Product();
+						data['results'][i]['document'] = new root.org.benton.documents.Product();
 						// inflate all of the data from elasticsearch to the properties of the handle
 						data.results[i].document.inflate(results.hits.hits[i]._source.doc);
 					}
@@ -267,7 +267,7 @@ component{
 			query = cb.query(
 				designDocumentName = "products",
 				viewName = "by_slug",
-				inflateTo="root.org.benton.model.Product",
+				inflateTo="root.org.benton.documents.Product",
 				options = {
 					reduce = false,
 					key = arguments.slug,
