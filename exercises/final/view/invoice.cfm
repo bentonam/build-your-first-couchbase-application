@@ -18,7 +18,6 @@
 	<i class="glyphicon glyphicon-thumbs-up"></i>
 	Your order has been successfully submitted on #variables.order.document.getOrderDateFormatted()#
 </p>
-<h3>Order ##: #variables.order.document.getOrder_ID()#</h3>
 <!--- start of billing --->
 <cfinclude template="/root/view/includes/invoice.details.cfm"/>
 <!--- end of billing --->

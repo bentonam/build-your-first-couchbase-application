@@ -3,7 +3,7 @@
 <cfset variables['brands'] = new root.org.benton.site.Brands()/>
 <cfset variables['site_brands'] = brands.getSiteBrands()/>
 <cfoutput>
-	<header>
+<header>
 <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
 	<div class="container">
 		<!-- Brand and toggle get grouped for better mobile display -->
@@ -39,7 +39,7 @@
 					</ul>
 				</li>
 				<li>
-					<a href="##">Contact</a>
+					<a href="order-tracking.cfm">Order Tracking</a>
 				</li>
 			</ul>
 			<!--- end of main nav --->
