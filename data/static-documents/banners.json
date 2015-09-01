@@ -1,0 +1,20 @@
+{
+	"doc_type": "config",
+	"banners": [
+		{
+			"name": "Product Ad 1",
+			"image": "http://lorempixel.com/800/300/sports/?r=111111111",
+			"url": "##"
+		},
+		{
+			"name": "Product Ad 2",
+			"image": "http://lorempixel.com/800/300/sports/?r=222222222",
+			"url": "##"
+		},
+		{
+			"name": "Product Ad 3",
+			"image": "http://lorempixel.com/800/300/sports/?r=333333333",
+			"url": "##"
+		}
+	]
+}

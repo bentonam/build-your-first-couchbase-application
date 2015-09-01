@@ -1,7 +1,7 @@
-<cfset variables['categories'] = new root.final.com.benton.site.Categories()/>
-<cfset variables['site_categories'] = categories.getSiteCategories()/>
-<cfset variables['brands'] = new root.final.com.benton.site.Brands()/>
-<cfset variables['site_brands'] = brands.getSiteBrands()/>
+<!--- get the categories for the site --->
+<cfset variables['site_categories'] = variables.site_service.getSiteCategories()/>
+<!--- get the brands for the site --->
+<cfset variables['site_brands'] = variables.site_service.getSiteBrands()/>
 <cfoutput>
 <header>
 <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
@@ -23,18 +23,16 @@
 				<li class="dropdown">
 					<a href="##" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span>
 					<ul class="dropdown-menu">
-						<cfloop from="1" to="#variables.site_categories.count#" index="variables.i">
-							<li><a href="categories.cfm?category=#urlEncodedFormat(variables.site_categories.results[variables.i].key)#">#variables.site_categories.results[variables.i].key#</a></li>
+						<cfloop array="#variables.site_categories#" index="variables.category">
+							<li><a href="categories.cfm?category=#urlEncodedFormat(variables.category.name)#">#variables.category.name#</a></li>
 						</cfloop>
 					</ul>
 				</li>
 				<li>
 					<a href="##" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Brands <span class="caret"></span>
 					<ul class="dropdown-menu">
-						<cfloop from="1" to="#variables.site_brands.count#" index="variables.i">
-							<li>
-								<a href="brands.cfm?brand=#urlEncodedFormat(variables.site_brands.results[variables.i].key)#">#variables.site_brands.results[variables.i].key#</a>
-							</li>
+						<cfloop array="#variables.site_brands#" index="variables.brand">
+							<li><a href="brands.cfm?brand=#urlEncodedFormat(variables.brand.name)#">#variables.brand.name#</a></li>
 						</cfloop>
 					</ul>
 				</li>
@@ -56,7 +54,7 @@
 					</form>
 				</li>
 				<li class="dropdown">
-					<cfinclude template="/root/final/view/layout/layout.header.cart.cfm"/>
+					<cfinclude template="/root/exercise2/view/layout/layout.header.cart.cfm"/>
 				</li>
 			</ul>
 			<!--- start of search / cart nav --->

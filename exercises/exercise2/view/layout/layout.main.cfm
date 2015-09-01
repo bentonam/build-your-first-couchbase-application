@@ -1,10 +1,14 @@
+<!--- get a handle to the cart service --->
+<cfset variables['site_service'] = new root.exercise2.com.example.SiteService()/>
+<!--- get the config --->
+<cfset variables['site_config'] = variables.site_service.getSiteConfig()/>
 <cfoutput>
 <!doctype html>
 <html lang="en">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title></title>
+	<title>#variables.site_config.seo_title#</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
@@ -17,14 +21,18 @@
 	<![endif]-->
 </head>
 <body>
+<cfinclude template="/root/exercise2/view/layout/layout.header.cfm"/>
 <div class="container">
-	<h1>Exercises</h1>
-	<ol>
-		<li><a href="exercise1/index.cfm">Exercise 1 - Working with Couchbase Documents</a>
-		<li><a href="exercise2/index.cfm">Exercise 2 - Static Documents for Site Config</a>
-		<li><a href="final/index.cfm">Final</a>
-	</ol>
+	<div class="row">
+		<div id="sidebar" class="col-md-3 hidden-xs hidden-sm">
+			<cfinclude template="/root/exercise2/view/layout/layout.sidebar.cfm"/>
+		</div>
+		<div class="col-xs-12 col-md-9">
+			<cfinclude template="#view#"/>
+		</div>
+	</div>
 </div>
+<cfinclude template="/root/exercise2/view/layout/layout.footer.cfm"/>
 </body>
 </html>
 </cfoutput>
