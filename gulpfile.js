@@ -10,27 +10,27 @@ gulp.task( "default", [ "compress", "watch" ] );
 // Compile Our Sass
 gulp.task( "sass", function(){
 	console.log("sass it");
-    return gulp.src( "exercises/final/assets/sass/*.scss" )
+    return gulp.src( "exercises/assets/sass/*.scss" )
         .pipe(
         	sass( {
 	    		style: "expanded"
         	} )
         )
-        .pipe( gulp.dest( "exercises/final/assets/css" ) );
+        .pipe( gulp.dest( "exercises/assets/css" ) );
 });
 
 gulp.task( "compress", function() {
-	return gulp.src( "exercises/final/assets/js/*.js" )
+	return gulp.src( "exercises/assets/js/*.js" )
     		.pipe( uglify() )
     		.pipe(
     			rename( {
 	    			extname: ".min.js"
 	    		} )
 	    	)
-			.pipe( gulp.dest( "exercises/final/assets/js/" ) );
+			.pipe( gulp.dest( "exercises/assets/js/" ) );
 } );
 
 gulp.task( "watch", function() {
-	gulp.watch( "exercises/final/assets/sass/*.scss", [ "sass" ] );
-	gulp.watch( "exercises/final/assets/js/*.js", [ "compress" ] );
+	gulp.watch( "exercises/assets/sass/*.scss", [ "sass" ] );
+	gulp.watch( "exercises/assets/js/*.js", [ "compress" ] );
 });
