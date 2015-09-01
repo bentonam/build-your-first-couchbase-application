@@ -7,7 +7,7 @@
 		</div>
 	</div>
 	<div class="row">
-		<cfloop from="1" to="4" index="i">
+		<cfloop from="1" to="8" index="variables.i">
 			<div class="col-xs-6 col-sm-4 col-md-4 col-lg-3">
 				<div class="thumbnail">
 					<img src="http://placehold.it/200" class="img-responsive">

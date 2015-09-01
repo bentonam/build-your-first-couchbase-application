@@ -21,7 +21,6 @@
 
 - New Products
 - Sale Products
-- Popular Products
 
 ### Exercise 4 - Introduction to Queries
 
