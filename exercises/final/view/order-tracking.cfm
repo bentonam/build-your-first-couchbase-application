@@ -3,7 +3,7 @@
 <cfparam name="form.email_address" type="string" default=""/>
 <cfparam name="form.postal_code" type="string" default="0"/>
 <!--- get a handle to the order tracking server service --->
-<cfset variables['tracking_service'] = new root.org.benton.OrderTrackingService()/>
+<cfset variables['tracking_service'] = new root.final.com.benton.OrderTrackingService()/>
 <!--- look up the order --->
 <cfset variables['order'] = variables.tracking_service.getOrder(order_id=form.order_id, email_address=form.email_address, postal_code=form.postal_code)/>
 <cfoutput>
@@ -42,13 +42,13 @@
 		<!--- get the line items in the cart --->
 		<cfset variables['line_items'] = variables.order.document.getLine_Items()/>
 		<!--- start of billing --->
-		<cfinclude template="/root/view/includes/invoice.details.cfm"/>
+		<cfinclude template="/root/final/view/includes/invoice.details.cfm"/>
 		<!--- end of billing --->
 		<!--- start of payment details --->
-		<cfinclude template="/root/view/includes/invoice.items.cfm"/>
+		<cfinclude template="/root/final/view/includes/invoice.items.cfm"/>
 		<!--- end of payment details --->
 		<!--- start of order totals --->
-		<cfinclude template="/root/view/includes/checkout.totals.cfm"/>
+		<cfinclude template="/root/final/view/includes/checkout.totals.cfm"/>
 		<!--- end of order totals --->
 	<cfelse>
 		<p class="alert alert-danger alert-dismissible" role="alert">

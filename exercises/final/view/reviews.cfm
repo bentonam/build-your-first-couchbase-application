@@ -3,7 +3,7 @@
 <cfparam name="url.limit" type="numeric" default="5"/>
 <cfparam name="url.offset" type="numeric" default="0"/>
 <!--- get --->
-<cfset variables['product_service'] = new root.org.benton.ProductService()/>
+<cfset variables['product_service'] = new root.final.com.benton.ProductService()/>
 <!--- get the product details by the url slug --->
 <cfset variables['product'] = variables.product_service.getProductBySlug(slug=url.slug)/>
 <cfoutput>
@@ -20,12 +20,12 @@
 		<div class="row">
 			<!--- start of images --->
 			<div class="col-sm-12 col-md-5">
-				<cfinclude template="/root/view/includes/product.images.cfm"/>
+				<cfinclude template="/root/final/view/includes/product.images.cfm"/>
 			</div>
 			<!--- end of images --->
 			<!--- start of info --->
 			<div class="col-sm-12 col-md-7">
-				<cfinclude template="/root/view/includes/product.info.cfm"/>
+				<cfinclude template="/root/final/view/includes/product.info.cfm"/>
 			</div>
 			<!--- end of info --->
 		</div>
@@ -35,9 +35,9 @@
 				<!--- get the reviews --->
 				<cfset variables['reviews'] = variables.product.document.getReviews(limit=url.limit, offset=url.offset)/>
 				<!--- get the pagination based on the results --->
-				<cfset variables['utils'] = new root.org.benton.Utils()/>
+				<cfset variables['utils'] = new root.final.com.benton.Utils()/>
 				<cfset variables['pagination'] = variables.utils.getPagination(limit=url.limit, offset=url.offset, total=variables.reviews.total)/>
-				<cfinclude template="/root/view/includes/product.reviews.cfm"/>
+				<cfinclude template="/root/final/view/includes/product.reviews.cfm"/>
 			</div>
 		</div>
 		<!--- end of tabs --->

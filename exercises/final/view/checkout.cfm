@@ -1,5 +1,5 @@
 <!--- get a handler to the order service --->
-<cfset variables['checkout_service'] = new root.org.benton.CheckoutService()/>
+<cfset variables['checkout_service'] = new root.final.com.benton.CheckoutService()/>
 <!--- get the incomplete order and pass it the form data for population --->
 <cfset variables['order'] = variables.checkout_service.getIncompleteOrder(data=form)/>
 <!--- get the states --->
@@ -16,16 +16,16 @@
 	</ol>
 	<!--- end of breadcrumb --->
 	<!--- start of billing --->
-	<cfinclude template="/root/view/includes/checkout.billing.cfm"/>
+	<cfinclude template="/root/final/view/includes/checkout.billing.cfm"/>
 	<!--- end of billing --->
 	<!--- start of shipping --->
-	<cfinclude template="/root/view/includes/checkout.shipping.cfm"/>
+	<cfinclude template="/root/final/view/includes/checkout.shipping.cfm"/>
 	<!--- end of shipping --->
 	<!--- start of payment details --->
-	<cfinclude template="/root/view/includes/checkout.payment.cfm"/>
+	<cfinclude template="/root/final/view/includes/checkout.payment.cfm"/>
 	<!--- end of payment details --->
 	<!--- start of order totals --->
-	<cfinclude template="/root/view/includes/checkout.totals.cfm"/>
+	<cfinclude template="/root/final/view/includes/checkout.totals.cfm"/>
 	<!--- end of order totals --->
 	<hr />
 	<div class="row">
