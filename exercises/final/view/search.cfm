@@ -3,11 +3,11 @@
 <cfparam name="url.limit" type="numeric" default="24"/>
 <cfparam name="url.offset" type="numeric" default="0"/>
 <!--- get a handle to the product service --->
-<cfset variables['product_service'] = new root.org.benton.ProductService()/>
+<cfset variables['product_service'] = new root.final.com.benton.ProductService()/>
 <!--- get the products from the keyword search --->
 <cfset variables['products'] = variables.product_service.getProductsBySearch(keyword=urlDecode(url.keyword), limit=url.limit, offset=url.offset)/>
 <!--- get a handle to the utils --->
-<cfset variables['utils'] = new root.org.benton.Utils()/>
+<cfset variables['utils'] = new root.final.com.benton.Utils()/>
 <!--- get the pagination based on the results --->
 <cfset variables['pagination'] = variables.utils.getPagination(limit=url.limit, offset=url.offset, total=variables.products.total)/>
 <cfoutput>
@@ -18,7 +18,7 @@
 	</div>
 	<div class="row">
 		<cfloop array="#variables.products.results#" index="variables.product">
-			<cfinclude template="/root/view/includes/result.product.cfm"/>
+			<cfinclude template="/root/final/view/includes/result.product.cfm"/>
 		</cfloop>
 	</div>
 </div>

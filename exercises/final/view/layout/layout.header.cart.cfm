@@ -1,5 +1,5 @@
 <!--- get a handle to the cart service --->
-<cfset variables['cart_service'] = new root.org.benton.CartService()/>
+<cfset variables['cart_service'] = new root.final.com.benton.CartService()/>
 <!--- set the cart --->
 <cfset variables.cart_service.setCart(data=form)/>
 <!--- get the cart --->
@@ -15,7 +15,7 @@
 		<li>
 			<a href="product.cfm?slug=#variables.line_items[variables.product_id].slug#" class="row">
 				<div class="col-md-3">
-						<img src="#variables.line_items[variables.product_id].image#" class="img-responsive">
+					<img src="#variables.line_items[variables.product_id].image#" class="img-responsive">
 				</div>
 				<div class="col-md-9">
 					<h5>#variables.line_items[variables.product_id].title#</h5>

@@ -10,7 +10,7 @@
 		<cfloop from="1" to="4" index="i">
 			<div class="col-xs-6 col-sm-4 col-md-4 col-lg-3">
 				<div class="thumbnail">
-					<img src="#application.utils.getRandomImage(200, 200)#" class="img-responsive">
+					<img src="http://placehold.it/200" class="img-responsive">
 					<div class="caption">
 						<h3><a href="##">Lorem ipsum dolor sit amet</a></h3>
 						<p>32GB, 2GB Ram, 1080HD, 5.1 inches, Android</p>

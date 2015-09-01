@@ -1,7 +1,7 @@
 <!--- default url variables --->
 <cfparam name="url.slug" type="string" default=""/>
 <!--- get a handle to the product service --->
-<cfset variables['product_service'] = new root.org.benton.ProductService()/>
+<cfset variables['product_service'] = new root.final.com.benton.ProductService()/>
 <!--- get the product details by the url slug --->
 <cfset variables['product'] = variables.product_service.getProductBySlug(slug=url.slug)/>
 <cfoutput>
@@ -17,19 +17,19 @@
 		<div class="row">
 			<!--- start of images --->
 			<div class="col-sm-12 col-md-5">
-				<cfinclude template="/root/view/includes/product.images.cfm"/>
+				<cfinclude template="/root/final/view/includes/product.images.cfm"/>
 			</div>
 			<!--- end of images --->
 			<!--- start of info --->
 			<div class="col-sm-12 col-md-7">
-				<cfinclude template="/root/view/includes/product.info.cfm"/>
+				<cfinclude template="/root/final/view/includes/product.info.cfm"/>
 			</div>
 			<!--- end of info --->
 		</div>
 		<!--- start of tabs --->
 		<div class="row">
 			<div class="col-md-12">
-				<cfinclude template="/root/view/includes/product.tabs.cfm"/>
+				<cfinclude template="/root/final/view/includes/product.tabs.cfm"/>
 			</div>
 		</div>
 		<!--- end of tabs --->

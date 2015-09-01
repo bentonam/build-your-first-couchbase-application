@@ -1,6 +1,6 @@
-<cfset variables['categories'] = new root.org.benton.site.Categories()/>
+<cfset variables['categories'] = new root.final.com.benton.site.Categories()/>
 <cfset variables['site_categories'] = categories.getSiteCategories()/>
-<cfset variables['brands'] = new root.org.benton.site.Brands()/>
+<cfset variables['brands'] = new root.final.com.benton.site.Brands()/>
 <cfset variables['site_brands'] = brands.getSiteBrands()/>
 <cfoutput>
 <header>
@@ -56,7 +56,7 @@
 					</form>
 				</li>
 				<li class="dropdown">
-					<cfinclude template="/root/view/layout/layout.header.cart.cfm"/>
+					<cfinclude template="/root/final/view/layout/layout.header.cart.cfm"/>
 				</li>
 			</ul>
 			<!--- start of search / cart nav --->
