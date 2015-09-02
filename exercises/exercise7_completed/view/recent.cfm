@@ -2,16 +2,16 @@
 <cfparam name="url.limit" type="numeric" default="24"/>
 <cfparam name="url.offset" type="numeric" default="0"/>
 <!--- get a handle to the product service --->
-<cfset variables['product_service'] = new root.exercise6_completed.com.example.ProductService()/>
-<!--- get all of the products that are currently on sale --->
-<cfset variables['sale_products'] = variables.product_service.getSaleProducts(
+<cfset variables['product_service'] = new root.exercise7_completed.com.example.ProductService()/>
+<!--- get all of the products that recent --->
+<cfset variables['recent_products'] = variables.product_service.getRecentProducts(
 	limit=url.limit,
 	offset=url.offset
 )/>
-<!--- get the total number of on sale products --->
-<cfset variables['total_products'] = variables.product_service.getSaleProductsTotal()/>
+<!--- get the total number of recent products --->
+<cfset variables['total_products'] = variables.product_service.getRecentProductsTotal()/>
 <!--- get a handle to the utils --->
-<cfset variables['utils'] = new root.exercise6_completed.com.example.Utils()/>
+<cfset variables['utils'] = new root.exercise7_completed.com.example.Utils()/>
 <!--- get the pagination based on the results --->
 <cfset variables['pagination'] = variables.utils.getPagination(
 	limit=url.limit,
@@ -24,18 +24,18 @@
 	<!--- start of breadcrumb --->
 	<ol class="breadcrumb">
 		<li><a href="index.cfm">Home</a></li>
-		<li class="active"><a href="sale.cfm">On Sale Products</a></li>
+		<li class="active"><a href="recent.cfm">New Products</a></li>
 	</ol>
 	<!--- end of breadcrumb --->
 	<div class="row">
 		<!--- loop over the array of products --->
-		<cfloop array="#variables.sale_products#" item="variables.item">
+		<cfloop array="#variables.recent_products#" item="variables.item">
 			<!---
 				since it is an array of document structures and we want the template to be normalized
 				through all results created a normalized structure for the template before including it
 			--->
 			<cfset variables['product'] = variables.item.document/>
-			<cfinclude template="/root/exercise6_completed/view/includes/template.product.cfm"/>
+			<cfinclude template="/root/exercise7_completed/view/includes/template.product.cfm"/>
 		</cfloop>
 	</div>
 </div>

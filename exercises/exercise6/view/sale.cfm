@@ -8,7 +8,7 @@
 	limit=url.limit,
 	offset=url.offset
 )/>
-<!--- get the total products in the category --->
+<!--- get the total number of on sale products --->
 <cfset variables['total_products'] = variables.product_service.getSaleProductsTotal()/>
 <!--- get a handle to the utils --->
 <cfset variables['utils'] = new root.exercise6.com.example.Utils()/>
