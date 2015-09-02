@@ -24,9 +24,11 @@
 
 ### Exercise 4 - Introduction to Queries
 
+- Create a Categories View in Couchbase
+- Querying the Categories View
+- Create a Brands View in Couchbase
+- Querying the Brands View
 - Start with just a map function
-- Brands Listing Page
-- Categories Listing Page
 - Limit and Offset
 
 ### Exercise 5 - Query Grouping and Default Reduce Functions
@@ -89,9 +91,3 @@
 
 - let them do all of it
 - multi level compound keys
-
-### Exercise 15 - Popular Products
-
-### Exercise
-
-### Exercise
