@@ -1,5 +1,5 @@
 <!--- get a handle to the cart service --->
-<cfset variables['cart_service'] = new root.final.com.benton.CartService()/>
+<cfset variables['cart_service'] = new root.final.com.example.CartService()/>
 <!--- set the cart --->
 <cfset variables.cart_service.setCart(data=form)/>
 <!--- get the cart --->

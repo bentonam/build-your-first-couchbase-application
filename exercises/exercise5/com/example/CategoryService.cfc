@@ -5,7 +5,21 @@ component{
 	public CategoryService function init(){
 		return this;
 	}
-	/*
+
+	/**
+	* Gets all of the currently used categories on the site and their counts
+	*/
+	public array function getCategories(){
+		var cb = application.couchbase;
+		var query = [];
+// start of exercise 5.a --------------------------------------------------------------------
+		// execute the query to get each category and its totals
+
+// end of exercise 5.a --------------------------------------------------------------------
+		return query;
+	}
+
+	/**
 	* Gets the total number of products for a Category
 	* @brand The Category to get the product total for
 	*/
@@ -28,7 +42,8 @@ component{
 		//dump(var=query, label="query"); dump(var=total, label="total"); abort;
 		return total;
 	}
-	/*
+
+	/**
 	* Gets products in a given Category
 	* @category The Category to get the products for
 	* @limit The maximum number of results to return
@@ -53,18 +68,6 @@ component{
 		);
 // end of exercise 4.b --------------------------------------------------------------------
 		// dump(var=query, label="query"); abort;
-		return query;
-	}
-	/*
-	* Gets all of the currently used categories on the site and their counts
-	*/
-	public array function getCategories(){
-		var cb = application.couchbase;
-		var query = [];
-// start of exercise 5.a --------------------------------------------------------------------
-		// execute the query to get each category and its totals
-
-// end of exercise 5.a --------------------------------------------------------------------
 		return query;
 	}
 }

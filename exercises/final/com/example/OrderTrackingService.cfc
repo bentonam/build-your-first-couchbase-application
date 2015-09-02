@@ -5,7 +5,8 @@ component{
 	public OrderTrackingService function init(){
 		return this;
 	}
-	/*
+
+	/**
 	* Looks up an order based on the order_id, email and postal code
 	* @limit The maximum number of results to return
 	* @offset The position to start returning results at
@@ -30,18 +31,23 @@ component{
 						limit = 1,
 						includeDocs = true
 					}
-				);
+
+	/*			);
 				// set the results
 				if(arrayLen(query)){
 					data['found'] = true;
 					data['document'] = query[1].document;
 				}
-			}
-		}
-		catch(any e){
+
+	/*		}
+
+	/*	}
+
+	/*	catch(any e){
 			data['searched'] = false;
 			data['found'] = false;
 		}
-		return data;
+
+	/*	return data;
 	}
 }

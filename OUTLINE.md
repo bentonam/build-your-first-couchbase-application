@@ -39,13 +39,14 @@
 ### Exercise 6 - Custom Logic in Map Functions
 
 - Sale Products on Homepage
-- dateToArray
+- Sale Products Listing
 
 ### Exercise 7 - Working with Dates using Range Queries
 
 - New / Recent Products on the Homepage
 - dateToArray
-- startKey / endKey
+- Recent Products startKey
+- Sale Products startKey / endKey
 
 ### Exercise 8 - Inflating Documents to Objects
 

@@ -24,7 +24,7 @@
 	<!--- start of breadcrumb --->
 	<ol class="breadcrumb">
 		<li><a href="index.cfm">Home</a></li>
-		<li class="active"><a href="sale.cfm">On Sale Products</a></li>
+		<li class="active"><a href="sale.cfm">On Sale Products</a> (#numberFormat(variables.total_products)# Products)</li>
 	</ol>
 	<!--- end of breadcrumb --->
 	<div class="row">

@@ -26,13 +26,13 @@ Use the following JavaScript as the **Map** function for the view.  This will cr
 ```
 function (doc, meta) {
   if(
-    doc.doc_type && 
-    doc.doc_type === "product" && 
-    doc.product_id && 
-    doc.availability && 
+    doc.doc_type &&
+    doc.doc_type === "product" &&
+    doc.product_id &&
+    doc.availability &&
     doc.availability === "In-Stock" &&
-    doc.price && 
-    doc.sale_price && 
+    doc.price &&
+    doc.sale_price &&
     doc.sale_price < doc.price
   ){
     emit(doc.product_id, null);
@@ -42,7 +42,7 @@ function (doc, meta) {
 
 For the **Reduce** function enter the value of `_count` and click the "Save" button
 
-You can click on the "Show Results" button to see partial data from index.  
+You can click on the "Show Results" button to see partial data from index.
 
 We now need to publish our Development View to Production.  To do this scroll up to the top of the page, and click on [Views](http://127.0.0.1:8091/index.html#sec=views&viewsBucket=default).
 
@@ -54,7 +54,7 @@ Make sure you are on the **Development Views** tab and next to `_design/dev_prod
 
 On the homepage we need to output products whose data indicates that they are actually on sale, instead of a hard-coded list, we will want to limit out results to 8 products.
 
-Open `exercise4/com/example/ProductService.cfc` in your IDE
+Open `exercise6/com/example/ProductService.cfc` in your IDE
 
 Modify the `getSaleProducts` method to query Couchbase View. This will call the CFCouchbase `query()` method with the following arguments:
 
@@ -73,20 +73,20 @@ query = cb.query(
 
 Notice how the reduce option is set to false, this tells Couchbase to not run the reduce function and just return the results from the map function only.
 
-Open the homepage ([/exercise6/index.cfm](/exercise6/index.cfm)) and see if your On Sale Products is displaying. 
+Open the homepage ([/exercise6/index.cfm](/exercise6/index.cfm)) and see if your On Sale Products is displaying.
 
 For your reference the data from the `getSaleProducts` method is used in the following views:
 
-- exercise4/view/includes/home.sale.cfm
-- exercise4/view/includes/template.product.cfm
+- exercise6/view/includes/home.sale.cfm
+- exercise6/view/includes/template.product.cfm
 
 ---
 
 ### Exercise 6.c - Browsing All On Sale Products
 
-From our listing of products on the homepage, there is a "View All" button that will allow our users to browse through all of the On Sale products. This view will need to know the total number of On Sale products to calculate the paging correctly. 
+From our listing of products on the homepage, there is a "View All" button that will allow our users to browse through all of the On Sale products. This view will need to know the total number of On Sale products to calculate the paging correctly.
 
-Open `exercise4/com/example/ProductService.cfc` in your IDE
+Open `exercise6/com/example/ProductService.cfc` in your IDE
 
 Modify the `getSaleProductsTotal` method to query Couchbase View. This will call the CFCouchbase `query()` method with the following arguments:
 
@@ -101,6 +101,6 @@ Open the homepage ([/exercise6/index.cfm](/exercise6/index.cfm)) and click on th
 
 For your reference the data from the `getSaleProducts` and `getSaleProductsTotal` methods are used in the following views:
 
-- exercise4/view/includes/home.sale.cfm
-- exercise4/view/includes/template.product.cfm
-- exercise4/view/sale.cfm
+- exercise6/view/includes/home.sale.cfm
+- exercise6/view/includes/template.product.cfm
+- exercise6/view/sale.cfm

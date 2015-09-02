@@ -5,7 +5,8 @@ component{
 	public ProductService function init(){
 		return this;
 	}
-	/*
+
+	/**
 	* Gets recently available products
 	* @limit The maximum number of results to return
 	* @offset The position to start returning results at
@@ -26,7 +27,8 @@ component{
 					reduce = true,
 					startKey = utils.getDateParts(now())
 				}
-			);
+
+	/*		);
 			// set the total number of documents matching the query
 			data['total'] = arrayLen(total) ? total[1].value : 0;
 			// run the query
@@ -41,20 +43,24 @@ component{
 					offset = arguments.offset,
 					includeDocs = true
 				}
-			);
+
+	/*		);
 			// set the results
 			data['results'] = query;
 			// set the number of results returned by the query
 			data['count'] = arrayLen(data.results);
 		}
-		catch(any e){
+
+	/*	catch(any e){
 			data['total'] = 0;
 			data['results'] = [];
 			data['count'] = 0;
 		}
-		return data;
+
+	/*	return data;
 	}
-	/*
+
+	/**
 	* Gets the on sale products
 	* @limit The maximum number of results to return
 	* @offset The position to start returning results at
@@ -75,7 +81,8 @@ component{
 					reduce = true,
 					startKey = utils.getDateParts(now())
 				}
-			);
+
+	/*		);
 			// set the total number of documents matching the query
 			data['total'] = arrayLen(total) ? total[1].value : 0;
 			// run the query
@@ -90,20 +97,24 @@ component{
 					offset = arguments.offset,
 					includeDocs = true
 				}
-			);
+
+	/*		);
 			// set the results
 			data['results'] = query;
 			// set the number of results returned by the query
 			data['count'] = arrayLen(data.results);
 		}
-		catch(any e){
+
+	/*	catch(any e){
 			data['total'] = 0;
 			data['results'] = [];
 			data['count'] = 0;
 		}
-		return data;
+
+	/*	return data;
 	}
-	/*
+
+	/**
 	* Gets gets products by the category name
 	* @category The Category to get the products for
 	* @limit The maximum number of results to return
@@ -125,7 +136,8 @@ component{
 					reduce = true,
 					key = arguments.category
 				}
-			);
+
+	/*		);
 			// set the total number of documents matc
 			data['total'] = arrayLen(total) ? total[1].value : 0;
 			// run the query
@@ -140,20 +152,24 @@ component{
 					offset = arguments.offset,
 					includeDocs = true
 				}
-			);
+
+	/*		);
 			// set the results
 			data['results'] = query;
 			// set the number of results returned by the query
 			data['count'] = arrayLen(data.results);
 		}
-		catch(any e){
+
+	/*	catch(any e){
 			data['total'] = 0;
 			data['results'] = [];
 			data['count'] = 0;
 		}
-		return data;
+
+	/*	return data;
 	}
-	/*
+
+	/**
 	* Gets products by the category name
 	* @brand The Brand to get the products for
 	* @limit The maximum number of results to return
@@ -175,7 +191,8 @@ component{
 					reduce = true,
 					key = arguments.brand
 				}
-			);
+
+	/*		);
 			// set the total number of documents matc
 			data['total'] = arrayLen(total) ? total[1].value : 0;
 			// run the query
@@ -190,20 +207,24 @@ component{
 					offset = arguments.offset,
 					includeDocs = true
 				}
-			);
+
+	/*		);
 			// set the results
 			data['results'] = query;
 			// set the number of results returned by the query
 			data['count'] = arrayLen(data.results);
 		}
-		catch(any e){
+
+	/*	catch(any e){
 			data['total'] = 0;
 			data['results'] = [];
 			data['count'] = 0;
 		}
-		return data;
+
+	/*	return data;
 	}
-	/*
+
+	/**
 	* Performs a search against Elastic to get results
 	* @keyword The keyword to search on
 	* @limit The maximum number of results to return
@@ -244,17 +265,23 @@ component{
 						// inflate all of the data from elasticsearch to the properties of the handle
 						data.results[i].document.inflate(results.hits.hits[i]._source.doc);
 					}
-				}
-			}
-		}
-		catch(any e){
+
+	/*			}
+
+	/*		}
+
+	/*	}
+
+	/*	catch(any e){
 			data['total'] = 0;
 			data['results'] = [];
 			data['count'] = 0;
 		}
-		return data;
+
+	/*	return data;
 	}
-	/*
+
+	/**
 	* Gets a single product by the slug
 	* @slug The slug of the product
 	*/
@@ -274,15 +301,19 @@ component{
 					limit = 1,
 					includeDocs = true
 				}
-			);
+
+	/*		);
 			if(arrayLen(query)){
 				data['document'] = query[1].document;
 				data['found'] = true;
 			}
-		}
-		catch(any e){
+
+	/*	}
+
+	/*	catch(any e){
 			data['found'] = false;
 		}
-		return data;
+
+	/*	return data;
 	}
 }

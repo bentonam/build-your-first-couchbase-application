@@ -1,4 +1,4 @@
-# Exercise 7 - Working with Dates using Compound Keys and Range Queries
+# Exercise 7 - Working with Dates using Range Queries
 
 ---
 

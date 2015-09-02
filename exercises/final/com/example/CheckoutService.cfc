@@ -5,7 +5,8 @@ component{
 	public CheckoutService function init(){
 		return this;
 	}
-	/*
+
+	/**
 	* Gets an incomplete order object and populates it with data
 	*/
 	public struct function getIncompleteOrder(struct data={}){
@@ -17,7 +18,8 @@ component{
 			cflocation(url="cart.cfm", addtoken="false");
 			abort;
 		}
-		order['document'] = new root.final.com.benton.documents.Order();
+
+	/*	order['document'] = new root.final.com.benton.documents.Order();
 		// populate any data
 		order.document.inflate(data=arguments.data);
 		// set the line items
@@ -38,7 +40,8 @@ component{
 		);
 		return order;
 	}
-	/*
+
+	/**
 	* Saves an Order
 	*/
 	public struct function saveOrder(struct data={}){
@@ -50,7 +53,8 @@ component{
 		cart_service.clearCart();
 		return order;
 	}
-	/*
+
+	/**
 	* Gets the states
 	*/
 	public array function getStates(){
@@ -62,13 +66,17 @@ component{
 			if(!isNull(states)){
 				data = states.states;
 			}
-		}
-		catch(any e){
+
+	/*	}
+
+	/*	catch(any e){
 			data = [];
 		}
-		return data;
+
+	/*	return data;
 	}
-	/*
+
+	/**
 	* Gets the shipping options
 	*/
 	public struct function getShippingMethods(){
@@ -80,10 +88,13 @@ component{
 			if(!isNull(shipping_methods)){
 				data = shipping_methods.shipping_methods;
 			}
-		}
-		catch(any e){
+
+	/*	}
+
+	/*	catch(any e){
 			data = {};
 		}
-		return data;
+
+	/*	return data;
 	}
 }

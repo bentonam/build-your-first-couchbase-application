@@ -1,7 +1,11 @@
-<!--- get the categories for the site --->
-<cfset variables['site_categories'] = variables.site_service.getSiteCategories()/>
-<!--- get the brands for the site --->
-<cfset variables['site_brands'] = variables.site_service.getSiteBrands()/>
+<!--- get a handle to the category service --->
+<cfset variables['category_service'] = new root.exercise4.com.example.CategoryService()/>
+<!--- get the categories --->
+<cfset variables['site_categories'] = variables.category_service.getCategories()/>
+<!--- get a handle to the brand service --->
+<cfset variables['brand_service'] = new root.exercise4.com.example.BrandService()/>
+<!--- get the site brands --->
+<cfset variables['site_brands'] = variables.brand_service.getBrands()/>
 <cfoutput>
 <header>
 <nav class="navbar navbar-inverse navbar-static-top" role="navigation">

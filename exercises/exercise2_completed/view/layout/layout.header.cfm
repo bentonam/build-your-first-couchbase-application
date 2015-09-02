@@ -1,7 +1,11 @@
-<!--- get the categories for the site --->
-<cfset variables['site_categories'] = variables.site_service.getSiteCategories()/>
-<!--- get the brands for the site --->
-<cfset variables['site_brands'] = variables.site_service.getSiteBrands()/>
+<!--- get a handle to the category service --->
+<cfset variables['category_service'] = new root.exercise2_completed.com.example.CategoryService()/>
+<!--- get the categories --->
+<cfset variables['site_categories'] = variables.category_service.getCategories()/>
+<!--- get a handle to the brand service --->
+<cfset variables['brand_service'] = new root.exercise2_completed.com.example.BrandService()/>
+<!--- get the site brands --->
+<cfset variables['site_brands'] = variables.brand_service.getBrands()/>
 <cfoutput>
 <header>
 <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
@@ -54,7 +58,7 @@
 					</form>
 				</li>
 				<li class="dropdown">
-					<cfinclude template="/root/exercise2/view/layout/layout.header.cart.cfm"/>
+					<cfinclude template="/root/exercise2_completed/view/layout/layout.header.cart.cfm"/>
 				</li>
 			</ul>
 			<!--- start of search / cart nav --->

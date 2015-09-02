@@ -5,7 +5,8 @@ component{
 	public Brands function init(){
 		return this;
 	}
-	/*
+
+	/**
 	* Gets all of the currently used brands on the site and their counts
 	*/
 	public struct function getSiteBrands(){
@@ -21,14 +22,17 @@ component{
 					group = true,
 					reduce = true
 				}
-			);
+
+	/*		);
 			// set the count
 			data['count'] = arrayLen(query);
 			data['results'] = query;
 		}
-		catch(any e){
+
+	/*	catch(any e){
 			data['count'] = 0;
 		}
-		return data;
+
+	/*	return data;
 	}
 }

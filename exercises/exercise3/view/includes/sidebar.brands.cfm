@@ -1,3 +1,7 @@
+<!--- get a handle to the brand service --->
+<cfset variables['brand_service'] = new root.exercise3.com.example.BrandService()/>
+<!--- get the site brands --->
+<cfset variables['site_brands'] = variables.brand_service.getBrands()/>
 <cfoutput>
 <p class="lead">Brands</p>
 <div class="list-group">

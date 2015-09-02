@@ -5,47 +5,26 @@ component{
 	public SiteService function init(){
 		return this;
 	}
-	/*
+
+	/**
 	* Gets the Sites Configuration Values
 	*/
 	public struct function getSiteConfig(){
 		var cb = application.couchbase;
+		var default_config = {
+			'seo_title' = "Build Your First Couchbase Application",
+			'site_name' = "Company Name"
+		};
 		var config = {};
 // start of exercise 2.b ------------------------------------------------------------------
 		config = cb.get(id="site_config");
 // end of exercise 2.b --------------------------------------------------------------------
+		structAppend(config, default_config, false);
 		//dump(config); abort;
 		return config;
 	}
-	/*
-	* Gets all of the currently used categories on the site
-	*/
-	public array function getSiteCategories(){
-		var cb = application.couchbase;
-		var doc = {};
-		var categories = [];
-// start of exercise 2.c ------------------------------------------------------------------
-		doc = cb.get(id="categories");
-// end of exercise 2.c --------------------------------------------------------------------
-		categories = doc.categories;
-		//dump(categories); abort;
-		return categories;
-	}
-	/*
-	* Gets all of the currently used brands on the site
-	*/
-	public array function getSiteBrands(){
-		var cb = application.couchbase;
-		var doc = {};
-		var brands = [];
-// start of exercise 2.d ------------------------------------------------------------------
-		doc = cb.get(id="brands");
-// end of exercise 2.d --------------------------------------------------------------------
-		brands = doc.brands;
-		//dump(brands); abort;
-		return brands;
-	}
-	/*
+
+	/**
 	* Gets the homepage banners
 	*/
 	public array function getHomepageBanners(){

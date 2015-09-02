@@ -5,7 +5,8 @@ component{
 	public ProductService function init(){
 		return this;
 	}
-		/*
+
+	/*	/*
 	* Gets recently available products for the homepage
 	*/
 	public struct function getRecentProducts(){
@@ -21,7 +22,8 @@ component{
 		//dump(products); abort;
 		return products;
 	}
-	/*
+
+	/**
 	* Gets the on sale products
 	* @limit The maximum number of results to return
 	* @offset The position to start returning results at
@@ -46,7 +48,8 @@ component{
 		//dump(var=query, label="query"); abort;
 		return query;
 	}
-	/*
+
+	/**
 	* Gets the total number of products on sale
 	*/
 	public numeric function getSaleProductsTotal(){

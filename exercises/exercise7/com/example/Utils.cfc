@@ -37,7 +37,8 @@ component{
 		pagination['current_offset'] = arguments.offset;
 		return pagination;
 	}
-	/*
+
+	/**
 	* Takes a date and generates an array of Year, Month, Day, Hour, Minute, Seconds
 	* @input A date to get the parts for
 	*/

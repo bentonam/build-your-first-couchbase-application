@@ -41,9 +41,11 @@ component accessors=true {
 		if(isNull(getLine_Items())){
 			setLine_Items({});
 		}
-		return this;
+
+	/*	return this;
 	}
-	/*
+
+	/**
 	* Inflates all of the properties based on a structure
 	* @data The struct to inflate properties with
 	* @allowed A comma-delimited list of properties to allow to be set from data.
@@ -58,19 +60,25 @@ component accessors=true {
 					dyn = this["set" & item]; // set a pointer to a dynamic setter method for the key/item
 					dyn(arguments.data[item]); // call the dynamic setter method
 				}
-			}
-		}
-		else{
+
+	/*		}
+
+	/*	}
+
+	/*	else{
 			structAppend(variables, data);
 		}
-	}
-	/*
+
+	/*}
+
+	/**
 	* Gets the last updated date in the specified format
 	*/
 	public string function getOrderDateFormatted(string format="mm/dd/yy h:mm tt"){
 		return getOrder_Date() ? dateTimeFormat(createObject("java", "java.util.Date").init(getOrder_Date()), arguments.format) : "";
 	}
-	/*
+
+	/**
 	* Saves the order
 	*/
 	public void function save(){

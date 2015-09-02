@@ -6,7 +6,8 @@ component{
 		variables['utils'] = new root.exercise7.com.example.Utils();
 		return this;
 	}
-	/*
+
+	/**
 	* Gets recently available products for the homepage
 	* @limit The maximum number of results to return
 	* @offset The position to start returning results at
@@ -16,22 +17,13 @@ component{
 		var recent_products = {};
 		var query = [];
 // start of exercise 7.b ------------------------------------------------------------------
-		query = cb.query(
-			designDocumentName = "products",
-			viewName = "recent",
-			options = {
-				reduce = false,
-				startKey = variables.utils.getDateParts(now()),
-				limit = arguments.limit,
-				offset = arguments.offset,
-				includeDocs = true
-			}
-		);
+
 // end of exercise 7.b --------------------------------------------------------------------
 		//dump(query); abort;
 		return query;
 	}
-	/*
+
+	/**
 	* Gets the total number of recent products
 	*/
 	public numeric function getRecentProductsTotal(){
@@ -54,7 +46,8 @@ component{
 		//dump(var=query, label="query"); dump(var=total, label="total"); abort;
 		return total;
 	}
-	/*
+
+	/**
 	* Gets the on sale products
 	* @limit The maximum number of results to return
 	* @offset The position to start returning results at
@@ -79,7 +72,8 @@ component{
 		//dump(var=query, label="query"); abort;
 		return query;
 	}
-	/*
+
+	/**
 	* Gets the total number of products on sale
 	*/
 	public numeric function getSaleProductsTotal(){
