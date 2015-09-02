@@ -76,7 +76,7 @@ Notice how the reduce option is set to false, this tells Couchbase to not run th
 
 Open the homepage ([/exercise4/index.cfm](/exercise4/index.cfm)) and click on any category from the menu to verify that you are seeing results.
 
-For your reference the data from the `getProductsTotalForCategory` and `getProductsByCategory` method is used in the following views:
+For your reference the data from the `getProductsTotalForCategory` and `getProductsByCategory` methods are used in the following views:
 
 - exercise4/view/categories.cfm
 - exercise4/view/includes/template.product.cfm
@@ -119,7 +119,7 @@ Using what you learned in Exercise 4.b modify the `getProductsByBrand` method to
 
 Open the homepage ([/exercise4/index.cfm](/exercise4/index.cfm)) and click on any Brand from the menu to verify that you are seeing results.
 
-For your reference the data from the `getProductsTotalForBrand` and `getProductsByBrand` method is used in the following views:
+For your reference the data from the `getProductsTotalForBrand` and `getProductsByBrand` methods are used in the following views:
 
 - exercise4/view/brands.cfm
 - exercise4/view/includes/template.product.cfm
