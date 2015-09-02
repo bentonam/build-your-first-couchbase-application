@@ -25,18 +25,16 @@
 ### Exercise 4 - Introduction to Queries
 
 - Create a Categories View in Couchbase
-- Querying the Categories View
+- Querying the Categories View for Totals
+- Querying the Categories view for Documents
 - Create a Brands View in Couchbase
-- Querying the Brands View
-- Start with just a map function
-- Limit and Offset
+- Querying the Brands View for Totals
+- Querying the Brands view for Documents
 
-### Exercise 5 - Query Grouping and Default Reduce Functions
+### Exercise 5 - Query Grouping
 
-- Add a reduce function
-- Modify previous query to set reduce to false
-- Categories in Sidebar
-- Brands in Sidebar
+- Querying the Categories View for Categories and Totals
+- Querying the Brands View for Brands and Totals
 
 ### Exercise 6 - Custom Logic in Map Functions
 
