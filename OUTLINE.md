@@ -53,40 +53,40 @@
 - Product Detail
 - Modify previous non-reduce queries to use inflateto
 
-### Exercise 7 - Compound Keys
+### Exercise 9 - Compound Keys
 
 - Review Total
 
-### Exercise 8 - Querying with Custom Reduce Functions
+### Exercise 10 - Querying with Custom Reduce Functions
 
 - Average Review
 
-### Exercise 9 - Working with Query Values
+### Exercise 11 - Working with Query Values
 
 - Aggregate Review Totals
 
-### Exercise 10 - Leveraging a Primary Key View
+### Exercise 12 - Leveraging a Primary Key View
 
 - Related Products
 
-### Exercise 11 - Introduction to Elastic Search
+### Exercise 13 - Introduction to Elastic Search
 
 - Search Page
 
-### Exercise 12 - Creating a Shopping Cart
+### Exercise 14 - Creating a Shopping Cart
 
 - Based on sessionID
 - Document Timeout / Expiration
 - getAndTouch
 
-### Exercise 13 - Writing Order Documents on Checkout
+### Exercise 15 - Writing Order Documents on Checkout
 
 - getStates
 - getShippingMethods
 - save method
 - atomic numbers
 
-### Exercise 14 - Order Tracking
+### Exercise 16 - Order Tracking
 
 - let them do all of it
 - multi level compound keys
