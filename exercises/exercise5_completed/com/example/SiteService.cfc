@@ -11,7 +11,21 @@ component{
 	public struct function getSiteConfig(){
 		var cb = application.couchbase;
 		var config = {};
+// start of exercise 2.b ------------------------------------------------------------------
 		config = cb.get(id="site_config");
+// end of exercise 2.b --------------------------------------------------------------------
+		//dump(config); abort;
+		return config;
+	}
+	/*
+	* Gets the Sites Configuration Values
+	*/
+	public struct function getSiteConfig(){
+		var cb = application.couchbase;
+		var config = {};
+// start of exercise 2.b ------------------------------------------------------------------
+		config = cb.get(id="site_config");
+// end of exercise 2.b --------------------------------------------------------------------
 		//dump(config); abort;
 		return config;
 	}
@@ -22,22 +36,12 @@ component{
 		var cb = application.couchbase;
 		var doc = {};
 		var categories = [];
+// start of exercise 2.c ------------------------------------------------------------------
 		doc = cb.get(id="categories");
+// end of exercise 2.c --------------------------------------------------------------------
 		categories = doc.categories;
 		//dump(categories); abort;
 		return categories;
-	}
-	/*
-	* Gets all of the currently used brands on the site
-	*/
-	public array function getSiteBrands(){
-		var cb = application.couchbase;
-		var doc = {};
-		var brands = [];
-		doc = cb.get(id="brands");
-		brands = doc.brands;
-		//dump(brands); abort;
-		return brands;
 	}
 	/*
 	* Gets the homepage banners
@@ -46,7 +50,9 @@ component{
 		var cb = application.couchbase;
 		var doc = {};
 		var banners = [];
+// start of exercise 2.e ------------------------------------------------------------------
 		doc = cb.get(id="banners");
+// end of exercise 2.e --------------------------------------------------------------------
 		banners = doc.banners;
 		//dump(banners); abort;
 		return banners;

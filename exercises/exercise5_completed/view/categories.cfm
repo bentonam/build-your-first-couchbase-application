@@ -10,7 +10,7 @@
 	limit=url.limit,
 	offset=url.offset
 )/>
-<!--- get the products in the category --->
+<!--- get the total products in the category --->
 <cfset variables['total_products'] = variables.category_service.getProductsTotalForCategory(
 	category=urlDecode(url.category)
 )/>
