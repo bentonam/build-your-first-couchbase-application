@@ -10,7 +10,8 @@ component{
 		image_url &= "?t=" & now().getTime();
 		return image_url;
 	}
-	/*
+
+	/**
 	* Takes a date and generates an array of Year, Month, Day, Hour, Minute, Seconds
 	* @input A date to get the parts for
 	*/
@@ -24,6 +25,7 @@ component{
 			datePart("s", arguments.input)
 		];
 	}
+
 	/*
 	* Takes a date and generates an array of Year, Month, Day, Hour, Minute, Seconds
 	* @offset The current offset
@@ -62,7 +64,8 @@ component{
 		pagination['current_offset'] = arguments.offset;
 		return pagination;
 	}
-	/*
+
+	/**
 	* Converts a date to epoch time
 	* @date The date the convert to epoch
 	* @convert_to_utc Whether or not the convert the date to utc time
@@ -72,9 +75,11 @@ component{
 		if(arguments.convert_to_utc){
 			epoch = dateConvert("local2utc", arguments.date).getTime();
 		}
-		else{
+
+	/*	else{
 			epoch = arguments.date.getTime();
 		}
-		return epoch;
+
+	/*	return epoch;
 	}
 }

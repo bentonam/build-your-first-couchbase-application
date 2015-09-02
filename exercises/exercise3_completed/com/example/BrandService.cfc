@@ -5,7 +5,8 @@ component{
 	public BrandService function init(){
 		return this;
 	}
-	/*
+
+	/**
 	* Gets all of the currently used brands on the site
 	*/
 	public array function getBrands(){

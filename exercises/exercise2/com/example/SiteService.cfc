@@ -5,7 +5,8 @@ component{
 	public SiteService function init(){
 		return this;
 	}
-	/*
+
+	/**
 	* Gets the Sites Configuration Values
 	*/
 	public struct function getSiteConfig(){
@@ -22,7 +23,8 @@ component{
 		//dump(config); abort;
 		return config;
 	}
-	/*
+
+	/**
 	* Gets the homepage banners
 	*/
 	public array function getHomepageBanners(){

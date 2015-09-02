@@ -5,7 +5,28 @@ component{
 	public BrandService function init(){
 		return this;
 	}
-	/*
+
+	/**
+	* Gets all of the currently used brands on the site and their counts
+	*/
+	public array function getBrands(){
+		var cb = application.couchbase;
+		var query = [];
+// start of exercise 5.b --------------------------------------------------------------------
+		// execute the query to get each brand and its totals
+		query = cb.query(
+			designDocumentName = "products",
+			viewName = "by_brand",
+			options = {
+				group = true,
+				reduce = true
+			}
+		);
+// end of exercise 5.b --------------------------------------------------------------------
+		return query;
+	}
+
+	/**
 	* Gets the total number of products for a Brand
 	* @brand The Brand to get the product total for
 	*/
@@ -29,7 +50,8 @@ component{
 		//dump(var=query, label="query"); dump(var=total, label="total"); abort;
 		return total;
 	}
-	/*
+
+	/**
 	* Gets products in a given Brand
 	* @brand The Brand to get the products for
 	* @limit The maximum number of results to return
@@ -54,25 +76,6 @@ component{
 		);
 // end of exercise 4.b --------------------------------------------------------------------
 		// dump(var=query, label="query"); abort;
-		return query;
-	}
-	/*
-	* Gets all of the currently used brands on the site and their counts
-	*/
-	public array function getBrands(){
-		var cb = application.couchbase;
-		var query = [];
-// start of exercise 5.b --------------------------------------------------------------------
-		// execute the query to get each brand and its totals
-		query = cb.query(
-			designDocumentName = "products",
-			viewName = "by_brand",
-			options = {
-				group = true,
-				reduce = true
-			}
-		);
-// end of exercise 5.b --------------------------------------------------------------------
 		return query;
 	}
 }

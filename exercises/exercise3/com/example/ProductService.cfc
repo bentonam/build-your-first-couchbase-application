@@ -5,7 +5,8 @@ component{
 	public ProductService function init(){
 		return this;
 	}
-	/*
+
+	/**
 	* Gets recently available products for the homepage
 	*/
 	public struct function getRecentProducts(){
@@ -21,7 +22,8 @@ component{
 		//dump(products); abort;
 		return products;
 	}
-	/*
+
+	/**
 	* Gets the on sale products
 	*/
 	public struct function getSaleProducts(){

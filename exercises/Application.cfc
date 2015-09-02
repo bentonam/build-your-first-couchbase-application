@@ -38,6 +38,7 @@ component{
 		// end of exercise code
 		return;
 	}
+
 	/**
 	* Runs at the start of a request
 	* @page Path from the web root to the requested page
@@ -54,6 +55,7 @@ component{
 		// end of exercise code
 		return true;
 	}
+
 	/**
 	* Runs when a request starts, after the onRequestStart event handler.
 	* @page Path from the web root to the requested page
@@ -64,12 +66,13 @@ component{
 		cfinclude(template=layout);
 		return;
 	}
+
 	/**
 	* Runs when there is an error
 	* @exception The exception that occurred
 	* @event_name The name of the error event
 	*/
 	public void function onError(struct exception, string event_name) {
-		dump(var=exception, label=event_name);
+		dump(var=arguments.exception, label=arguments.event_name);
 	}
 }

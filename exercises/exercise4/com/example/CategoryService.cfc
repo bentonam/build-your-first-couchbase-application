@@ -5,7 +5,23 @@ component{
 	public CategoryService function init(){
 		return this;
 	}
-	/*
+
+	/**
+	* Gets all of the currently used brands on the site
+	*/
+	public array function getCategories(){
+		var cb = application.couchbase;
+		var doc = {};
+		var categories = [];
+// start of exercise 2.b ------------------------------------------------------------------
+		doc = cb.get(id="categories");
+// end of exercise 2.b --------------------------------------------------------------------
+		categories = doc.categories;
+		//dump(brands); abort;
+		return categories;
+	}
+
+	/**
 	* Gets the total number of products for a Category
 	* @brand The Category to get the product total for
 	*/
@@ -22,7 +38,8 @@ component{
 		//dump(var=query, label="query"); dump(var=total, label="total"); abort;
 		return total;
 	}
-	/*
+
+	/**
 	* Gets products in a given Category
 	* @category The Category to get the products for
 	* @limit The maximum number of results to return

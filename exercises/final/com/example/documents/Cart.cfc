@@ -14,28 +14,33 @@ component accessors=true {
 		if(isNull(getLine_Items())){
 			setLine_Items({});
 		}
-		return this;
+
+	/*	return this;
 	}
-	/*
+
+	/**
 	* Override the setCart_ID accessor to ensure that the value is lowercased
 	*/
 	public void function setCart_ID(required string value){
 		variables['cart_id'] = lCase(arguments.value);
 		return;
 	}
-	/*
+
+	/**
 	* Gets the last updated date in the specified format
 	*/
 	public date function getLastUpdatedFormatted(string format="mm/dd/yy h:mm tt"){
 		return dateTimeFormat(createObject("java", "java.util.Date").init(getLast_Updated()), arguments.format);
 	}
-	/*
+
+	/**
 	* Gets the total number of line items in the cart
 	*/
 	public numeric function getLineItemTotal(){
 		return structCount(getLine_Items());
 	}
-	/*
+
+	/**
 	* Adds a Line Item
 	*/
 	public void function setLineItem(required string product_id, required numeric qty){
@@ -57,8 +62,10 @@ component accessors=true {
 				item['sub_total'] = item.price * item.qty;
 				line_items[product.getProduct_ID()] = item;
 			}
-		}
-		// save the line items
+
+	/*	}
+
+	/*	// save the line items
 		setLine_Items(line_items);
 		return;
 	}
@@ -78,7 +85,8 @@ component accessors=true {
 			item['sub_total'] = item.price * item.qty;
 			line_items[arguments.product_id] = item;
 		}
-		else{
+
+	/*	else{
 			// if the product was found update it
 			if(!isNull(product)){
 				// make sure the product is in stock
@@ -93,13 +101,17 @@ component accessors=true {
 					item['sub_total'] = item.price * item.qty;
 					line_items[product.getProduct_ID()] = item;
 				}
-			}
-		}
-		// save the line items
+
+	/*		}
+
+	/*	}
+
+	/*	// save the line items
 		setLine_Items(line_items);
 		return;
 	}
-	/*
+
+	/**
 	* Removes a Line Item
 	*/
 	public void function removeLineItem(required string product_id){
@@ -110,7 +122,8 @@ component accessors=true {
 		setLine_Items(line_items);
 		return;
 	}
-	/*
+
+	/**
 	* Saves the cart
 	*/
 	public void function save(){
@@ -124,7 +137,8 @@ component accessors=true {
 		cb.set(id=getCart_ID(), value=this, timeout=30);
 		return;
 	}
-	/*
+
+	/**
 	* Calculates the sub total
 	*/
 	private numeric function calculateSubTotal(){
@@ -133,6 +147,7 @@ component accessors=true {
 		for(var item in line_items){
 			sub_total += line_items[item].sub_total;
 		}
-		return sub_total;
+
+	/*	return sub_total;
 	}
 }

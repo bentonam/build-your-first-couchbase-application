@@ -16,7 +16,8 @@ component accessors=true {
 	public Review function init(){
 		return this;
 	}
-	/*
+
+	/**
 	* Gets the review date in the specified format
 	*/
 	public date function getReviewDateFormatted(string format="mm/dd/yy"){

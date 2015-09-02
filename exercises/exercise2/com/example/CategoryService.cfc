@@ -11,7 +11,9 @@ component{
 	*/
 	public array function getCategories(){
 		var cb = application.couchbase;
-		var doc = {};
+		var doc = {
+			'categories' = []
+		};
 		var categories = [];
 // start of exercise 2.b ------------------------------------------------------------------
 

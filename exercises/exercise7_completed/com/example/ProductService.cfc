@@ -6,7 +6,8 @@ component{
 		variables['utils'] = new root.exercise7_completed.com.example.Utils();
 		return this;
 	}
-	/*
+
+	/**
 	* Gets recently available products for the homepage
 	* @limit The maximum number of results to return
 	* @offset The position to start returning results at
@@ -31,7 +32,8 @@ component{
 		//dump(query); abort;
 		return query;
 	}
-	/*
+
+	/**
 	* Gets the total number of recent products
 	*/
 	public numeric function getRecentProductsTotal(){
@@ -54,7 +56,8 @@ component{
 		//dump(var=query, label="query"); dump(var=total, label="total"); abort;
 		return total;
 	}
-	/*
+
+	/**
 	* Gets the on sale products
 	* @limit The maximum number of results to return
 	* @offset The position to start returning results at
@@ -72,6 +75,8 @@ component{
 				reduce = false,
 				limit = arguments.limit,
 				offset = arguments.offset,
+				startKey = variables.utils.getDateParts("1/1/1970"),
+				endKey = variables.utils.getDateParts(now()),
 				includeDocs = true
 			}
 		);
@@ -79,7 +84,8 @@ component{
 		//dump(var=query, label="query"); abort;
 		return query;
 	}
-	/*
+
+	/**
 	* Gets the total number of products on sale
 	*/
 	public numeric function getSaleProductsTotal(){
@@ -91,7 +97,11 @@ component{
 		// execute the query to get the total of products on sale
 		query = cb.query(
 			designDocumentName = "products",
-			viewName = "on_sale"
+			viewName = "on_sale",
+			options = {
+				startKey = variables.utils.getDateParts("1/1/1970"),
+				endKey = variables.utils.getDateParts(now())
+			}
 		);
 // end of exercise 7.e --------------------------------------------------------------------
 		// set the total number of documents on sale
