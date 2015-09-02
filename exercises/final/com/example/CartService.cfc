@@ -22,13 +22,11 @@ component{
 				// set the cart id
 				cart.document.setCart_ID(session.sessionID & "_cart");
 			}
-
-	/*		// update cart values
+			// update cart values
 			if(structKeyExists(arguments.data, "remove_product_id")){ // if there are products to remove
 				cart.document.removeLineItem(arguments.data.remove_product_id);
 			}
-
-	/*		else if( // if there are products to add and it has a valid qty that is a postive number
+			else if( // if there are products to add and it has a valid qty that is a postive number
 				structKeyExists(arguments.data, "add_product_id") &&
 				structKeyExists(arguments.data, "qty") &&
 				isNumeric(arguments.data.qty) &&
@@ -36,8 +34,7 @@ component{
 			){
 				cart.document.addLineItem(product_id=arguments.data.add_product_id, qty=arguments.data.qty);
 			}
-
-	/*		else if(structKeyExists(arguments.data, "product_id")){ // if there are items to update
+			else if(structKeyExists(arguments.data, "product_id")){ // if there are items to update
 				for(var product_id in listToArray(arguments.data.product_id)){
 					// make sure the product has a qty that is a postive number
 					if(
@@ -49,17 +46,14 @@ component{
 						cart.document.setLineItem(product_id=product_id, qty=arguments.data[product_id & '_qty']);
 					}
 
-	/*			}
-
-	/*		}
-
-	/*		// save the cart
+				}
+			}
+			// save the cart
 			cart.document.save();
 		}
+		catch(any e){}
 
-	/*	catch(any e){}
-
-	/*	return;
+		return;
 	}
 
 	/**
@@ -82,19 +76,15 @@ component{
 				// with getAndCouch you get a struct of 2 keys "cas" and "value", where "value" is the document / object
 				data['document'] = cart.value;
 			}
-
-	/*		else{ // the cart doesn't exist create a handle to it
+			else{ // the cart doesn't exist create a handle to it
 				setCart(); // create the cart
 				data = getCart(); // reget the cart
 			}
-
-	/*	}
-
-	/*	catch(any e){
+		}
+		catch(any e){
 			data['found'] = false;
 		}
-
-	/*	return data;
+		return data;
 	}
 
 	/**
@@ -116,11 +106,8 @@ component{
 				cart.setSub_Total(0);
 				cart.save();
 			}
-
-	/*	}
-
-	/*	catch(any e){}
-
-	/*	return;
+		}
+		catch(any e){}
+		return;
 	}
 }

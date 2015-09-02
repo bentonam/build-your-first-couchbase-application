@@ -18,8 +18,7 @@ component{
 			cflocation(url="cart.cfm", addtoken="false");
 			abort;
 		}
-
-	/*	order['document'] = new root.final.com.benton.documents.Order();
+		order['document'] = new root.final.com.benton.documents.Order();
 		// populate any data
 		order.document.inflate(data=arguments.data);
 		// set the line items
@@ -67,13 +66,11 @@ component{
 				data = states.states;
 			}
 
-	/*	}
-
-	/*	catch(any e){
+		}
+		catch(any e){
 			data = [];
 		}
-
-	/*	return data;
+		return data;
 	}
 
 	/**
@@ -88,13 +85,10 @@ component{
 			if(!isNull(shipping_methods)){
 				data = shipping_methods.shipping_methods;
 			}
-
-	/*	}
-
-	/*	catch(any e){
+		}
+		catch(any e){
 			data = {};
 		}
-
-	/*	return data;
+		return data;
 	}
 }

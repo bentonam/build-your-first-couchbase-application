@@ -27,8 +27,7 @@ component{
 					reduce = true,
 					startKey = utils.getDateParts(now())
 				}
-
-	/*		);
+			);
 			// set the total number of documents matching the query
 			data['total'] = arrayLen(total) ? total[1].value : 0;
 			// run the query
@@ -43,21 +42,18 @@ component{
 					offset = arguments.offset,
 					includeDocs = true
 				}
-
-	/*		);
+			);
 			// set the results
 			data['results'] = query;
 			// set the number of results returned by the query
 			data['count'] = arrayLen(data.results);
 		}
-
-	/*	catch(any e){
+		catch(any e){
 			data['total'] = 0;
 			data['results'] = [];
 			data['count'] = 0;
 		}
-
-	/*	return data;
+		return data;
 	}
 
 	/**
@@ -81,8 +77,7 @@ component{
 					reduce = true,
 					startKey = utils.getDateParts(now())
 				}
-
-	/*		);
+			);
 			// set the total number of documents matching the query
 			data['total'] = arrayLen(total) ? total[1].value : 0;
 			// run the query
@@ -97,21 +92,18 @@ component{
 					offset = arguments.offset,
 					includeDocs = true
 				}
-
-	/*		);
+			);
 			// set the results
 			data['results'] = query;
 			// set the number of results returned by the query
 			data['count'] = arrayLen(data.results);
 		}
-
-	/*	catch(any e){
+		catch(any e){
 			data['total'] = 0;
 			data['results'] = [];
 			data['count'] = 0;
 		}
-
-	/*	return data;
+		return data;
 	}
 
 	/**
@@ -136,8 +128,7 @@ component{
 					reduce = true,
 					key = arguments.category
 				}
-
-	/*		);
+			);
 			// set the total number of documents matc
 			data['total'] = arrayLen(total) ? total[1].value : 0;
 			// run the query
@@ -152,21 +143,18 @@ component{
 					offset = arguments.offset,
 					includeDocs = true
 				}
-
-	/*		);
+			);
 			// set the results
 			data['results'] = query;
 			// set the number of results returned by the query
 			data['count'] = arrayLen(data.results);
 		}
-
-	/*	catch(any e){
+		catch(any e){
 			data['total'] = 0;
 			data['results'] = [];
 			data['count'] = 0;
 		}
-
-	/*	return data;
+		return data;
 	}
 
 	/**
@@ -191,8 +179,7 @@ component{
 					reduce = true,
 					key = arguments.brand
 				}
-
-	/*		);
+			);
 			// set the total number of documents matc
 			data['total'] = arrayLen(total) ? total[1].value : 0;
 			// run the query
@@ -207,21 +194,18 @@ component{
 					offset = arguments.offset,
 					includeDocs = true
 				}
-
-	/*		);
+			);
 			// set the results
 			data['results'] = query;
 			// set the number of results returned by the query
 			data['count'] = arrayLen(data.results);
 		}
-
-	/*	catch(any e){
+		catch(any e){
 			data['total'] = 0;
 			data['results'] = [];
 			data['count'] = 0;
 		}
-
-	/*	return data;
+		return data;
 	}
 
 	/**
@@ -265,20 +249,15 @@ component{
 						// inflate all of the data from elasticsearch to the properties of the handle
 						data.results[i].document.inflate(results.hits.hits[i]._source.doc);
 					}
-
-	/*			}
-
-	/*		}
-
-	/*	}
-
-	/*	catch(any e){
+				}
+			}
+		}
+		catch(any e){
 			data['total'] = 0;
 			data['results'] = [];
 			data['count'] = 0;
 		}
-
-	/*	return data;
+		return data;
 	}
 
 	/**
@@ -301,19 +280,15 @@ component{
 					limit = 1,
 					includeDocs = true
 				}
-
-	/*		);
+		);
 			if(arrayLen(query)){
 				data['document'] = query[1].document;
 				data['found'] = true;
 			}
-
-	/*	}
-
-	/*	catch(any e){
+		}
+		catch(any e){
 			data['found'] = false;
 		}
-
-	/*	return data;
+		return data;
 	}
 }

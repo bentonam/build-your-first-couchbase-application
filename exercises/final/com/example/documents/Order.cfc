@@ -42,7 +42,7 @@ component accessors=true {
 			setLine_Items({});
 		}
 
-	/*	return this;
+		return this;
 	}
 
 	/**
@@ -60,16 +60,12 @@ component accessors=true {
 					dyn = this["set" & item]; // set a pointer to a dynamic setter method for the key/item
 					dyn(arguments.data[item]); // call the dynamic setter method
 				}
-
-	/*		}
-
-	/*	}
-
-	/*	else{
+			}
+		}
+		else{
 			structAppend(variables, data);
 		}
-
-	/*}
+	}
 
 	/**
 	* Gets the last updated date in the specified format
