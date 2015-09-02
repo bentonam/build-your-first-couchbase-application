@@ -75,11 +75,9 @@ component{
 		if(arguments.convert_to_utc){
 			epoch = dateConvert("local2utc", arguments.date).getTime();
 		}
-
-	/*	else{
+		else{
 			epoch = arguments.date.getTime();
 		}
-
-	/*	return epoch;
+		return epoch;
 	}
 }

@@ -37,7 +37,7 @@
 				<!--- get the pagination based on the results --->
 				<cfset variables['utils'] = new root.final.com.example.Utils()/>
 				<cfset variables['pagination'] = variables.utils.getPagination(limit=url.limit, offset=url.offset, total=variables.reviews.total)/>
-				<cfinclude template="/root/final/view/includes/product.reviews.cfm"/>
+				<cfinclude template="/root/final/view/includes/product.tabs.reviews.cfm"/>
 			</div>
 		</div>
 		<!--- end of tabs --->

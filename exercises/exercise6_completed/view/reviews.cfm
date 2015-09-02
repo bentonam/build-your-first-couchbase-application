@@ -23,7 +23,7 @@
 	<!--- start of tabs --->
 	<div class="row">
 		<div class="col-md-12">
-				<cfinclude template="/root/exercise6_completed/view/includes/product.reviews.cfm"/>
+				<cfinclude template="/root/exercise6_completed/view/includes/product.tabs.reviews.cfm"/>
 		</div>
 	</div>
 	<!--- end of tabs --->

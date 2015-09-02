@@ -32,22 +32,18 @@ component{
 						includeDocs = true
 					}
 
-	/*			);
+				);
 				// set the results
 				if(arrayLen(query)){
 					data['found'] = true;
 					data['document'] = query[1].document;
 				}
-
-	/*		}
-
-	/*	}
-
-	/*	catch(any e){
+			}
+		}
+		catch(any e){
 			data['searched'] = false;
 			data['found'] = false;
 		}
-
-	/*	return data;
+		return data;
 	}
 }

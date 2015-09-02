@@ -39,16 +39,12 @@ component accessors=true {
 					dyn = this["set" & item]; // set a pointer to a dynamic setter method for the key/item
 					dyn(arguments.data[item]); // call the dynamic setter method
 				}
-
-	/*		}
-
-	/*	}
-
-	/*	else{
+			}
+		}
+		else{
 			structAppend(variables, data);
 		}
-
-	/*}
+	}
 
 	/**
 	* Gets the availability date in the specified format
@@ -89,20 +85,17 @@ component accessors=true {
 					keys = getRelated(), // get the array of related product_ids
 					includeDocs = true
 				}
-
-	/*		);
+			);
 			// set the results
 			data['results'] = query;
 			// set the number of results returned by the query
 			data['count'] = arrayLen(data.results);
 		}
-
-	/*	catch(any e){
+		catch(any e){
 			data['results'] = [];
 			data['count'] = 0;
 		}
-
-	/*	return data;
+		return data;
 	}
 
 	/**
@@ -116,23 +109,20 @@ component accessors=true {
 		try{
 			// run the query
 			query = cb.query(
-			designDocumentName = "products",
-			viewName = "reviews",
-			options = {
-				reduce = true,
-				startKey = [getProduct_ID(), utils.getDateParts("1/1/1970")],
-				endKey = [getProduct_ID() & chr(64975), utils.getDateParts("1/1/1970")]
-			}
-
-	/*		);
+				designDocumentName = "products",
+				viewName = "reviews",
+				options = {
+					reduce = true,
+					startKey = [getProduct_ID(), utils.getDateParts("1/1/1970")],
+					endKey = [getProduct_ID() & chr(64975), utils.getDateParts("1/1/1970")]
+				}
+			);
 			reviews = arrayLen(query) ? query[1].value : 0;
 		}
-
-	/*	catch(any e){
+		catch(any e){
 			reviews = 0;
 		}
-
-	/*	return reviews;
+		return reviews;
 	}
 
 	/**
@@ -145,22 +135,19 @@ component accessors=true {
 		try{
 			// run the query
 			query = cb.query(
-			designDocumentName = "products",
-			viewName = "reviews_avg_rating",
-			options = {
-				reduce = true,
-				key = getProduct_ID()
-			}
-
-	/*		);
+				designDocumentName = "products",
+				viewName = "reviews_avg_rating",
+				options = {
+					reduce = true,
+					key = getProduct_ID()
+				}
+			);
 			rating = arrayLen(query) ? query[1].value : 0;
 		}
-
-	/*	catch(any e){
+		catch(any e){
 			rating = 0;
 		}
-
-	/*	return rating;
+		return rating;
 	}
 
 	/**
@@ -190,21 +177,18 @@ component accessors=true {
 					offset = arguments.offset,
 					includeDocs = true
 				}
-
-	/*		);
+			);
 			// set the results
 			data['results'] = query;
 			// set the number of results returned by the query
 			data['count'] = arrayLen(data.results);
 		}
-
-	/*	catch(any e){
+		catch(any e){
 			data['total'] = 0;
 			data['results'] = [];
 			data['count'] = 0;
 		}
-
-	/*	return data;
+		return data;
 	}
 
 	/**
@@ -230,22 +214,18 @@ component accessors=true {
 					startKey = [getProduct_ID(), utils.getDateParts("1/1/1970")],
 					endKey = [getProduct_ID(), utils.getDateParts(now())]
 				}
-
-	/*		);
+			);
 			for(var item in query){
 				data[item.value] += 1;
 			}
-
-	/*	}
-
-	/*	catch(any e){
+		}
+		catch(any e){
 			data[1] = 0;
 			data[2] = 0;
 			data[3] = 0;
 			data[4] = 0;
 			data[5] = 0;
 		}
-
-	/*	return data;
+		return data;
 	}
 }

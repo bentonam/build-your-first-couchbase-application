@@ -6,7 +6,7 @@ component{
 		return this;
 	}
 
-	/*	/*
+	/*
 	* Gets recently available products for the homepage
 	*/
 	public struct function getRecentProducts(){
