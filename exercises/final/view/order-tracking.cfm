@@ -3,7 +3,7 @@
 <cfparam name="form.email_address" type="string" default=""/>
 <cfparam name="form.postal_code" type="string" default="0"/>
 <!--- get a handle to the order tracking server service --->
-<cfset variables['tracking_service'] = new root.final.com.benton.OrderTrackingService()/>
+<cfset variables['tracking_service'] = new root.final.com.example.OrderTrackingService()/>
 <!--- look up the order --->
 <cfset variables['order'] = variables.tracking_service.getOrder(order_id=form.order_id, email_address=form.email_address, postal_code=form.postal_code)/>
 <cfoutput>

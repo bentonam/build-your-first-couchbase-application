@@ -1,5 +1,5 @@
 <!--- get a handle to the cart service --->
-<cfset variables['cart_service'] = new root.final.com.benton.CartService()/>
+<cfset variables['cart_service'] = new root.final.com.example.CartService()/>
 <!--- the card / add / update / remove is handled in view/includes/layout.header.cart.cfm --->
 <!--- get the cart --->
 <cfset variables['cart'] = variables.cart_service.getCart()/>

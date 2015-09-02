@@ -11,7 +11,7 @@ component{
 	public struct function getRecentProducts(){
 		var cb = application.couchbase;
 		var recent_products = {};
-		var products = [];
+		var products = {};
 // start of exercise 3.a ------------------------------------------------------------------
 		// get the recent_products document
 
@@ -27,7 +27,7 @@ component{
 	public struct function getSaleProducts(){
 		var cb = application.couchbase;
 		var sale_products = {};
-		var products = [];
+		var products = {};
 // start of exercise 3.b ------------------------------------------------------------------
 		// get the sale_products document
 

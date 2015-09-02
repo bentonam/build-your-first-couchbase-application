@@ -37,9 +37,9 @@ For your reference the data from the `getSiteConfig` method is used in the follo
 
 ### Exercise 2.c - Retreive the Categories Config Document
 
-Open `exercise2/com/example/SiteService.cfc` in your IDE
+Open `exercise2/com/example/CategoryService.cfc` in your IDE
 
-Modify the `getSiteCategories` method to retrieve the `categories` document and return just the array `categories` property of the document.  The document is structured as follows:
+Modify the `getCategories` method to retrieve the `categories` document and return just the array `categories` property of the document.  The document is structured as follows:
 
 ```
 {
@@ -58,7 +58,7 @@ Modify the `getSiteCategories` method to retrieve the `categories` document and 
 }
 ```
 
-For your reference the data from the `getSiteCategories` method is used in the following views:
+For your reference the data from the `getCategories` method is used in the following views:
 
 - exercise2/view/layout/layout.header.cfm
 - exercise2/view/includes/sidebar.categories.cfm
@@ -67,9 +67,9 @@ For your reference the data from the `getSiteCategories` method is used in the f
 
 ### Exercise 2.d - Retreive the Brands Config Document
 
-Open `exercise2/com/example/SiteService.cfc` in your IDE
+Open `exercise2/com/example/BrandService.cfc` in your IDE
 
-Modify the `getSiteBrands` method to retrieve the `brands` document and return just the array `brands` property of the document.  The document is structured as follows:
+Modify the `getBrands` method to retrieve the `brands` document and return just the array `brands` property of the document.  The document is structured as follows:
 
 ```
 {
@@ -88,14 +88,14 @@ Modify the `getSiteBrands` method to retrieve the `brands` document and return j
 }
 ```
 
-For your reference the data from the `getSiteBrands` method is used in the following views:
+For your reference the data from the `getBrands` method is used in the following views:
 
 - exercise2/view/layout/layout.header.cfm
 - exercise2/view/includes/sidebar.brands.cfm
 
 ---
 
-### Exercise 2.e - Retreive the Brands Config Document
+### Exercise 2.e - Retreive the Banners Config Document
 
 Open `exercise2/com/example/SiteService.cfc` in your IDE
 

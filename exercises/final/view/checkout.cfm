@@ -1,5 +1,5 @@
 <!--- get a handler to the order service --->
-<cfset variables['checkout_service'] = new root.final.com.benton.CheckoutService()/>
+<cfset variables['checkout_service'] = new root.final.com.example.CheckoutService()/>
 <!--- get the incomplete order and pass it the form data for population --->
 <cfset variables['order'] = variables.checkout_service.getIncompleteOrder(data=form)/>
 <!--- get the states --->
