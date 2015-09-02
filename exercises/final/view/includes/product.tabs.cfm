@@ -16,13 +16,13 @@
 		#variables.product.document.getLong_Description()#
 	</div>
 	<div class="tab-pane fade" id="reviews">
-		<cfinclude template="/root/final/view/includes/product.reviews.cfm"/>
+		<cfinclude template="/root/final/view/includes/product.tabs.reviews.cfm"/>
 		<a class="btn btn-primary" href="reviews.cfm?slug=#variables.product.document.getSlug()#">View More</a>
 	</div>
 	<!--- only show related if there is actually related products --->
 	<cfif variables.related.count>
 		<div class="tab-pane fade" id="related">
-			<cfinclude template="/root/final/view/includes/product.related.cfm"/>
+			<cfinclude template="/root/final/view/includes/product.tabs.related.cfm"/>
 		</div>
 	</cfif>
 </div>
