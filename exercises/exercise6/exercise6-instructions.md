@@ -84,7 +84,7 @@ For your reference the data from the `getSaleProducts` method is used in the fol
 
 ### Exercise 6.c - Browsing All On Sale Products
 
-From our listing of products on the homepage, there is a "View All" button that will allow our users to browse through all of the On Sale products. This view will need to know the total number of On Sale products to calculate the paging correctly.
+From our listing of products on the homepage, there is a "View More" button that will allow our users to browse through all of the On Sale products. This view will need to know the total number of On Sale products to calculate the paging correctly.
 
 Open `exercise6/com/example/ProductService.cfc` in your IDE
 
@@ -97,7 +97,7 @@ query = cb.query(
 );
 ```
 
-Open the homepage ([/exercise6/index.cfm](/exercise6/index.cfm)) and click on the "View All" button next to the On Sale Products Listing
+Open the homepage ([/exercise6/index.cfm](/exercise6/index.cfm)) and click on the "View More" button next to the On Sale Products Listing
 
 For your reference the data from the `getSaleProducts` and `getSaleProductsTotal` methods are used in the following views:
 
