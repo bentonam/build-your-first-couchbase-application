@@ -3,7 +3,7 @@
 <cfparam name="url.limit" type="numeric" default="5"/>
 <cfparam name="url.offset" type="numeric" default="0"/>
 <!--- get --->
-<cfset variables['product_service'] = new root.final.com.example.ProductService()/>
+<cfset variables['product_service'] = new com.example.ProductService()/>
 <!--- get the product details by the url slug --->
 <cfset variables['product'] = variables.product_service.getProductBySlug(slug=url.slug)/>
 <cfoutput>
@@ -35,7 +35,7 @@
 				<!--- get the reviews --->
 				<cfset variables['reviews'] = variables.product.document.getReviews(limit=url.limit, offset=url.offset)/>
 				<!--- get the pagination based on the results --->
-				<cfset variables['utils'] = new root.final.com.example.Utils()/>
+				<cfset variables['utils'] = new com.example.Utils()/>
 				<cfset variables['pagination'] = variables.utils.getPagination(limit=url.limit, offset=url.offset, total=variables.reviews.total)/>
 			<cfinclude template="includes/product.tabs.reviews.cfm"/>
 			</div>

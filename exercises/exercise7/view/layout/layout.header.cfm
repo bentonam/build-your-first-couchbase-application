@@ -1,9 +1,9 @@
 <!--- get a handle to the category service --->
-<cfset variables['category_service'] = new root.exercise7.com.example.CategoryService()/>
+<cfset variables['category_service'] = new com.example.CategoryService()/>
 <!--- get the categories --->
 <cfset variables['site_categories'] = variables.category_service.getCategories()/>
 <!--- get a handle to the brand service --->
-<cfset variables['brand_service'] = new root.exercise7.com.example.BrandService()/>
+<cfset variables['brand_service'] = new com.example.BrandService()/>
 <!--- get the site brands --->
 <cfset variables['site_brands'] = variables.brand_service.getBrands()/>
 <cfoutput>

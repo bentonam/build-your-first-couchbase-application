@@ -1,5 +1,5 @@
 <!--- get a handle to the category service --->
-<cfset variables['category_service'] = new root.exercise3.com.example.CategoryService()/>
+<cfset variables['category_service'] = new com.example.CategoryService()/>
 <!--- get the categories --->
 <cfset variables['site_categories'] = variables.category_service.getCategories()/>
 <cfoutput>

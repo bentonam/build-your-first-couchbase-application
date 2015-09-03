@@ -1,4 +1,4 @@
-<cfset variables['product_service'] = new root.final.com.example.ProductService()/>
+<cfset variables['product_service'] = new com.example.ProductService()/>
 <cfset variables['recent_products'] = variables.product_service.getRecentProducts(limit=4)/>
 <cfoutput>
 <div class="product-listing">

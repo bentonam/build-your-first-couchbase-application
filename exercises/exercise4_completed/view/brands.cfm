@@ -3,7 +3,7 @@
 <cfparam name="url.limit" type="numeric" default="24"/>
 <cfparam name="url.offset" type="numeric" default="0"/>
 <!--- get a handle to the brand service --->
-<cfset variables['brand_service'] = new root.exercise4_completed.com.example.BrandService()/>
+<cfset variables['brand_service'] = new com.example.BrandService()/>
 <!--- get the products in the brand --->
 <cfset variables['products'] = variables.brand_service.getProductsByBrand(
 	brand=urlDecode(url.brand),
@@ -15,7 +15,7 @@
 	brand=urlDecode(url.brand)
 )/>
 <!--- get a handle to the utils --->
-<cfset variables['utils'] = new root.exercise4_completed.com.example.Utils()/>
+<cfset variables['utils'] = new com.example.Utils()/>
 <!--- get the pagination based on the results --->
 <cfset variables['pagination'] = variables.utils.getPagination(
 	limit=url.limit,

@@ -1,7 +1,7 @@
 <!--- default url variables --->
 <cfparam name="url.slug" type="string" default=""/>
 <!--- get a handle to the product service --->
-<cfset variables['product_service'] = new root.exercise8.com.example.ProductService()/>
+<cfset variables['product_service'] = new com.example.ProductService()/>
 <!--- get the product details by the url slug --->
 <cfset variables['product'] = variables.product_service.getProductBySlug(slug=url.slug)/>
 <cfoutput>

@@ -31,7 +31,7 @@ function (doc, meta) {
 }
 ```
 
-**8\.** For the **Reduce** function enter the value of `_count` and click the "Save" button.  You can click on the "Show Results" button to see partial data from index.  
+**8\.** For the **Reduce** function enter the value of `_count` and click the "Save" button.  You can click on the "Show Results" button to see partial data from index.
 
 **9\.** We now need to publish our Development View to Production.  To do this scroll up to the top of the page, and click on [Views](http://127.0.0.1:8091/index.html#sec=views&viewsBucket=default).
 
@@ -51,7 +51,7 @@ We can easily represent a JSON Document with a CFC.  This will centralize any lo
 query = cb.query(
 	designDocumentName = "products",
 	viewName = "by_slug",
-	inflateTo="root.exercise8.com.example.documents.Product",
+	inflateTo="com.example.documents.Product",
 	options = {
 		reduce = false,
 		key = arguments.slug,

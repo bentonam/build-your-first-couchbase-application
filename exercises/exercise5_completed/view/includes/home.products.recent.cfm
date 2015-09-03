@@ -1,5 +1,5 @@
 <!--- get a handle to the product service --->
-<cfset variables['product_service'] = new root.exercise5_completed.com.example.ProductService()/>
+<cfset variables['product_service'] = new com.example.ProductService()/>
 <!--- get the recent products --->
 <cfset variables['recent_products'] = variables.product_service.getRecentProducts()/>
 <cfoutput>
