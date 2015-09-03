@@ -45,9 +45,7 @@ function (doc, meta) {
 
 ---
 
-### Exercise 9.b - Querying the Slug View
-
-We can easily represent a JSON Document with a CFC.  This will centralize any logic around a given document.  To do this within a `get()` or `query()` we will use the `inflateTo="path.to.Class"` argument.
+### Exercise 9.b - Querying the Reviews View
 
 **1\.** Open `exercise9/com/example/documents/Product.cfc` in your IDE
 
