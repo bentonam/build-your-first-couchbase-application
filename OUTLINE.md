@@ -56,6 +56,7 @@
 ### Exercise 9 - Compound Keys
 
 - Review Total
+- Reviews listing
 
 ### Exercise 10 - Querying with Custom Reduce Functions
 

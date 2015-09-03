@@ -9,10 +9,10 @@
 		#variables.product.document.getLong_Description()#
 	</div>
 	<div class="tab-pane fade" id="reviews">
-		<cfinclude template="includes/checkout.product.tabs.reviews.cfm"/>
+		<cfinclude template="product.tabs.reviews.cfm"/>
 	</div>
 	<div class="tab-pane fade" id="related">
-		<cfinclude template="includes/checkout.product.tabs.related.cfm"/>
+		<cfinclude template="product.tabs.related.cfm"/>
 	</div>
 </div>
 </cfoutput>

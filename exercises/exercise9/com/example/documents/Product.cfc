@@ -41,11 +41,28 @@ component accessors=true {
 		var query = [];
 		var utils = new com.example.Utils();
 // start of exercise 9.b ------------------------------------------------------------------
+		// execute the query to get the total of number of reviews for the product
 
 // end of exercise 9.b --------------------------------------------------------------------
 		// set the total number of documents on sale
 		total = arrayLen(query) ? query[1].value : 0;
 		//dump(var=query, label="query"); dump(var=total, label="total"); abort;
 		return total;
+	}
+
+	/**
+	* Gets reviews for a product
+	* @limit The maximum number of results to return
+	* @offset The position to start returning results at
+	*/
+	public array function getReviews(numeric limit=10, numeric offset=0){
+		var cb = application.couchbase;
+		var query = [];
+		var utils = new com.example.Utils();
+// start of exercise 9.c ------------------------------------------------------------------
+			// execute the query to get the reviews for the product
+
+// end of exercise 9.c --------------------------------------------------------------------
+		return query;
 	}
 }
