@@ -15,7 +15,7 @@
 				created a normalized structure for the template before including it
 			--->
 			<cfset variables['product'] = variables.recent_products[variables.product_id]/>
-			<cfinclude template="/root/exercise3_completed/view/includes/template.product.cfm"/>
+			<cfinclude template="template.product.cfm"/>
 		</cfloop>
 	</div>
 </div>

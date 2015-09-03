@@ -20,12 +20,12 @@
 		<div class="row">
 			<!--- start of images --->
 			<div class="col-sm-12 col-md-5">
-				<cfinclude template="/root/final/view/includes/product.images.cfm"/>
+				<cfinclude template="includes/product.images.cfm"/>
 			</div>
 			<!--- end of images --->
 			<!--- start of info --->
 			<div class="col-sm-12 col-md-7">
-				<cfinclude template="/root/final/view/includes/product.info.cfm"/>
+				<cfinclude template="includes/product.info.cfm"/>
 			</div>
 			<!--- end of info --->
 		</div>
@@ -37,7 +37,7 @@
 				<!--- get the pagination based on the results --->
 				<cfset variables['utils'] = new root.final.com.example.Utils()/>
 				<cfset variables['pagination'] = variables.utils.getPagination(limit=url.limit, offset=url.offset, total=variables.reviews.total)/>
-				<cfinclude template="/root/final/view/includes/product.tabs.reviews.cfm"/>
+			<cfinclude template="includes/product.tabs.reviews.cfm"/>
 			</div>
 		</div>
 		<!--- end of tabs --->

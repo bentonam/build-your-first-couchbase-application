@@ -21,7 +21,7 @@
 	<!--- end of breadcrumb --->
 	<div class="row">
 		<cfloop array="#variables.products.results#" index="variables.product">
-			<cfinclude template="/root/final/view/includes/template.product.cfm"/>
+			<cfinclude template="includes/template.product.cfm"/>
 		</cfloop>
 	</div>
 </div>

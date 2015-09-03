@@ -58,7 +58,7 @@
 					</form>
 				</li>
 				<li class="dropdown">
-					<cfinclude template="/root/exercise3_completed/view/layout/layout.header.cart.cfm"/>
+					<cfinclude template="layout.header.cart.cfm"/>
 				</li>
 			</ul>
 			<!--- start of search / cart nav --->

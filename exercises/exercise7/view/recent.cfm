@@ -35,7 +35,7 @@
 				through all results created a normalized structure for the template before including it
 			--->
 			<cfset variables['product'] = variables.item.document/>
-			<cfinclude template="/root/exercise7/view/includes/template.product.cfm"/>
+			<cfinclude template="includes/template.product.cfm"/>
 		</cfloop>
 	</div>
 </div>

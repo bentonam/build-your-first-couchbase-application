@@ -10,19 +10,19 @@
 	<div class="row">
 		<!--- start of images --->
 		<div class="col-sm-12 col-md-5">
-			<cfinclude template="/root/exercise3_completed/view/includes/product.images.cfm"/>
+			<cfinclude template="includes/product.images.cfm"/>
 		</div>
 		<!--- end of images --->
 		<!--- start of info --->
 		<div class="col-sm-12 col-md-7">
-			<cfinclude template="/root/exercise3_completed/view/includes/product.info.cfm"/>
+			<cfinclude template="includes/product.info.cfm"/>
 		</div>
 		<!--- end of info --->
 	</div>
 	<!--- start of tabs --->
 	<div class="row">
 		<div class="col-md-12">
-			<cfinclude template="/root/exercise3_completed/view/includes/product.tabs.cfm"/>
+			<cfinclude template="includes/product.tabs.cfm"/>
 		</div>
 	</div>
 	<!--- end of tabs --->

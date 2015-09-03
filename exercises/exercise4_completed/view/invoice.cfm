@@ -13,12 +13,12 @@
 	Your order has been successfully submitted on #dateTimeFormat(now(), "mm/dd/yyy h:mm tt")#
 </p>
 <!--- start of billing --->
-<cfinclude template="/root/exercise4_completed/view/includes/invoice.details.cfm"/>
+<cfinclude template="includes/invoice.details.cfm"/>
 <!--- end of billing --->
 <!--- start of payment details --->
-<cfinclude template="/root/exercise4_completed/view/includes/invoice.items.cfm"/>
+<cfinclude template="includes/invoice.items.cfm"/>
 <!--- end of payment details --->
 <!--- start of order totals --->
-<cfinclude template="/root/exercise4_completed/view/includes/checkout.totals.cfm"/>
+<cfinclude template="includes/checkout.totals.cfm"/>
 <!--- end of order totals --->
 </cfoutput>

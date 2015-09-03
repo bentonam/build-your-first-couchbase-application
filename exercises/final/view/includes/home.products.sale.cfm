@@ -10,7 +10,7 @@
 	</div>
 	<div class="row">
 		<cfloop array="#variables.sale_products.results#" index="variables.product">
-			<cfinclude template="/root/final/view/includes/template.product.cfm"/>
+			<cfinclude template="template.product.cfm"/>
 		</cfloop>
 	</div>
 </div>

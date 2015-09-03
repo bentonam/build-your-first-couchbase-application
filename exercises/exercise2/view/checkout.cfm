@@ -17,7 +17,7 @@
 	<cfinclude template="/root/exercise2/view/includes/checkout.payment.cfm"/>
 	<!--- end of payment details --->
 	<!--- start of order totals --->
-	<cfinclude template="/root/exercise2/view/includes/checkout.totals.cfm"/>
+	<cfinclude template="includes/checkout.totals.cfm"/>
 	<!--- end of order totals --->
 	<hr />
 	<div class="row">

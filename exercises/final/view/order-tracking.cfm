@@ -42,13 +42,13 @@
 		<!--- get the line items in the cart --->
 		<cfset variables['line_items'] = variables.order.document.getLine_Items()/>
 		<!--- start of billing --->
-		<cfinclude template="/root/final/view/includes/invoice.details.cfm"/>
+		<cfinclude template="includes/invoice.details.cfm"/>
 		<!--- end of billing --->
 		<!--- start of payment details --->
-		<cfinclude template="/root/final/view/includes/invoice.items.cfm"/>
+		<cfinclude template="includes/invoice.items.cfm"/>
 		<!--- end of payment details --->
 		<!--- start of order totals --->
-		<cfinclude template="/root/final/view/includes/checkout.totals.cfm"/>
+		<cfinclude template="includes/checkout.totals.cfm"/>
 		<!--- end of order totals --->
 	<cfelse>
 		<p class="alert alert-danger alert-dismissible" role="alert">
