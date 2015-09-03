@@ -76,11 +76,13 @@
 	.form-inline input{
 		width: 50px;
 	}
-	.ratings{
-		font-size: 1.1em;
-		.rating{
-			display: inline-block;
-			margin-left: 10px;
+	.product-info{
+		.ratings{
+			font-size: 1.1em;
+			.rating{
+				display: inline-block;
+				margin-left: 10px;
+			}
 		}
 	}
 	.form-inline{

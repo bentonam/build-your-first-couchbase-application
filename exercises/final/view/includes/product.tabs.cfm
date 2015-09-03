@@ -1,8 +1,8 @@
 <cfoutput>
-<!--- get the related products --->
-<cfset variables['related'] = variables.product.document.getRelatedProducts()/>
 <!--- get the reviews --->
 <cfset variables['reviews'] = variables.product.document.getReviews(limit=2)/>
+<!--- get the related products --->
+<cfset variables['related'] = variables.product.document.getRelatedProducts()/>
 <ul class="nav nav-tabs nav_tabs">
 	<li class="active"><a href="##description" data-toggle="tab">Description</a></li>
 	<li><a href="##reviews" data-toggle="tab">Reviews</a></li>

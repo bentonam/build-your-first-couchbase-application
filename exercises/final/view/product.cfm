@@ -21,7 +21,7 @@
 			</div>
 			<!--- end of images --->
 			<!--- start of info --->
-			<div class="col-sm-12 col-md-7">
+			<div class="product-info col-sm-12 col-md-7">
 				<cfinclude template="includes/product.info.cfm"/>
 			</div>
 			<!--- end of info --->

@@ -14,7 +14,7 @@ We need to be able to display the total number of reviews for a given rating of 
 
 **4\.** Click the "Development Views" tab, since we already have a Design Document, click the "Add View" button next to `design/dev_products`
 
-**5\.** For the **View Name** use `reviews`
+**5\.** For the **View Name** use `review_aggregates`
 
 **6\.** Click "Save"
 

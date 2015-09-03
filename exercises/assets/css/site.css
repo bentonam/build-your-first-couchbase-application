@@ -60,9 +60,9 @@
 .product-detail .form-inline input {
   width: 50px; }
 
-.product-detail .ratings {
+.product-detail .product-info .ratings {
   font-size: 1.1em; }
-  .product-detail .ratings .rating {
+  .product-detail .product-info .ratings .rating {
     display: inline-block;
     margin-left: 10px; }
 
