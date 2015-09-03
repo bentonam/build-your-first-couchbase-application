@@ -12,7 +12,7 @@
 	</div>
 	<div class="row">
 		<cfloop from="1" to="24" index="variables.i">
-			<cfinclude template="/root/exercise6/view/includes/template.product.cfm"/>
+			<cfinclude template="includes/template.product.cfm"/>
 		</cfloop>
 	</div>
 </div>

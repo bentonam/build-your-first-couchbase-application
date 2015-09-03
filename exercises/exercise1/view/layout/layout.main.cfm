@@ -17,18 +17,18 @@
 	<![endif]-->
 </head>
 <body>
-<cfinclude template="/root/exercise1/view/layout/layout.header.cfm"/>
+<cfinclude template="layout.header.cfm"/>
 <div class="container">
 	<div class="row">
 		<div id="sidebar" class="col-md-3 hidden-xs hidden-sm">
-			<cfinclude template="/root/exercise1/view/layout/layout.sidebar.cfm"/>
+			<cfinclude template="layout.sidebar.cfm"/>
 		</div>
 		<div class="col-xs-12 col-md-9">
 			<cfinclude template="#view#"/>
 		</div>
 	</div>
 </div>
-<cfinclude template="/root/exercise1/view/layout/layout.footer.cfm"/>
+<cfinclude template="layout.footer.cfm"/>
 </body>
 </html>
 </cfoutput>

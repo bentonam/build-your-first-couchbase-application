@@ -19,13 +19,13 @@
 	Your order has been successfully submitted on #variables.order.document.getOrderDateFormatted()#
 </p>
 <!--- start of billing --->
-<cfinclude template="/root/final/view/includes/invoice.details.cfm"/>
+<cfinclude template="includes/invoice.details.cfm"/>
 <!--- end of billing --->
 <!--- start of payment details --->
-<cfinclude template="/root/final/view/includes/invoice.items.cfm"/>
+<cfinclude template="includes/invoice.items.cfm"/>
 <!--- end of payment details --->
 <!--- start of order totals --->
-<cfinclude template="/root/final/view/includes/checkout.totals.cfm"/>
+<cfinclude template="includes/checkout.totals.cfm"/>
 <!--- end of order totals --->
 <!--- output the cart document id for debugging purposes --->
 <p><b>Order Document ID:</b> order_#variables.order.document.getOrder_ID()#</p>
