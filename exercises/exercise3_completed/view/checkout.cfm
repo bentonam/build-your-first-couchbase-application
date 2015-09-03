@@ -8,13 +8,13 @@
 	</ol>
 	<!--- end of breadcrumb --->
 	<!--- start of billing --->
-	<cfinclude template="/root/exercise3_completed/view/includes/checkout.billing.cfm"/>
+	<cfinclude template="includes/checkout.billing.cfm"/>
 	<!--- end of billing --->
 	<!--- start of shipping --->
-	<cfinclude template="/root/exercise3_completed/view/includes/checkout.shipping.cfm"/>
+	<cfinclude template="includes/checkout.shipping.cfm"/>
 	<!--- end of shipping --->
 	<!--- start of payment details --->
-	<cfinclude template="/root/exercise3_completed/view/includes/checkout.payment.cfm"/>
+	<cfinclude template="includes/checkout.payment.cfm"/>
 	<!--- end of payment details --->
 	<!--- start of order totals --->
 	<cfinclude template="includes/checkout.totals.cfm"/>

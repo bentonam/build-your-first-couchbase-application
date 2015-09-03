@@ -1,5 +1,5 @@
-<cfinclude template="/root/exercise8/view/includes/home.banners.cfm"/>
+<cfinclude template="includes/home.banners.cfm"/>
 <hr />
-<cfinclude template="/root/exercise8/view/includes/home.products.sale.cfm"/>
+<cfinclude template="includes/home.products.sale.cfm"/>
 <hr />
-<cfinclude template="/root/exercise8/view/includes/home.products.recent.cfm"/>
+<cfinclude template="includes/home.products.recent.cfm"/>
