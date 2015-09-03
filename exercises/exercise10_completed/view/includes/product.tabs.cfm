@@ -1,3 +1,5 @@
+<!--- get the reviews --->
+<cfset variables['reviews'] = variables.product.document.getReviews(limit=2)/>
 <cfoutput>
 <ul class="nav nav-tabs nav_tabs">
 	<li class="active"><a href="##description" data-toggle="tab">Description</a></li>
@@ -9,10 +11,14 @@
 		#variables.product.document.getLong_Description()#
 	</div>
 	<div class="tab-pane fade" id="reviews">
-		<cfinclude template="includes/checkout.product.tabs.reviews.cfm"/>
+		<cfinclude template="product.tabs.reviews.cfm"/>
+		<!--- only show the more button if there is more than 2 reviews --->
+		<cfif variables.product.document.getReviewTotal() gt 2>
+			<a class="btn btn-primary" href="reviews.cfm?slug=#variables.product.document.getSlug()#">View More</a>
+		</cfif>
 	</div>
 	<div class="tab-pane fade" id="related">
-		<cfinclude template="includes/checkout.product.tabs.related.cfm"/>
+		<cfinclude template="product.tabs.related.cfm"/>
 	</div>
 </div>
 </cfoutput>

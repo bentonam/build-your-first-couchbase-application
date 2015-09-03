@@ -57,4 +57,33 @@ component accessors=true {
 		//dump(var=query, label="query"); dump(var=total, label="total"); abort;
 		return total;
 	}
+
+	/**
+	* Gets reviews for a product
+	* @limit The maximum number of results to return
+	* @offset The position to start returning results at
+	*/
+	public array function getReviews(numeric limit=10, numeric offset=0){
+		var cb = application.couchbase;
+		var query = [];
+		var utils = new com.example.Utils();
+// start of exercise 9.c ------------------------------------------------------------------
+		// execute the query to get the reviews for the product
+		query = cb.query(
+			designDocumentName = "products",
+			viewName = "reviews",
+			inflateTo="com.example.documents.Review",
+			options = {
+				reduce = false,
+				sortOrder = "DESC",
+				startKey = [getProduct_ID(), utils.getDateParts(now())],
+				endKey = [getProduct_ID(), utils.getDateParts("1/1/1970")],
+				limit = arguments.limit,
+				offset = arguments.offset,
+				includeDocs = true
+			}
+		);
+// end of exercise 9.c --------------------------------------------------------------------
+		return query;
+	}
 }

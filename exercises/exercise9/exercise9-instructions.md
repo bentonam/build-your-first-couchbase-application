@@ -45,7 +45,7 @@ function (doc, meta) {
 
 ---
 
-### Exercise 9.b - Querying the Reviews View
+### Exercise 9.b - Querying the Reviews View to get the Total Reviews
 
 **1\.** Open `exercise9/com/example/documents/Product.cfc` in your IDE
 
@@ -67,3 +67,38 @@ For your reference the data from the `getReviewTotal` method is used in the foll
 
 - exercise9/view/includes/product.info.cfm
 - exercise9/view/includes/template.product.cfm
+
+
+---
+
+### Exercise 9.c - Querying the Reviews View to get the Reviews
+
+We need to display at most 2 reviews on the Product Detail page and then provide the user an option to be able to browse through all of the possible reviews for the product.
+
+**1\.** Open `exercise9/com/example/documents/Product.cfc` in your IDE
+
+**2\.** Modify the `getReviews` method to query Couchbase View. This will call the CFCouchbase `query()` method with the following arguments:
+
+```
+query = cb.query(
+	designDocumentName = "products",
+	viewName = "reviews",
+	inflateTo="com.example.documents.Review",
+	options = {
+		reduce = false,
+		sortOrder = "DESC",
+		startKey = [getProduct_ID(), utils.getDateParts(now())],
+		endKey = [getProduct_ID(), utils.getDateParts("1/1/1970")],
+		limit = arguments.limit,
+		offset = arguments.offset,
+		includeDocs = true
+	}
+);
+```
+
+For your reference the data from the `getReviews` method is used in the following views:
+
+- exercise9/com/example/documents/Review.cfc
+- exercise9/view/includes/product.tabs.cfm
+- exercise9/view/includes/product.tabs.reviews.cfm
+- exercise9/view/reviews.cfm
