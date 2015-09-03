@@ -1,5 +1,5 @@
 <!--- get a handle to the cart service --->
-<cfset variables['site_service'] = new root.exercise4_completed.com.example.SiteService()/>
+<cfset variables['site_service'] = new com.example.SiteService()/>
 <!--- get the config --->
 <cfset variables['site_config'] = variables.site_service.getSiteConfig()/>
 <cfoutput>

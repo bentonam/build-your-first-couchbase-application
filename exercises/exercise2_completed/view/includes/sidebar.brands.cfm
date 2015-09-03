@@ -1,5 +1,5 @@
 <!--- get a handle to the brand service --->
-<cfset variables['brand_service'] = new root.exercise2_completed.com.example.BrandService()/>
+<cfset variables['brand_service'] = new com.example.BrandService()/>
 <!--- get the site brands --->
 <cfset variables['site_brands'] = variables.brand_service.getBrands()/>
 <cfoutput>

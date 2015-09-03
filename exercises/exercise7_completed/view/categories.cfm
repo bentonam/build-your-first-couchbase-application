@@ -3,7 +3,7 @@
 <cfparam name="url.limit" type="numeric" default="24"/>
 <cfparam name="url.offset" type="numeric" default="0"/>
 <!--- get a handle to the category service --->
-<cfset variables['category_service'] = new root.exercise7_completed.com.example.CategoryService()/>
+<cfset variables['category_service'] = new com.example.CategoryService()/>
 <!--- get the products in the category --->
 <cfset variables['products'] = variables.category_service.getProductsByCategory(
 	category=urlDecode(url.category),
@@ -15,7 +15,7 @@
 	category=urlDecode(url.category)
 )/>
 <!--- get a handle to the utils --->
-<cfset variables['utils'] = new root.exercise7_completed.com.example.Utils()/>
+<cfset variables['utils'] = new com.example.Utils()/>
 <!--- get the pagination based on the results --->
 <cfset variables['pagination'] = variables.utils.getPagination(
 	limit=url.limit,

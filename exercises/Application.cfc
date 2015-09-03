@@ -63,6 +63,9 @@ component{
 	public void function onRequest(required string page){
 		var view = reReplace(arguments.page, "^(\\|/)([^\/]+)(\\|/)", "\1\2\3view\3");
 		var layout = reReplace(view, "^(\\|/)([^\/]+)(\\|/).+$", "\1\2\3view\1layout\1layout.main.cfm");
+		var com = reReplace(view, "^(\\|/)([^\/]+)(\\|/).+$", "\1\2\3com");
+		// set a normalized mapping reference for the com directory in each exercise
+		this.mappings['/com'] = this.mappings['/root'] & com;
 		cfinclude(template=layout);
 		return;
 	}

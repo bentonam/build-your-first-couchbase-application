@@ -1,5 +1,5 @@
 <!--- get a handler to the order service --->
-<cfset variables['checkout_service'] = new root.final.com.example.CheckoutService()/>
+<cfset variables['checkout_service'] = new com.example.CheckoutService()/>
 <!--- get the incomplete order and pass it the form data for population --->
 <cfset variables['order'] = variables.checkout_service.getIncompleteOrder(data=form)/>
 <!--- get the states --->
@@ -16,13 +16,13 @@
 	</ol>
 	<!--- end of breadcrumb --->
 	<!--- start of billing --->
-	<cfinclude template="/root/final/view/includes/checkout.billing.cfm"/>
+	<cfinclude template="includes/checkout.billing.cfm"/>
 	<!--- end of billing --->
 	<!--- start of shipping --->
-	<cfinclude template="/root/final/view/includes/checkout.shipping.cfm"/>
+	<cfinclude template="includes/checkout.shipping.cfm"/>
 	<!--- end of shipping --->
 	<!--- start of payment details --->
-	<cfinclude template="/root/final/view/includes/checkout.payment.cfm"/>
+	<cfinclude template="includes/checkout.payment.cfm"/>
 	<!--- end of payment details --->
 	<!--- start of order totals --->
 	<cfinclude template="includes/checkout.totals.cfm"/>

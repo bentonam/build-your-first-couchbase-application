@@ -2,11 +2,11 @@
 <cfparam name="url.limit" type="numeric" default="24"/>
 <cfparam name="url.offset" type="numeric" default="0"/>
 <!--- get a handle to the product service --->
-<cfset variables['product_service'] = new root.final.com.example.ProductService()/>
+<cfset variables['product_service'] = new com.example.ProductService()/>
 <!--- get the products sorted by newest to oldest --->
 <cfset variables['products'] = variables.product_service.getRecentProducts(limit=url.limit, offset=url.offset)/>
 <!--- get a handle to the utils --->
-<cfset variables['utils'] = new root.final.com.example.Utils()/>
+<cfset variables['utils'] = new com.example.Utils()/>
 <!--- get the pagination based on the results --->
 <cfset variables['pagination'] = variables.utils.getPagination(limit=url.limit, offset=url.offset, total=variables.products.total)/>
 <cfoutput>

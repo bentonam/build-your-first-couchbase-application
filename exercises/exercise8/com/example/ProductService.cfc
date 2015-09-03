@@ -3,7 +3,7 @@ component{
 	* Init
 	*/
 	public ProductService function init(){
-		variables['utils'] = new root.exercise8.com.example.Utils();
+		variables['utils'] = new com.example.Utils();
 		return this;
 	}
 
@@ -92,7 +92,7 @@ component{
 		var cb = application.couchbase;
 		var total = 0;
 		var query = [];
-		var utils = new root.exercise8.com.example.Utils();
+		var utils = new com.example.Utils();
 // start of exercise 7.e ------------------------------------------------------------------
 		// execute the query to get the total of products on sale
 		query = cb.query(

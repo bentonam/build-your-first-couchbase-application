@@ -1,6 +1,6 @@
-<cfset variables['categories'] = new root.final.com.example.site.Categories()/>
+<cfset variables['categories'] = new com.example.site.Categories()/>
 <cfset variables['site_categories'] = categories.getSiteCategories()/>
-<cfset variables['brands'] = new root.final.com.example.site.Brands()/>
+<cfset variables['brands'] = new com.example.site.Brands()/>
 <cfset variables['site_brands'] = brands.getSiteBrands()/>
 <cfoutput>
 <header>
