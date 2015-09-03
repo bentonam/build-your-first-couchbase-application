@@ -2,7 +2,7 @@
 
 ---
 
-### Exercise 19.a - Create a Average Reviews View in Couchbase
+### Exercise 10.a - Create a Average Reviews View in Couchbase
 
 We need to be able to display the average number of reviews for a product on the listing pages as well as the product detail page.  
 
