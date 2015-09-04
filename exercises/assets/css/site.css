@@ -124,7 +124,8 @@ footer {
   width: 5%; }
 
 #cart h4 {
-  margin-top: 0; }
+  margin-top: 0;
+  font-size: 1.2em; }
 
 #cart tbody > tr > td, #cart tfoot > tr > td {
   vertical-align: middle; }

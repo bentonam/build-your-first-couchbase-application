@@ -79,6 +79,7 @@
 - Based on sessionID
 - Document Timeout / Expiration
 - getAndTouch
+- Writing Documents
 
 ### Exercise 15 - Writing Order Documents on Checkout
 
