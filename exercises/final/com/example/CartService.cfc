@@ -7,6 +7,37 @@ component{
 	}
 
 	/**
+	* Gets a users Cart
+	*/
+	public struct function getCart(){
+		var cb = application.couchbase;
+		var data = {};
+		var cart = {};
+		try{
+			data['found'] = false;
+			// get the cart document and update the expiration time to 30min from now
+			cart = cb.getAndTouch(
+				id=session.sessionID & "_cart",
+				inflateTo="root.final.com.benton.documents.Cart",
+				timeout=30
+			);
+			if(!isNull(cart)){ // the cart exists
+				data['found'] = true;
+				// with getAndCouch you get a struct of 2 keys "cas" and "value", where "value" is the document / object
+				data['document'] = cart.value;
+			}
+			else{ // the cart doesn't exist create a handle to it
+				setCart(); // create the cart
+				data = getCart(); // reget the cart
+			}
+		}
+		catch(any e){
+			data['found'] = false;
+		}
+		return data;
+	}
+
+	/**
 	* Updates a users Cart
 	*/
 	public void function setCart(struct data={}){
@@ -54,37 +85,6 @@ component{
 		catch(any e){}
 
 		return;
-	}
-
-	/**
-	* Gets a users Cart
-	*/
-	public struct function getCart(){
-		var cb = application.couchbase;
-		var data = {};
-		var cart = {};
-		try{
-			data['found'] = false;
-			// get the cart document and update the expiration time to 30min from now
-			cart = cb.getAndTouch(
-				id=session.sessionID & "_cart",
-				inflateTo="root.final.com.benton.documents.Cart",
-				timeout=30
-			);
-			if(!isNull(cart)){ // the cart exists
-				data['found'] = true;
-				// with getAndCouch you get a struct of 2 keys "cas" and "value", where "value" is the document / object
-				data['document'] = cart.value;
-			}
-			else{ // the cart doesn't exist create a handle to it
-				setCart(); // create the cart
-				data = getCart(); // reget the cart
-			}
-		}
-		catch(any e){
-			data['found'] = false;
-		}
-		return data;
 	}
 
 	/**
