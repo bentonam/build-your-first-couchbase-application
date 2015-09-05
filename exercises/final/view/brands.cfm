@@ -2,13 +2,26 @@
 <cfparam name="url.brand" type="string" default=""/>
 <cfparam name="url.limit" type="numeric" default="24"/>
 <cfparam name="url.offset" type="numeric" default="0"/>
-<!--- get a handle to the product service --->
-<cfset variables['product_service'] = new com.example.ProductService()/>
-<cfset variables['products'] = variables.product_service.getProductsByBrand(brand=urlDecode(url.brand), limit=url.limit, offset=url.offset)/>
+<!--- get a handle to the brand service --->
+<cfset variables['brand_service'] = new com.example.BrandService()/>
+<!--- get the products in the brand --->
+<cfset variables['products'] = variables.brand_service.getProductsByBrand(
+	brand=urlDecode(url.brand),
+	limit=url.limit,
+	offset=url.offset
+)/>
+<!--- get the products in the brand --->
+<cfset variables['total_products'] = variables.brand_service.getProductsTotalForBrand(
+	brand=urlDecode(url.brand)
+)/>
 <!--- get a handle to the utils --->
 <cfset variables['utils'] = new com.example.Utils()/>
 <!--- get the pagination based on the results --->
-<cfset variables['pagination'] = variables.utils.getPagination(limit=url.limit, offset=url.offset, total=variables.products.total)/>
+<cfset variables['pagination'] = variables.utils.getPagination(
+	limit=url.limit,
+	offset=url.offset,
+	total=variables.total_products)
+/>
 <cfoutput>
 <!--- start of product listing --->
 <div class="product-listing">
@@ -16,11 +29,12 @@
 	<ol class="breadcrumb">
 		<li><a href="index.cfm">Home</a></li>
 		<li class="active">Brands</li>
-		<li><a href="brands.cfm?brand=#urlEncodedFormat(url.brand)#">#encodeForHTML(url.brand)#</a></li>
+		<li><a href="brands.cfm?brand=#urlEncodedFormat(url.brand)#">#encodeForHTML(url.brand)#</a> (#numberFormat(variables.total_products)# Products)</li>
 	</ol>
 	<!--- end of breadcrumb --->
 	<div class="row">
-		<cfloop array="#variables.products.results#" index="variables.product">
+		<!--- loop over the brand products query --->
+		<cfloop array="#variables.products#" index="variables.product">
 			<cfinclude template="includes/template.product.cfm"/>
 		</cfloop>
 	</div>

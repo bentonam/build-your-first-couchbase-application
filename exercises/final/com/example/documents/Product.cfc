@@ -17,6 +17,7 @@ component accessors=true {
 	property name="related" type="array";
 	property name="created_on" type="numeric";
 	property name="active" type="boolean";
+
 	/*
 	* Init
 	*/
@@ -47,13 +48,6 @@ component accessors=true {
 	}
 
 	/**
-	* Gets the availability date in the specified format
-	*/
-	public date function getAvailabilityDateFormatted(string format="mm/dd/yy"){
-		return dateTimeFormat(createObject("java", "java.util.Date").init(getAvailability_Date()), arguments.format);
-	}
-
-	/**
 	* Determines whether or not the product is on sale
 	*/
 	public boolean function isOnSale(){
@@ -61,93 +55,29 @@ component accessors=true {
 	}
 
 	/**
-	* Gets the availability date in the specified format
-	*/
-	public date function getCreatedOnFormatted(string format="mm/dd/yy"){
-		return dateTimeFormat(createObject("java", "java.util.Date").init(getCreated_On()), arguments.format);
-	}
-
-	/**
-	* Gets the related product documents
-	*/
-	public struct function getRelatedProducts(){
-		var cb = application.couchbase;
-		var data = {};
-		var query = [];
-		try{
-			// run the query
-			query = cb.query(
-				designDocumentName = "products",
-				viewName = "all",
-				inflateTo="root.final.com.benton.documents.Product",
-				options = {
-					reduce = false,
-					keys = getRelated(), // get the array of related product_ids
-					includeDocs = true
-				}
-			);
-			// set the results
-			data['results'] = query;
-			// set the number of results returned by the query
-			data['count'] = arrayLen(data.results);
-		}
-		catch(any e){
-			data['results'] = [];
-			data['count'] = 0;
-		}
-		return data;
-	}
-
-	/**
-	* Gets the number of reviews
+	* Gets the total number of reviews for a product
 	*/
 	public numeric function getReviewTotal(){
 		var cb = application.couchbase;
+		var total = 0;
 		var query = [];
-		var reviews = 0;
-		var utils = new root.final.com.benton.Utils();
-		try{
-			// run the query
-			query = cb.query(
-				designDocumentName = "products",
-				viewName = "reviews",
-				options = {
-					reduce = true,
-					startKey = [getProduct_ID(), utils.getDateParts("1/1/1970")],
-					endKey = [getProduct_ID() & chr(64975), utils.getDateParts("1/1/1970")]
-				}
-			);
-			reviews = arrayLen(query) ? query[1].value : 0;
-		}
-		catch(any e){
-			reviews = 0;
-		}
-		return reviews;
-	}
-
-	/**
-	* Gets the review rating
-	*/
-	public numeric function getReviewRating(){
-		var cb = application.couchbase;
-		var query = [];
-		var rating = 0;
-		try{
-			// run the query
-			query = cb.query(
-				designDocumentName = "products",
-				viewName = "reviews_avg_rating",
-				options = {
-					reduce = true,
-					key = getProduct_ID()
-				}
-			);
-			rating = arrayLen(query) ? query[1].value : 0;
-		}
-		catch(any e){
-			rating = 0;
-		}
-		return rating;
+		var utils = new com.example.Utils();
+// start of exercise 9.b ------------------------------------------------------------------
+		// execute the query to get the total of number of reviews for the product
+		query = cb.query(
+			designDocumentName = "products",
+			viewName = "reviews",
+			options = {
+				reduce = true,
+				startKey = [getProduct_ID(), utils.getDateParts("1/1/1970")],
+				endKey = [getProduct_ID() & chr(64975), utils.getDateParts("1/1/1970")]
+			}
+		);
+// end of exercise 9.b --------------------------------------------------------------------
+		// set the total number of documents on sale
+		total = arrayLen(query) ? query[1].value : 0;
+		//dump(var=query, label="query"); dump(var=total, label="total"); abort;
+		return total;
 	}
 
 	/**
@@ -155,40 +85,52 @@ component accessors=true {
 	* @limit The maximum number of results to return
 	* @offset The position to start returning results at
 	*/
-	public struct function getReviews(numeric limit=10, numeric offset=0){
+	public array function getReviews(numeric limit=10, numeric offset=0){
 		var cb = application.couchbase;
-		var data = {};
 		var query = [];
-		var utils = new root.final.com.benton.Utils();
-		try{
-			// set the total number of documents matc
-			data['total'] = getReviewTotal();
-			// run the query
-			query = cb.query(
-				designDocumentName = "products",
-				viewName = "reviews",
-				inflateTo="root.final.com.benton.documents.Review",
-				options = {
-					reduce = false,
-					sortOrder = "DESC",
-					startKey = [getProduct_ID(), utils.getDateParts(now())],
-					endKey = [getProduct_ID(), utils.getDateParts("1/1/1970")],
-					limit = arguments.limit,
-					offset = arguments.offset,
-					includeDocs = true
-				}
-			);
-			// set the results
-			data['results'] = query;
-			// set the number of results returned by the query
-			data['count'] = arrayLen(data.results);
-		}
-		catch(any e){
-			data['total'] = 0;
-			data['results'] = [];
-			data['count'] = 0;
-		}
-		return data;
+		var utils = new com.example.Utils();
+// start of exercise 9.c ------------------------------------------------------------------
+		// execute the query to get the reviews for the product
+		query = cb.query(
+			designDocumentName = "products",
+			viewName = "reviews",
+			inflateTo="com.example.documents.Review",
+			options = {
+				reduce = false,
+				sortOrder = "DESC",
+				startKey = [getProduct_ID(), utils.getDateParts(now())],
+				endKey = [getProduct_ID(), utils.getDateParts("1/1/1970")],
+				limit = arguments.limit,
+				offset = arguments.offset,
+				includeDocs = true
+			}
+		);
+// end of exercise 9.c --------------------------------------------------------------------
+		return query;
+	}
+
+	/**
+	* Gets the average review rating
+	*/
+	public numeric function getAverageReviewRating(){
+		var cb = application.couchbase;
+		var rating = 0;
+		var query = [];
+// start of exercise 10.b ------------------------------------------------------------------
+		// execute the query to get the average review rating for the product
+		query = cb.query(
+			designDocumentName = "products",
+			viewName = "reviews_avg_rating",
+			options = {
+				reduce = true,
+				key = getProduct_ID()
+			}
+		);
+// end of exercise 10.b --------------------------------------------------------------------
+		// set the total number of documents on sale
+		rating = arrayLen(query) ? query[1].value : 0;
+		//dump(var=query, label="query"); dump(var=rating, label="rating"); abort;
+		return rating;
 	}
 
 	/**
@@ -196,36 +138,57 @@ component accessors=true {
 	*/
 	public array function getReviewAggregates(){
 		var cb = application.couchbase;
-		var data = [];
+		var aggregates = [];
 		var query = [];
-		var utils = new root.final.com.benton.Utils();
-		data[1] = 0;
-		data[2] = 0;
-		data[3] = 0;
-		data[4] = 0;
-		data[5] = 0;
-		try{
-			// run the query
-			query = cb.query(
-				designDocumentName = "products",
-				viewName = "reviews",
-				options = {
-					reduce = false,
-					startKey = [getProduct_ID(), utils.getDateParts("1/1/1970")],
-					endKey = [getProduct_ID(), utils.getDateParts(now())]
-				}
-			);
-			for(var item in query){
-				data[item.value] += 1;
+		var utils = new com.example.Utils();
+		aggregates[1] = 0;
+		aggregates[2] = 0;
+		aggregates[3] = 0;
+		aggregates[4] = 0;
+		aggregates[5] = 0;
+// end of exercise 11.b --------------------------------------------------------------------
+		// execute the query to get all of the reviews and their individual ratings
+		query = cb.query(
+			designDocumentName = "products",
+			viewName = "review_aggregates",
+			options = {
+				sortOrder = "DESC",
+				reduce = true,
+				group = true,
+				startKey = [getProduct_ID(), 5],
+				endKey = [getProduct_ID(), 1]
 			}
+		);
+// end of exercise 11.b --------------------------------------------------------------------
+		// loop over the query and for each key that is an JSON array w/ 2 parts the
+		// key and the rating 1 - 5, convert it to a native array and reference the
+		// aggregate position and the total number of reviews for that rating
+		for(var item in query){
+			aggregates[deserializeJSON(item.key)[2]] = item.value;
 		}
-		catch(any e){
-			data[1] = 0;
-			data[2] = 0;
-			data[3] = 0;
-			data[4] = 0;
-			data[5] = 0;
-		}
-		return data;
+		//dump(var=query, label="query"); dump(var=aggregates, label="aggregates"); abort;
+		return aggregates;
+	}
+
+	/**
+	* Gets the related product documents
+	*/
+	public array function getRelatedProducts(){
+		var cb = application.couchbase;
+		var query = [];
+// start of exercise 12.b ------------------------------------------------------------------
+		// execute the query to get all of the products that are related to the product
+		query = cb.query(
+			designDocumentName = "products",
+			viewName = "all",
+			inflateTo="com.example.documents.Product",
+			options = {
+				reduce = false,
+				keys = getRelated(), // get the array of related product_ids
+				includeDocs = true
+			}
+		);
+// end of exercise 12.b --------------------------------------------------------------------
+		return query;
 	}
 }

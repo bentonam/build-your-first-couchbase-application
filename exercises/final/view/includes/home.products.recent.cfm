@@ -1,5 +1,7 @@
+<!--- get a handle to the product service --->
 <cfset variables['product_service'] = new com.example.ProductService()/>
-<cfset variables['recent_products'] = variables.product_service.getRecentProducts(limit=4)/>
+<!--- get the recent products --->
+<cfset variables['recent_products'] = variables.product_service.getRecentProducts(limit=8)/>
 <cfoutput>
 <div class="product-listing">
 	<div class="row headline">
@@ -9,7 +11,8 @@
 		</div>
 	</div>
 	<div class="row">
-		<cfloop array="#variables.recent_products.results#" index="variables.product">
+		<!--- loop over the array of products --->
+		<cfloop array="#variables.recent_products#" item="variables.product">
 			<cfinclude template="template.product.cfm"/>
 		</cfloop>
 	</div>

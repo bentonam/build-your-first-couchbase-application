@@ -5,7 +5,8 @@
 <!--- get the product details by the url slug --->
 <cfset variables['product'] = variables.product_service.getProductBySlug(slug=url.slug)/>
 <cfoutput>
-<cfif variables.product.found>
+<!--- output the product details if the product has a document --->
+<cfif structKeyExists(variables.product, "document")>
 	<div class="product-detail">
 		<!--- start of breadcrumb --->
 		<ol class="breadcrumb">
@@ -34,6 +35,7 @@
 		</div>
 		<!--- end of tabs --->
 		<!--- output the product document id for debugging purposes --->
+		<br />
 		<p><b>Product Document ID:</b> #variables.product.document.getProduct_ID()#</p>
 	</div>
 <cfelse>
