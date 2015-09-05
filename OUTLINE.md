@@ -90,5 +90,4 @@
 
 ### Exercise 16 - Order Tracking
 
-- let them do all of it
-- multi level compound keys
+- Query with Compound Key of Order ID, Billing Email and Postal Code
