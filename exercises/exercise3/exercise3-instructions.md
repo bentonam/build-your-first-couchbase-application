@@ -35,7 +35,7 @@ Open the homepage ([/exercise3/index.cfm](/exercise3/index.cfm)) and verify that
 
 ---
 
-### Exercise 3.b - Retreive the Sale Products
+### Exercise 3.b - Retrieve the Sale Products
 
 Open `exercise3/com/example/ProductService.cfc` in your IDE
 

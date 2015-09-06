@@ -2,48 +2,78 @@
 
 ---
 
-### Exercise 1.a
+### Exercise 1.a - Starting a Lucee Server
 
-In your Terminal change directories to the `build-your-first-couchbase-application/exercises/`
+**1\.** In your Terminal change directories to the `build-your-first-couchbase-application/exercises/`
 
-Start a Lucee server by running `box server start`
+**2\.** Start a Lucee server by running the command `box server start`
 
-This will launch your default web browser with the `exercises` directory as the root.  Click on [Exercise 1 - Working with Couchbase Documents](#)
+**3\.** This will launch your default web browser with the `exercises` directory as the root.  Click on [Exercise 1 - Working with Couchbase Documents](#)
 
-Browse around the site and look at all of the different sections that you will be creating
+**\4.** Browse around the site and look at all of the different sections that you will be creating
 
 ---
 
-### Exercise 1.b
+### Exercise 1.b - Connecting to Couchbase
 
 As with any database we need to make a connection to the database.  With couchbase we will create a connection the the `default` bucket and maintain that connection in the application scope. 
 
-Add the following code to the `onRequestStart` method in `Application.cfc`
+**1\.** Open `/Application.cfc` in your IDE
 
-	// create a connection to the default bucket if it does not already exist
-	if(!structKeyExists(application, "couchbase")){
-		application['couchbase'] = new cfcouchbase.CouchbaseClient({
-			'servers' = ["http://127.0.0.1:8091"],
-			'bucketName' = "default"
-		});
-	}
-	
-We need to make sure that when our application is shutting down that we close the connections to the Couchbase bucket at the same time.  Add the following to the `onApplicationEnd` method in `Application.cfc`
+**2\.** Add the following code to the `onRequestStart` method
 
-	// if the couchbase connection is present close it's connections
-	if(structKeyExists(arguments.appScope, "couchbase")){
-		application.couchbase.shutdown( 10 );
-	}
+```
+// create a connection to the default bucket if it does not already exist
+if(!structKeyExists(application, "couchbase")){
+	application['couchbase'] = new cfcouchbase.CouchbaseClient({
+		'servers' = ["http://127.0.0.1:8091"],
+		'bucketName' = "default"
+	});
+}
+```
 	
-### Exercise 1.c
+**3\.** We need to make sure that when our application is shutting down that we close the connections to the Couchbase bucket at the same time.  Add the following to the `onApplicationEnd` method 
+
+```
+// if the couchbase connection is present close it's connections
+if(structKeyExists(arguments.appScope, "couchbase")){
+	application.couchbase.shutdown( 10 );
+}
+```
+	
+--- 
+
+### Exercise 1.c - Exploring Documents
 
 Now that you have made a connection to `default` bucket on your Couchbase Server.  
 
-Lets create and retrieve some documents.  Navigate to [/exercises/exercise1/console.cfm](/exercises/exercise1/console.cfm) in your browser.  
+**1\.** Lets create and retrieve some documents.  Navigate to [/exercises/exercise1/console.cfm](/exercises/exercise1/console.cfm) in your browser.  
 
-Document ID's should be all lowercase, with only letters, numbers, underscoes, dashes and colons with a maximum length of 256 characters.  The document content must be valid JSON.
+**2\.** Create a document with an id of `test`, create a JSON structure that contains the following values: 
 
-### Exercise 1.d
+```
+{
+	"doc_type": "test",
+	"first_name": "",
+	"last_name": "",
+	"email": "",
+	"phone": ""
+}
+```
+
+**3\.** Click the "Upsert" button
+
+**4\.** Verify that the document was created by going to the Couchbase Server Admin Console [http://127.0.0.1:8091/](http://127.0.0.1:8091/) and browse to [Data Buckets](http://127.0.0.1:8091/index.html#sec=buckets).
+
+**5\.** Click the "Documents" button next to the **default** bucket
+
+**6\.** Lookup your test document.
+
+Note: Document ID's should be all lowercase, with only letters, numbers, underscoes, dashes and colons with a maximum length of 256 characters.  The document content must be valid JSON.
+
+---
+
+### Exercise 1.d - Import Example Data
 
 Before building the rest of our site we need to populate our default bucket with some data.  
 

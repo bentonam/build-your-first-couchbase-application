@@ -29,13 +29,13 @@ component{
 	* @appScope the application scope
 	*/
 	public void function onApplicationEnd(required struct appScope){
-		// start of exercise code
+// start of exercise 1.c --------------------------------------------------------------------
 		// if the couchbase connection is present close it's connections
 		if(structKeyExists(arguments.appScope, "couchbase")){
 			application.couchbase.shutdown(10);
 		}
 		return;
-		// end of exercise code
+// end of exercise 1.c ----------------------------------------------------------------------
 		return;
 	}
 
@@ -44,7 +44,7 @@ component{
 	* @page Path from the web root to the requested page
 	*/
 	public boolean function onRequestStart(required string page){
-		// start of exercise code
+// start of exercise 1.b --------------------------------------------------------------------
 		// create a connection to the default bucket if it does not already exist
 		if(!structKeyExists(application, "couchbase")){
 			application['couchbase'] = new cfcouchbase.CouchbaseClient({
@@ -52,7 +52,7 @@ component{
 				'bucketName' = "default"
 			});
 		}
-		// end of exercise code
+// end of exercise 1.b ----------------------------------------------------------------------
 		return true;
 	}
 

@@ -19,3 +19,8 @@
 .reveal pre code{
 	max-height: 600px;
 }
+.reveal .link pre{
+	box-shadow: none;
+	font-size: .75em;
+	text-align: center;
+}
