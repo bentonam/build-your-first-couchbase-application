@@ -117,6 +117,7 @@
 			<ul>
 				<li>5 - 10min / exercise</li>
 				<li>Exercises are Progressive</li>
+				<li>Instructions for each exercise are in the exercises folder</li>
 				<li>Ask Questions</li>
 			</ul>
 		</section>
@@ -140,6 +141,19 @@
 				<li>1.b - Connecting to Couchbase</li>
 				<li>1.c - Exploring Documents</li>
 				<li>1.d - Import Example Data</li>
+			</ul>
+		</section>
+		<!-- end of slide -->
+		<!-- start of slide -->
+		<section class="link">
+			<h2>Document Types for Exercises</h2>
+			<ul>
+				<li>config</li>
+				<li>product</li>
+				<li>review</li>
+				<li>product review counter</li>
+				<li>order</li>
+				<li>order counter</li>
 			</ul>
 		</section>
 		<!-- end of slide -->
@@ -177,7 +191,12 @@
 		<!-- end of slide -->
 		<!-- start of slide -->
 		<section class="link">
-			<h2>Indexes for Views</h2>
+			<h2>Views and Queries</h2>
+		</section>
+		<!-- end of slide -->
+		<!-- start of slide -->
+		<section class="link">
+			<h2>Views for Creating Indices</h2>
 			<ul>
 				<li>JS Function applied to <u>Every</u> Document</li>
 				<li>2 arguments: doc, meta</li>
@@ -211,14 +230,74 @@
 				<li>Emitted Keys are <u>Case sensitive</u></li>
 				<li>Use parseInt() / parseFloat() for numbers</li>
 				<li>Validate the meta.type === "json"</li>
-				<li>The emit() function</li>
+				<li>Keys can be a simple or complex value</li>
+				<li>Max key size 4096 bytes</li>
 			</ul>
 		</section>
 		<!-- end of slide -->
 		<!-- start of slide -->
 		<section class="link">
+			<h2>Document Data Flow</h2>
+			<p>The document is:</p>
+			<ol>
+				<li class="fragment">written to object-managed cache (memory)</li>
+				<li class="fragment">added to the Intra-Cluster Replication Queue</li>
+				<li class="fragment">added to the Disk Queue</li>
+				<li class="fragment">pushed to other clusters via XDCR <br />after the Disk Queue is flushed</li>
+				<li class="fragment">indexed</li>
+			</ol>
+			<br />
+			<br />
+			<blockquote class="fragment">
+				Views are updated only <u>after</u> the document has been persisted disk
+			</blockquote>
+		</section>
+		<!-- end of slide -->
+		<!-- start of slide -->
+		<section class="link">
+			<h2>Document Data Flow</h2>
+			<img src="assets/img/couchbase-write-flow.png" style="max-width: 500px;"/>
+		</section>
+		<!-- end of slide -->
+		<!-- start of slide -->
+		<section class="link">
 			<h2>View Example</h2>
-
+			<div class="fragment">
+			<u>Map Function</u>
+    <pre><code>function (doc, meta) {
+    if(
+        doc.doc_type
+        && doc.doc_type === "product" && doc.title
+    ){
+        emit(doc.title.toLowerCase(), null);
+    }
+}</code></pre>
+			</div>
+			<div class="fragment">
+				<u>Reduce Function</u>
+				<pre><code>_count</code></pre>
+			</div>
+		</section>
+		<!-- end of slide -->
+		<!-- start of slide -->
+		<section class="link">
+			<h2>Query Options</h2>
+			<ul class="margin_right">
+				<li>descending</li>
+				<li>startkey</li>
+				<li>endkey</li>
+				<li>startkey_docid</li>
+				<li>endkey_docid</li>
+				<li>group</li>
+			</ul>
+			<ul>
+				<li>group_level</li>
+				<li>inclusive_end</li>
+				<li>key</li>
+				<li>keys</li>
+				<li>reduce</li>
+				<li>stale</li>
+			</ul>
 		</section>
 		<!-- end of slide -->
 		<!-- start of slide -->
@@ -260,6 +339,7 @@
 			<ul>
 				<li>More than just existence checks</li>
 				<li>Multiple emits from a single document</li>
+				<li>Any Key / Value can be emitted</li>
 			</ul>
 		</section>
 		<!-- end of slide -->
@@ -276,11 +356,47 @@
 		<!-- end of slide -->
 		<!-- start of slide -->
 		<section class="link">
-			<h2>Custom Map Logic</h2>
+			<h2>Date Formats</h2>
 			<ul>
-				<li>More than just existence checks</li>
-				<li>Multiple emits from a single document</li>
+				<li>2015-08-29 03:40:05 UTC</li>
+				<li>Tue Sep 08 2015 12:41:00 GMT-0400 (EDT)</li>
+				<li>2015-07-30T23:58:22.193Z</li>
+				<li>1441730500797</li>
 			</ul>
+		</section>
+		<!-- end of slide -->
+		<!-- start of slide -->
+		<section class="link">
+			<h2 class="no-transform">dateToArray()</h2>
+			<p>Takes a valid date and converts it into an array of date parts.</p>
+			<p>1483175543000 becomes:</p>
+			<pre><code>[
+	2015,
+	3,
+	22,
+	11,
+	3,
+	38
+]</code></pre>
+		</section>
+		<!-- end of slide -->
+		<!-- start of slide -->
+		<section class="link">
+			<h2 class="no-transform">dateToArray()</h2>
+    <pre><code>function (doc, meta) {
+    if(
+        doc.doc_type
+        && doc.doc_type === "order" && doc.order_date
+    ){
+        emit(dateToArray(doc.order_date), null);
+    }
+}</code></pre>
+		</section>
+		<!-- end of slide -->
+		<!-- start of slide -->
+		<section class="link">
+			<h2>View with Date as Key</h2>
+			<img src="assets/img/couchbase-datetoarray-view-results.png" style="max-width: 700px"/>
 		</section>
 		<!-- end of slide -->
 		<!-- start of slide -->
@@ -298,11 +414,25 @@
 		<!-- end of slide -->
 		<!-- start of slide -->
 		<section class="link">
+			<h2>Representing Documents as Objects</h2>
+		</section>
+		<!-- end of slide -->
+		<!-- start of slide -->
+		<section class="link">
 			<h2>Exercise #8</h2>
 			<h3>Inflating Documents to Objects</h3>
 			<ul>
 				<li>8.a - Create a Slug View in Couchbase</li>
 				<li>8.b - Querying the Slug View</li>
+			</ul>
+		</section>
+		<!-- end of slide -->
+		<!-- start of slide -->
+		<section class="link">
+			<h2>Compound Keys</h2>
+			<ul>
+				<li>View keys can be <u>any</u> value</li>
+				<li>Compound keys are just arrays</li>
 			</ul>
 		</section>
 		<!-- end of slide -->
@@ -319,11 +449,65 @@
 		<!-- end of slide -->
 		<!-- start of slide -->
 		<section class="link">
+			<h2>Reduce Functions</h2>
+			<p>Couchbase has the following built-in reduce functions:</p>
+			<ul>
+				<li>_count</li>
+				<li>_sum (requires a numeric value for the index)</li>
+				<li>_stats (requires a numeric value for the index)</li>
+			</ul>
+			<p>We can also provide our own JS reduce function</p>
+		</section>
+		<!-- end of slide -->
+		<!-- start of slide -->
+		<section class="link">
+			<h2>Custom Reduce Functions</h2>
+			<p>The reduce function is passed 3 arguments:</p>
+			<ol>
+				<li>keys - Array of keys returned by the query</li>
+				<li>values - Array of values returned by the query</li>
+				<li>rereduce - Boolean whether or not to keep reducing</li>
+			</ol>
+			<br />
+			<pre><code>function(keys, values, rereduce){
+  var sum = values.reduce(
+    function(a, b) {
+      return a + b;
+    }
+  );
+  return Math.round((sum / values.length) * 10) / 10;
+}</code></pre>
+		</section>
+		<!-- end of slide -->
+		<!-- start of slide -->
+		<section class="link">
 			<h2>Exercise #10</h2>
 			<h3>Querying with Custom Reduce Functions</h3>
 			<ul>
 				<li>10.a - Create a Average Reviews View in Couchbase</li>
 				<li>10.b - Querying Average Reviews View</li>
+			</ul>
+		</section>
+		<!-- end of slide -->
+		<!-- start of slide -->
+		<!-- start of slide -->
+		<section class="link">
+			<h2>Query Values</h2>
+			<ul>
+				<li>10.a - Create a Average Reviews View in Couchbase</li>
+				<li>10.b - Querying Average Reviews View</li>
+			</ul>
+		</section>
+		<!-- end of slide -->
+		<!-- start of slide -->
+		<section class="link">
+			<h2>Query Values</h2>
+			<ul>
+				<li>Only emit the value if you need it</li>
+				<li>Each index has a key and a value</li>
+				<li>The value can be used in a reduce function</li>
+				<li>Sort order only applies to the key not the value</li>
+				<li>The value is always returned to the application</li>
 			</ul>
 		</section>
 		<!-- end of slide -->
@@ -339,11 +523,50 @@
 		<!-- end of slide -->
 		<!-- start of slide -->
 		<section class="link">
+			<h2>Creating a Primary Key</h2>
+			<ul>
+				<li>
+					Secondary Indexes
+					<ul>
+						<li>Conditionally outputs keys / values</li>
+					</ul>
+				<li>
+					Primary Key Indexes
+					<ul>
+						<li>Outputs every key with null value</li>
+					</ul>
+				</li>
+			</ul>
+		</section>
+		<!-- end of slide -->
+		<!-- start of slide -->
+		<section class="link">
 			<h2>Exercise #12</h2>
 			<h3>Leveraging a Primary Key View</h3>
 			<ul>
-				<li>12.a - Create a Products View in Couchbase</li>
-				<li>12.b - Querying All Products View</li>
+				<li>12.a - Create a All Products View in Couchbase</li>
+				<li>12.b - Querying the All Products View</li>
+			</ul>
+		</section>
+		<!-- end of slide -->
+		<!-- start of slide -->
+		<section class="link">
+			<h2>Elasticsearch</h2>
+			<ul>
+				<li>Based on Lucene</li>
+				<li>Full-text search engine</li>
+				<li>REST Based</li>
+				<li>JSON Document based</li>
+				<li>Market share is 2<sup>nd</sup> only to Solr</li>
+			</ul>
+		</section>
+		<!-- end of slide -->
+		<!-- start of slide -->
+		<section class="link">
+			<h2>Couchbase and Elasticsearch</h2>
+			<ul>
+				<li>XDCR for Replication between clusters</li>
+				<li>XDCR is used to feed Elasticsearch</li>
 			</ul>
 		</section>
 		<!-- end of slide -->
@@ -394,6 +617,15 @@
 		<!-- start of slide -->
 		<section class="link">
 			<h2>Couchbase Resources</h2>
+			<ul>
+				<li class="link">Developer Guides - <pre><a class="no-transform" href="http://goo.gl/7EjZCW">http://goo.gl/7EjZCW</a></pre></li>
+				<li class="link">Webinars - <pre><a class="no-transform" href="http://goo.gl/muWrJS">http://goo.gl/muWrJS</a></pre></li>
+				<li class="link">Whitepapers - <pre><a class="no-transform" href="http://goo.gl/YuQc04">http://goo.gl/YuQc04</a></pre></li>
+				<li class="link">Blog - <pre><a class="no-transform" href="http://goo.gl/0ev3D9">http://goo.gl/0ev3D9</a></pre></li>
+				<li class="link">YouTube Channel - <pre><a class="no-transform" href="https://goo.gl/V7FWI1">https://goo.gl/V7FWI1</a></pre></li>
+				<li class="link">Forums - <pre><a class="no-transform" href="https://goo.gl/x9tjMC">https://goo.gl/x9tjMC</a></pre></li>
+				<li class="link">IRC - <pre><a class="no-transform" href="##">irc.freenode.net/#couchbase</a></pre></li>
+			</ul>
 		</section>
 		<!-- end of slide -->
 		<!-- start of slide -->

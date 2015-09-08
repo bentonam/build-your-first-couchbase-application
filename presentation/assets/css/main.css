@@ -24,3 +24,13 @@
 	font-size: .75em;
 	text-align: center;
 }
+.reveal li.link pre{
+	font-size: 1em;
+	display: inline;
+}
+.reveal pre code{
+	text-align: left;
+}
+.reveal .margin_right{
+	margin-right: 40px;
+}
