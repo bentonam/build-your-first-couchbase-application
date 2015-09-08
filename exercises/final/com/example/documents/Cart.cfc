@@ -44,7 +44,7 @@ component accessors=true {
 	*/
 	public void function setLineItem(required string product_id, required numeric qty){
 		var cb = application.couchbase;
-		var product = cb.get(id=arguments.product_id, inflateTo="root.final.com.benton.documents.Product");
+		var product = cb.get(id=arguments.product_id, inflateTo="com.example.documents.Product");
 		var line_items = getLine_Items();
 		var item = {};
 		// if the product was found update it
@@ -72,7 +72,7 @@ component accessors=true {
 	*/
 	public void function addLineItem(required string product_id, required numeric qty){
 		var cb = application.couchbase;
-		var product = cb.get(id=arguments.product_id, inflateTo="root.final.com.benton.documents.Product");
+		var product = cb.get(id=arguments.product_id, inflateTo="com.example.documents.Product");
 		var line_items = getLine_Items();
 		var item = {};
 		// if the line_item already exists update its qty
@@ -121,13 +121,19 @@ component accessors=true {
 	*/
 	public void function save(){
 		var cb = application.couchbase;
-		var utils = new root.final.com.benton.Utils();
+		var utils = new com.example.Utils();
 		// set the last updated
 		setLast_Updated(utils.toEpoch(date=now(), convert_to_utc=false));
 		// calculate and set the sub total
 		setSub_Total(calculateSubTotal());
+// start of exercise 14.b --------------------------------------------------------------------
 		// write the cart document and set it's expiration for 30min
-		cb.set(id=getCart_ID(), value=this, timeout=30);
+		cb.set(
+			id=getCart_ID(),
+			value=this,
+			timeout=30
+		);
+// end of exercise 14.b ----------------------------------------------------------------------
 		return;
 	}
 

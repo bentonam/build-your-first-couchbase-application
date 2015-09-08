@@ -18,13 +18,13 @@
 				</div>
 			</div>
 			<div class="ratings clearfix">
-				<cfset rating = product.document.getReviewRating()/>
+				<cfset variables['rating'] = product.document.getAverageReviewRating()/>
 				<div class="stars pull-left" data-rating="#rating#">
-					<span class="glyphicon glyphicon-star<cfif rating lte 1>-empty</cfif>"></span>
-					<span class="glyphicon glyphicon-star<cfif rating lte 2>-empty</cfif>"></span>
-					<span class="glyphicon glyphicon-star<cfif rating lte 3>-empty</cfif>"></span>
-					<span class="glyphicon glyphicon-star<cfif rating lte 4>-empty</cfif>"></span>
-					<span class="glyphicon glyphicon-star<cfif rating lte 5>-empty</cfif>"></span>
+					<span class="glyphicon glyphicon-star<cfif variables.rating lte 1>-empty</cfif>"></span>
+					<span class="glyphicon glyphicon-star<cfif variables.rating lte 2>-empty</cfif>"></span>
+					<span class="glyphicon glyphicon-star<cfif variables.rating lte 3>-empty</cfif>"></span>
+					<span class="glyphicon glyphicon-star<cfif variables.rating lte 4>-empty</cfif>"></span>
+					<span class="glyphicon glyphicon-star<cfif variables.rating lte 5>-empty</cfif>"></span>
 				</div>
 				<div class="rating pull-right">
 					#product.document.getReviewTotal()# reviews

@@ -4,22 +4,32 @@
 <!--- get a handle to the product service --->
 <cfset variables['product_service'] = new com.example.ProductService()/>
 <!--- get all of the products that are currently on sale --->
-<cfset variables['sale_products'] = variables.product_service.getSaleProducts(limit=url.limit, offset=url.offset)/>
+<cfset variables['sale_products'] = variables.product_service.getSaleProducts(
+	limit=url.limit,
+	offset=url.offset
+)/>
+<!--- get the total number of on sale products --->
+<cfset variables['total_products'] = variables.product_service.getSaleProductsTotal()/>
 <!--- get a handle to the utils --->
 <cfset variables['utils'] = new com.example.Utils()/>
 <!--- get the pagination based on the results --->
-<cfset variables['pagination'] = variables.utils.getPagination(limit=url.limit, offset=url.offset, total=variables.sale_products.total)/>
+<cfset variables['pagination'] = variables.utils.getPagination(
+	limit=url.limit,
+	offset=url.offset,
+	total=variables.total_products
+)/>
 <cfoutput>
 <!--- start of product listing --->
 <div class="product-listing">
 	<!--- start of breadcrumb --->
 	<ol class="breadcrumb">
 		<li><a href="index.cfm">Home</a></li>
-		<li class="active"><a href="sale.cfm">On Sale Products</a></li>
+		<li class="active"><a href="sale.cfm">On Sale Products</a> (#numberFormat(variables.total_products)# Products)</li>
 	</ol>
 	<!--- end of breadcrumb --->
 	<div class="row">
-		<cfloop array="#variables.sale_products.results#" index="variables.product">
+		<!--- loop over the array of products --->
+		<cfloop array="#variables.sale_products#" item="variables.product">
 			<cfinclude template="includes/template.product.cfm"/>
 		</cfloop>
 	</div>

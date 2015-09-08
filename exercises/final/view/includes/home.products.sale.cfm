@@ -1,5 +1,7 @@
+<!--- get a handle to the product service --->
 <cfset variables['product_service'] = new com.example.ProductService()/>
-<cfset variables['sale_products'] = variables.product_service.getSaleProducts(limit=4)/>
+<!--- get the sale products --->
+<cfset variables['sale_products'] = variables.product_service.getSaleProducts(limit=8)/>
 <cfoutput>
 <div class="product-listing">
 	<div class="row headline">
@@ -9,7 +11,8 @@
 		</div>
 	</div>
 	<div class="row">
-		<cfloop array="#variables.sale_products.results#" index="variables.product">
+		<!--- loop over the array of products --->
+		<cfloop array="#variables.sale_products#" item="variables.product">
 			<cfinclude template="template.product.cfm"/>
 		</cfloop>
 	</div>

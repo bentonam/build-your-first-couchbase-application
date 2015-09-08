@@ -7,35 +7,75 @@ component{
 	}
 
 	/**
+	* Gets the states
+	*/
+	public array function getStates(){
+		var cb = application.couchbase;
+		var doc = {};
+		var states = [];
+// start of exercise 15.a --------------------------------------------------------------------
+		doc = cb.get(id="states");
+// start of exercise 15.a --------------------------------------------------------------------
+		if(!isNull(doc)){
+			states = doc.states;
+		}
+		return states;
+	}
+
+	/**
+	* Gets the shipping options
+	*/
+	public struct function getShippingMethods(){
+		var cb = application.couchbase;
+		var doc = {};
+		var shipping_methods = {};
+// start of exercise 15.b --------------------------------------------------------------------
+		doc = cb.get(id="shipping_methods");
+// start of exercise 15.b --------------------------------------------------------------------
+		if(!isNull(doc)){
+			shipping_methods = doc.shipping_methods;
+		}
+		return shipping_methods;
+	}
+
+	/**
 	* Gets an incomplete order object and populates it with data
 	*/
 	public struct function getIncompleteOrder(struct data={}){
 		var cb = application.couchbase;
-		var cart_service = new root.final.com.benton.CartService();
+		var cart_service = new com.example.CartService();
 		var order = {};
 		var cart = cart_service.getCart();
-		if(structIsEmpty(cart.document.getLine_Items())){
+		var shipping_methods = getShippingMethods();
+		if(structIsEmpty(cart.getLine_Items())){
 			cflocation(url="cart.cfm", addtoken="false");
 			abort;
 		}
-		order['document'] = new root.final.com.benton.documents.Order();
+		order = new com.example.documents.Order();
 		// populate any data
-		order.document.inflate(data=arguments.data);
+		order.inflate(data=arguments.data, allowed="billing_name,billing_email,billing_address_1,billing_address_2,billing_city,billing_state,billing_postal_code,billing_country,billing_phone,shipping_name,shipping_email,shipping_address_1,shipping_address_2,shipping_city,shipping_state,shipping_postal_code,shipping_country,shipping_phone,shipping_code");
 		// set the line items
-		order.document.setLine_Items(cart.document.getLine_Items());
+		order.setLine_Items(cart.getLine_Items());
 		// set the sub total
-		order.document.setSub_Total(cart.document.getSub_Total());
-		// set the shipping total
-
+		order.setSub_Total(cart.getSub_Total());
+		// set the shipping method and total
+		if(structKeyExists(shipping_methods, order.getShipping_Code())){
+			order.setShipping_Method(shipping_methods[order.getShipping_Code()].name);
+			order.setShipping_Total(shipping_methods[order.getShipping_Code()].cost);
+		}
+		else{
+			order.setShipping_Method(shipping_methods.usps.name);
+			order.setShipping_Total(shipping_methods.usps.cost);
+		}
 		// set the tax
-		order.document.setTax(
-			(order.document.getSub_Total() + order.document.getShipping_Total()) * 0.0725
+		order.setTax(
+			(order.getSub_Total() + order.getShipping_Total()) * 0.0725
 		);
 		// set the grand total
-		order.document.setGrand_Total(
-			order.document.getSub_Total() +
-			order.document.getShipping_Total() +
-			order.document.getTax()
+		order.setGrand_Total(
+			order.getSub_Total() +
+			order.getShipping_Total() +
+			order.getTax()
 		);
 		return order;
 	}
@@ -45,50 +85,11 @@ component{
 	*/
 	public struct function saveOrder(struct data={}){
 		var order = getIncompleteOrder(arguments.data);
-		var cart_service = new root.final.com.benton.CartService();
+		var cart_service = new com.example.CartService();
 		// save the order
-		order.document.save();
+		order.save();
 		// clear the cart
 		cart_service.clearCart();
 		return order;
-	}
-
-	/**
-	* Gets the states
-	*/
-	public array function getStates(){
-		var cb = application.couchbase;
-		var data = [];
-		var states = {};
-		try{
-			states = cb.get(id="states");
-			if(!isNull(states)){
-				data = states.states;
-			}
-
-		}
-		catch(any e){
-			data = [];
-		}
-		return data;
-	}
-
-	/**
-	* Gets the shipping options
-	*/
-	public struct function getShippingMethods(){
-		var cb = application.couchbase;
-		var data = {};
-		var shipping_methods = {};
-		try{
-			shipping_methods = cb.get(id="shipping_methods");
-			if(!isNull(shipping_methods)){
-				data = shipping_methods.shipping_methods;
-			}
-		}
-		catch(any e){
-			data = {};
-		}
-		return data;
 	}
 }

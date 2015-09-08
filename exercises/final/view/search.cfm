@@ -3,9 +3,9 @@
 <cfparam name="url.limit" type="numeric" default="24"/>
 <cfparam name="url.offset" type="numeric" default="0"/>
 <!--- get a handle to the product service --->
-<cfset variables['product_service'] = new com.example.ProductService()/>
+<cfset variables['search_service'] = new com.example.SearchService()/>
 <!--- get the products from the keyword search --->
-<cfset variables['products'] = variables.product_service.getProductsBySearch(keyword=urlDecode(url.keyword), limit=url.limit, offset=url.offset)/>
+<cfset variables['products'] = variables.search_service.getProductsBySearch(keyword=urlDecode(url.keyword), limit=url.limit, offset=url.offset)/>
 <!--- get a handle to the utils --->
 <cfset variables['utils'] = new com.example.Utils()/>
 <!--- get the pagination based on the results --->
@@ -27,17 +27,17 @@
 <cfif variables.pagination.total_pages>
 	<ul class="pagination">
 		<cfif variables.pagination.has_previous>
-			<li><a href="?brand=#urlEncodedFormat(url.keyword)#&offset=#variables.pagination.previous_offset#">«</a></li>
+			<li><a href="?keyword=#urlEncodedFormat(url.keyword)#&offset=#variables.pagination.previous_offset#">«</a></li>
 		</cfif>
 		<cfloop array="#variables.pagination.pages#" index="variables.page">
 			<cfif variables.page.offset eq variables.pagination.current_offset>
 				<li class="active"><a>#variables.page.number#</a></li>
 			<cfelse>
-				<li><a href="?brand=#urlEncodedFormat(url.keyword)#&offset=#variables.page.offset#">#variables.page.number#</a></li>
+				<li><a href="?keyword=#urlEncodedFormat(url.keyword)#&offset=#variables.page.offset#">#variables.page.number#</a></li>
 			</cfif>
 		</cfloop>
 		<cfif variables.pagination.has_next>
-			<li><a href="?brand=#urlEncodedFormat(url.keyword)#&offset=#variables.pagination.next_offset#">»</a></li>
+			<li><a href="?keyword=#urlEncodedFormat(url.keyword)#&offset=#variables.pagination.next_offset#">»</a></li>
 		</cfif>
 	</ul>
 </cfif>

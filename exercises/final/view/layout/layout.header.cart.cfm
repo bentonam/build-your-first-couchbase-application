@@ -5,10 +5,10 @@
 <!--- get the cart --->
 <cfset variables['cart'] = variables.cart_service.getCart()/>
 <!--- get the line items in the cart --->
-<cfset variables['line_items'] = variables.cart.document.getLine_Items()/>
+<cfset variables['line_items'] = variables.cart.getLine_Items()/>
 <cfoutput>
 <a href="##" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-	<span class="glyphicon glyphicon-shopping-cart"></span> #variables.cart.document.getLineItemTotal()# items<span class="caret"></span>
+	<span class="glyphicon glyphicon-shopping-cart"></span> #variables.cart.getLineItemTotal()# items<span class="caret"></span>
 </a>
 <ul class="dropdown-menu dropdown-cart" role="menu">
 	<cfloop collection="#variables.line_items#" item="variables.product_id">
@@ -29,7 +29,7 @@
 	</cfloop>
 	<li class="divider"></li>
 	<li class="text-right sub-total">
-		<b>Sub Total:</b> #dollarFormat(variables.cart.document.getSub_Total())#
+		<b>Sub Total:</b> #dollarFormat(variables.cart.getSub_Total())#
 	</li>
 	<li>
 		<div>

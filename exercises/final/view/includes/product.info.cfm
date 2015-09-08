@@ -3,7 +3,7 @@
 <p>#variables.product.document.getShort_Description()#</p>
 <!--- start of star ratings / reviews --->
 <div class="ratings clearfix">
-	<cfset variables['rating'] = variables.product.document.getReviewRating()/>
+	<cfset variables['rating'] = variables.product.document.getAverageReviewRating()/>
 	<div class="stars pull-left">
 		<span class="glyphicon glyphicon-star<cfif variables.rating lte 1>-empty</cfif>"></span>
 		<span class="glyphicon glyphicon-star<cfif variables.rating lte 2>-empty</cfif>"></span>

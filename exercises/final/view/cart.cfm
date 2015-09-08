@@ -1,10 +1,10 @@
+<!--- Note: The cart / add / update / remove is handled in view/includes/layout.header.cart.cfm --->
 <!--- get a handle to the cart service --->
 <cfset variables['cart_service'] = new com.example.CartService()/>
-<!--- the card / add / update / remove is handled in view/includes/layout.header.cart.cfm --->
 <!--- get the cart --->
 <cfset variables['cart'] = variables.cart_service.getCart()/>
 <!--- get the line items in the cart --->
-<cfset variables['line_items'] = variables.cart.document.getLine_Items()/>
+<cfset variables['line_items'] = variables.cart.getLine_Items()/>
 <cfoutput>
 <form action="cart.cfm" method="post">
 	<!--- start of breadcrumb --->
@@ -63,12 +63,12 @@
 			<!--- start of totals --->
 			<tfoot>
 				<tr class="visible-xs">
-					<td class="text-center"><strong>Total #dollarFormat(variables.cart.document.getSub_Total())#</strong></td>
+					<td class="text-center"><strong>Total #dollarFormat(variables.cart.getSub_Total())#</strong></td>
 				</tr>
 				<tr>
 					<td><a href="index.cfm" class="btn btn-warning"><i class="glyphicon glyphicon-menu-left"></i> Continue Shopping</a></td>
 					<td colspan="2" class="hidden-xs"></td>
-					<td class="hidden-xs text-center"><strong>#dollarFormat(variables.cart.document.getSub_Total())#</strong></td>
+					<td class="hidden-xs text-center"><strong>#dollarFormat(variables.cart.getSub_Total())#</strong></td>
 					<td><a href="checkout.cfm" class="btn btn-success btn-block">Checkout <i class="glyphicon glyphicon-menu-right"></i></a></td>
 				</tr>
 			</tfoot>
@@ -82,6 +82,6 @@
 		</p>
 	</cfif>
 	<!--- output the cart document id for debugging purposes --->
-	<p><b>Cart Document ID:</b> #variables.cart.document.getCart_ID()#</p>
+	<p><b>Cart Document ID:</b> #variables.cart.getCart_ID()#</p>
 </form>
 </cfoutput>

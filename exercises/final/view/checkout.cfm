@@ -7,7 +7,7 @@
 <!--- get the shipping methods --->
 <cfset variables['shipping_methods'] = variables.checkout_service.getShippingMethods()/>
 <cfoutput>
-<form action="cart.cfm" method="post">
+<form action="checkout.cfm" method="post">
 	<!--- start of breadcrumb --->
 	<ol class="breadcrumb">
 		<li><a href="index.cfm">Home</a></li>
@@ -40,11 +40,12 @@
 <script>
 $(document).ready(function(){
 	var $billing = $("#billing"),
-		$shipping = $("#shipping");
-	$billing
+		$shipping = $("#shipping"),
+		$same = $("#same_as_billing");
+	$same
 		// add basic copying of fields
-		.on("change", "input[name=same_as_billing]", function(event){
-			var $same = $(this);
+		.on("change", function(event){
+			console.log("changed")
 			if($same.prop("checked")){
 				$shipping.hide();
 				$billing
@@ -58,9 +59,10 @@ $(document).ready(function(){
 				$shipping.show();
 			}
 		})
+		.trigger("change");
 		// resubmit on shipping change to calculate totals
-		.on("change", "input[name=shipping_method]", function(event){
-			$(this).parents("form").submit();
-		});
+	$("#shipping_code").on("change", function(event){
+		$(this).parents("form").submit();
+	});
 });
 </script>

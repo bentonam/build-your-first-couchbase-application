@@ -2,14 +2,26 @@
 <cfparam name="url.category" type="string" default=""/>
 <cfparam name="url.limit" type="numeric" default="24"/>
 <cfparam name="url.offset" type="numeric" default="0"/>
-<!--- get a handle to the product service --->
-<cfset variables['product_service'] = new com.example.ProductService()/>
+<!--- get a handle to the category service --->
+<cfset variables['category_service'] = new com.example.CategoryService()/>
 <!--- get the products in the category --->
-<cfset variables['products'] = variables.product_service.getProductsByCategory(category=urlDecode(url.category), limit=url.limit, offset=url.offset)/>
+<cfset variables['products'] = variables.category_service.getProductsByCategory(
+	category=urlDecode(url.category),
+	limit=url.limit,
+	offset=url.offset
+)/>
+<!--- get the total products in the category --->
+<cfset variables['total_products'] = variables.category_service.getProductsTotalForCategory(
+	category=urlDecode(url.category)
+)/>
 <!--- get a handle to the utils --->
 <cfset variables['utils'] = new com.example.Utils()/>
 <!--- get the pagination based on the results --->
-<cfset variables['pagination'] = variables.utils.getPagination(limit=url.limit, offset=url.offset, total=variables.products.total)/>
+<cfset variables['pagination'] = variables.utils.getPagination(
+	limit=url.limit,
+	offset=url.offset,
+	total=variables.total_products)
+/>
 <cfoutput>
 <!--- start of product listing --->
 <div class="product-listing">
@@ -17,11 +29,12 @@
 	<ol class="breadcrumb">
 		<li><a href="index.cfm">Home</a></li>
 		<li class="active">Categories</li>
-		<li><a href="categories.cfm?category=#urlEncodedFormat(url.category)#">#encodeForHTML(url.category)#</a></li>
+		<li><a href="categories.cfm?category=#urlEncodedFormat(url.category)#">#encodeForHTML(url.category)#</a> (#numberFormat(variables.total_products)# Products)</li>
 	</ol>
 	<!--- end of breadcrumb --->
 	<div class="row">
-		<cfloop array="#variables.products.results#" index="variables.product">
+		<!--- loop over the category products query --->
+		<cfloop array="#variables.products#" index="variables.product">
 			<cfinclude template="includes/template.product.cfm"/>
 		</cfloop>
 	</div>

@@ -22,7 +22,7 @@
 
 ---
 
-### Exercise 2.b - Retreive the Site Config Document
+### Exercise 2.b - Retrieve the Site Config Document
 
 Open `exercise2/com/example/SiteService.cfc` in your IDE
 
@@ -35,7 +35,7 @@ For your reference the data from the `getSiteConfig` method is used in the follo
 
 ---
 
-### Exercise 2.c - Retreive the Categories Config Document
+### Exercise 2.c - Retrieve the Categories Config Document
 
 Open `exercise2/com/example/CategoryService.cfc` in your IDE
 
@@ -65,7 +65,7 @@ For your reference the data from the `getCategories` method is used in the follo
 
 ---
 
-### Exercise 2.d - Retreive the Brands Config Document
+### Exercise 2.d - Retrieve the Brands Config Document
 
 Open `exercise2/com/example/BrandService.cfc` in your IDE
 
@@ -95,7 +95,7 @@ For your reference the data from the `getBrands` method is used in the following
 
 ---
 
-### Exercise 2.e - Retreive the Banners Config Document
+### Exercise 2.e - Retrieve the Banners Config Document
 
 Open `exercise2/com/example/SiteService.cfc` in your IDE
 

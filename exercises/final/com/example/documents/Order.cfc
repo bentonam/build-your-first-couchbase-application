@@ -1,9 +1,9 @@
 component accessors=true {
 	// general order details
-	property name="order_id" type="string" fieldType="id";
+	property name="order_id" type="numeric" fieldType="id";
 	property name="doc_type" type="string" default="order";
 	property name="order_date" type="numeric" default="0";
-	property name="order_status" type="string" default="";
+	property name="order_status" type="string" default="Pending";
 	// billing fields
 	property name="billing_name" type="string" default="";
 	property name="billing_email" type="string" default="";
@@ -79,13 +79,20 @@ component accessors=true {
 	*/
 	public void function save(){
 		var cb = application.couchbase;
-		var utils = new root.final.com.benton.Utils();
-		// set the order id
-		setOrder_ID(cb.incr("orders_counter", 1, 1));
+		var utils = new com.example.Utils();
+		var order_id = 0;
 		// set the order date
 		setOrder_Date(utils.toEpoch(now()));
+// start of exercise 15.c --------------------------------------------------------------------
+		// get the next order id
+		order_id = cb.incr("orders_counter", 1, 1);
+// end of exercise 15.c ----------------------------------------------------------------------
+		// set the order id
+		setOrder_ID(order_id);
+// start of exercise 15.d --------------------------------------------------------------------
 		// write the order document
 		cb.set(id="order_" & getOrder_ID(), value=this);
+// end of exercise 15.c ----------------------------------------------------------------------
 		return;
 	}
 }

@@ -7,7 +7,8 @@
 <!--- get the product details by the url slug --->
 <cfset variables['product'] = variables.product_service.getProductBySlug(slug=url.slug)/>
 <cfoutput>
-<cfif variables.product.found>
+<!--- output the product details if the product has a document --->
+<cfif structKeyExists(variables.product, "document")>
 	<div class="product-detail">
 		<!--- start of breadcrumb --->
 		<ol class="breadcrumb">
@@ -36,8 +37,8 @@
 				<cfset variables['reviews'] = variables.product.document.getReviews(limit=url.limit, offset=url.offset)/>
 				<!--- get the pagination based on the results --->
 				<cfset variables['utils'] = new com.example.Utils()/>
-				<cfset variables['pagination'] = variables.utils.getPagination(limit=url.limit, offset=url.offset, total=variables.reviews.total)/>
-			<cfinclude template="includes/product.tabs.reviews.cfm"/>
+				<cfset variables['pagination'] = variables.utils.getPagination(limit=url.limit, offset=url.offset, total=variables.product.document.getReviewTotal())/>
+				<cfinclude template="includes/product.tabs.reviews.cfm"/>
 			</div>
 		</div>
 		<!--- end of tabs --->

@@ -1,7 +1,11 @@
-<cfset variables['categories'] = new com.example.site.Categories()/>
-<cfset variables['site_categories'] = categories.getSiteCategories()/>
-<cfset variables['brands'] = new com.example.site.Brands()/>
-<cfset variables['site_brands'] = brands.getSiteBrands()/>
+<!--- get a handle to the category service --->
+<cfset variables['category_service'] = new com.example.CategoryService()/>
+<!--- get the categories --->
+<cfset variables['site_categories'] = variables.category_service.getCategories()/>
+<!--- get a handle to the brand service --->
+<cfset variables['brand_service'] = new com.example.BrandService()/>
+<!--- get the site brands --->
+<cfset variables['site_brands'] = variables.brand_service.getBrands()/>
 <cfoutput>
 <header>
 <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
@@ -23,18 +27,16 @@
 				<li class="dropdown">
 					<a href="##" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span>
 					<ul class="dropdown-menu">
-						<cfloop from="1" to="#variables.site_categories.count#" index="variables.i">
-							<li><a href="categories.cfm?category=#urlEncodedFormat(variables.site_categories.results[variables.i].key)#">#variables.site_categories.results[variables.i].key#</a></li>
+						<cfloop array="#variables.site_categories#" index="variables.category">
+							<li><a href="categories.cfm?category=#urlEncodedFormat(variables.category.key)#">#variables.category.key#</a></li>
 						</cfloop>
 					</ul>
 				</li>
 				<li>
 					<a href="##" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Brands <span class="caret"></span>
 					<ul class="dropdown-menu">
-						<cfloop from="1" to="#variables.site_brands.count#" index="variables.i">
-							<li>
-								<a href="brands.cfm?brand=#urlEncodedFormat(variables.site_brands.results[variables.i].key)#">#variables.site_brands.results[variables.i].key#</a>
-							</li>
+						<cfloop array="#variables.site_brands#" index="variables.brand">
+							<li><a href="brands.cfm?brand=#urlEncodedFormat(variables.brand.key)#">#variables.brand.key#</a></li>
 						</cfloop>
 					</ul>
 				</li>

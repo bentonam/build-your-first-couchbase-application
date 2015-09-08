@@ -2,10 +2,6 @@
 <cfparam name="form.order_id" type="numeric" default="0"/>
 <cfparam name="form.email_address" type="string" default=""/>
 <cfparam name="form.postal_code" type="string" default="0"/>
-<!--- get a handle to the order tracking server service --->
-<cfset variables['tracking_service'] = new com.example.OrderTrackingService()/>
-<!--- look up the order --->
-<cfset variables['order'] = variables.tracking_service.getOrder(order_id=form.order_id, email_address=form.email_address, postal_code=form.postal_code)/>
 <cfoutput>
 <!--- start of breadcrumb --->
 <ol class="breadcrumb">
@@ -28,19 +24,23 @@
 				</div>
 				<div class="form-group">
 					<label for="exampleInputFile">Postal Code</label>
-					<input type="number" step="1" min="11111" max="99999" class="form-control" id="postal_code" name="postal_code" required value="#form.postal_code ? form.postal_code : ''#" placeholder="john.smith@email.com">
+					<input type="number" step="1" min="11111" max="99999" class="form-control" id="postal_code" name="postal_code" required value="#form.postal_code ? form.postal_code : ''#" placeholder="22222">
 				</div>
 				<button type="submit" class="btn btn-primary pull-right">Lookup Order</button>
 			</fieldset>
 		</form>
 	</div>
 </div>
-<!--- show details if a lookup was performed --->
-<cfif variables.order.searched>
+<cfif len(form.order_id)>
 	<hr />
-	<cfif variables.order.found>
+	<!--- get a handle to the order tracking server service --->
+	<cfset variables['tracking_service'] = new com.example.OrderTrackingService()/>
+	<!--- look up the order --->
+	<cfset variables['order'] = variables.tracking_service.getOrder(order_id=form.order_id, email_address=form.email_address, postal_code=form.postal_code)/>
+	<!--- show details if a lookup was performed --->
+	<cfif len(variables.order.getBilling_Email())>
 		<!--- get the line items in the cart --->
-		<cfset variables['line_items'] = variables.order.document.getLine_Items()/>
+		<cfset variables['line_items'] = variables.order.getLine_Items()/>
 		<!--- start of billing --->
 		<cfinclude template="includes/invoice.details.cfm"/>
 		<!--- end of billing --->

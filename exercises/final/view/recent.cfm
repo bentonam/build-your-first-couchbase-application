@@ -3,23 +3,33 @@
 <cfparam name="url.offset" type="numeric" default="0"/>
 <!--- get a handle to the product service --->
 <cfset variables['product_service'] = new com.example.ProductService()/>
-<!--- get the products sorted by newest to oldest --->
-<cfset variables['products'] = variables.product_service.getRecentProducts(limit=url.limit, offset=url.offset)/>
+<!--- get all of the products that recent --->
+<cfset variables['recent_products'] = variables.product_service.getRecentProducts(
+	limit=url.limit,
+	offset=url.offset
+)/>
+<!--- get the total number of recent products --->
+<cfset variables['total_products'] = variables.product_service.getRecentProductsTotal()/>
 <!--- get a handle to the utils --->
 <cfset variables['utils'] = new com.example.Utils()/>
 <!--- get the pagination based on the results --->
-<cfset variables['pagination'] = variables.utils.getPagination(limit=url.limit, offset=url.offset, total=variables.products.total)/>
+<cfset variables['pagination'] = variables.utils.getPagination(
+	limit=url.limit,
+	offset=url.offset,
+	total=variables.total_products
+)/>
 <cfoutput>
 <!--- start of product listing --->
 <div class="product-listing">
 	<!--- start of breadcrumb --->
 	<ol class="breadcrumb">
 		<li><a href="index.cfm">Home</a></li>
-		<li class="active"><a href="recent.cfm">New Products</a></li>
+		<li class="active"><a href="recent.cfm">New Products</a> (#numberFormat(variables.total_products)# Products)</li>
 	</ol>
 	<!--- end of breadcrumb --->
 	<div class="row">
-		<cfloop array="#variables.products.results#" index="variables.product">
+		<!--- loop over the array of products --->
+		<cfloop array="#variables.recent_products#" item="variables.product">
 			<cfinclude template="includes/template.product.cfm"/>
 		</cfloop>
 	</div>

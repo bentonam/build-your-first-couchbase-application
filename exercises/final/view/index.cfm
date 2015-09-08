@@ -1,5 +1,5 @@
-<cfinclude template="includes/home.carousel.cfm"/>
-<hr />
-<cfinclude template="includes/home.products.recent.cfm"/>
+<cfinclude template="includes/home.banners.cfm"/>
 <hr />
 <cfinclude template="includes/home.products.sale.cfm"/>
+<hr />
+<cfinclude template="includes/home.products.recent.cfm"/>

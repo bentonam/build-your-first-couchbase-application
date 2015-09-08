@@ -1,10 +1,14 @@
+<!--- get a handle to the cart service --->
+<cfset variables['site_service'] = new com.example.SiteService()/>
+<!--- get the config --->
+<cfset variables['site_config'] = variables.site_service.getSiteConfig()/>
 <cfoutput>
 <!doctype html>
 <html lang="en">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title></title>
+	<title>#variables.site_config.seo_title#</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
@@ -13,7 +17,7 @@
 	<script src="/assets/js/bootstrap.min.js"></script>
 	<!--[if lt IE 9]>
 	<script src="/assets/js/html5shiv.js"></script>
-	<script src="/assets/respond.min.js"></script>
+	<script src="/assets/js/respond.min.js"></script>
 	<![endif]-->
 </head>
 <body>
