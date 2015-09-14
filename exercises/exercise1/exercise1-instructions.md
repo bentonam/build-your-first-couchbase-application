@@ -4,13 +4,13 @@
 
 ### Exercise 1.a - Starting a Lucee Server
 
-**1\.** In your Terminal change directories to the `build-your-first-couchbase-application/exercises/`
+**1\.** In your Terminal change directories to the `/path-to/build-your-first-couchbase-application/exercises/`
 
 **2\.** Start a Lucee server by running the command `box server start`
 
 **3\.** This will launch your default web browser with the `exercises` directory as the root.  Click on [Exercise 1 - Working with Couchbase Documents](#)
 
-**\4.** Browse around the site and look at all of the different sections that you will be creating
+**4\.** Browse around the site and take look at all of the different sections that you will be creating
 
 ---
 
@@ -47,7 +47,7 @@ if(structKeyExists(arguments.appScope, "couchbase")){
 
 Now that you have made a connection to `default` bucket on your Couchbase Server.  
 
-**1\.** Lets create and retrieve some documents.  Navigate to [/exercises/exercise1/console.cfm](/exercises/exercise1/console.cfm) in your browser.  
+**1\.** Lets create and retrieve some documents.  Navigate to [/exercise1/console.cfm](/exercise1/console.cfm) in your browser.  
 
 **2\.** Create a document with an id of `test`, create a JSON structure that contains the following values: 
 
@@ -67,7 +67,7 @@ Now that you have made a connection to `default` bucket on your Couchbase Server
 
 **5\.** Click the "Documents" button next to the **default** bucket
 
-**6\.** Lookup your test document.
+**6\.** Lookup your `test` document.
 
 Note: Document ID's should be all lowercase, with only letters, numbers, underscoes, dashes and colons with a maximum length of 256 characters.  The document content must be valid JSON.
 
@@ -77,7 +77,7 @@ Note: Document ID's should be all lowercase, with only letters, numbers, undersc
 
 Before building the rest of our site we need to populate our default bucket with some data.  
 
-In your Terminal change directories to the Couchbase server directory
+**1\.** In your Terminal change directories to the Couchbase server directory
 
 **Mac OS X**
 
@@ -91,7 +91,7 @@ cd /Applications/Couchbase Server.app/Contents/Resources/couchbase-core/bin
 C:\Program Files\Couchbase\Server\bin
 ```
 
-Import / Restore the database.  Replace `[FULL_PATH_TO_FILES]` with the directory that you copied the files into.
+**2\.** Import / Restore the database.  Replace `[FULL_PATH_TO_FILES]` with the directory that you copied the files into.
 
 **Mac OS X**
 
@@ -105,4 +105,4 @@ Import / Restore the database.  Replace `[FULL_PATH_TO_FILES]` with the director
 cbrestore C:\[FULL_PATH_TO_FILES]\build-your-first-couchbase-application\data\backup\ http://127.0.0.1:8091 --bucket-source default
 ```
 
-Verify that the data was imported by going to the Couchbase Server Admin Console [http://127.0.0.1:8091/](http://127.0.0.1:8091/) and browse to [Data Buckets](http://127.0.0.1:8091/index.html#sec=buckets).  You should see 149,270 documents in the default bucket.
+**3\.** Verify that the data was imported by going to the Couchbase Server Admin Console [http://127.0.0.1:8091/](http://127.0.0.1:8091/) and browse to [Data Buckets](http://127.0.0.1:8091/index.html#sec=buckets).  You should see ~149K documents in the default bucket.

@@ -35,7 +35,11 @@ For your reference the data from the `getShippingMethods` method is used in the 
 
 **1\.** Open `exercise15/com/example/documents/Order.cfc` in your IDE
 
-**2\.** Modify the `save` method to retrieve get the next available `order_id`. This will call the CFCouchbase `incr()` method with an id of `orders_counter`, an increment value of 1 and a default value of 1.
+**2\.** Modify the `save` method to retrieve get the next available `order_id`. This will call the CFCouchbase `incr()` method with the following arguments:
+
+- id = "orders_counter"
+- value = 1
+- defaultValue = 1
 
 **3\.** The result of this call should be assigned to a variable named `order_id`
 
@@ -45,7 +49,12 @@ For your reference the data from the `getShippingMethods` method is used in the 
 
 **1\.** Open `exercise15/com/example/documents/Order.cfc` in your IDE
 
-**2\.** Modify the `save` method to write the order. This will call the CFCouchbase `set()` method with an id of the `"order_id" & getOrder_ID()`, the value will be the keyword `this`
+**2\.** Modify the `save` method to write the order. This will call the CFCouchbase `set()` method with the following arguments:
+
+- id = "order_id" & getOrder_ID()
+- value = this
+
+**3\.** Open the homepage ([/exercise15/index.cfm](/exercise15/index.cfm)) and browse the website adding different products to your cart.  Then place an order.
 
 For your reference the data from the `save` method is used in the following views:
 

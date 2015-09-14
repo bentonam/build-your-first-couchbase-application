@@ -4,13 +4,18 @@
 
 ### Exercise 2.a - Create a Site Config Document
 
-1. Open the Couchbase Admin Console by going to [http://127.0.0.1:8091/](http://127.0.0.1:8091/) in a web browser
-2. Choose [Data Buckets](http://127.0.0.1:8091/index.html#sec=buckets)
-3. Choose [Documents](http://127.0.0.1:8091/index.html#sec=documents&viewsBucket=default&documentsPageNumber=0&documentsFilter=inclusive_end%3Dfalse) next to the **default** bucket
-4. Choose "Create Document"
-5. Use `site_config` for the Document ID
-6. Click "Create"
-7. Create the following JSON structure, and click "Save"
+**1\.** Open the Couchbase Admin Console by going to [http://127.0.0.1:8091/](http://127.0.0.1:8091/) in a web browser
+
+**2\.** Choose [Data Buckets](http://127.0.0.1:8091/index.html#sec=buckets)
+
+**3\.** Choose [Documents](http://127.0.0.1:8091/index.html#sec=documents&viewsBucket=default&documentsPageNumber=0&documentsFilter=inclusive_end%3Dfalse) next to the **default** bucket
+**4\.** Choose "Create Document"
+
+**5\.** Use `site_config` for the Document ID
+
+**6\.** Click "Create"
+
+**7\.** Create the following JSON structure, and click "Save"
 
 ```
 {
@@ -24,9 +29,9 @@
 
 ### Exercise 2.b - Retrieve the Site Config Document
 
-Open `exercise2/com/example/SiteService.cfc` in your IDE
+**1\.** Open `exercise2/com/example/SiteService.cfc` in your IDE
 
-Modify the `getSiteConfig` method to retrieve the `site_config` document created in 2.a by calling the CFCouchbase `get()` method and return the resulting structure.
+**2\.** Modify the `getSiteConfig` method to retrieve the `site_config` document created in 2.a by calling the CFCouchbase `get()` method passing the argument of `"site_config"` and return the resulting structure.
 
 For your reference the data from the `getSiteConfig` method is used in the following views:
 
@@ -37,9 +42,9 @@ For your reference the data from the `getSiteConfig` method is used in the follo
 
 ### Exercise 2.c - Retrieve the Categories Config Document
 
-Open `exercise2/com/example/CategoryService.cfc` in your IDE
+**1\.** Open `exercise2/com/example/CategoryService.cfc` in your IDE
 
-Modify the `getCategories` method to retrieve the `categories` document and return just the array `categories` property of the document.  The document is structured as follows:
+**2\.** Modify the `getCategories` method to retrieve the `categories` document by calling the CFCouchbase `get()` method passing the argument of `"categories"` and return the resulting structures categories array property.  The document is structured as follows:
 
 ```
 {
@@ -67,9 +72,9 @@ For your reference the data from the `getCategories` method is used in the follo
 
 ### Exercise 2.d - Retrieve the Brands Config Document
 
-Open `exercise2/com/example/BrandService.cfc` in your IDE
+**1\.** Open `exercise2/com/example/BrandService.cfc` in your IDE
 
-Modify the `getBrands` method to retrieve the `brands` document and return just the array `brands` property of the document.  The document is structured as follows:
+**2\.** Modify the `getBrands` method to retrieve the `brands` document by calling the CFCouchbase `get()` method passing the argument of `"brands"` and return the resulting structures brands array property.  The document is structured as follows:
 
 ```
 {
@@ -97,9 +102,9 @@ For your reference the data from the `getBrands` method is used in the following
 
 ### Exercise 2.e - Retrieve the Banners Config Document
 
-Open `exercise2/com/example/SiteService.cfc` in your IDE
+**1\.** Open `exercise2/com/example/SiteService.cfc` in your IDE
 
-Modify the `getHomepageBanners` method to retrieve the `banners` document and return just the array `banners` property of the document.  The document is structured as follows:
+**2\.**Modify the `getHomepageBanners` method to retrieve the `banners` document by calling the CFCouchbase `get()` method passing the argument of `"banners"` and return the resulting structures banners array property.  The document is structured as follows:
 
 ```
 {

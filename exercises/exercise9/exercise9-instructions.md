@@ -16,23 +16,23 @@ We need to be able to display the total number of reviews for a product on the l
 
 **5\.** For the **View Name** use `reviews`
 
-**6\.** Click "Save"
+**6\.** Click the "Save" button
 
 **7\.** Use the following JavaScript as the **Map** function for the view.  This will create a view whose value is a compound key / array of date parts.  The value in the index is *null*.  This will only emit documents to the index that match the following.
 
-1. Has a `doc_type` property with a value of "review"
-2. Has a `product_id` property
-3. Has a `review_date` property
+a. Has a `doc_type` property with a value of "review"
+b. Has a `product_id` property
+c. Has a `review_date` property
 	
 ```
-function (doc, meta) {
+function ( doc, meta ) {
   if(
     doc.doc_type && 
     doc.doc_type === "review" && 
     doc.product_id && 
     doc.review_date
   ){
-    emit([doc.product_id, dateToArray(doc.review_date)], doc.rating);
+    emit( [ doc.product_id, dateToArray( doc.review_date ) ], doc.rating );
   }
 }
 ```
@@ -49,20 +49,14 @@ function (doc, meta) {
 
 **1\.** Open `exercise9/com/example/documents/Product.cfc` in your IDE
 
-**2\.** Modify the `getReviewTotal` method to query Couchbase View. This will call the CFCouchbase `query()` method with the following arguments:
+**2\.** Modify the `getReviewTotal` method to query Couchbase View that you created in Exercise 9.a, this will call the CFCouchbase `query()` method with the follow arguments and options:
 
-```
-query = cb.query(
-	designDocumentName = "products",
-	viewName = "reviews",
-	options = {
-		reduce = true,
-		startKey = [getProduct_ID(), utils.getDateParts("1/1/1970")],
-		endKey = [getProduct_ID() & chr(64975), utils.getDateParts("1/1/1970")]
-	}
-);
-```
-
+- designDocumentName = "products"
+- viewName = "reviews"
+- options:
+	- startKey = [getProduct_ID(), utils.getDateParts("1/1/1970")],
+	- endKey = [getProduct_ID() & chr(64975), utils.getDateParts("1/1/1970")]
+	
 For your reference the data from the `getReviewTotal` method is used in the following views:
 
 - exercise9/view/includes/product.info.cfm
@@ -77,24 +71,21 @@ We need to display at most 2 reviews on the Product Detail page and then provide
 
 **1\.** Open `exercise9/com/example/documents/Product.cfc` in your IDE
 
-**2\.** Modify the `getReviews` method to query Couchbase View. This will call the CFCouchbase `query()` method with the following arguments:
+**2\.** Modify the `getReviews` method to query Couchbase View that you created in Exercise 9.a, this will call the CFCouchbase `query()` method with the follow arguments and options:
 
-```
-query = cb.query(
-	designDocumentName = "products",
-	viewName = "reviews",
-	inflateTo="com.example.documents.Review",
-	options = {
-		reduce = false,
-		sortOrder = "DESC",
-		startKey = [getProduct_ID(), utils.getDateParts(now())],
-		endKey = [getProduct_ID(), utils.getDateParts("1/1/1970")],
-		limit = arguments.limit,
-		offset = arguments.offset,
-		includeDocs = true
-	}
-);
-```
+- designDocumentName = "products"
+- viewName = "reviews"
+- inflateTo = "com.example.documents.Review"
+- options:
+	- reduce = false
+	- sortOrder = "DESC"
+	- startKey = [getProduct_ID(), utils.getDateParts(now())]
+	- endKey = [getProduct_ID(), utils.getDateParts("1/1/1970")]
+	- limit = arguments.limit
+	- offset = arguments.offset
+	- includeDocs = true
+	
+**3\.** Open the homepage ([/exercise9/index.cfm](/exercise9/index.cfm)) and click on any product to visit the Product Detail page, the click on the Reviews Tab and verify that data is being displayed. 
 
 For your reference the data from the `getReviews` method is used in the following views:
 

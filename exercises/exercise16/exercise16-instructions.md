@@ -20,7 +20,7 @@ Create a view that will allow for orders to be retrieved by a combination of the
 
 **5\.** For the **View Name** use `lookup`
 
-**6\.** Click "Save"
+**6\.** Click the "Save" button
 
 **7\.** Write a map function that will meet the requirements listed above.  You will need to use a compound key and the value should be null.
 
