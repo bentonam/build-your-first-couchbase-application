@@ -14,38 +14,39 @@ We need to be able to display the average number of reviews for a product on the
 
 **4\.** Click the "Development Views" tab, since we already have a Design Document, click the "Add View" button next to `design/dev_products`
 
-**5\.** For the **View Name** use `reviews`
+**5\.** For the **View Name** use `reviews_avg_rating`
 
 **6\.** Click "Save"
 
 **7\.** Use the following JavaScript as the **Map** function for the view.  This will create a view whose value is a compound key / array of date parts.  The value in the index is *null*.  This will only emit documents to the index that match the following.
 
-1. Has a `doc_type` property with a value of "review"
-2. Has a `product_id` property
+a. Has a `doc_type` property with a value of "review"
+b. Has a `product_id` property
 	
 ```
-function (doc, meta) {
+function ( doc, meta ) {
   if(
     doc.doc_type && 
     doc.doc_type === "review" && 
     doc.product_id
   ){
-    emit(doc.product_id, doc.rating);
+    emit( doc.product_id, doc.rating );
   }
 }
 ```
+
 Notice that we are outputting the review rating as the value to the view
 
-**8\.** For the **Reduce** function enter the following JavaScript:
+**8\.** For the **Reduce** function use the following JavaScript:
 
 ```
-function(keys, values, rereduce){
+function( keys, values, rereduce ){
   var sum = values.reduce(
-    function(a, b) { 
+    function( a, b ) { 
       return a + b; 
     }
   );
-  return Math.round((sum / values.length) * 10) / 10;
+  return Math.round( ( sum / values.length ) * 10 ) / 10;
 }
 ```
 
@@ -59,21 +60,17 @@ function(keys, values, rereduce){
 
 ### Exercise 10.b - Querying Average Reviews View
 
-
 **1\.** Open `exercise10/com/example/documents/Product.cfc` in your IDE
 
-**2\.** Modify the `getAverageReviewRating` method to query Couchbase View. This will call the CFCouchbase `query()` method with the following arguments:
+**2\.** Modify the `getAverageReviewRating` method to query Couchbase View that you created in Exercise 10.a, this will call the CFCouchbase `query()` method with the follow arguments and options:
 
-```
-query = cb.query(
-	designDocumentName = "products",
-	viewName = "reviews_avg_rating",
-	options = {
-		reduce = true,
-		key = getProduct_ID()
-	}
-);
-```
+- designDocumentName = "products"
+- viewName = "reviews_avg_rating"
+- options:
+	- reduce = true
+	- key = getProduct_ID()
+	
+**3\.** Open the homepage ([/exercise9/index.cfm](/exercise9/index.cfm)) and click on any product to visit the Product Detail page, and verify that the average review rating is being displayed. 
 
 For your reference the data from the `getAverageReviewRating` method is used in the following views:
 

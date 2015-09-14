@@ -16,17 +16,20 @@ We need to be able to retrieve products from the database with a friendly url st
 
 **5\.** For the **View Name** use `on_sale`
 
-**6\.** Click "Save"
+**6\.** Click the "Save" button
 
 **7\.** Use the following JavaScript as the **Map** function for the view.  This will create a view whose value is a compound key / array of date parts.  The value in the index is *null*.  This will only emit documents to the index that match the following.
 
-	1. Has a `doc_type` property with a value of "product"
-	2. Has a `slug` property
+a. Has a `doc_type` property with a value of "product"
+b. Has a `slug` property
 
 ```
-function (doc, meta) {
-  if(doc.doc_type && doc.doc_type === "product" && doc.slug){
-    emit(doc.slug, null);
+function ( doc, meta ) {
+  if( 
+    doc.doc_type && 
+    doc.doc_type === "product" && doc.slug
+  ) {
+    emit( doc.slug, null );
   }
 }
 ```
@@ -45,21 +48,18 @@ We can easily represent a JSON Document with a CFC.  This will centralize any lo
 
 **1\.** Open `exercise8/com/example/ProductService.cfc` in your IDE
 
-**2\.** Modify the `getProductBySlug` method to query Couchbase View. This will call the CFCouchbase `query()` method with the following arguments:
+**2\.** Modify the `getProductBySlug` method to query Couchbase View that you created in Exercise 8.a, this will call the CFCouchbase `query()` method with the follow arguments and options:
 
-```
-query = cb.query(
-	designDocumentName = "products",
-	viewName = "by_slug",
-	inflateTo="com.example.documents.Product",
-	options = {
-		reduce = false,
-		key = arguments.slug,
-		limit = 1,
-		includeDocs = true
-	}
-);
-```
+- designDocumentName = "products"
+- viewName = "by_slug"
+- inflateTo = "com.example.documents.Product"
+- options:
+	- reduce = false
+	- key = arguments.slug
+	- limit = 1
+	- includeDocs = true
+
+**3\.** Open the homepage ([/exercise8/index.cfm](/exercise8/index.cfm)) and click on any product to visit the Product Detail page and verify that data is being displayed. 
 
 For your reference the data from the `getProductBySlug` method is used in the following views:
 

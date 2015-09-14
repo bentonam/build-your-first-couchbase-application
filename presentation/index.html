@@ -117,7 +117,7 @@
 			<ul>
 				<li>5 - 10min / exercise</li>
 				<li>Exercises are Progressive</li>
-				<li>Instructions for each exercise are in the exercises folder</li>
+				<li>Instructions for each exercises folder</li>
 				<li>Ask Questions</li>
 			</ul>
 		</section>
@@ -171,6 +171,7 @@
 				<li>2.b - Retrieve the Site Config Document</li>
 				<li>2.c - Retrieve the Categories Config Document</li>
 				<li>2.d - Retrieve the Brands Config Document</li>
+				<li>2.e - Retrieve the Banners Config Document</li>
 			</ul>
 		</section>
 		<!-- end of slide -->
@@ -200,7 +201,7 @@
 			<ul>
 				<li>JS Function applied to <u>Every</u> Document</li>
 				<li>2 arguments: doc, meta</li>
-				<li>Key and Value</li>
+				<li>Key, Value and Document ID</li>
 				<li>Value can be <em>null</em></li>
 				<li>The emit() function</li>
 			</ul>
@@ -264,12 +265,13 @@
 			<h2>View Example</h2>
 			<div class="fragment">
 			<u>Map Function</u>
-    <pre><code>function (doc, meta) {
+    <pre><code>function ( doc, meta ) {
     if(
-        doc.doc_type
-        && doc.doc_type === "product" && doc.title
+        doc.doc_type &&
+        doc.doc_type === "product" &&
+        doc.title
     ){
-        emit(doc.title.toLowerCase(), null);
+        emit( doc.title.toLowerCase(), null );
     }
 }</code></pre>
 			</div>
@@ -298,6 +300,12 @@
 				<li>reduce</li>
 				<li>stale</li>
 			</ul>
+		</section>
+		<!-- end of slide -->
+		<!-- start of slide -->
+		<section class="link">
+			<h2>View Flow</h2>
+			<img src="assets/img/views-query-flow.png" style="max-width: 400px;"/>
 		</section>
 		<!-- end of slide -->
 		<!-- start of slide -->
@@ -383,12 +391,13 @@
 		<!-- start of slide -->
 		<section class="link">
 			<h2 class="no-transform">dateToArray()</h2>
-    <pre><code>function (doc, meta) {
+    <pre><code>function ( doc, meta ) {
     if(
-        doc.doc_type
-        && doc.doc_type === "order" && doc.order_date
+        doc.doc_type &&
+        doc.doc_type === "order" &&
+        doc.order_date
     ){
-        emit(dateToArray(doc.order_date), null);
+        emit( dateToArray( doc.order_date ), null);
     }
 }</code></pre>
 		</section>

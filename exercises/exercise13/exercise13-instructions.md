@@ -4,13 +4,29 @@
 
 ### Exercise 13.a - Install and Setup Elasticsearch
 
-**1\.** If you have homebrew, run: 
+**1\.** Install elastic search
+
+**Mac**
+
+If you have homebrew, run: 
 
 `brew install elasticsearch`
 
+**Windows**
+
+a. Unzip the elasticsearch-1.7.1.zip file
+b. Copy the contents to wherever you want on your system
+
 **2\.** Start the Elasticsearch Server
 
+**Mac**
+
 `elasticsearch --config=/usr/local/opt/elasticsearch/config/elasticsearch.yml`
+
+**Windows**
+
+a. Change into the bin directory `cd elasticsearch-1.7.1/bin` 
+b. Run the `elasticsearch.bat`
 
 **3\.** After it has finished starting up, stop the Elasticsearch Server by pressing `Ctrl + C`
 
@@ -31,13 +47,27 @@ http://packages.couchbase.com.s3.amazonaws.com/releases/elastic-search-adapter/2
 echo "couchbase.password: password" >> config/elasticsearch.yml ; echo "couchbase.username: Administrator" >> config/elasticsearch.yml
 ```
 
+If this fails you can manually add the entry by editing the `elasticsearch/config/elasticsearch.yml` file and add the following entries at the bottom of the file:
+
+```
+couchbase.password: password
+couchbase.username: Administrator
+```
+
 **7\.** Install the ElasticSearch Head Plugin to provide a web interface to ElasticSearch.
 
 `bin/plugin -install mobz/elasticsearch-head`
 
 **8\.** Start the Elasticsearch server
 
+**Mac**
+
 `bin/elasticsearch`
+
+**Windows**
+
+a. Change into the bin directory `cd elasticsearch-1.7.1/bin` 
+b. Run the `elasticsearch.bat`
 
 **9\.** Verify the install by opening up the web interface [http://localhost:9200/_plugin/head/](http://localhost:9200/_plugin/head/)
 
@@ -109,6 +139,8 @@ http.setMethod("GET");
 http.setTimeout(10);
 http_result = http.send().getPrefix();
 ```
+
+**3\.** Open the homepage ([/exercise13/index.cfm](/exercise13/index.cfm)) and search for products to verify the Elasticsearch integration. 
 
 For your reference the data from the `getProductsBySearch` method is used in the following views:
 

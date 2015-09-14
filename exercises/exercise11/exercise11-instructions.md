@@ -20,13 +20,13 @@ We need to be able to display the total number of reviews for a given rating of 
 
 **7\.** Use the following JavaScript as the **Map** function for the view.  This will create a view whose value is a compound key / array of date parts.  The value in the index is *null*.  This will only emit documents to the index that match the following.
 
-1. Has a `doc_type` property with a value of "review"
-2. Has a `product_id` property
-3. Has a `review_date` property
-4. Has a `rating` property
+a. Has a `doc_type` property with a value of "review"
+b. Has a `product_id` property
+c. Has a `review_date` property
+d. Has a `rating` property
 	
 ```
-function (doc, meta) {
+function ( doc, meta ) {
   if(
     doc.doc_type && 
     doc.doc_type === "review" && 
@@ -34,11 +34,10 @@ function (doc, meta) {
     doc.review_date &&
     doc.rating
   ){
-    emit([doc.product_id, doc.rating], null);
+    emit( [ doc.product_id, doc.rating ], null );
   }
 }
 ```
-Notice that we are outputting the review rating as the value to the view
 
 **8\.** For the **Reduce** function enter the value of `_count` and click the "Save" button
 
@@ -51,23 +50,20 @@ Notice that we are outputting the review rating as the value to the view
 ### Exercise 11.b - Querying Aggregate Reviews View
 
 
-**1\.** Open `exercise10/com/example/documents/Product.cfc` in your IDE
+**1\.** Open `exercise11/com/example/documents/Product.cfc` in your IDE
 
-**2\.** Modify the `getReviewAggregates` method to query Couchbase View. This will call the CFCouchbase `query()` method with the following arguments:
+**2\.** Modify the `getReviewAggregates` method to query Couchbase View that you created in Exercise 11.a, this will call the CFCouchbase `query()` method with the follow arguments and options:
 
-```
-query = cb.query(
-	designDocumentName = "products",
-	viewName = "review_aggregates",
-	options = {
-		sortOrder = "DESC",
-		reduce = true,
-		group = true,
-		startKey = [getProduct_ID(), 5],
-		endKey = [getProduct_ID(), 1]
-	}
-);
-```
+- designDocumentName = "products"
+- viewName = "review_aggregates"
+- options:
+	- sortOrder = "DESC"
+	- reduce = true
+	- group = true
+	- startKey = [getProduct_ID(), 5]
+	- endKey = [getProduct_ID(), 1]
+
+**3\.** Open the homepage ([/exercise11/index.cfm](/exercise11/index.cfm)) and click on any product to visit the Product Detail page, the click on the Reviews Tab and verify that data is being displayed. 
 
 For your reference the data from the `getReviewAggregates` method is used in the following views:
 

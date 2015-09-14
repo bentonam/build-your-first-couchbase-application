@@ -14,31 +14,31 @@
 
 **5\.** For the **View Name** use `on_sale`
 
-**6\.** Click "Save"
+**6\.** Click the "Save" button
 
 **7\.** Use the following JavaScript as the **Map** function for the view.  This will create a view whose value is a compound key / array of date parts.  The value in the index is *null*.  This will only emit documents to the index that match the following.
 
-	1. Have a `doc_type` property with a value of "product"
-	2. Have a `product_id` property
-	3. Have an `availability_date` property
-	4. Have an `availability` property with a value of "In-Stock"
+a. Has a `doc_type` property with a value of "product"
+b. Has a `product_id` property
+c. Has an `availability_date` property
+d. Has an `availability` property with a value of "In-Stock"
 
 ```
-function (doc, meta) {
+function ( doc, meta ) {
   if(
-    doc.doc_type && 
-    doc.doc_type === "product" && 
-   	doc.product_id && 
+    doc.doc_type &&
+    doc.doc_type === "product" &&
+   	doc.product_id &&
    	doc.availability_date &&
   	doc.availability &&
   	doc.availability == "In-Stock"
   ){
-    emit(dateToArray(doc.availability_date), null);
+    emit( dateToArray( doc.availability_date ), null );
   }
 }
 ```
 
-**8\.** For the **Reduce** function enter the value of `_count` and click the "Save" button.  You can click on the "Show Results" button to see partial data from index.  
+**8\.** For the **Reduce** function enter the value of `_count` and click the "Save" button.  You can click on the "Show Results" button to see partial data from index.
 
 **9\.** We now need to publish our Development View to Production.  To do this scroll up to the top of the page, and click on [Views](http://127.0.0.1:8091/index.html#sec=views&viewsBucket=default).
 
@@ -52,24 +52,18 @@ On the homepage we need to output products whose data indicates that they are ac
 
 **1\.** Open `exercise7/com/example/ProductService.cfc` in your IDE
 
-**2\.** Modify the `getRecentProducts` method to query Couchbase View. This will call the CFCouchbase `query()` method with the following arguments:
+**2\.** Modify the `getRecentProducts` method to query Couchbase View that you created in Exercise 7.a, this will call the CFCouchbase `query()` method with the follow arguments and options:
 
-```
-query = cb.query(
-	designDocumentName = "products",
-	viewName = "recent",
-	options = {
-		reduce = false,
-		startKey = variables.utils.getDateParts(now()),
-		limit = arguments.limit,
-		offset = arguments.offset,
-		includeDocs = true
-	}
-);
-```
+- designDocumentName = "products"
+- viewName = "recent"
+- options:
+	- reduce = true
+	- startKey = variables.utils.getDateParts(now())
+	- limit = arguments.limit
+	- offset = arguments.offset
+	- includeDocs = true
 
-
-**3\.** Open the homepage ([/exercise7/index.cfm](/exercise7/index.cfm)) and see if your Recent Products is displaying. 
+**3\.** Open the homepage ([/exercise7/index.cfm](/exercise7/index.cfm)) and see if your Recent Products is displaying results.
 
 For your reference the data from the `getSaleProducts` method is used in the following views:
 
@@ -80,18 +74,16 @@ For your reference the data from the `getSaleProducts` method is used in the fol
 
 ### Exercise 7.c - Browsing All Recent Products
 
-From our listing of Recent Products on the homepage, there is a "View More" button that will allow our users to browse through all of the Recent products from newest to oldest. This view will need to know the total number of Recent products to calculate the paging correctly. 
+From our listing of Recent Products on the homepage, there is a "View More" button that will allow our users to browse through all of the Recent products from newest to oldest. This view will need to know the total number of Recent products to calculate the paging correctly.
 
 **1\.** Open `exercise7/com/example/ProductService.cfc` in your IDE
 
-**2\.** Modify the `getRecentProductsTotal` method to query Couchbase View. This will call the CFCouchbase `query()` method with the following arguments:
+**2\.** Modify the `getRecentProductsTotal` method to query Couchbase View that you created in Exercise 7.a, this will call the CFCouchbase `query()` method with the follow arguments and options:
 
-```
-query = cb.query(
-	designDocumentName = "products",
-	viewName = "on_sale"
-);
-```
+- designDocumentName = "products"
+- viewName = "recent"
+
+Notice how we do not need to specify any options, this is because the View in Couchbase has a reduce function will which always run when the View is queried unless it is explicitly set to `false`
 
 **3\.** Open the homepage ([/exercise7/index.cfm](/exercise7/index.cfm)) and click on the "View More" button next to the On Sale Products Listing
 
@@ -105,7 +97,7 @@ For your reference the data from the `getRecentProducts` and `getRecentProductsT
 
 ### Exercise 7.d - Update the On Sale Products View in Couchbase
 
-In Exercise 6.a we created a view that would provide the currently On Sale products, and all we were emitting was the `doc.product_id` property.  We failed to take into account of the availability date of the product was in the future. 
+In Exercise 6.a we created a view that would provide the currently On Sale products, and all we were emitting was the `doc.product_id` property.  We failed to take into account of the availability date of the product was in the future.
 
 **1\.** Open up the Couchbase Admin Console by going to [http://127.0.0.1:8091/](http://127.0.0.1:8091/) in a web browser
 
@@ -117,7 +109,7 @@ In Exercise 6.a we created a view that would provide the currently On Sale produ
 
 **5\.** Instead of emitting the `doc.product_id` as the key to the view, emit the `doc.availability_date` property using the `dateToArray()` method that was used in Exercise 7.a
 
-**6\.** Click "Save", You can click on the "Show Results" button to see partial data from index.  
+**6\.** Click the "Save" button, you can click on the "Show Results" button to see partial data from index.
 
 **7\.** We now need to publish our Development View to Production.  To do this scroll up to the top of the page, and click on [Views](http://127.0.0.1:8091/index.html#sec=views&viewsBucket=default).
 
@@ -127,19 +119,19 @@ In Exercise 6.a we created a view that would provide the currently On Sale produ
 
 ### Exercise 7.e - Querying the On Sale View
 
-We need to make sure the On Sale products we are showing on the homepage and browse page is only showing current products.  
+We need to make sure the On Sale products we are showing on the homepage and browse page is only showing current products.
 
-Open `exercise7/com/example/ProductService.cfc` in your IDE
+**1\.** Open `exercise7/com/example/ProductService.cfc` in your IDE
 
-**1\.** Modify the `getSaleProducts` method to add an option of `startKey`, whose value is using the Utils convenience method of `getDateParts()` with a value of `1/1/1970` or some date in the past before our products become available
+**2\.** Modify the `getSaleProducts` method to add an option of `startKey`, whose value is using the Utils convenience method of `getDateParts()` with a value of `1/1/1970` or some date in the past before our products become available
 
-**2\.** Since we do not want to show any products in the future, we will also need to specify the `endKey` whose value is using the Utils convenience method of `getDateParts()` with a value of `now()` or some date in the past before our products become available
+**3\.** Since we do not want to show any products in the future, we will also need to specify the `endKey` whose value is using the Utils convenience method of `getDateParts()` with a value of `now()` or some date in the past before our products become available
 
-**3\.** Modify the `getSaleProductsTotal` method to add an option of `startKey`, , whose value is using the Utils convenience method of `getDateParts()` with a value of `1/1/1970` or some date in the past before our products become available
+**4\.** Modify the `getSaleProductsTotal` method to add an option of `startKey`, , whose value is using the Utils convenience method of `getDateParts()` with a value of `1/1/1970` or some date in the past before our products become available
 
-**4\.** Since we do not want to show any products in the future, we will also need to specify the `endKey` whose value is using the Utils convenience method of `getDateParts()` with a value of `now()` or some date in the past before our products become available
+**5\.** Since we do not want to show any products in the future, we will also need to specify the `endKey` whose value is using the Utils convenience method of `getDateParts()` with a value of `now()` or some date in the past before our products become available
 
-**5\.** Open the homepage ([/exercise7/index.cfm](/exercise7/index.cfm)) and see if your On Sale Products are displaying. 
+**6\.** Open the homepage ([/exercise7/index.cfm](/exercise7/index.cfm)) and see if your On Sale Products are displaying.
 
 For your reference the data from the `getSaleProducts` and `getSaleProductsTotal` methods are used in the following views:
 
