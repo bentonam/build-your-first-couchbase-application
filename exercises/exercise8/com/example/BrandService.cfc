@@ -2,7 +2,7 @@ component{
 	/*
 	* Init
 	*/
-	public BrandService function init(){
+	public com.example.BrandService function init(){
 		return this;
 	}
 

@@ -36,7 +36,7 @@ component accessors=true {
 	/*
 	* Init
 	*/
-	public Order function init(){
+	public com.example.documents.Order function init(){
 		// make sure line_items has a default value
 		if(isNull(getLine_Items())){
 			setLine_Items({});

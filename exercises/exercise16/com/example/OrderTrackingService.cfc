@@ -2,7 +2,7 @@ component{
 	/*
 	* Init
 	*/
-	public OrderTrackingService function init(){
+	public com.example.OrderTrackingService function init(){
 		return this;
 	}
 
@@ -11,7 +11,7 @@ component{
 	* @limit The maximum number of results to return
 	* @offset The position to start returning results at
 	*/
-	public Order function getOrder(required numeric order_id, required string email_address, required numeric postal_code){
+	public com.example.documents.Order function getOrder(required numeric order_id, required string email_address, required numeric postal_code){
 		var cb = application.couchbase;
 		var order = "";
 		var query = [];

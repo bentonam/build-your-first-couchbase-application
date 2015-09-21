@@ -2,14 +2,14 @@ component{
 	/*
 	* Init
 	*/
-	public CartService function init(){
+	public com.example.CartService function init(){
 		return this;
 	}
 
 	/**
 	* Gets a Users Shopping Cart
 	*/
-	public Cart function getCart(){
+	public com.example.documents.Cart function getCart(){
 		var cb = application.couchbase;
 		var data = {};
 		var cart = {};
