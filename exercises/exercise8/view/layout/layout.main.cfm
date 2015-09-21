@@ -11,13 +11,13 @@
 	<title>#variables.site_config.seo_title#</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
-	<link rel="stylesheet" href="/assets/css/site.css">
-	<script src="/assets/js/jquery-1.11.3.min.js"></script>
-	<script src="/assets/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../assets/css/site.css">
+	<script src="../assets/js/jquery-1.11.3.min.js"></script>
+	<script src="../assets/js/bootstrap.min.js"></script>
 	<!--[if lt IE 9]>
-	<script src="/assets/js/html5shiv.js"></script>
-	<script src="/assets/js/respond.min.js"></script>
+	<script src="../assets/js/html5shiv.js"></script>
+	<script src="../assets/js/respond.min.js"></script>
 	<![endif]-->
 </head>
 <body>
