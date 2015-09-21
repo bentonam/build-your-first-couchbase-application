@@ -61,13 +61,29 @@ component{
 	* @page Path from the web root to the requested page
 	*/
 	public void function onRequest(required string page){
-		var view = reReplace(arguments.page, "^(\\|/)([^\/]+)(\\|/)", "\1\2\3view\3");
-		var layout = reReplace(view, "^(\\|/)([^\/]+)(\\|/).+$", "\1\2\3view\1layout\1layout.main.cfm");
-		var com = reReplace(view, "^(\\|/)([^\/]+)(\\|/).+$", "\1\2\3com");
+		var view = reReplace(arguments.page, "^(.+exercise[0-9]+)(\\|\/)(view\/)?(.+)$", "\1\2view\2\4");
+		var layout = reReplace(view, "^(.+exercise[0-9]+)(\\|\/).+$", "\1\2view\2layout\2layout.main.cfm");
+		var com = reReplace(view, "^.+(exercise[0-9]+)(\\|\/).+$", "\1\2com");
 		// set a normalized mapping reference for the com directory in each exercise
 		this.mappings['/com'] = this.mappings['/root'] & com;
-		cfinclude(template=layout);
+		// if it is the exercises listing page just show it without a layout
+		if(reFind("^\/?index\.cfm|exercises\/index\.cfm", arguments.page)){
+			cfinclude(template=arguments.page);
+		}
+		else{
+			cfinclude(template=layout);
+		}
 		return;
+	}
+
+	/**
+	* Runs when a template is not found (required for ACF but not Lucee)
+	* @page Path from the web root to the requested page
+	*/
+	public boolean function onMissingTemplate(required string page){
+		var view = reReplace(arguments.page, "^(.+exercise[0-9]+)(\\|\/)(.+)$", "\1\2view\2\3");
+		onRequest(view);
+		return true;
 	}
 
 	/**
@@ -75,7 +91,7 @@ component{
 	* @exception The exception that occurred
 	* @event_name The name of the error event
 	*/
-	public void function onError(struct exception, string event_name) {
-		dump(var=arguments.exception, label=arguments.event_name);
+	public void function onError() {
+		writeDump(arguments);
 	}
 }
