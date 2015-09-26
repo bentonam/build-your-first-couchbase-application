@@ -77,7 +77,9 @@ Note: Document ID's should be all lowercase, with only letters, numbers, undersc
 
 Before building the rest of our site we need to populate our default bucket with some data.  
 
-**1\.** In your Terminal change directories to the Couchbase server directory
+**1\.** Unzip the `backup.zip` file
+
+**2\.** In your Terminal change directories to the Couchbase server directory
 
 **Mac OS X**
 
@@ -91,7 +93,7 @@ cd /Applications/Couchbase Server.app/Contents/Resources/couchbase-core/bin
 C:\Program Files\Couchbase\Server\bin
 ```
 
-**2\.** Import / Restore the database.  Replace `[FULL_PATH_TO_FILES]` with the directory that you copied the files into.
+**3\.** Import / Restore the database.  Replace `[FULL_PATH_TO_FILES]` with the directory that you copied the files into.
 
 **Mac OS X**
 
@@ -105,4 +107,4 @@ C:\Program Files\Couchbase\Server\bin
 cbrestore C:\[FULL_PATH_TO_FILES]\build-your-first-couchbase-application\data\backup\ http://127.0.0.1:8091 --bucket-source default
 ```
 
-**3\.** Verify that the data was imported by going to the Couchbase Server Admin Console [http://127.0.0.1:8091/](http://127.0.0.1:8091/) and browse to [Data Buckets](http://127.0.0.1:8091/index.html#sec=buckets).  You should see ~149K documents in the default bucket.
+**4\.** Verify that the data was imported by going to the Couchbase Server Admin Console [http://127.0.0.1:8091/](http://127.0.0.1:8091/) and browse to [Data Buckets](http://127.0.0.1:8091/index.html#sec=buckets).  You should see ~149K documents in the default bucket.
