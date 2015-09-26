@@ -1,7 +1,7 @@
 <!--- default form variables --->
 <cfparam name="form.order_id" type="numeric" default="0"/>
 <cfparam name="form.email_address" type="string" default=""/>
-<cfparam name="form.postal_code" type="string" default="0"/>
+<cfparam name="form.postal_code" type="string" default=""/>
 <cfoutput>
 <!--- start of breadcrumb --->
 <ol class="breadcrumb">
@@ -24,14 +24,14 @@
 				</div>
 				<div class="form-group">
 					<label for="exampleInputFile">Postal Code</label>
-					<input type="number" step="1" min="11111" max="99999" class="form-control" id="postal_code" name="postal_code" required value="#form.postal_code ? form.postal_code : ''#" placeholder="22222">
+					<input type="number" step="1" min="11111" max="99999" class="form-control" id="postal_code" name="postal_code" required value="#len(form.postal_code) ? form.postal_code : ''#" placeholder="22222">
 				</div>
 				<button type="submit" class="btn btn-primary pull-right">Lookup Order</button>
 			</fieldset>
 		</form>
 	</div>
 </div>
-<cfif len(form.order_id)>
+<cfif isNumeric(form.order_id) && form.order_id>
 	<hr />
 	<!--- get a handle to the order tracking server service --->
 	<cfset variables['tracking_service'] = new com.example.OrderTrackingService()/>
