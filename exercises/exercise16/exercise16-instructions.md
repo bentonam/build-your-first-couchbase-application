@@ -36,7 +36,7 @@ Create a view that will allow for orders to be retrieved by a combination of the
 
 We need to display the shipping options to our users.
 
-**1\.** Open `exercise15/com/example/OrderTrackingService.cfc` in your IDE
+**1\.** Open `exercise16/com/example/OrderTrackingService.cfc` in your IDE
 
 **2\.** Modify the `getOrder` method to retrieve query the `lookup` view that you created in Exercise 16.a. 
 
@@ -44,7 +44,7 @@ We need to display the shipping options to our users.
 - Inflate the Results to `com.example.documents.Order`
 - Tip - You will need to use the ColdFusion `int()` function when referencing the `order_id` argument
 
-For your reference the data from the `getShippingMethods` method is used in the following views:
+For your reference the data from the `getOrder` method is used in the following views:
 
 - exercise16/com/example/documents/Order.cfc
 - exercise16/view/order-tracking.cfm
