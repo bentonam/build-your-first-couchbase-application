@@ -22,10 +22,15 @@ Copy the box binary to your `/usr/bin` directory by running `cp ~/path/to/box /u
 
 Execute CommandBox by running `box`
 
-
 ## Couchbase Installation and Setup
 
 ### Install Couchbase
+
+If you have homebrew run
+
+`brew cask install couchbase-server-enterprise`
+
+If you want to install it manually 
 
 1. Unzip the install `couchbase-server-enterprise_3.1.0-macos_x86_64.zip`
 2. Drag the Couchbase Server icon into your /Applications directory
