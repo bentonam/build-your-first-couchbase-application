@@ -30,11 +30,7 @@ component{
 	*/
 	public void function onApplicationEnd(required struct appScope){
 // start of exercise 1.c --------------------------------------------------------------------
-		// if the couchbase connection is present close it's connections
-		if(structKeyExists(arguments.appScope, "couchbase")){
-			application.couchbase.shutdown(10);
-		}
-		return;
+
 // end of exercise 1.c ----------------------------------------------------------------------
 		return;
 	}
@@ -45,13 +41,7 @@ component{
 	*/
 	public boolean function onRequestStart(required string page){
 // start of exercise 1.b --------------------------------------------------------------------
-		// create a connection to the default bucket if it does not already exist
-		if(!structKeyExists(application, "couchbase")){
-			application['couchbase'] = new cfcouchbase.CouchbaseClient({
-				'servers' = ["http://127.0.0.1:8091"],
-				'bucketName' = "default"
-			});
-		}
+
 // end of exercise 1.b ----------------------------------------------------------------------
 		return true;
 	}
