@@ -34,3 +34,19 @@
 .reveal .margin_right{
 	margin-right: 40px;
 }
+.reveal .group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.reveal .column{
+	box-sizing: border-box;
+	float: left;
+	margin: 0;
+	padding: 0 5px;
+	text-align: left;
+	width: 50%;
+}
+.reveal pre{
+	font-size: .6em;
+}

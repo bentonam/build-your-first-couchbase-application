@@ -35,13 +35,11 @@ For your reference the data from the `getShippingMethods` method is used in the 
 
 **1\.** Open `exercise15/com/example/documents/Order.cfc` in your IDE
 
-**2\.** Modify the `save` method to retrieve get the next available `order_id`. This will call the CFCouchbase `incr()` method with the following arguments:
+**2\.** Modify the `save` method to retrieve get the next available `order_id`. This will call the CFCouchbase `incr()` method with the following arguments. The result of this call should be assigned to a variable named `order_id`
 
 - id = "orders_counter"
 - value = 1
 - defaultValue = 1
-
-**3\.** The result of this call should be assigned to a variable named `order_id`
 
 ---
 

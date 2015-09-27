@@ -2,28 +2,21 @@
 
 ---
 
-### Exercise 2.a - Create a Site Config Document
+### Exercise 2.a - Update the Site Config Document
 
 **1\.** Open the Couchbase Admin Console by going to [http://127.0.0.1:8091/](http://127.0.0.1:8091/) in a web browser
 
 **2\.** Choose [Data Buckets](http://127.0.0.1:8091/index.html#sec=buckets)
 
 **3\.** Choose [Documents](http://127.0.0.1:8091/index.html#sec=documents&viewsBucket=default&documentsPageNumber=0&documentsFilter=inclusive_end%3Dfalse) next to the **default** bucket
-**4\.** Choose "Create Document"
 
-**5\.** Use `site_config` for the Document ID
+**4\.** Type in `site_config` for the Document ID
 
-**6\.** Click "Create"
+**5\.** Click the "Lookup" button
 
-**7\.** Create the following JSON structure, and click "Save"
+**6\.** Edit the JSON structure to contain different values than those provided
 
-```
-{
-  "doc_type": "config",
-  "seo_title": "Build Your First Couchbase Application",
-  "site_name": "Company Name"
-}
-```
+**7\.** Click the "Save" button
 
 ---
 
@@ -31,7 +24,13 @@
 
 **1\.** Open `exercise2/com/example/SiteService.cfc` in your IDE
 
-**2\.** Modify the `getSiteConfig` method to retrieve the `site_config` document created in 2.a by calling the CFCouchbase `get()` method passing the argument of `"site_config"` and return the resulting structure.
+**2\.** Modify the `getSiteConfig` retrieve the `site_config` document by calling the CFCouchbase `get()` method with the following arguments:
+
+```
+config = cb.get(id="site_config");
+```
+
+**3\.** Open the homepage ([/exercise2/index.cfm](/exercise2/index.cfm)) and verify that your new site config values are being displayed
 
 For your reference the data from the `getSiteConfig` method is used in the following views:
 
@@ -44,7 +43,7 @@ For your reference the data from the `getSiteConfig` method is used in the follo
 
 **1\.** Open `exercise2/com/example/CategoryService.cfc` in your IDE
 
-**2\.** Modify the `getCategories` method to retrieve the `categories` document by calling the CFCouchbase `get()` method passing the argument of `"categories"` and return the resulting structures categories array property.  The document is structured as follows:
+**2\.** Modify the `getCategories` method to retrieve the `categories` document by calling the CFCouchbase `get()` method passing the argument of `"categories"`, assigned to the `doc` variable and return the resulting structures categories array property.  The document is structured as follows:
 
 ```
 {
@@ -63,6 +62,8 @@ For your reference the data from the `getSiteConfig` method is used in the follo
 }
 ```
 
+**3\.** Open the homepage ([/exercise2/index.cfm](/exercise2/index.cfm)) and verify that the categories are being displayed
+
 For your reference the data from the `getCategories` method is used in the following views:
 
 - exercise2/view/layout/layout.header.cfm
@@ -74,7 +75,7 @@ For your reference the data from the `getCategories` method is used in the follo
 
 **1\.** Open `exercise2/com/example/BrandService.cfc` in your IDE
 
-**2\.** Modify the `getBrands` method to retrieve the `brands` document by calling the CFCouchbase `get()` method passing the argument of `"brands"` and return the resulting structures brands array property.  The document is structured as follows:
+**2\.** Modify the `getBrands` method to retrieve the `brands` document by calling the CFCouchbase `get()` method passing the argument of `"brands"`, assigned to a the `doc` variable and return the resulting structures brands array property.  The document is structured as follows:
 
 ```
 {
@@ -93,6 +94,8 @@ For your reference the data from the `getCategories` method is used in the follo
 }
 ```
 
+**3\.** Open the homepage ([/exercise2/index.cfm](/exercise2/index.cfm)) and verify that brands are being displayed
+
 For your reference the data from the `getBrands` method is used in the following views:
 
 - exercise2/view/layout/layout.header.cfm
@@ -104,7 +107,7 @@ For your reference the data from the `getBrands` method is used in the following
 
 **1\.** Open `exercise2/com/example/SiteService.cfc` in your IDE
 
-**2\.**Modify the `getHomepageBanners` method to retrieve the `banners` document by calling the CFCouchbase `get()` method passing the argument of `"banners"` and return the resulting structures banners array property.  The document is structured as follows:
+**2\.** Modify the `getHomepageBanners` method to retrieve the `banners` document by calling the CFCouchbase `get()` method passing the argument of `"banners"`, assigned to the `doc` variable and return the resulting structures banners array property.  The document is structured as follows:
 
 ```
 {
@@ -128,6 +131,8 @@ For your reference the data from the `getBrands` method is used in the following
 	]
 }
 ```
+
+**3\.** Open the homepage ([/exercise2/index.cfm](/exercise2/index.cfm)) and verify that banners are being displayed
 
 For your reference the data from the `getHomepageBanners` method is used in the following views:
 

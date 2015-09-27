@@ -12,6 +12,8 @@ If you don't have homebrew and want it, run the following:
 
 Then run Step 1
 
+---
+
 If you want to setup CommandBox manually continue reading.
 
 Unzip the appropriate CommandBox either `commandbox-mac-jre-2.1.0.zip` or `commandbox-mac-no-jre-2.1.0.zip` if you already have the JRE installed.
@@ -30,10 +32,14 @@ If you have homebrew run
 
 `brew cask install couchbase-server-enterprise`
 
+---
+
 If you want to install it manually 
 
 1. Unzip the install `couchbase-server-enterprise_3.1.0-macos_x86_64.zip`
 2. Drag the Couchbase Server icon into your /Applications directory
+
+---
 
 ### Open Couchbase
 
@@ -65,7 +71,7 @@ Click "Setup"
 
 ![main](screenshots/couchbase-4.png)
 
-- check "beer-sample"
+- Check "beer-sample"
 - Click "Next"
 
 ### Default Bucket

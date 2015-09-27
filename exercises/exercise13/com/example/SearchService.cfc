@@ -33,7 +33,11 @@ component{
 			elasticsearch_url &= " AND _all:*" & query_term & "*";
 // start of exercise 13.d ------------------------------------------------------------------
 			// perform the http request to elasticsearch
-
+http = new Http();
+http.setUrl(elasticsearch_url);
+http.setMethod("GET");
+http.setTimeout(10);
+http_result = http.send().getPrefix();
 // end of exercise 13.d --------------------------------------------------------------------
 			// parse the results
 			if(http_result.status_code == 200 && isJSON(http_result.fileContent)){

@@ -23,7 +23,7 @@ While using the `getMulti` method of CFCouchbase is beneficial, it returns a str
 a. Has a `doc_type` property with a value of "product"
 	
 ```
-function ( doc, met a) {
+function ( doc, meta ) {
   if(
     doc.doc_type && 
     doc.doc_type === "product"

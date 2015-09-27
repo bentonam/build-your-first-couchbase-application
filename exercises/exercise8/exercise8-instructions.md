@@ -14,7 +14,7 @@ We need to be able to retrieve products from the database with a friendly url st
 
 **4\.** Click the "Development Views" tab, since we already have a Design Document, click the "Add View" button next to `design/dev_products`
 
-**5\.** For the **View Name** use `on_sale`
+**5\.** For the **View Name** use `by_slug`
 
 **6\.** Click the "Save" button
 

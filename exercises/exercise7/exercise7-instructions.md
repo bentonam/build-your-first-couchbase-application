@@ -12,7 +12,7 @@
 
 **4\.** Click the "Development Views" tab, since we already have a Design Document, click the "Add View" button next to `design/dev_products`
 
-**5\.** For the **View Name** use `on_sale`
+**5\.** For the **View Name** use `recent`
 
 **6\.** Click the "Save" button
 
@@ -42,13 +42,13 @@ function ( doc, meta ) {
 
 **9\.** We now need to publish our Development View to Production.  To do this scroll up to the top of the page, and click on [Views](http://127.0.0.1:8091/index.html#sec=views&viewsBucket=default).
 
-**10\.** Make sure you are on the **Development Views** tab and next to `_design/dev_products` click on the "Publish" button.  You will get a notification that the Design Document already exists and it will ask you to confirm that you want to overwrite it, click "Confirm". This will move your `product` Design Document to production and create the index against all of the documents in the entire bucket for all of the views in the view.On Sale
+**10\.** Make sure you are on the **Development Views** tab and next to `_design/dev_products` click on the "Publish" button.  You will get a notification that the Design Document already exists and it will ask you to confirm that you want to overwrite it, click "Confirm". This will move your `product` Design Document to production and create the index against all of the documents in the entire bucket for all of the views in the view.
 
 ---
 
 ### Exercise 7.b - Querying the Recent View
 
-On the homepage we need to output products whose data indicates that they are actually on sale, instead of a hard-coded list, we will want to limit out results to 8 products.
+On the homepage we need to output products whose data indicates that they are actually on recent, instead of a hard-coded list, we will want to limit out results to 8 products.
 
 **1\.** Open `exercise7/com/example/ProductService.cfc` in your IDE
 
@@ -57,7 +57,7 @@ On the homepage we need to output products whose data indicates that they are ac
 - designDocumentName = "products"
 - viewName = "recent"
 - options:
-	- reduce = true
+	- reduce = false
 	- startKey = variables.utils.getDateParts(now())
 	- limit = arguments.limit
 	- offset = arguments.offset
@@ -65,7 +65,7 @@ On the homepage we need to output products whose data indicates that they are ac
 
 **3\.** Open the homepage ([/exercise7/index.cfm](/exercise7/index.cfm)) and see if your Recent Products is displaying results.
 
-For your reference the data from the `getSaleProducts` method is used in the following views:
+For your reference the data from the `getRecentProducts` method is used in the following views:
 
 - exercise7/view/includes/home.recent.cfm
 - exercise7/view/includes/template.product.cfm

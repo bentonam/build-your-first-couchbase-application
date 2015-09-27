@@ -61,9 +61,9 @@ On the homepage we need to output products whose data indicates that they are ac
 - designDocumentName = "products"
 - viewName = "on_sale"
 - options:
-	- reduce = true
+	- reduce = false
 	- limit = arguments.limit
-	- offset arguments.offset
+	- offset = arguments.offset
 	- includeDocs = true
 	
 Notice how the reduce option is set to false, this tells Couchbase to not run the reduce function and just return the results from the map function only.

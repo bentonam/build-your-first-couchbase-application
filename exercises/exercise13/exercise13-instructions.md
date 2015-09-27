@@ -106,19 +106,21 @@ earlier when setting up the plugin as the Username
 
 Couchbase will feed data to Elasticsearch through its built in Replication mechanism, XDCR.  To Couchbase, Elasticsearch is nothing more than another replication of a bucket. 
 
-**1\.** From the [XDCR](http://127.0.0.1:8091/index.html#sec=replications) tab click "Create Replication"
+**1\.** Open up the Couchbase Admin Console by going to [http://127.0.0.1:8091/](http://127.0.0.1:8091/) in a web browser
 
-**2\.** Select the bucket from your initial setup i.e. "default"
+**2\.** From the [XDCR](http://127.0.0.1:8091/index.html#sec=replications) tab click "Create Replication"
 
-**3\.** Choose the cluster from the previous steps i.e. "Elasticsearch"
+**3\.** Select the bucket from your initial setup i.e. "default"
 
-**3\.** Enter in the name of the Elasticsearch Index / Bucket you provided in **13a. 12** i.e. "example-site"
+**4\.** Choose the cluster from the previous steps i.e. "Elasticsearch"
 
-**4\.** Click "Advanced Settings" link
+**5\.** Enter in the name of the Elasticsearch Index / Bucket you provided in **13a. 12** i.e. "example-site"
 
-**5\.**  Change the XDCR Protocol to "Version 1"
+**6\.** Click "Advanced Settings" link
 
-**6\.** Click the "Replicate" button
+**7\.**  Change the XDCR Protocol to "Version 1"
+
+**8\.** Click the "Replicate" button
 
 You should see the status of the replication as "Replicating".  If you open up the Elasticsearch web interface [http://localhost:9200/_plugin/head/](http://localhost:9200/_plugin/head/) and refresh you should see the number of docs going up.
 
@@ -128,7 +130,7 @@ You should see the status of the replication as "Replicating".  If you open up t
 
 A search function is a necessary feature of every ecommerce website.  We need to be able to search all of our products and this is something Elasticsearch does very well.  
 
-**1\.** Open `exercise13/com/example/documents/SearchService.cfc` in your IDE
+**1\.** Open `exercise13/com/example/SearchService.cfc` in your IDE
 
 **2\.** Modify the `getProductsBySearch` method to perform an HTTP Request to Elasticsearch.
 

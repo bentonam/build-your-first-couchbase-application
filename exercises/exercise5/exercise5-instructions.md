@@ -23,7 +23,7 @@ a. Open up the Couchbase Admin Console by going to [http://127.0.0.1:8091/](http
 b. Choose [Data Buckets](http://127.0.0.1:8091/index.html#sec=buckets)
 c. Click the "[Views](http://127.0.0.1:8091/index.html#sec=views&viewsBucket=default)" button next to the **default** bucket
 d. Click the "Edit" button next to the view "by_category"
-e. Click the down arrow next to "Filter Results", and check *group* from the drop down menu. 
+e. Click the down arrow next to "Filter Results", and check *group* from the drop down menu. (at the bottom)
 f. Click the "Show Results" button
 
 For your reference the data from the `getCategories` method is used in the following view:
@@ -53,7 +53,7 @@ a. Open up the Couchbase Admin Console by going to [http://127.0.0.1:8091/](http
 b. Choose [Data Buckets](http://127.0.0.1:8091/index.html#sec=buckets)
 c. Click the "[Views](http://127.0.0.1:8091/index.html#sec=views&viewsBucket=default)" button next to the **default** bucket
 d. Click the "Edit" button next to the view "by_brand"
-e. Click the down arrow next to "Filter Results", and check *group* from the drop down menu. 
+e. Click the down arrow next to "Filter Results", and check *group* from the drop down menu. (at the bottom)
 f. Click the "Show Results" button
 
 For your reference the data from the `getBrands` method is used in the following view:
