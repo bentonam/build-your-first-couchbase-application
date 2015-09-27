@@ -13,7 +13,7 @@ component accessors=true {
 	/*
 	* Init
 	*/
-	public Review function init(){
+	public com.example.documents.Review function init(){
 		return this;
 	}
 

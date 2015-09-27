@@ -2,7 +2,7 @@ component{
 	/*
 	* Init
 	*/
-	public SearchService function init(){
+	public com.example.SearchService function init(){
 		return this;
 	}
 

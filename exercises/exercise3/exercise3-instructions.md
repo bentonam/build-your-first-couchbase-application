@@ -6,7 +6,11 @@
 
 **1\.** Open `exercise3/com/example/ProductService.cfc` in your IDE
 
-**2\.** Modify the `getRecentProducts` method to retrieve the `recent_products` document by calling the CFCouchbase `get()` method passing the argument of `"recent_products"` and referencing the returned documents products array property. 
+**2\.** Modify the `getRecentProducts` method to retrieve the `recent_products` document by calling the CFCouchbase `get()` method passing the argument of `"recent_products"`.  
+
+```
+recent_products = cb.get(id="recent_products");
+```
 
 The document is structured as follows:
 
@@ -26,7 +30,11 @@ The document is structured as follows:
 }
 ```
 
-**3\.** After you have retrieved the `recent_products` document, call the CFCouchbase `getMulti()` method passing it the array of products.  This will return you a structure of each document with each key being the Document ID.
+**3\.** After you have retrieved the `recent_products` document, call the CFCouchbase `getMulti()` method passing it the products property array.  This will return you a structure of each document with each key being the Document ID.
+
+```
+products = cb.getMulti(id=recent_products.products);
+```
 
 **4\.** Open the homepage ([/exercise3/index.cfm](/exercise3/index.cfm)) and verify that you are seeing recent products being displayed.
 
@@ -44,7 +52,7 @@ Open the homepage ([/exercise3/index.cfm](/exercise3/index.cfm)) and verify that
 **1\.** Open `exercise3/com/example/ProductService.cfc` in your IDE
 
 
-**2\.** Modify the `getSaleProducts` method to retrieve the `sale_products` document by calling the CFCouchbase `get()` method passing the argument of `"sale_products"` and referencing the returned documents products array property.  
+**2\.** Modify the `getSaleProducts` method to retrieve the `sale_products` document by calling the CFCouchbase `get()` method passing the argument of `"sale_products"` assigning the result to the `sale_products` variable.
 
 The document is structured as follows:
 
@@ -64,7 +72,7 @@ The document is structured as follows:
 }
 ```
 
-**3\.** After you have retrieved the `sale_products` document, call the CFCouchbase `getMulti()` method passing it the array of products.  This will return you a structure of each document with each key being the Document ID.
+**3\.** After you have retrieved the `sale_products` document, call the CFCouchbase `getMulti()` method passing it the products property array.  This will return you a structure of each document with each key being the Document ID.
 
 **4\.** Open the homepage ([/exercise3/index.cfm](/exercise3/index.cfm)) and verify that you are seeing sale products being displayed.
 

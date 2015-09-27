@@ -9,7 +9,7 @@ component accessors=true {
 	/*
 	* Init
 	*/
-	public Cart function init(){
+	public com.example.documents.Cart function init(){
 		// make sure line_items has a default value
 		if(isNull(getLine_Items())){
 			setLine_Items({});
@@ -138,7 +138,7 @@ component accessors=true {
 	*/
 	private numeric function calculateSubTotal(){
 		var sub_total = 0;
-		var line_items = getLine_Items()
+		var line_items = getLine_Items();
 		for(var item in line_items){
 			sub_total += line_items[item].sub_total;
 		}

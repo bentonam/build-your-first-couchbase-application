@@ -21,7 +21,7 @@ component accessors=true {
 	/*
 	* Init
 	*/
-	public Product function init(){
+	public com.example.documents.Product function init(){
 		return this;
 	}
 

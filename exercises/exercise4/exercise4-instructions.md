@@ -18,7 +18,9 @@
 
 **7\.** Click the "Save" button
 
-**8\.** Use the following JavaScript as the **Map** function for the view.  This will create a view whose value is the category name, if it has a `doc_type` property whose value is "product" and the document has a `category` property.  The value in the index is *null*.
+**8\.** Click the "Edit" button, next to the `by_category` view that you just created.
+
+**9\.** Use the following JavaScript as the **Map** function for the view.  This will create a view whose value is the category name, if it has a `doc_type` property whose value is "product" and the document has a `category` property.  The value in the index is *null*.
 
 ```
 function (doc, meta) {
@@ -28,13 +30,13 @@ function (doc, meta) {
 }
 ```
 
-**9\.** For the **Reduce** function enter the value of `_count` and click the "Save" button
+**10\.** For the **Reduce** function enter the value of `_count` and click the "Save" button
 
 You can click on the "Show Results" button to see partial data from index.  To prevent the reduce function from being applied click the down arrow next to "Filter Results", and click *false* next to reduce in the drop down menu. 
 
-**10\.** We now need to publish our Development View to Production.  To do this scroll up to the top of the page, and click on [Views](http://127.0.0.1:8091/index.html#sec=views&viewsBucket=default).
+**11\.** We now need to publish our Development View to Production.  To do this scroll up to the top of the page, and click on [Views](http://127.0.0.1:8091/index.html#sec=views&viewsBucket=default).
 
-**11\.** Make sure you are on the **Development Views** tab and next to `_design/dev_products` click on the "Publish" button.  This will move your `product` Design Document to production and create the index against all of the documents in the entire bucket for the view `by_category`.
+**12\.** Make sure you are on the **Development Views** tab and next to `_design/dev_products` click on the "Publish" button.  This will move your `product` Design Document to production and create the index against all of the documents in the entire bucket for the view `by_category`.
 
 ---
 
@@ -64,7 +66,7 @@ query = cb.query(
 	viewName = "by_category",
 	options = {
 		reduce = false,
-		includeDocs = true
+		includeDocs = true,
 		key = arguments.category,
 		limit = arguments.limit,
 		offset = arguments.offset,

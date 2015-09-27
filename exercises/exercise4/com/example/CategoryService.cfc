@@ -2,7 +2,7 @@ component{
 	/*
 	* Init
 	*/
-	public CategoryService function init(){
+	public com.example.CategoryService function init(){
 		return this;
 	}
 

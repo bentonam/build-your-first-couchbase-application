@@ -2,7 +2,7 @@ component{
 	/*
 	* Init
 	*/
-	public SiteService function init(){
+	public com.example.SiteService function init(){
 		return this;
 	}
 

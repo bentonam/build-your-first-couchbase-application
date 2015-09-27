@@ -12,7 +12,7 @@
 	</div>
 	<div class="row">
 		<!--- loop over the array of products --->
-		<cfloop array="#variables.recent_products#" item="variables.item">
+		<cfloop array="#variables.recent_products#" index="variables.item">
 			<!---
 				since it is an array of document structures and we want the template to be normalized
 				through all results created a normalized structure for the template before including it

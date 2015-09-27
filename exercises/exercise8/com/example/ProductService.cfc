@@ -2,7 +2,7 @@ component{
 	/*
 	* Init
 	*/
-	public ProductService function init(){
+	public com.example.ProductService function init(){
 		variables['utils'] = new com.example.Utils();
 		return this;
 	}
