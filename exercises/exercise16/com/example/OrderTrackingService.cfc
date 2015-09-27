@@ -17,18 +17,7 @@ component{
 		var query = [];
 		if(arguments.order_id && isValid("email", arguments.email_address) && len(toString(arguments.postal_code))){
 // start of exercise 16.b --------------------------------------------------------------------
-			// execute the query to lookup orders by the order_id, email_address and postal_code
-			query = cb.query(
-				designDocumentName = "orders",
-				viewName = "lookup",
-				inflateTo="com.example.documents.Order",
-				options = {
-					reduce = false,
-					key = [int(arguments.order_id), arguments.email_address, arguments.postal_code],
-					limit = 1,
-					includeDocs = true
-				}
-			);
+
 // start of exercise 16.b --------------------------------------------------------------------
 			// if there were results found set the order to the first results document
 			if(arrayLen(query)){
